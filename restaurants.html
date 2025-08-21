@@ -1,4 +1,5 @@
-!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
@@ -28,28 +29,33 @@
     .restaurants {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 800px;
+      gap: 30px;
+      max-width: 900px;
       margin: auto;
       padding: 20px;
     }
     .restaurant {
       background: #f8f8f8;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: black;
-      cursor: pointer;
       transition: transform 0.2s;
     }
     .restaurant:hover {
       transform: scale(1.05);
       background: #e8ffe8;
     }
+    .restaurant img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
     .restaurant a {
       text-decoration: none;
       color: black;
+      font-size: 22px;
+      font-weight: bold;
       display: block;
     }
   </style>
@@ -61,14 +67,28 @@
   <h2>قائمة المطاعم</h2>
 
   <div class="restaurants">
+    <!-- مطعم كرم الزيتون -->
     <div class="restaurant">
-      <a href="karam.html">كرم الزيتون</a>
+      <a href="karam.html">
+        <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="كرم الزيتون">
+        كرم الزيتون
+      </a>
     </div>
+
+    <!-- مطعم مستر برغر -->
     <div class="restaurant">
-      <a href="#">مستر برغر</a>
+      <a href="#">
+        <img src="https://via.placeholder.com/120" alt="مستر برغر">
+        مستر برغر
+      </a>
     </div>
+
+    <!-- مطعم شاورما ريم -->
     <div class="restaurant">
-      <a href="#">شاورما ريم</a>
+      <a href="#">
+        <img src="https://via.placeholder.com/120" alt="شاورما ريم">
+        شاورما ريم
+      </a>
     </div>
   </div>
 
