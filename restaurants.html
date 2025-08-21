@@ -1,5 +1,6 @@
- !html>
-<html lang="ar" dir="rtl">
+
+<!DOCTYPE html>
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,91 +8,74 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      text-align: center;
     }
-
     header {
-      background: #4CAF50;
+      background-color: #4CAF50;
       color: white;
       padding: 20px;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
     }
-
     h2 {
       margin: 20px 0;
-      color: #333;
+      font-size: 22px;
     }
-
-    .grid {
+    .restaurant-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       padding: 20px;
     }
-
-    .restaurant {
+    .restaurant-card {
       background: white;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
-    .restaurant:hover {
-      transform: scale(1.05);
-    }
-
-    .logo {
-      width: 130px;
-      height: 130px;
+    .restaurant-card img.logo {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      background: #ddd;
-      margin: 0 auto 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
     }
-
-    .name {
-      font-size: 18px;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      display: block;
+    .restaurant-card h3 {
+      font-size: 20px;
+      margin: 0;
+      color: #000;
     }
   </style>
 </head>
 <body>
 
   <header>FOOD</header>
-
   <h2>قائمة المطاعم</h2>
 
-  <div class="grid">
-    <div class="restaurant">
-      <a href="karam.html" class="name">
-        <div class="logo"></div>
-        كرم الزيتون
-      </a>
+  <div class="restaurant-list">
+    <!-- مطعم كرم الزيتون مع صورة البرغر -->
+    <div class="restaurant-card">
+      <img src="https://i.imgur.com/z0i8z4R.jpeg" alt="كرم الزيتون" class="logo">
+      <h3>كرم الزيتون</h3>
     </div>
-    <div class="restaurant">
-      <a href="burger.html" class="name">
-        <div class="logo"></div>
-        مستر برغر
-      </a>
+
+    <!-- باقي المطاعم بدون صور -->
+    <div class="restaurant-card">
+      <img src="https://via.placeholder.com/120" alt="مستر برغر" class="logo">
+      <h3>مستر برغر</h3>
     </div>
-    <div class="restaurant">
-      <a href="shawarma.html" class="name">
-        <div class="logo"></div>
-        شاورما ريم
-      </a>
+
+    <div class="restaurant-card">
+      <img src="https://via.placeholder.com/120" alt="بيتزا هوم" class="logo">
+      <h3>بيتزا هوم</h3>
     </div>
-    <div class="restaurant">
-      <a href="pizza.html" class="name">
-        <div class="logo"></div>
-        بيتزا هوم
-      </a>
+
+    <div class="restaurant-card">
+      <img src="https://via.placeholder.com/120" alt="شاورما ريم" class="logo">
+      <h3>شاورما ريم</h3>
     </div>
   </div>
 
