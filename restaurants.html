@@ -1,17 +1,17 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قائمة المطاعم</title>
+  <title>المطاعم</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      background: #fff;
       margin: 0;
       padding: 0;
+      direction: rtl;
+      text-align: center;
+      background: #fff;
     }
     header {
       background: green;
@@ -21,7 +21,9 @@
       font-weight: bold;
     }
     h2 {
-      margin: 20px 0;
+      margin: 20px;
+      font-size: 28px;
+      color: black;
     }
     .restaurants {
       display: grid;
@@ -29,22 +31,26 @@
       gap: 20px;
       max-width: 800px;
       margin: auto;
-    }
-    .restaurant {
-      border: 1px solid #ddd;
-      border-radius: 10px;
       padding: 20px;
     }
-    .restaurant img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
+    .restaurant {
+      background: #f8f8f8;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    .restaurant h3 {
-      margin: 0;
-      color: #000;
+    .restaurant:hover {
+      transform: scale(1.05);
+      background: #e8ffe8;
+    }
+    .restaurant a {
+      text-decoration: none;
+      color: black;
+      display: block;
     }
   </style>
 </head>
@@ -55,16 +61,14 @@
   <h2>قائمة المطاعم</h2>
 
   <div class="restaurants">
-    <!-- كرم الزيتون -->
     <div class="restaurant">
-      <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="كرم الزيتون">
-      <h3>كرم الزيتون</h3>
+      <a href="karam.html">كرم الزيتون</a>
     </div>
-
-    <!-- مثال مطعم ثاني -->
     <div class="restaurant">
-      <img src="https://via.placeholder.com/120" alt="مستر برغر">
-      <h3>مستر برغر</h3>
+      <a href="#">مستر برغر</a>
+    </div>
+    <div class="restaurant">
+      <a href="#">شاورما ريم</a>
     </div>
   </div>
 
