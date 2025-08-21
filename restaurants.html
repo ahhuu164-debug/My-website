@@ -1,5 +1,4 @@
-
-!DOCTYPE html!>
+ html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -39,13 +38,18 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .restaurant:hover {
+      transform: scale(1.05);
     }
 
     .logo {
-      width: 130px;   /* حجم أكبر */
+      width: 130px;
       height: 130px;
       border-radius: 50%;
-      background: #ddd; /* مكان فاضي للصورة */
+      background: #ddd;
       margin: 0 auto 10px;
     }
 
@@ -53,34 +57,41 @@
       font-size: 18px;
       color: black;
       font-weight: bold;
+      text-decoration: none;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <!-- العنوان -->
   <header>FOOD</header>
 
-  <!-- القائمة -->
   <h2>قائمة المطاعم</h2>
 
-  <!-- شبكة المطاعم -->
   <div class="grid">
     <div class="restaurant">
-      <div class="logo"></div>
-      <div class="name">كرم الزيتون</div>
+      <a href="karam.html" class="name">
+        <div class="logo"></div>
+        كرم الزيتون
+      </a>
     </div>
     <div class="restaurant">
-      <div class="logo"></div>
-      <div class="name">مستر برغر</div>
+      <a href="burger.html" class="name">
+        <div class="logo"></div>
+        مستر برغر
+      </a>
     </div>
     <div class="restaurant">
-      <div class="logo"></div>
-      <div class="name">شاورما ريم</div>
+      <a href="shawarma.html" class="name">
+        <div class="logo"></div>
+        شاورما ريم
+      </a>
     </div>
     <div class="restaurant">
-      <div class="logo"></div>
-      <div class="name">بيتزا هوم</div>
+      <a href="pizza.html" class="name">
+        <div class="logo"></div>
+        بيتزا هوم
+      </a>
     </div>
   </div>
 
