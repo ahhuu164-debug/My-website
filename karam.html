@@ -3,82 +3,113 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>كرم الزيتون</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fdfdfd;
       margin: 0;
       padding: 0;
+      background: #f9f9f9;
       direction: rtl;
-      text-align: right;
     }
+
+    /* الهيدر الأخضر */
     header {
-      background: green;
+      background-color: #2ecc71;
       color: white;
-      font-size: 40px;
-      padding: 20px;
-      font-weight: bold;
       text-align: center;
+      padding: 30px;
+      font-size: 40px;
+      font-weight: bold;
     }
+
     h2 {
       text-align: center;
-      margin: 20px 0;
+      margin: 20px;
       font-size: 28px;
-      color: black;
+      color: #333;
     }
+
     .menu {
-      max-width: 700px;
+      max-width: 600px;
       margin: auto;
       padding: 20px;
     }
+
     .item {
-      font-size: 24px;
-      margin: 20px 0;
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
       display: flex;
       justify-content: space-between;
+      font-size: 22px;
+      margin: 15px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
     }
-    .item .name {
-      color: black;
+
+    .price {
+      color: #27ae60;
       font-weight: bold;
     }
-    .item .price {
-      color: green;
+
+    /* زر واتساب */
+    .whatsapp-btn {
+      display: block;
+      width: 80%;
+      margin: 30px auto;
+      padding: 15px;
+      text-align: center;
+      background-color: #25D366;
+      color: white;
+      font-size: 22px;
       font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
     }
   </style>
 </head>
 <body>
 
-  <header>Food</header>
+  <!-- الهيدر -->
+  <header>
+    FOOD
+  </header>
 
+  <!-- عنوان القائمة -->
   <h2>قائمة مطعم كرم الزيتون</h2>
 
+  <!-- قائمة الطعام -->
   <div class="menu">
     <div class="item">
-      <span class="name">شاورما دجاج</span>
+      <span>بيتزا خضار</span>
       <span class="price">15000 ل.س</span>
     </div>
     <div class="item">
-      <span class="name">شاورما لحم</span>
-      <span class="price">18000 ل.س</span>
+      <span>شاورما دجاج</span>
+      <span class="price">12000 ل.س</span>
     </div>
     <div class="item">
-      <span class="name">بيتزا مارجريتا</span>
-      <span class="price">20000 ل.س</span>
+      <span>برغر لحم</span>
+      <span class="price">14000 ل.س</span>
     </div>
     <div class="item">
-      <span class="name">بيتزا خضار</span>
-      <span class="price">22000 ل.س</span>
+      <span>فتوش</span>
+      <span class="price">8000 ل.س</span>
     </div>
     <div class="item">
-      <span class="name">برغر دجاج</span>
-      <span class="price">17000 ل.س</span>
+      <span>معكرونة بالجبنة</span>
+      <span class="price">11000 ل.س</span>
     </div>
   </div>
+
+  <!-- زر الواتساب مع رسالة جاهزة -->
+  <a class="whatsapp-btn"
+     href="https://wa.me/963944123456?text=مرحبا%20🌿،%20اريد%20طلب%20من%20مطعم%20كرم%20الزيتون.%20عدد%20الوجبات%3A"
+     target="_blank">
+    اطلب عبر واتساب
+  </a>
 
 </body>
 </html>
