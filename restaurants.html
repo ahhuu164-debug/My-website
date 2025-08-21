@@ -9,42 +9,40 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f9f9f9;
+      background: #fff;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #4CAF50;
+      background: green;
       color: white;
+      font-size: 40px;
       padding: 20px;
-      font-size: 24px;
       font-weight: bold;
     }
     h2 {
       margin: 20px 0;
-      font-size: 22px;
     }
-    .restaurant-list {
+    .restaurants {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .restaurant {
+      border: 1px solid #ddd;
+      border-radius: 10px;
       padding: 20px;
     }
-    .restaurant-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .restaurant-card img.logo {
+    .restaurant img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 10px;
     }
-    .restaurant-card h3 {
-      font-size: 20px;
+    .restaurant h3 {
       margin: 0;
       color: #000;
     }
@@ -52,30 +50,21 @@
 </head>
 <body>
 
-  <header>FOOD</header>
+  <header>Food</header>
+
   <h2>قائمة المطاعم</h2>
 
-  <div class="restaurant-list">
-    <!-- مطعم كرم الزيتون مع صورة البرغر -->
-    <div class="restaurant-card">
-      <img src="https://i.imgur.com/z0i8z4R.jpeg" alt="كرم الزيتون" class="logo">
+  <div class="restaurants">
+    <!-- كرم الزيتون -->
+    <div class="restaurant">
+      <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="كرم الزيتون">
       <h3>كرم الزيتون</h3>
     </div>
 
-    <!-- باقي المطاعم بدون صور -->
-    <div class="restaurant-card">
-      <img src="https://via.placeholder.com/120" alt="مستر برغر" class="logo">
+    <!-- مثال مطعم ثاني -->
+    <div class="restaurant">
+      <img src="https://via.placeholder.com/120" alt="مستر برغر">
       <h3>مستر برغر</h3>
-    </div>
-
-    <div class="restaurant-card">
-      <img src="https://via.placeholder.com/120" alt="بيتزا هوم" class="logo">
-      <h3>بيتزا هوم</h3>
-    </div>
-
-    <div class="restaurant-card">
-      <img src="https://via.placeholder.com/120" alt="شاورما ريم" class="logo">
-      <h3>شاورما ريم</h3>
     </div>
   </div>
 
