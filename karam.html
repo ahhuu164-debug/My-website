@@ -1,82 +1,84 @@
+
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>كرم الزيتون</title>
   <style>
     body {
-      font-family: "Cairo", Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      background: #fdfdfd;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+      direction: rtl;
+      text-align: right;
     }
-
-    /* الشعار */
     header {
-      background-color: #2ecc71;
-      padding: 40px;
+      background: green;
+      color: white;
+      font-size: 40px;
+      padding: 20px;
+      font-weight: bold;
       text-align: center;
     }
-
-    header h1 {
-      font-size: 65px;
-      margin: 0;
-      color: white;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
-
-    .container {
-      padding: 50px;
-      text-align: right; /* محاذاة النص لليمين */
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .container h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #333;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      font-size: 28px;
+    h2 {
+      text-align: center;
       margin: 20px 0;
-      color: #000;
-      display: flex;
-      justify-content: space-between; /* يخلي السعر بمحاذاة اليسار */
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #27ae60;
       font-size: 28px;
+      color: black;
+    }
+    .menu {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    .item {
+      font-size: 24px;
+      margin: 20px 0;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+    }
+    .item .name {
+      color: black;
+      font-weight: bold;
+    }
+    .item .price {
+      color: green;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <!-- الشعار -->
-  <header>
-    <h1>FOOD</h1>
-  </header>
 
-  <!-- القائمة -->
-  <div class="container">
-    <h2>قائمة مطعم كرم الزيتون</h2>
-    <ul>
-      <li><span>شاورما دجاج</span> <span class="price">25 ريال</span></li>
-      <li><span>شاورما لحم</span> <span class="price">18 ريال</span></li>
-      <li><span>حمص باللحم</span> <span class="price">10 ريال</span></li>
-      <li><span>فتوش</span> <span class="price">10 ريال</span></li>
-      <li><span>كباب</span> <span class="price">20 ريال</span></li>
-    </ul>
+  <header>Food</header>
+
+  <h2>قائمة مطعم كرم الزيتون</h2>
+
+  <div class="menu">
+    <div class="item">
+      <span class="name">شاورما دجاج</span>
+      <span class="price">15000 ل.س</span>
+    </div>
+    <div class="item">
+      <span class="name">شاورما لحم</span>
+      <span class="price">18000 ل.س</span>
+    </div>
+    <div class="item">
+      <span class="name">بيتزا مارجريتا</span>
+      <span class="price">20000 ل.س</span>
+    </div>
+    <div class="item">
+      <span class="name">بيتزا خضار</span>
+      <span class="price">22000 ل.س</span>
+    </div>
+    <div class="item">
+      <span class="name">برغر دجاج</span>
+      <span class="price">17000 ل.س</span>
+    </div>
   </div>
+
 </body>
 </html>
