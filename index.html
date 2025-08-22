@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -17,17 +18,22 @@
             background-color: #4CAF50; /* خلفية خضراء */
             color: white;
             text-align: center;
-            padding: 60px 0; /* زدنا البادينغ عشان الشعار يكبر بدون ما يطلع برا */
+            padding: 20px 0; /* قللنا الارتفاع */
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+
+            display: flex;             /* استخدام flex لتوسيط الشعار */
+            justify-content: center;   /* توسيط أفقي */
+            align-items: center;       /* توسيط عمودي */
         }
 
         header img.logo {
-            width: 40vw;   /* يكبر مع الشاشة */
-            max-width: 450px; /* أقصى حجم */
-            min-width: 180px; /* أصغر حجم */
-            height: auto;  /* يحافظ على التناسق */
+            width: 50vw;    /* زدنا عرض اللوغو */
+            max-width: 500px; /* أقصى عرض */
+            min-width: 200px; /* أصغر عرض */
+            height: auto;   /* يحافظ على التناسق */
+            display: block;
         }
 
         /* زر مطاعم */
