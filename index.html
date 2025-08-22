@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -35,7 +34,7 @@
     /* خانة مطاعم */
     .menu-item {
       display: flex;
-      flex-direction: row-reverse; /* حتى الكلمة يمين والصورة يسار */
+      flex-direction: row-reverse; /* الكلمة يمين - الصورة يسار */
       align-items: center;
       width: 90%;
       margin: 15px auto;
@@ -46,7 +45,7 @@
       text-decoration: none;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: 0.3s;
-      height: 160px; /* ضاعفنا الارتفاع */
+      height: 180px; /* ارتفاع أكبر بنسبة 150% تقريبًا */
     }
 
     .menu-item:hover {
@@ -54,14 +53,16 @@
     }
 
     .menu-item img {
-      width: 180px;
+      width: 50%;   /* نصف العرض للصورة */
       height: 100%;
       object-fit: cover;
     }
 
     .menu-item span {
-      flex: 1;
-      text-align: center;
+      width: 50%;   /* نصف العرض للكلمة */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 32px;
     }
   </style>
