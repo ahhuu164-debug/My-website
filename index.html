@@ -2,82 +2,77 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>Food</title>
-    <!-- استدعاء الخطوط -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Cairo:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #fff;
-        }
+  <meta charset="UTF-8">
+  <title>Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #fff;
+    }
 
-        header {
-            background-color: #FFD27F; /* اللون الفاتح للهيدر */
-            text-align: center;
-            padding: 10px 0; /* تم تقليل الارتفاع */
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    header {
+      background-color: #FFD27F;
+      text-align: center;
+      padding: 10px 0; /* تقليل ارتفاع الهيدر */
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        header img.logo {
-            width: 60%;    
-            max-width: 500px; 
-            height: auto;  
-            display: block;
-        }
+    header img.logo {
+      width: 60%;    
+      max-width: 500px; 
+      height: auto;  
+      display: block;
+    }
 
-        /* زر مطاعم */
-        .restaurants-btn {
-            display: inline-flex; /* حتى تكون الصورة والكلمة افقياً */
-            align-items: center;
-            justify-content: center;
-            gap: 15px; /* مسافة بين الصورة والكلمة */
-            background-color: #00ADEF; /* لون الطبق في اللوغو */
-            color: white;
-            padding: 15px 40px;
-            font-size: 30px;
-            font-family: 'Cairo', sans-serif;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-            transition: 0.3s;
-        }
+    /* خانة مطاعم */
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: 15px auto;
+      background-color: #c0392b; /* لون خلفية مشابه للصورة */
+      border-radius: 12px;
+      overflow: hidden;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
 
-        .restaurants-btn:hover {
-            background-color: #008CCF; /* أغمق قليلاً عند المرور */
-            transform: scale(1.05);
-        }
+    .menu-item:hover {
+      transform: scale(1.02);
+    }
 
-        .restaurants-btn img {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
+    .menu-item img {
+      width: 120px;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .btn-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-    </style>
+    .menu-item span {
+      flex: 1;
+      text-align: center;
+      font-size: 28px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <!-- شعار -->
-        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
-    </header>
-    <!-- زر مطاعم -->
-    <div class="btn-container">
-        <a href="restaurants.html" class="restaurants-btn">
-            <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطاعم">
-            <span>مطاعم</span>
-        </a>
-    </div>
+  <header>
+    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
+  </header>
+
+  <!-- زر مطاعم بشكل خانة كاملة -->
+  <a href="restaurants.html" class="menu-item">
+    <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطاعم">
+    <span>مطاعم</span>
+  </a>
 </body>
 </html>
