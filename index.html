@@ -16,15 +16,15 @@
       min-height: 100vh;
     }
 
-    /* الخلفية الشفافة المائلة بالشعار */
+    /* خلفية شفافة مائلة بالشعار (مطابقة للمطاعم) */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 120px; /* مثل صفحة المطاعم */
-      opacity: 0.05;
+      background-size: 120px; /* نفس المطاعم */
+      opacity: 0.05; /* نفس المطاعم */
       transform: rotate(45deg);
       z-index: -1;
     }
@@ -50,7 +50,7 @@
     /* زر مطاعم */
     .menu-item {
       display: flex;
-      flex-direction: row; /* الكلمة يسار - الصورة يمين */
+      flex-direction: row;
       align-items: center;
       width: 90%;
       margin: 20px auto;
