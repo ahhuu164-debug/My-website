@@ -1,38 +1,62 @@
 
-.menu-item {
-  display: flex;
-  flex-direction: row-reverse; /* النص يمين - الصورة يسار */
-  align-items: center;
-  width: 100%;
-  height: 240px;
-  margin: 10px 0;
-  background: linear-gradient(135deg, #E4572E, #FF7043); /* 🎨 تدرج من لون الطبق */
-  color: #fff;
-  text-decoration: none;
-  font-size: 28px;
-  font-weight: bold;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border-radius: 12px;
-  transition: transform 0.2s;
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #fff;
+  direction: rtl;
+  text-align: center;
 }
 
-.menu-item:hover {
+/* الهيدر */
+header {
+  background-color: #FFD27F;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+header img.logo {
+  width: 60%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* زر مطاعم */
+.restaurant-btn {
+  display: flex;
+  flex-direction: row; /* النص يمين - الصورة يسار */
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 240px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, #F15A29, #FFD27F); /* تدرج بلون الطبق */
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.restaurant-btn:hover {
   transform: scale(1.02);
 }
 
-.menu-item span {
+.restaurant-btn .text {
   flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start; /* النص على اليمين */
-  padding-right: 30px;
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5); /* ظل للنص */
 }
 
-.menu-item img {
+.restaurant-btn img {
   flex: 1;
   height: 100%;
   object-fit: cover;
