@@ -52,25 +52,42 @@
       margin: 0 auto;
     }
 
-    /* زر المطاعم (النسخة الأصلية) */
+    /* زر المطاعم (فيه صورة + نص) */
     .restaurant-btn {
-      display: block;
+      display: flex;
+      flex-direction: row; /* النص يمين - الصورة يسار */
+      align-items: center;
+      justify-content: space-between;
       width: 90%;
-      max-width: 400px;
+      max-width: 600px;
+      height: 180px;
       margin: 40px auto;
-      background: linear-gradient(135deg, #F15A29, #FFD27F); /* لون متدرج */
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 16px;
-      padding: 20px;
+      overflow: hidden;
       color: #fff;
       text-decoration: none;
-      font-size: 32px;
-      font-weight: bold;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s;
     }
 
     .restaurant-btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
+    }
+
+    .restaurant-btn .text {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .restaurant-btn img {
+      flex: 1;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -80,7 +97,11 @@
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
-  <a href="restaurants.html" class="restaurant-btn">المطاعم 🍽️</a>
+  <!-- زر المطاعم فيه صورة -->
+  <a href="restaurants.html" class="restaurant-btn">
+    <div class="text">المطاعم 🍽️</div>
+    <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
+  </a>
 
 </body>
 </html>
