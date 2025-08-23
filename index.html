@@ -1,11 +1,10 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الرئيسية</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -18,18 +17,18 @@
       overflow-x: hidden;
     }
 
-    /* خلفية شفافة مائلة بالشعار */
+    /* خلفية مائلة بالشعار */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 150px; /* حجم الشعار */
-      opacity: 0.05; /* شفافية العلامة المائية */
+      background-size: 150px;
+      opacity: 0.05;
       transform: rotate(45deg);
       z-index: -1;
     }
@@ -52,16 +51,15 @@
       margin: 0 auto;
     }
 
-    /* زر المطاعم (فيه صورة + نص) */
+    /* زر مطاعم */
     .restaurant-btn {
       display: flex;
       flex-direction: row; /* النص يمين - الصورة يسار */
       align-items: center;
       justify-content: space-between;
       width: 90%;
-      max-width: 600px;
-      height: 180px;
-      margin: 40px auto;
+      height: 240px;
+      margin: 30px auto;
       background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 16px;
       overflow: hidden;
@@ -76,16 +74,16 @@
     }
 
     .restaurant-btn .text {
-      flex: 1;
+      flex: 1; /* ثلث */
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 36px;
+      font-size: 42px;
       font-weight: bold;
     }
 
     .restaurant-btn img {
-      flex: 1;
+      flex: 2; /* ثلثين */
       height: 100%;
       object-fit: cover;
     }
@@ -97,9 +95,9 @@
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
-  <!-- زر المطاعم فيه صورة -->
+  <!-- زر المطاعم -->
   <a href="restaurants.html" class="restaurant-btn">
-    <div class="text">المطاعم 🍽️</div>
+    <div class="text">مطاعم</div>
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
 
