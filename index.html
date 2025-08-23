@@ -10,19 +10,21 @@
       margin: 0;
       font-family: 'Cairo', sans-serif;
       background-color: #fff;
+      direction: rtl;
+      text-align: center;
       position: relative;
       min-height: 100vh;
     }
 
-    /* خلفية شفافة مائلة بالشعار (مطابقة لصفحة المطاعم) */
+    /* خلفية شفافة مائلة بالشعار */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 100px; /* نفس الحجم بالصفحة الثانية */
-      opacity: 0.05; /* نفس درجة الشفافية */
+      background-size: 120px; /* نفس المطاعم */
+      opacity: 0.05;
       transform: rotate(45deg);
       z-index: -1;
     }
@@ -31,15 +33,15 @@
     header {
       background-color: #FFD27F;
       text-align: center;
-      padding: 15px 0; /* نفس الصفحة الثانية */
+      padding: 20px 0;
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
       box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     }
 
     header img.logo {
-      width: 50%; /* نفس حجم المطاعم */
-      max-width: 400px;
+      width: 60%;
+      max-width: 500px;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -48,7 +50,7 @@
     /* زر مطاعم */
     .menu-item {
       display: flex;
-      flex-direction: row;
+      flex-direction: row; /* الكلمة يسار - الصورة يمين */
       align-items: center;
       width: 90%;
       margin: 20px auto;
@@ -59,6 +61,11 @@
       text-decoration: none;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       height: 300px;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.02);
     }
 
     .menu-item span {
