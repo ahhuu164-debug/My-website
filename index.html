@@ -32,7 +32,7 @@
     /* زر مطاعم */
     .menu-item {
       display: flex;
-      flex-direction: row-reverse; /* الكلمة يمين - الصور يسار */
+      flex-direction: row-reverse; /* الكلمة يمين - الصورة يسار */
       align-items: center;
       width: 90%;
       margin: 20px auto;
@@ -54,26 +54,10 @@
       font-weight: bold;
     }
 
-    /* الكولاج */
-    .menu-images {
+    .menu-item img {
       flex: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 2px;
-      height: 100%;
-      width: 100%;
-    }
-
-    .menu-images img {
-      width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    /* اجعل الصورة الأولى تأخذ صفين */
-    .menu-images img:first-child {
-      grid-row: span 2;
     }
   </style>
 </head>
@@ -85,11 +69,7 @@
   <!-- زر مطاعم -->
   <a href="restaurants.html" class="menu-item">
     <span>مطاعم</span>
-    <div class="menu-images">
-      <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطاعم">
-      <img src="https://i.postimg.cc/6pLrjzQg/food1.jpg" alt="طعام">
-      <img src="https://i.postimg.cc/Kc9d0s7h/food2.jpg" alt="طعام">
-    </div>
+    <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطاعم">
   </a>
 </body>
 </html>
