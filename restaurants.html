@@ -67,15 +67,15 @@
     }
 
     .restaurant {
-      background: #f8f8f8;
+      background: linear-gradient(135deg, #ffffff, #FFE9B3); /* ✅ تدرج من أبيض للون فاتح */
       border-radius: 20px;
       padding: 20px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background 0.3s;
     }
 
     .restaurant:hover {
       transform: scale(1.05);
-      background: #e8ffe8;
+      background: linear-gradient(135deg, #ffffff, #FFD27F); /* ✅ عند المرور يصير أوضح */
     }
 
     .restaurant img {
