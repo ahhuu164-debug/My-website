@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية</title>
+  <title>الرئيسية</title>
   <style>
     body {
       margin: 0;
@@ -12,23 +12,24 @@
       background-color: #fff;
       direction: rtl;
       text-align: center;
-      overflow-x: hidden;
       position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* الخلفية المائلة */
+    /* خلفية الصفحة */
     body::before {
       content: "";
       position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 300%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 150px 150px;
-      opacity: 0.05; /* شفافية الخلفية */
-      transform: rotate(-45deg); /* مائل بالعكس */
+      background-size: 100px 100px; /* تصغير حجم اللوغو */
+      opacity: 0.05;
+      transform: rotate(-45deg); /* ميلان بالعكس */
       transform-origin: center;
       z-index: -1;
     }
@@ -51,7 +52,7 @@
       margin: 0 auto;
     }
 
-    /* زر مطاعم */
+    /* زر المطاعم */
     .restaurant-btn {
       display: flex;
       flex-direction: row;
@@ -95,7 +96,6 @@
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
-  <!-- زر الدخول إلى صفحة المطاعم -->
   <a href="restaurants.html" class="restaurant-btn">
     <div class="text">المطاعم</div>
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
