@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الرئيسية</title>
+  <title>الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -14,23 +14,27 @@
       direction: rtl;
       text-align: center;
       position: relative;
-      overflow-x: hidden;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* خلفية شفافة مائلة بالشعار */
+    /* خلفية الشعار */
     body::before {
       content: "";
-      position: fixed;
-      inset: 0;
+      position: fixed; /* يخليها دايمًا تغطي الشاشة */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 150px; /* مطابق للمطاعم */
-      opacity: 0.05;
+      background-size: 150px; /* حجم اللوغو */
+      opacity: 0.05; /* شفافية العلامة المائية */
       transform: rotate(45deg);
       z-index: -1;
     }
 
+    /* الهيدر */
     header {
       background-color: #FFD27F;
       text-align: center;
@@ -48,13 +52,14 @@
       margin: 0 auto;
     }
 
+    /* زر مطاعم */
     .restaurant-btn {
       display: flex;
-      flex-direction: row;
+      flex-direction: row; /* النص يمين - الصورة يسار */
       align-items: center;
       justify-content: space-between;
       width: 90%;
-      height: 240px;
+      height: 200px; /* رجعت الحجم كما كان */
       margin: 30px auto;
       background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 16px;
@@ -92,7 +97,7 @@
   </header>
 
   <a href="restaurants.html" class="restaurant-btn">
-    <div class="text">قائمة المطاعم</div>
+    <div class="text">المطاعم</div>
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
 
