@@ -17,7 +17,7 @@
       min-height: 100vh;
     }
 
-    /* خلفية شفافة مائلة بالشعار */
+    /* خلفية شفافة مائلة بالشعار (مطابقة للرئيسية) */
     body::before {
       content: "";
       position: fixed;
@@ -26,7 +26,7 @@
       background-repeat: repeat;
       background-size: 120px;
       opacity: 0.05;
-      transform: rotate(45deg);
+      transform: rotate(-45deg); /* هنا التعديل */
       z-index: -1;
     }
 
