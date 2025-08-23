@@ -17,17 +17,19 @@
       overflow-x: hidden;
     }
 
-    /* خلفية ثابتة بالشعار */
-    body::before {
-      content: "";
+    /* الخلفية المائلة -45 */
+    .background-tilted {
       position: fixed;
-      inset: 0;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
       background-size: 120px 120px;
       opacity: 0.05;
       z-index: -1;
-      background-attachment: fixed; /* 👈 يمنع الارتجاف */
+      transform: rotate(-45deg);
     }
 
     /* الهيدر */
@@ -51,7 +53,7 @@
     /* زر مطاعم */
     .restaurant-btn {
       display: flex;
-      flex-direction: row; /* النص يمين - الصورة يسار */
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
       width: 90%;
@@ -87,6 +89,9 @@
   </style>
 </head>
 <body>
+
+  <!-- الخلفية -->
+  <div class="background-tilted"></div>
 
   <header>
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
