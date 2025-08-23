@@ -4,82 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #fff;
-    }
-
-    /* ===== الهيدر ===== */
-    header {
-      background-color: #FFD27F;
-      text-align: center;
-      padding: 2vh 0;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 18vh;       /* أكبر */
-      min-height: 120px;  /* للهاتف */
-      max-height: 200px;  /* للكمبيوتر */
-    }
-
-    header img.logo {
-      height: 90%;    /* يغطي معظم الهيدر */
-      width: auto;    
-      display: block;
-      object-fit: contain;
-    }
-
-    /* ===== زر المطاعم ===== */
-    .menu-item {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      width: 85%;             /* أصغر من قبل */
-      margin: 20px auto;
-      background-color: #F15A29;
-      border-radius: 15px;
-      overflow: hidden;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: 0.3s;
-      height: 200px;          /* أصغر بكثير من قبل */
-    }
-
-    .menu-item:hover {
-      transform: scale(1.02);
-    }
-
-    .menu-item img {
-      flex: 1;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .menu-item span {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;  /* أصغر */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <!-- استدعاء خط عربي جميل -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- الهيدر -->
   <header>
-    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
+    <h1 class="logo">Food</h1>
   </header>
 
-  <!-- زر مطاعم -->
-  <a href="restaurants.html" class="menu-item">
-    <span>مطاعم</span>
-    <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطاعم">
-  </a>
+  <!-- عنوان القسم -->
+  <h2 class="section-title">المطاعم</h2>
+
+  <!-- قائمة المطاعم -->
+  <div class="restaurants">
+    <!-- بطاقة مطعم -->
+    <div class="restaurant-card">
+      <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطعم" class="restaurant-logo">
+      <h3>مطعم الشام</h3>
+      <p>أشهى المأكولات الشرقية</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطعم" class="restaurant-logo">
+      <h3>مطعم بيروت</h3>
+      <p>وجبات سريعة ولذيذة</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="https://i.postimg.cc/J0WbNcm0/food-sample.jpg" alt="مطعم" class="restaurant-logo">
+      <h3>مطعم بغداد</h3>
+      <p>مشويات عراقية أصلية</p>
+    </div>
+  </div>
 </body>
 </html>
