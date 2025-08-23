@@ -6,18 +6,24 @@ body {
   direction: rtl;
   text-align: center;
   position: relative;
+  min-height: 100vh; /* يضمن أن الصفحة تمتد طول الشاشة */
   overflow-x: hidden;
 }
 
+/* الخلفية */
 body::before {
   content: "";
   position: fixed;
-  inset: 0; /* نفس مبدأ top:0, left:0, right:0, bottom:0 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
   background-repeat: repeat;
-  background-size: 150px; /* حجم الشعار مثل صفحة المطاعم */
+  background-size: 150px; /* حجم الشعار */
   opacity: 0.05; /* شفافية العلامة المائية */
   transform: rotate(45deg);
+  transform-origin: center;
   z-index: -1; /* خلف كل المحتوى */
 }
 
@@ -46,9 +52,9 @@ header img.logo {
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  height: 240px;
+  height: 240px; /* رجع مثل أول */
   margin: 30px auto;
-  background: linear-gradient(135deg, #F15A29, #FFD27F); /* تدرج بلون الطبق */
+  background: linear-gradient(135deg, #F15A29, #FFD27F);
   border-radius: 16px;
   overflow: hidden;
   color: #fff;
