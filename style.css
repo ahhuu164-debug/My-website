@@ -1,2 +1,74 @@
+*/
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  direction: rtl;
+  text-align: center;
+}
 
-/* تنسيق أساسي */ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; direction: rtl; text-align: center; } /* الهيدر */ header { background: #4CAF50; padding: 30px 0; } .logo { font-size: 48px; color: white; margin: 0; font-weight: bold; } /* العنوان */ .section-title { font-size: 32px; margin: 20px 0; color: #333; } /* حاوية المطاعم */ .restaurants { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 20px; } /* البطاقة */ .restaurant-card { background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 16px; width: 250px; transition: transform 0.3s; } .restaurant-card:hover { transform: translateY(-5px); } /* صورة المطعم */ .restaurant-logo { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; } .restaurant-card h3 { margin: 10px 0 5px; color: #4CAF50; font-size: 22px; } .restaurant-card p { color: #666; font-size: 16px; } 
+/* الهيدر */
+header {
+  background: #FFD27F;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 56px; /* أكبر */
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* العنوان */
+.section-title {
+  font-size: 32px;
+  margin: 20px 0;
+  color: #333;
+}
+
+/* حاوية المطاعم */
+.restaurants {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* البطاقة */
+.restaurant-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* صورة المطعم */
+.restaurant-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.restaurant-card h3 {
+  margin: 10px 0 5px;
+  color: #F15A29;
+  font-size: 22px;
+}
+
+.restaurant-card p {
+  color: #666;
+  font-size: 16px;
+}
