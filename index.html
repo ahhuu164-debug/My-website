@@ -1,10 +1,9 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>المطاعم</title>
+  <title>الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -15,23 +14,20 @@
       text-align: center;
       position: relative;
       overflow-x: hidden;
-      min-height: 100vh;
     }
 
-    /* خلفية الصفحة (مطابقة للرئيسية) */
+    /* خلفية مائية تغطي كامل الصفحة */
     body::before {
       content: "";
       position: fixed;
       top: 0;
       left: 0;
-      width: 300%;
-      height: 300%;
+      right: 0;
+      bottom: 0;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 120px 120px; /* نفس الحجم */
+      background-size: 150px 150px; /* مربعات كاملة بدون قص */
       opacity: 0.05;
-      transform: rotate(-45deg); /* نفس الميلان */
-      transform-origin: center;
       z-index: -1;
     }
 
@@ -53,47 +49,41 @@
       margin: 0 auto;
     }
 
-    h2 {
-      margin: 20px;
-      font-size: 28px;
-      color: black;
-    }
-
-    .restaurants {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .restaurant {
-      background: #f8f8f8;
-      border-radius: 20px;
-      padding: 20px;
-      transition: transform 0.2s;
-    }
-
-    .restaurant:hover {
-      transform: scale(1.05);
-      background: #e8ffe8;
-    }
-
-    .restaurant img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .restaurant a {
+    /* زر مطاعم */
+    .restaurant-btn {
+      display: flex;
+      flex-direction: row; /* النص يمين - الصورة يسار */
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      height: 240px;
+      margin: 30px auto;
+      background: linear-gradient(135deg, #F15A29, #FFD27F); /* تدرج بلون الطبق */
+      border-radius: 16px;
+      overflow: hidden;
+      color: #fff;
       text-decoration: none;
-      color: black;
-      font-size: 22px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .restaurant-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .restaurant-btn .text {
+      flex: 1; /* ثلث للمطاعم */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 42px;
       font-weight: bold;
-      display: block;
+    }
+
+    .restaurant-btn img {
+      flex: 2; /* ثلثين للصورة */
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -103,41 +93,11 @@
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
-  <h2>قائمة المطاعم</h2>
-
-  <div class="restaurants">
-    <!-- مطعم كرم الزيتون -->
-    <div class="restaurant">
-      <a href="karam.html">
-        <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="كرم الزيتون">
-        كرم الزيتون
-      </a>
-    </div>
-
-    <!-- مطعم دبس رمان -->
-    <div class="restaurant">
-      <a href="#">
-        <img src="https://via.placeholder.com/120" alt="دبس رمان">
-        دبس رمان
-      </a>
-    </div>
-
-    <!-- مطعم مستر برغر -->
-    <div class="restaurant">
-      <a href="#">
-        <img src="https://via.placeholder.com/120" alt="مستر برغر">
-        مستر برغر
-      </a>
-    </div>
-
-    <!-- مطعم شاورما ريم -->
-    <div class="restaurant">
-      <a href="#">
-        <img src="https://via.placeholder.com/120" alt="شاورما ريم">
-        شاورما ريم
-      </a>
-    </div>
-  </div>
+  <!-- زر الدخول إلى صفحة المطاعم -->
+  <a href="restaurants.html" class="restaurant-btn">
+    <div class="text">المطاعم</div>
+    <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
+  </a>
 
 </body>
 </html>
