@@ -1,28 +1,32 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المطاعم</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
+      direction: rtl;
       text-align: center;
       background: #fff;
     }
 
-    /* هيدر بلون مطابق للصفحة الرئيسية */
     header {
-      background-color: #FFD27F; /* اللون المطلوب */
+      background-color: #FFD27F;
       text-align: center;
-      padding: 40px 0; /* نفس ارتفاع الهيدر القديم */
+      padding: 20px 0;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     }
 
-    header img {
-      width: 120px; /* حجم اللوغو */
+    header img.logo {
+      width: 60%;
+      max-width: 500px;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -74,9 +78,8 @@
 </head>
 <body>
 
-  <!-- الهيدر مع اللوغو فقط -->
   <header>
-    <img src="https://i.postimg.cc/tg8hFz1G/logo.png" alt="Food Logo">
+    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
   <h2>قائمة المطاعم</h2>
