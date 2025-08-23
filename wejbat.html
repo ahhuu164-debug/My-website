@@ -1,104 +1,45 @@
 
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>وجبات غريبة</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #fff;
-      direction: rtl;
-      text-align: center;
-      position: relative;
-      min-height: 100vh;
-      overflow-x: hidden;
+    body{
+      margin:0; font-family:'Cairo',sans-serif; background:#fff; text-align:center; min-height:100vh; overflow-x:hidden;
     }
-
-    /* الخلفية المائلة */
-    .background-tilted {
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
-      background-repeat: repeat;
-      background-size: 120px 120px;
-      opacity: 0.05;
-      z-index: -1;
-      transform: rotate(-45deg);
+    header{
+      background-color:#FFD27F; text-align:center; padding:20px 0;
+      border-bottom-left-radius:30px; border-bottom-right-radius:30px;
+      box-shadow:0 10px 15px rgba(0,0,0,.1);
     }
+    header img.logo{ width:60%; max-width:500px; height:auto; display:block; margin:0 auto; }
 
-    /* الهيدر */
-    header {
-      background-color: #FFD27F;
-      text-align: center;
-      padding: 20px 0;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    h2{ margin:20px; font-size:28px; color:#000; }
+
+    .restaurants{
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:30px; max-width:900px; margin:auto; padding:20px;
     }
-
-    header img.logo {
-      width: 60%;
-      max-width: 500px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+    .restaurant{
+      background:linear-gradient(135deg,#ffffff,#FFE9B3);
+      border-radius:20px; padding:20px; transition:transform .2s, background .3s;
     }
-
-    h2 {
-      margin: 20px;
-      font-size: 28px;
-      color: black;
+    .restaurant:hover{
+      transform:scale(1.05);
+      background:linear-gradient(135deg,#ffffff,#FFD27F);
     }
-
-    .restaurants {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .restaurant img{
+      width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px;
     }
-
-    .restaurant {
-      background: linear-gradient(135deg, #ffffff, #FFE9B3);
-      border-radius: 20px;
-      padding: 20px;
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    .restaurant:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, #ffffff, #FFD27F);
-    }
-
-    .restaurant img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .restaurant a {
-      text-decoration: none;
-      color: black;
-      font-size: 22px;
-      font-weight: bold;
-      display: block;
+    .restaurant a{
+      text-decoration:none; color:#000; font-size:22px; font-weight:bold; display:block;
     }
   </style>
 </head>
 <body>
-
-  <!-- الخلفية -->
-  <div class="background-tilted"></div>
 
   <!-- الهيدر -->
   <header>
@@ -107,7 +48,6 @@
 
   <h2>وجبات غريبة</h2>
 
-  <!-- المربعات -->
   <div class="restaurants">
     <div class="restaurant">
       <a href="#"><img src="https://via.placeholder.com/120" alt="مطعم 1">مطعم 1</a>
