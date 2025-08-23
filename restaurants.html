@@ -7,52 +7,7 @@
   <title>المطاعم</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #fff;
-      direction: rtl;
-      text-align: center;
-      position: relative;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    /* خلفية الصفحة (مطابقة للرئيسية) */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300%;
-      height: 300%;
-      background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
-      background-repeat: repeat;
-      background-size: 120px 120px; /* نفس الحجم */
-      opacity: 0.05;
-      transform: rotate(-45deg); /* نفس الميلان */
-      transform-origin: center;
-      z-index: -1;
-    }
-
-    /* الهيدر */
-    header {
-      background-color: #FFD27F;
-      text-align: center;
-      padding: 20px 0;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    header img.logo {
-      width: 60%;
-      max-width: 500px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
+    /* مخصص للمطاعم فقط */
     h2 {
       margin: 20px;
       font-size: 28px;
@@ -99,6 +54,10 @@
 </head>
 <body>
 
+  <!-- الخلفية -->
+  <div class="background"></div>
+
+  <!-- الهيدر -->
   <header>
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
@@ -106,31 +65,24 @@
   <h2>قائمة المطاعم</h2>
 
   <div class="restaurants">
-    <!-- مطعم كرم الزيتون -->
     <div class="restaurant">
       <a href="karam.html">
         <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="كرم الزيتون">
         كرم الزيتون
       </a>
     </div>
-
-    <!-- مطعم دبس رمان -->
     <div class="restaurant">
       <a href="#">
         <img src="https://via.placeholder.com/120" alt="دبس رمان">
         دبس رمان
       </a>
     </div>
-
-    <!-- مطعم مستر برغر -->
     <div class="restaurant">
       <a href="#">
         <img src="https://via.placeholder.com/120" alt="مستر برغر">
         مستر برغر
       </a>
     </div>
-
-    <!-- مطعم شاورما ريم -->
     <div class="restaurant">
       <a href="#">
         <img src="https://via.placeholder.com/120" alt="شاورما ريم">
