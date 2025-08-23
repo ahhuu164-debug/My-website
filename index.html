@@ -13,23 +13,23 @@
       direction: rtl;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
+    }
 
-      /* الخلفية مباشرة على body */
+    /* الخلفية المائلة */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
       background-size: 150px 150px;
-      opacity: 1; /* نخليها طبيعية ثم نعمل overlay باللون الأبيض الشفاف */
-    }
-
-    /* طبقة شفافة فوق الخلفية لتخفيفها */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255,255,255,0.95); /* 95% أبيض شفاف */
+      opacity: 0.05; /* شفافية الخلفية */
+      transform: rotate(-45deg); /* مائل بالعكس */
+      transform-origin: center;
       z-index: -1;
     }
 
