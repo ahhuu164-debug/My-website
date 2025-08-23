@@ -18,20 +18,18 @@
       min-height: 100vh;
     }
 
-    /* خلفية شفافة مائلة بالشعار */
+    /* الخلفية تغطي كامل الصفحة بدون ارتجاف */
     body::before {
       content: "";
       position: fixed;
       top: 0;
       left: 0;
-      width: 200%;
-      height: 200%;
+      width: 100%;
+      height: 100%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
       background-size: 150px; /* حجم الشعار */
       opacity: 0.05; /* شفافية العلامة المائية */
-      transform: rotate(45deg);
-      transform-origin: center;
       z-index: -1; /* خلف كل المحتوى */
     }
 
@@ -60,9 +58,9 @@
       align-items: center;
       justify-content: space-between;
       width: 90%;
-      height: 180px; /* رجعناه مثل ما كان أول مرة */
+      height: 240px;
       margin: 30px auto;
-      background: linear-gradient(135deg, #F15A29, #FFD27F);
+      background: linear-gradient(135deg, #F15A29, #FFD27F); /* تدرج بلون الطبق */
       border-radius: 16px;
       overflow: hidden;
       color: #fff;
@@ -76,16 +74,16 @@
     }
 
     .restaurant-btn .text {
-      flex: 1; /* ثلث */
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 36px;
+      font-size: 42px;
       font-weight: bold;
     }
 
     .restaurant-btn img {
-      flex: 2; /* ثلثين */
+      flex: 2; /* ثلثين للصورة */
       height: 100%;
       object-fit: cover;
     }
@@ -97,9 +95,9 @@
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
   </header>
 
-  <!-- زر المطاعم -->
+  <!-- زر الدخول إلى صفحة المطاعم -->
   <a href="restaurants.html" class="restaurant-btn">
-    <div class="text">مطاعم</div>
+    <div class="text">المطاعم</div>
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
 
