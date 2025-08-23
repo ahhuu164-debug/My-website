@@ -6,14 +6,14 @@ body {
   direction: rtl;
   text-align: center;
   position: relative;
-  min-height: 100vh; /* يضمن أن الصفحة تمتد طول الشاشة */
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
 /* الخلفية */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,10 +21,9 @@ body::before {
   background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
   background-repeat: repeat;
   background-size: 150px; /* حجم الشعار */
-  opacity: 0.05; /* شفافية العلامة المائية */
+  opacity: 0.05;
   transform: rotate(45deg);
-  transform-origin: center;
-  z-index: -1; /* خلف كل المحتوى */
+  z-index: -1; /* خلف المحتوى */
 }
 
 /* الهيدر */
@@ -48,11 +47,11 @@ header img.logo {
 /* زر مطاعم */
 .restaurant-btn {
   display: flex;
-  flex-direction: row; /* النص يمين - الصورة يسار */
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  height: 240px; /* رجع مثل أول */
+  height: 180px; /* رجعته للحجم الأصلي */
   margin: 30px auto;
   background: linear-gradient(135deg, #F15A29, #FFD27F);
   border-radius: 16px;
@@ -72,7 +71,7 @@ header img.logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 42px;
+  font-size: 36px;
   font-weight: bold;
 }
 
