@@ -1,31 +1,45 @@
 
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المطاعم</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
-      direction: rtl;
       text-align: center;
       background: #fff;
     }
+
+    /* هيدر مطابق للصفحة الرئيسية */
     header {
-      background: green;
-      color: white;
-      font-size: 40px;
-      padding: 20px;
-      font-weight: bold;
+      background: linear-gradient(135deg, #FFD27F, #F15A29); /* نفس لون الهيدر السابق */
+      text-align: center;
+      padding: 20px 0;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    header img.logo {
+      width: 40%;    
+      max-width: 300px; 
+      height: auto;  
+      display: block;
+    }
+
     h2 {
       margin: 20px;
       font-size: 28px;
       color: black;
     }
+
     .restaurants {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -34,6 +48,7 @@
       margin: auto;
       padding: 20px;
     }
+
     .restaurant {
       background: #f8f8f8;
       border-radius: 20px;
@@ -44,6 +59,7 @@
       transform: scale(1.05);
       background: #e8ffe8;
     }
+
     .restaurant img {
       width: 120px;
       height: 120px;
@@ -51,6 +67,7 @@
       object-fit: cover;
       margin-bottom: 10px;
     }
+
     .restaurant a {
       text-decoration: none;
       color: black;
@@ -62,7 +79,10 @@
 </head>
 <body>
 
-  <header>Food</header>
+  <!-- الهيدر مع اللوغو -->
+  <header>
+    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
+  </header>
 
   <h2>قائمة المطاعم</h2>
 
