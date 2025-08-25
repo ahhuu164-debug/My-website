@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- رابط أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* أساسيات الصفحة */
     :root {
@@ -18,6 +20,7 @@
       --light-text: #7F8C8D;         /* نص ثانوي */
       --background: #FFFFFF;          /* خلفية بيضاء */
       --light-bg: #F9F9F9;           /* خلفية فاتحة */
+      --border-color: #ECF0F1;       /* لون الحدود */
     }
     
     * {
@@ -140,6 +143,46 @@
       box-shadow: 0 8px 20px rgba(231, 76, 27, 0.5);
     }
     
+    /* شريط البحث - تحت البطل مباشرة */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+    
+    .search-input {
+      flex: 1;
+      padding: 15px 20px;
+      border: 2px solid var(--border-color);
+      border-radius: 30px 0 0 30px;
+      font-size: 16px;
+      font-family: 'Cairo', sans-serif;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    
+    .search-input:focus {
+      border-color: var(--primary-orange);
+    }
+    
+    .search-btn {
+      padding: 15px 25px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-color));
+      color: white;
+      border: none;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Cairo', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .search-btn:hover {
+      background: linear-gradient(135deg, var(--accent-color), var(--primary-orange));
+    }
+    
     /* زر المطاعم - تحسين التباين والتصميم */
     .restaurant-btn {
       display: flex;
@@ -199,28 +242,88 @@
     
     /* قسم كيف تعمل الخدمة */
     .how-it-works {
-      padding: 50px 20px;
+      padding: 60px 20px;
       background-color: var(--light-bg);
-      margin: 40px 0 0 0;
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
+      margin: 60px 0 0 0;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
     }
     
     .how-it-works h2 {
       text-align: center;
       color: var(--primary-orange);
-      margin-bottom: 40px;
-      font-size: 2rem;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+    }
+    
+    .steps-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .step {
+      text-align: center;
+      flex: 1;
+      min-width: 250px;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    .step-icon {
+      font-size: 3rem;
+      color: var(--primary-orange);
+      margin-bottom: 20px;
+    }
+    
+    .step h3 {
+      color: var(--dark-text);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
+    .step p {
+      color: var(--light-text);
+      line-height: 1.6;
     }
     
     /* تذييل الصفحة */
     footer {
       text-align: center;
-      padding: 25px;
-      color: var(--light-text);
-      font-size: 0.9rem;
+      padding: 30px;
       background-color: var(--dark-text);
       color: white;
+    }
+    
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .social-links {
+      margin: 20px 0;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--secondary-yellow);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      color: #BDC3C7;
+      font-size: 0.9rem;
     }
     
     /* التكيف مع شاشات الموبايل */
@@ -253,6 +356,16 @@
         font-size: 1.2rem;
       }
       
+      .search-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .search-input, .search-btn {
+        border-radius: 30px;
+        width: 100%;
+      }
+      
       .restaurant-btn {
         flex-direction: column;
         height: auto;
@@ -267,6 +380,14 @@
         width: 100%;
         height: 200px;
       }
+      
+      .steps-container {
+        flex-direction: column;
+      }
+      
+      .step {
+        min-width: auto;
+      }
     }
   </style>
 </head>
@@ -277,7 +398,9 @@
 
   <!-- الهيدر -->
   <header>
-    <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">تواصل معنا</a>
+    <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
+      <i class="fas fa-phone"></i> تواصل معنا
+    </a>
     <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo Logo" class="logo">
   </header>
 
@@ -288,6 +411,12 @@
     <a href="#restaurants" class="cta-button">ابدأ الطلب الآن</a>
   </section>
 
+  <!-- شريط البحث -->
+  <div class="search-container">
+    <input type="text" placeholder="ابحث عن مطعم أو وجبة..." class="search-input">
+    <button class="search-btn"><i class="fas fa-search"></i> بحث</button>
+  </div>
+
   <!-- زر المطاعم الرئيسي -->
   <a href="restaurants.html" class="restaurant-btn" id="restaurants">
     <div class="text">المطاعم</div>
@@ -297,12 +426,38 @@
   <!-- قسم "كيف تعمل" -->
   <section class="how-it-works">
     <h2>كيفية الطلب</h2>
-    <!-- يمكنك إضافة خطوات هنا لاحقًا -->
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-icon">📱</div>
+        <h3>اختر مطعمك</h3>
+        <p>تصفح قائمة مطاعم سلمية واختر ما تشتهيه</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🛒</div>
+        <h3>اطلب وجبتك</h3>
+        <p>أضف الوجبات إلى سلة طلباتك وأكمل الطلب</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🚚</div>
+        <h3>استلم طلبك</h3>
+        <p>استلم طلبك الطازج عند باب منزلك خلال دقائق</p>
+      </div>
+    </div>
   </section>
 
   <!-- تذييل الصفحة -->
   <footer>
-    <p>© 2023 Salamia Deliveo. جميع الحقوق محفوظة.</p>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="copyright">
+        <p>© 2023 Salamia Deliveo. جميع الحقوق محفوظة.</p>
+        <p>سلمية - حماة - سوريا</p>
+      </div>
+    </div>
   </footer>
 
 </body>
