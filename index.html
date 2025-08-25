@@ -4,462 +4,1045 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salamia Deliveo - اطلب من مطاعم سلمية</title>
-  <!-- خط Cairo من Google Fonts -->
+  <!-- خطوط Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- رابط أيقونات Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper JS for Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
   <style>
-    /* أساسيات الصفحة */
+    /* أساسيات الصفحة - نظام ألوان متكامل */
     :root {
-      --primary-orange: #E74C1B;     /* برتقالي أكثر حيوية */
-      --secondary-yellow: #FFC857;   /* أصفر أكثر نعومة */
-      --accent-color: #D35400;       /* برتقالي داكن للتأكيد */
-      --dark-text: #2C3E50;          /* نص داكن للتباين */
-      --light-text: #7F8C8D;         /* نص ثانوي */
-      --background: #FFFFFF;          /* خلفية بيضاء */
-      --light-bg: #F9F9F9;           /* خلفية فاتحة */
-      --border-color: #ECF0F1;       /* لون الحدود */
+      --primary-orange: #FF6B35;
+      --secondary-yellow: #FFC857;
+      --accent-red: #E83F3F;
+      --dark-blue: #2C3E50;
+      --light-gray: #ECF0F1;
+      --medium-gray: #BDC3C7;
+      --white: #FFFFFF;
+      --black: #2D3436;
+      --success: #27AE60;
+      --warning: #F39C12;
+      
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+      
+      --border-radius: 16px;
+      --border-radius-lg: 24px;
     }
-    
+
+    [data-theme="dark"] {
+      --dark-blue: #ECF0F1;
+      --light-gray: #2C3E50;
+      --white: #2D3436;
+      --black: #ECF0F1;
+      --medium-gray: #7F8C8D;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
+
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: var(--background);
-      color: var(--dark-text);
+      background-color: var(--white);
+      color: var(--black);
       line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
+      transition: all 0.3s ease;
     }
-    
-    /* خلفية مائلة معدلة بشفافية أقل */
-    .background-pattern {
+
+    /* الخلفية المائية */
+    .watermark-bg {
       position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
-      background-repeat: repeat;
-      background-size: 180px 180px;
-      opacity: 0.03;
-      z-index: -1;
-      transform: rotate(-45deg);
-      pointer-events: none;
-    }
-    
-    /* هيدر معدل مع تباين أفضل */
-    header {
-      background: linear-gradient(to bottom, var(--secondary-yellow), #F8C471);
-      text-align: center;
-      padding: 15px 0 12px 0;
-      border-bottom-left-radius: 25px;
-      border-bottom-right-radius: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      position: relative;
-    }
-    
-    /* عنصر الاتصال في الهيدر - بلون داكن للتباين */
-    .contact-link {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(44, 62, 80, 0.9);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: all 0.3s ease;
-    }
-    
-    .contact-link:hover {
-      background-color: rgba(44, 62, 80, 1);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    }
-    
-    /* الشعار مع تأثير ظل لتحسين الوضوح */
-    header img.logo {
-      width: 220px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
-    
-    /* قسم البطل (Hero Section) مع تحسين التباين */
-    .hero {
-      padding: 50px 20px 40px 20px;
-      text-align: center;
-      background-color: var(--light-bg);
-      margin: 20px;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .hero h1 {
-      font-size: 2.2rem;
-      color: var(--primary-orange);
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--light-text);
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      line-height: 1.8;
-    }
-    
-    /* زر CTA رئيسي - تحسين التباين */
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--primary-orange), var(--accent-color));
-      color: white;
-      padding: 18px 40px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 6px 15px rgba(231, 76, 27, 0.4);
-      transition: all 0.3s ease;
-      margin-top: 10px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(231, 76, 27, 0.5);
-    }
-    
-    /* شريط البحث - تحت البطل مباشرة */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin: 30px auto;
-      max-width: 600px;
-      padding: 0 20px;
-    }
-    
-    .search-input {
-      flex: 1;
-      padding: 15px 20px;
-      border: 2px solid var(--border-color);
-      border-radius: 30px 0 0 30px;
-      font-size: 16px;
-      font-family: 'Cairo', sans-serif;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-    
-    .search-input:focus {
-      border-color: var(--primary-orange);
-    }
-    
-    .search-btn {
-      padding: 15px 25px;
-      background: linear-gradient(135deg, var(--primary-orange), var(--accent-color));
-      color: white;
-      border: none;
-      border-radius: 0 30px 30px 0;
-      cursor: pointer;
-      font-weight: bold;
-      font-family: 'Cairo', sans-serif;
-      transition: all 0.3s ease;
-    }
-    
-    .search-btn:hover {
-      background: linear-gradient(135deg, var(--accent-color), var(--primary-orange));
-    }
-    
-    /* زر المطاعم - تحسين التباين والتصميم */
-    .restaurant-btn {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: space-between;
-      width: 90%;
-      max-width: 600px;
-      height: 180px;
-      margin: 40px auto;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      border-radius: 20px;
-      overflow: hidden;
-      color: white;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-    
-    .restaurant-btn::before {
-      content: '';
-      position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.03);
-      z-index: 1;
-    }
-    
-    .restaurant-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-    
-    .restaurant-btn .text {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      padding: 10px;
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    .restaurant-btn img {
-      flex: 1;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
-      position: relative;
-      z-index: 2;
+      background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0.02;
+      z-index: -1;
+      pointer-events: none;
     }
-    
-    /* قسم كيف تعمل الخدمة */
-    .how-it-works {
-      padding: 60px 20px;
-      background-color: var(--light-bg);
-      margin: 60px 0 0 0;
-      border-top-left-radius: 40px;
-      border-top-right-radius: 40px;
+
+    /* الهيدر الثابت */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      padding: 12px 0;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
     }
-    
-    .how-it-works h2 {
-      text-align: center;
-      color: var(--primary-orange);
-      margin-bottom: 50px;
-      font-size: 2.2rem;
-    }
-    
-    .steps-container {
+
+    .header-content {
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 30px;
-      max-width: 1000px;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo-container img {
+      height: 40px;
+      width: auto;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* قسم البطل */
+    .hero-section {
+      background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,200,87,0.1));
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
       margin: 0 auto;
     }
-    
-    .step {
-      text-align: center;
-      flex: 1;
-      min-width: 250px;
-      padding: 30px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    
-    .step-icon {
-      font-size: 3rem;
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
       color: var(--primary-orange);
       margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
-    .step h3 {
-      color: var(--dark-text);
-      margin-bottom: 15px;
-      font-size: 1.4rem;
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--dark-blue);
+      margin-bottom: 40px;
+      opacity: 0.9;
     }
-    
-    .step p {
-      color: var(--light-text);
-      line-height: 1.6;
+
+    /* شريط البحث المتقدم */
+    .search-section {
+      padding: 40px 20px;
+      background: var(--white);
     }
-    
-    /* تذييل الصفحة */
-    footer {
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .smart-search {
+      display: flex;
+      background: var(--white);
+      border-radius: 50px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .smart-search:focus-within {
+      border-color: var(--primary-orange);
+      transform: translateY(-2px);
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 20px 25px;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      background: transparent;
+      color: var(--black);
+    }
+
+    .search-actions {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+    }
+
+    .search-btn {
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      color: var(--white);
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .search-btn:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    .voice-search {
+      background: none;
+      border: none;
+      color: var(--medium-gray);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 10px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .voice-search:hover {
+      color: var(--primary-orange);
+    }
+
+    .search-suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      margin-top: 10px;
+      padding: 20px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .search-input:focus ~ .search-suggestions {
+      display: block;
+    }
+
+    /* شريط العلامات */
+    .tags-carousel {
+      padding: 30px 20px;
+      background: var(--light-gray);
+    }
+
+    .tags-scroll {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .tags-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      background: var(--white);
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid transparent;
+    }
+
+    .tag:hover {
+      background: var(--primary-orange);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tag.active {
+      background: var(--primary-orange);
+      color: var(--white);
+      border-color: var(--accent-red);
+    }
+
+    /* قسم المطاعم المميزة */
+    .featured-section {
+      padding: 60px 20px;
+      background: var(--white);
+    }
+
+    .section-title {
       text-align: center;
-      padding: 30px;
-      background-color: var(--dark-text);
-      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 50px;
+      position: relative;
     }
-    
-    .footer-content {
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      border-radius: 2px;
+    }
+
+    .restaurants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .restaurant-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent-red);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+
+    .card-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--warning);
+      font-weight: 600;
+    }
+
+    .delivery-time {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--primary-orange);
+    }
+
+    .order-btn {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background: var(--accent-red);
+      transform: scale(1.05);
+    }
+
+    /* شريط العروض */
+    .offers-banner {
+      background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
+      color: var(--white);
+      padding: 30px 20px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .offers-scroll {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .offers-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .offer-card {
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(10px);
+      width: 300px;
+    }
+
+    .offer-discount {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .offer-description {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* قسم كيفية الطلب */
+    .how-it-works {
+      padding: 80px 20px;
+      background: var(--light-gray);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
       max-width: 1000px;
       margin: 0 auto;
     }
-    
+
+    .step-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .step-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .step-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 15px;
+    }
+
+    .step-description {
+      color: var(--medium-gray);
+      line-height: 1.6;
+    }
+
+    /* التذييل */
+    .main-footer {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-description {
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
     .social-links {
-      margin: 20px 0;
+      display: flex;
+      gap: 15px;
     }
-    
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0 15px;
-      transition: color 0.3s ease;
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
     }
-    
-    .social-links a:hover {
-      color: var(--secondary-yellow);
+
+    .social-link:hover {
+      background: var(--primary-orange);
+      transform: translateY(-3px);
     }
-    
-    .copyright {
-      margin-top: 20px;
-      color: #BDC3C7;
-      font-size: 0.9rem;
+
+    .footer-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
     }
-    
-    /* التكيف مع شاشات الموبايل */
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--medium-gray);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-orange);
+      padding-right: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.7;
+    }
+
+    /* Toast Notifications */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 2000;
+    }
+
+    .toast {
+      background: var(--success);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: var(--border-radius);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-lg);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Bottom Navigation - Mobile */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+      display: none;
+      z-index: 1000;
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--medium-gray);
+      font-size: 0.8rem;
+    }
+
+    .nav-item.active {
+      color: var(--primary-orange);
+    }
+
+    .nav-icon {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+    }
+
+    /* Dark Mode Toggle */
+    .theme-toggle {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-orange);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      header img.logo {
-        width: 180px;
+      .hero-title {
+        font-size: 2.5rem;
       }
       
-      .contact-link {
-        font-size: 12px;
-        padding: 6px 12px;
-        left: 15px;
+      .hero-subtitle {
+        font-size: 1.1rem;
       }
       
-      .hero {
-        margin: 15px;
-        padding: 30px 15px;
+      .main-nav {
+        display: none;
       }
       
-      .hero h1 {
-        font-size: 1.8rem;
+      .bottom-nav {
+        display: block;
       }
       
-      .hero p {
-        font-size: 1rem;
+      .search-input {
+        padding: 15px 20px;
       }
       
-      .cta-button {
-        padding: 15px 30px;
-        font-size: 1.2rem;
+      .search-btn {
+        padding: 12px 20px;
       }
       
-      .search-container {
+      .restaurants-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .smart-search {
         flex-direction: column;
-        gap: 15px;
+        border-radius: var(--border-radius);
       }
       
-      .search-input, .search-btn {
-        border-radius: 30px;
-        width: 100%;
-      }
-      
-      .restaurant-btn {
-        flex-direction: column;
-        height: auto;
-      }
-      
-      .restaurant-btn .text {
-        font-size: 1.8rem;
-        padding: 20px 10px;
-      }
-      
-      .restaurant-btn img {
-        width: 100%;
-        height: 200px;
-      }
-      
-      .steps-container {
-        flex-direction: column;
-      }
-      
-      .step {
-        min-width: auto;
+      .search-actions {
+        justify-content: center;
+        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- الخلفية المائية -->
+  <div class="watermark-bg"></div>
 
-  <!-- الخلفية -->
-  <div class="background-pattern"></div>
-
-  <!-- الهيدر -->
-  <header>
-    <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
-      <i class="fas fa-phone"></i> تواصل معنا
-    </a>
-    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo Logo" class="logo">
-  </header>
-
-  <!-- قسم البطل (Hero) -->
-  <section class="hero">
-    <h1>أطيب المأكولات إلى باب منزلك</h1>
-    <p>اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
-    <a href="#restaurants" class="cta-button">ابدأ الطلب الآن</a>
-  </section>
-
-  <!-- شريط البحث -->
-  <div class="search-container">
-    <input type="text" placeholder="ابحث عن مطعم أو وجبة..." class="search-input">
-    <button class="search-btn"><i class="fas fa-search"></i> بحث</button>
+  <!-- Toast Notifications -->
+  <div class="toast-container">
+    <div class="toast" style="display: none;">
+      <span>تمت الإضافة إلى السلة بنجاح!</span>
+    </div>
   </div>
 
-  <!-- زر المطاعم الرئيسي -->
-  <a href="restaurants.html" class="restaurant-btn" id="restaurants">
-    <div class="text">المطاعم</div>
-    <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
-  </a>
+  <!-- الهيدر الثابت -->
+  <header class="sticky-header">
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+      </div>
+      <nav class="main-nav">
+        <a href="#" class="nav-link">الرئيسية</a>
+        <a href="#" class="nav-link">المطاعم</a>
+        <a href="#" class="nav-link">العروض</a>
+        <a href="#" class="nav-link">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- قسم "كيف تعمل" -->
-  <section class="how-it-works">
-    <h2>كيفية الطلب</h2>
-    <div class="steps-container">
-      <div class="step">
-        <div class="step-icon">📱</div>
-        <h3>اختر مطعمك</h3>
-        <p>تصفح قائمة مطاعم سلمية واختر ما تشتهيه</p>
+  <!-- قسم البطل -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">أطيب المأكولات إلى باب منزلك</h1>
+      <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
+      <button class="cta-button">ابدأ الطلب الآن</button>
+    </div>
+  </section>
+
+  <!-- شريط البحث المتقدم -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="smart-search">
+        <input type="text" class="search-input" placeholder="ابحث عن مطعم أو وجبة...">
+        <div class="search-actions">
+          <button class="voice-search">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+            بحث
+          </button>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-icon">🍽</div>
-        <h3>اطلب وجبتك</h3>
-        <p>أضف الوجبات إلى سلة طلباتك وأكمل الطلب</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">🛵</div>
-        <h3>استلم طلبك</h3>
-        <p>استلم طلبك الطازج عند باب منزلك خلال دقائق</p>
+      <div class="search-suggestions">
+        <div class="suggestion-item">بيتزا</div>
+        <div class="suggestion-item">برغر</div>
+        <div class="suggestion-item">مشاوي</div>
+        <div class="suggestion-item">وجبات سورية</div>
       </div>
     </div>
   </section>
 
-  <!-- تذييل الصفحة -->
-  <footer>
+  <!-- شريط العلامات -->
+  <section class="tags-carousel">
+    <div class="tags-scroll">
+      <a href="#" class="tag active">الكل</a>
+      <a href="#" class="tag">بيتزا</a>
+      <a href="#" class="tag">برغر</a>
+      <a href="#" class="tag">مشاوي</a>
+      <a href="#" class="tag">وجبات سورية</a>
+      <a href="#" class="tag">حلويات</a>
+      <a href="#" class="tag">مشروبات</a>
+      <a href="#" class="tag">وجبات سريعة</a>
+    </div>
+  </section>
+
+  <!-- قسم المطاعم المميزة -->
+  <section class="featured-section">
+    <h2 class="section-title">مطاعم مميزة</h2>
+    <div class="restaurants-grid">
+      <div class="restaurant-card">
+        <div class="card-badge">مميز</div>
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم البيتزا" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title">بيتزا سلمية</h3>
+          <div class="card-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.8 (124)
+            </div>
+            <div class="delivery-time">30-45 دقيقة</div>
+          </div>
+          <div class="card-footer">
+            <div class="price">من 25,000 ل.س</div>
+            <button class="order-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="restaurant-card">
+        <div class="card-badge">جديد</div>
+        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم البرغر" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title">برغر هاوس</h3>
+          <div class="card-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.7 (89)
+            </div>
+            <div class="delivery-time">25-40 دقيقة</div>
+          </div>
+          <div class="card-footer">
+            <div class="price">من 20,000 ل.س</div>
+            <button class="order-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="restaurant-card">
+        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم المشاوي" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title">مشاوي العائلة</h3>
+          <div class="card-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.9 (156)
+            </div>
+            <div class="delivery-time">40-55 دقيقة</div>
+          </div>
+          <div class="card-footer">
+            <div class="price">من 35,000 ل.س</div>
+            <button class="order-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- شريط العروض -->
+  <section class="offers-banner">
+    <h2 style="margin-bottom: 30px; font-size: 2rem;">عروض خاصة</h2>
+    <div class="offers-scroll">
+      <div class="offer-card">
+        <div class="offer-discount">20% OFF</div>
+        <div class="offer-description">عرض خاص على جميع أنواع البيتزا</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-discount">وجبتين بسعر 1</div>
+        <div class="offer-description">عرض البرغر المميز</div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-discount">توصيل مجاني</div>
+        <div class="offer-description">للطلبات فوق 50,000 ل.س</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم كيفية الطلب -->
+  <section class="how-it-works">
+    <h2 class="section-title">كيفية الطلب</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon">📱</div>
+        <h3 class="step-title">اختر مطعمك</h3>
+        <p class="step-description">تصفح قائمة مطاعم سلمية واختر ما تشتهيه</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon">🛒</div>
+        <h3 class="step-title">اطلب وجبتك</h3>
+        <p class="step-description">أضف الوجبات إلى سلة طلباتك وأكمل الطلب</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon">🚚</div>
+        <h3 class="step-title">استلم طلبك</h3>
+        <p class="step-description">استلم طلبك الطازج عند باب منزلك خلال دقائق</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- التذييل -->
+  <footer class="main-footer">
     <div class="footer-content">
-      <div class="social-links">
-        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <div class="footer-column">
+        <div class="footer-logo">Salamia Deliveo</div>
+        <p class="footer-description">
+          الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        </div>
       </div>
-      <div class="copyright">
-        <p>© 2023 Salamia Deliveo. جميع الحقوق محفوظة.</p>
-        <p>سلمية - حماة - سوريا</p>
+      
+      <div class="footer-column">
+        <h3 class="footer-heading">روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">المطاعم</a></li>
+          <li><a href="#">العروض</a></li>
+          <li><a href="#">حولنا</a></li>
+          <li><a href="#">اتصل بنا</a></li>
+        </ul>
       </div>
+      
+      <div class="footer-column">
+        <h3 class="footer-heading">فئات الطعام</h3>
+        <ul class="footer-links">
+          <li><a href="#">بيتزا</a></li>
+          <li><a href="#">برغر</a></li>
+          <li><a href="#">مشاوي</a></li>
+          <li><a href="#">حلويات</a></li>
+          <li><a href="#">مشروبات</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3 class="footer-heading">معلومات الاتصال</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt"></i> سلمية، حماة، سوريا</li>
+          <li><i class="fas fa-phone"></i> +963 XXX XXX XXX</li>
+          <li><i class="fas fa-envelope"></i> info@salamiadeliveo.com</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2023 Salamia Deliveo. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
 
+  <!-- Bottom Navigation - Mobile -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="#" class="nav-item active">
+        <i class="fas fa-home nav-icon"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-utensils nav-icon"></i>
+        <span>المطاعم</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-percentage nav-icon"></i>
+        <span>العروض</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-user nav-icon"></i>
+        <span>حسابي</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Dark Mode Toggle -->
+  <div class="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.setAttribute('data-theme', 
+        document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      );
+    });
+
+    // Show Toast Notification
+    function showToast(message) {
+      const toast = document.querySelector('.toast');
+      toast.querySelector('span').textContent = message;
+      toast.style.display = 'block';
+      
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    // Add click events to order buttons
+    document.querySelectorAll('.order-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        showToast('تمت إضافة الطلب إلى السلة بنجاح!');
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-input');
+    searchInput.addEventListener('input', (e) => {
+      // Search logic would go here
+      console.log('Searching for:', e.target.value);
+    });
+  </script>
 </body>
 </html>
 ```
