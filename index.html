@@ -11,12 +11,13 @@
   <style>
     /* أساسيات الصفحة */
     :root {
-      --primary-color: #F15A29;     /* اللون البرتقالي الرئيسي */
-      --secondary-color: #FFD27F;   /* اللون الأصفر */
-      --accent-color: #e67e22;      /* لون للتأكيد (برتقالي غامق) */
-      --text-color: #333;           /* لون النص الأساسي */
-      --light-text: #777;           /* لون النص الثانوي */
-      --background: #fff;           /* لون خلفية الصفحة */
+      --primary-orange: #E74C1B;     /* برتقالي أكثر حيوية */
+      --secondary-yellow: #FFC857;   /* أصفر أكثر نعومة */
+      --accent-color: #D35400;       /* برتقالي داكن للتأكيد */
+      --dark-text: #2C3E50;          /* نص داكن للتباين */
+      --light-text: #7F8C8D;         /* نص ثانوي */
+      --background: #FFFFFF;          /* خلفية بيضاء */
+      --light-bg: #F9F9F9;           /* خلفية فاتحة */
     }
     
     * {
@@ -28,13 +29,13 @@
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--background);
-      color: var(--text-color);
+      color: var(--dark-text);
       line-height: 1.6;
       position: relative;
       overflow-x: hidden;
     }
     
-    /* الخلفية المائلة - أخف وأكثر أناقة */
+    /* خلفية مائلة معدلة بشفافية أقل */
     .background-pattern {
       position: fixed;
       top: -50%;
@@ -43,61 +44,68 @@
       height: 200%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 180px 180px; /* حجم أكبر -> تكرار أقل */
-      opacity: 0.03;                /* شفافية أكثر */
+      background-size: 180px 180px;
+      opacity: 0.03;
       z-index: -1;
       transform: rotate(-45deg);
       pointer-events: none;
     }
     
-    /* الهيدر الجديد - أنحف */
+    /* هيدر معدل مع تباين أفضل */
     header {
-      background: linear-gradient(to bottom, var(--secondary-color), #ffce6d);
+      background: linear-gradient(to bottom, var(--secondary-yellow), #F8C471);
       text-align: center;
-      padding: 15px 0 10px 0;
+      padding: 15px 0 12px 0;
       border-bottom-left-radius: 25px;
       border-bottom-right-radius: 25px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       position: relative;
     }
     
-    /* عنصر الاتصال في الهيدر */
+    /* عنصر الاتصال في الهيدر - بلون داكن للتباين */
     .contact-link {
       position: absolute;
       left: 20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.7);
-      padding: 8px 12px;
+      background-color: rgba(44, 62, 80, 0.9);
+      color: white;
+      padding: 8px 15px;
       border-radius: 20px;
       text-decoration: none;
-      color: var(--text-color);
       font-weight: 600;
       font-size: 14px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
       transition: all 0.3s ease;
     }
+    
     .contact-link:hover {
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      background-color: rgba(44, 62, 80, 1);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
     
+    /* الشعار مع تأثير ظل لتحسين الوضوح */
     header img.logo {
       width: 220px;
       height: auto;
       display: block;
       margin: 0 auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     
-    /* قسم البطل (Hero Section) الجديد */
+    /* قسم البطل (Hero Section) مع تحسين التباين */
     .hero {
-      padding: 40px 20px;
+      padding: 50px 20px 40px 20px;
       text-align: center;
+      background-color: var(--light-bg);
+      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     
     .hero h1 {
       font-size: 2.2rem;
-      color: var(--primary-color);
+      color: var(--primary-orange);
       margin-bottom: 15px;
       font-weight: 700;
     }
@@ -107,45 +115,60 @@
       color: var(--light-text);
       max-width: 600px;
       margin: 0 auto 30px auto;
+      line-height: 1.8;
     }
     
-    /* زر CTA رئيسي - معدل وجذاب */
+    /* زر CTA رئيسي - تحسين التباين */
     .cta-button {
       display: inline-block;
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-color));
       color: white;
       padding: 18px 40px;
       font-size: 1.4rem;
       font-weight: 700;
       text-decoration: none;
       border-radius: 50px;
-      box-shadow: 0 6px 15px rgba(241, 90, 41, 0.4);
+      box-shadow: 0 6px 15px rgba(231, 76, 27, 0.4);
       transition: all 0.3s ease;
       margin-top: 10px;
+      border: none;
+      cursor: pointer;
     }
     
     .cta-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(241, 90, 41, 0.5);
+      box-shadow: 0 8px 20px rgba(231, 76, 27, 0.5);
     }
     
-    /* زر المطاعم - نسخة معدلة */
+    /* زر المطاعم - تحسين التباين والتصميم */
     .restaurant-btn {
       display: flex;
-      flex-direction: row-reverse; /* عكس الاتجاه للنص أولاً */
+      flex-direction: row-reverse;
       align-items: center;
       justify-content: space-between;
       width: 90%;
       max-width: 600px;
-      height: 180px; /* ارتفاع أقل */
+      height: 180px;
       margin: 40px auto;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       border-radius: 20px;
       overflow: hidden;
-      color: #fff;
+      color: white;
       text-decoration: none;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    
+    .restaurant-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.03);
+      z-index: 1;
     }
     
     .restaurant-btn:hover {
@@ -158,41 +181,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2rem; /* حجم خط أصغر قليلاً */
+      font-size: 2rem;
       font-weight: bold;
       padding: 10px;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
     .restaurant-btn img {
-      flex: 1; /* مساواة المساحة مع النص */
+      flex: 1;
       height: 100%;
       object-fit: cover;
+      position: relative;
+      z-index: 2;
     }
     
-    /* قسم كيف تعمل الخدمة (مكان لعملية الشرح) */
+    /* قسم كيف تعمل الخدمة */
     .how-it-works {
       padding: 50px 20px;
-      background-color: #f9f9f9;
-      margin-top: 40px;
+      background-color: var(--light-bg);
+      margin: 40px 0 0 0;
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
     }
     
     .how-it-works h2 {
       text-align: center;
-      color: var(--primary-color);
+      color: var(--primary-orange);
       margin-bottom: 40px;
+      font-size: 2rem;
     }
     
-    /* تذييل الصفحة (Footer) بسيط */
+    /* تذييل الصفحة */
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       color: var(--light-text);
       font-size: 0.9rem;
+      background-color: var(--dark-text);
+      color: white;
     }
     
-    /* التكيف مع شاشات الموبايل ( responsiveness ) */
+    /* التكيف مع شاشات الموبايل */
     @media (max-width: 768px) {
       header img.logo {
         width: 180px;
@@ -200,8 +231,13 @@
       
       .contact-link {
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 6px 12px;
         left: 15px;
+      }
+      
+      .hero {
+        margin: 15px;
+        padding: 30px 15px;
       }
       
       .hero h1 {
@@ -258,7 +294,7 @@
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
 
-  <!-- قسم "كيف تعمل" (يمكنك ملؤه لاحقًا) -->
+  <!-- قسم "كيف تعمل" -->
   <section class="how-it-works">
     <h2>كيفية الطلب</h2>
     <!-- يمكنك إضافة خطوات هنا لاحقًا -->
