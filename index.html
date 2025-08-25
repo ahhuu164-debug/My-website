@@ -43,7 +43,7 @@
       background-color: var(--white);
       color: var(--black);
       line-height: 1.6;
-      padding-bottom: 100px; /* مساحة للتنقل السفلي */
+      padding-bottom: 70px;
     }
 
     /* الخلفية المائية */
@@ -61,13 +61,13 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت - تم التعديل هنا (40px) */
+    /* الهيدر الثابت - تم التعديل */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 40px 0; /* ارتفاع 40px */
+      padding: 40px 0;
       box-shadow: var(--shadow-md);
     }
 
@@ -86,8 +86,9 @@
     }
 
     .logo-container img {
-      height: 120px; /* حجم أكبر يتناسب مع 40px */
+      height: 100px;
       width: auto;
+      transition: all 0.3s ease;
     }
 
     .contact-link {
@@ -218,7 +219,7 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* زر المطاعم الرئيسي */
+    /* زر المطاعم الرئيسي - تم التعديل (ارتفاع 140px + صورة كولاج) */
     .restaurant-btn {
       display: flex;
       flex-direction: row-reverse;
@@ -226,7 +227,7 @@
       justify-content: space-between;
       width: 90%;
       max-width: 600px;
-      height: 180px;
+      height: 140px; /* تم التعديل من 180px إلى 140px */
       margin: 40px auto;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       border-radius: 20px;
@@ -248,7 +249,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2rem;
+      font-size: 1.8rem; /* تم تعديل الحجم */
       font-weight: bold;
       padding: 10px;
       position: relative;
@@ -384,11 +385,11 @@
       transform: scale(1.05);
     }
 
-    /* شريط العروض - تم التعديل هنا (ارتفاع أقل) */
+    /* شريط العروض - تم التعديل (ارتفاع أقل) */
     .offers-banner {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
       color: var(--white);
-      padding: 30px 20px; /* ارتفاع أقل */
+      padding: 30px 20px;
       margin: 40px 0;
     }
 
@@ -396,7 +397,7 @@
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      padding: 15px 0; /* ارتفاع أقل */
+      padding: 15px 0;
       scrollbar-width: none;
       -ms-overflow-style: none;
       scroll-behavior: smooth;
@@ -409,25 +410,25 @@
     .offer-card {
       flex: 0 0 auto;
       background: rgba(255,255,255,0.15);
-      padding: 20px; /* ارتفاع أقل */
+      padding: 20px;
       border-radius: var(--border-radius);
       backdrop-filter: blur(10px);
       width: 280px;
       text-align: center;
-      min-height: 120px; /* ارتفاع ثابت أقل */
+      min-height: 120px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .offer-discount {
-      font-size: 1.8rem; /* أصغر قليلاً */
+      font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 8px;
     }
 
     .offer-description {
-      font-size: 1rem; /* أصغر قليلاً */
+      font-size: 1rem;
       opacity: 0.9;
     }
 
@@ -565,11 +566,11 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       .sticky-header {
-        padding: 30px 0; /* أقل ارتفاع على الموبايل */
+        padding: 30px 0;
       }
       
       .logo-container img {
-        height: 50px; /* حجم مناسب للشاشات الصغيرة */
+        height: 80px;
       }
       
       .contact-link {
@@ -592,13 +593,13 @@
       }
       
       .restaurant-btn .text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         padding: 20px 10px;
       }
       
       .restaurant-btn img {
         width: 100%;
-        height: 200px;
+        height: 180px;
       }
       
       .restaurant-card {
@@ -622,7 +623,7 @@
       }
       
       .logo-container img {
-        height: 45px;
+        height: 70px;
       }
       
       .contact-link {
@@ -659,7 +660,7 @@
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر الثابت - تم التعديل (40px) -->
+  <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
       <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
@@ -695,10 +696,10 @@
     </div>
   </section>
 
-  <!-- زر المطاعم الرئيسي -->
+  <!-- زر المطاعم الرئيسي - تم التعديل -->
   <a href="https://deluxe-genie-d796da.netlify.app/restaurants.html" class="restaurant-btn">
-    <div class="text">المطاعم</div>
-    <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
+    <div class="text">استكشف المطاعم →</div>
+    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="مشويات وسناكات متنوعة">
   </a>
 
   <!-- قسم المطاعم المميزة -->
@@ -786,7 +787,7 @@
     </div>
   </section>
 
-  <!-- شريط العروض - تم التعديل (ارتفاع أقل) -->
+  <!-- شريط العروض -->
   <section class="offers-banner">
     <h2 class="section-title" style="color: white; margin-bottom: 25px;">عروض خاصة</h2>
     <div class="offers-scroll">
@@ -835,7 +836,7 @@
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-column">
-        <div class="footer-logo">منصة فود</div>
+        <div class="footer-logo">Salamia Deliveo</div>
         <p class="footer-description">
           الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك
         </p>
