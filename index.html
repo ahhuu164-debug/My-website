@@ -61,20 +61,20 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت - تم التعديل هنا */
+    /* الهيدر الثابت - تم التعديل هنا (40px) */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 20px 0; /* زيادة الارتفاع */
+      padding: 40px 0; /* ارتفاع 40px */
       box-shadow: var(--shadow-md);
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: center; /* المركزة */
+      justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
@@ -86,7 +86,7 @@
     }
 
     .logo-container img {
-      height: 50px; /* حجم أكبر */
+      height: 70px; /* حجم أكبر يتناسب مع 40px */
       width: auto;
     }
 
@@ -97,7 +97,7 @@
       transform: translateY(-50%);
       background: rgba(255,255,255,0.2);
       color: var(--white);
-      padding: 8px 15px;
+      padding: 10px 18px;
       border-radius: 20px;
       text-decoration: none;
       font-weight: 600;
@@ -264,7 +264,7 @@
       z-index: 2;
     }
 
-    /* قسم المطاعم المميزة - تم التعديل هنا (حركة أفقية) */
+    /* قسم المطاعم المميزة */
     .featured-section {
       padding: 60px 20px;
       background: var(--white);
@@ -384,11 +384,11 @@
       transform: scale(1.05);
     }
 
-    /* شريط العروض - تم التعديل هنا (حركة أفقية) */
+    /* شريط العروض - تم التعديل هنا (ارتفاع أقل) */
     .offers-banner {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
       color: var(--white);
-      padding: 40px 20px;
+      padding: 30px 20px; /* ارتفاع أقل */
       margin: 40px 0;
     }
 
@@ -396,7 +396,7 @@
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      padding: 20px 0;
+      padding: 15px 0; /* ارتفاع أقل */
       scrollbar-width: none;
       -ms-overflow-style: none;
       scroll-behavior: smooth;
@@ -409,21 +409,25 @@
     .offer-card {
       flex: 0 0 auto;
       background: rgba(255,255,255,0.15);
-      padding: 25px;
+      padding: 20px; /* ارتفاع أقل */
       border-radius: var(--border-radius);
       backdrop-filter: blur(10px);
       width: 280px;
       text-align: center;
+      min-height: 120px; /* ارتفاع ثابت أقل */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .offer-discount {
-      font-size: 2rem;
+      font-size: 1.8rem; /* أصغر قليلاً */
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .offer-description {
-      font-size: 1.1rem;
+      font-size: 1rem; /* أصغر قليلاً */
       opacity: 0.9;
     }
 
@@ -560,26 +564,26 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
+      .sticky-header {
+        padding: 30px 0; /* أقل ارتفاع على الموبايل */
+      }
+      
+      .logo-container img {
+        height: 50px; /* حجم مناسب للشاشات الصغيرة */
+      }
+      
+      .contact-link {
+        font-size: 12px;
+        padding: 8px 14px;
+        left: 15px;
+      }
+      
       .hero-title {
         font-size: 2.5rem;
       }
       
       .hero-subtitle {
         font-size: 1.1rem;
-      }
-      
-      .sticky-header {
-        padding: 15px 0;
-      }
-      
-      .logo-container img {
-        height: 40px;
-      }
-      
-      .contact-link {
-        font-size: 12px;
-        padding: 6px 12px;
-        left: 15px;
       }
       
       .restaurant-btn {
@@ -603,10 +607,29 @@
       
       .offer-card {
         width: 260px;
+        min-height: 110px;
+        padding: 18px;
+      }
+      
+      .offer-discount {
+        font-size: 1.6rem;
       }
     }
 
     @media (max-width: 480px) {
+      .sticky-header {
+        padding: 25px 0;
+      }
+      
+      .logo-container img {
+        height: 45px;
+      }
+      
+      .contact-link {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+      
       .hero-title {
         font-size: 2rem;
       }
@@ -621,7 +644,12 @@
       
       .offer-card {
         width: 230px;
-        padding: 20px;
+        min-height: 100px;
+        padding: 15px;
+      }
+      
+      .offer-discount {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -631,7 +659,7 @@
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر الثابت - تم التعديل -->
+  <!-- الهيدر الثابت - تم التعديل (40px) -->
   <header class="sticky-header">
     <div class="header-content">
       <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
@@ -673,7 +701,7 @@
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
 
-  <!-- قسم المطاعم المميزة - تم التعديل (حركة أفقية) -->
+  <!-- قسم المطاعم المميزة -->
   <section class="featured-section">
     <h2 class="section-title">مطاعم مميزة</h2>
     <div class="restaurants-scroll">
@@ -758,9 +786,9 @@
     </div>
   </section>
 
-  <!-- شريط العروض - تم التعديل (حركة أفقية) -->
+  <!-- شريط العروض - تم التعديل (ارتفاع أقل) -->
   <section class="offers-banner">
-    <h2 class="section-title" style="color: white; margin-bottom: 30px;">عروض خاصة</h2>
+    <h2 class="section-title" style="color: white; margin-bottom: 25px;">عروض خاصة</h2>
     <div class="offers-scroll">
       <div class="offer-card">
         <div class="offer-discount">20% OFF</div>
