@@ -1,24 +1,41 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Salamia Deliveo - اطلب من مطاعم سلمية</title>
+  <!-- خط Cairo من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* أساسيات الصفحة */
+    :root {
+      --primary-color: #F15A29;     /* اللون البرتقالي الرئيسي */
+      --secondary-color: #FFD27F;   /* اللون الأصفر */
+      --accent-color: #e67e22;      /* لون للتأكيد (برتقالي غامق) */
+      --text-color: #333;           /* لون النص الأساسي */
+      --light-text: #777;           /* لون النص الثانوي */
+      --background: #fff;           /* لون خلفية الصفحة */
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    
+    body {
       font-family: 'Cairo', sans-serif;
-      background-color: #fff;
-      direction: rtl;
-      text-align: center;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
       position: relative;
       overflow-x: hidden;
     }
-
-    /* الخلفية المائلة -45 */
-    .background-tilted {
+    
+    /* الخلفية المائلة - أخف وأكثر أناقة */
+    .background-pattern {
       position: fixed;
       top: -50%;
       left: -50%;
@@ -26,82 +43,231 @@
       height: 200%;
       background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
       background-repeat: repeat;
-      background-size: 120px 120px;
-      opacity: 0.05;
+      background-size: 180px 180px; /* حجم أكبر -> تكرار أقل */
+      opacity: 0.03;                /* شفافية أكثر */
       z-index: -1;
       transform: rotate(-45deg);
+      pointer-events: none;
     }
-
-    /* الهيدر */
+    
+    /* الهيدر الجديد - أنحف */
     header {
-      background-color: #FFD27F;
+      background: linear-gradient(to bottom, var(--secondary-color), #ffce6d);
       text-align: center;
-      padding: 20px 0;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      padding: 15px 0 10px 0;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
-
+    
+    /* عنصر الاتصال في الهيدر */
+    .contact-link {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .contact-link:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
     header img.logo {
-      width: 300px; /* تغيير من 60% إلى 300px */
-      max-width: 90%; /* إضافة خاصية جديدة */
+      width: 220px;
       height: auto;
       display: block;
       margin: 0 auto;
     }
-
-    /* زر مطاعم */
+    
+    /* قسم البطل (Hero Section) الجديد */
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--light-text);
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+    
+    /* زر CTA رئيسي - معدل وجذاب */
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 18px 40px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 6px 15px rgba(241, 90, 41, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(241, 90, 41, 0.5);
+    }
+    
+    /* زر المطاعم - نسخة معدلة */
     .restaurant-btn {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse; /* عكس الاتجاه للنص أولاً */
       align-items: center;
       justify-content: space-between;
       width: 90%;
-      height: 240px;
-      margin: 30px auto;
-      background: linear-gradient(135deg, #F15A29, #FFD27F);
-      border-radius: 16px;
+      max-width: 600px;
+      height: 180px; /* ارتفاع أقل */
+      margin: 40px auto;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 20px;
       overflow: hidden;
       color: #fff;
       text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    
     .restaurant-btn:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
-
+    
     .restaurant-btn .text {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 42px;
+      font-size: 2rem; /* حجم خط أصغر قليلاً */
       font-weight: bold;
+      padding: 10px;
     }
-
+    
     .restaurant-btn img {
-      flex: 2;
+      flex: 1; /* مساواة المساحة مع النص */
       height: 100%;
       object-fit: cover;
+    }
+    
+    /* قسم كيف تعمل الخدمة (مكان لعملية الشرح) */
+    .how-it-works {
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+      margin-top: 40px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+    
+    .how-it-works h2 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 40px;
+    }
+    
+    /* تذييل الصفحة (Footer) بسيط */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--light-text);
+      font-size: 0.9rem;
+    }
+    
+    /* التكيف مع شاشات الموبايل ( responsiveness ) */
+    @media (max-width: 768px) {
+      header img.logo {
+        width: 180px;
+      }
+      
+      .contact-link {
+        font-size: 12px;
+        padding: 6px 10px;
+        left: 15px;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .cta-button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+      }
+      
+      .restaurant-btn {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .restaurant-btn .text {
+        font-size: 1.8rem;
+        padding: 20px 10px;
+      }
+      
+      .restaurant-btn img {
+        width: 100%;
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- الخلفية -->
-  <div class="background-tilted"></div>
+  <div class="background-pattern"></div>
 
+  <!-- الهيدر -->
   <header>
-    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Logo" class="logo">
+    <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">تواصل معنا</a>
+    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo Logo" class="logo">
   </header>
 
-  <!-- زر الدخول إلى صفحة المطاعم -->
-  <a href="restaurants.html" class="restaurant-btn">
+  <!-- قسم البطل (Hero) -->
+  <section class="hero">
+    <h1>أطيب المأكولات إلى باب منزلك</h1>
+    <p>اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
+    <a href="#restaurants" class="cta-button">ابدأ الطلب الآن</a>
+  </section>
+
+  <!-- زر المطاعم الرئيسي -->
+  <a href="restaurants.html" class="restaurant-btn" id="restaurants">
     <div class="text">المطاعم</div>
     <img src="https://i.postimg.cc/LsSLQvtf/Burger.png" alt="مطاعم">
   </a>
+
+  <!-- قسم "كيف تعمل" (يمكنك ملؤه لاحقًا) -->
+  <section class="how-it-works">
+    <h2>كيفية الطلب</h2>
+    <!-- يمكنك إضافة خطوات هنا لاحقًا -->
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer>
+    <p>© 2023 Salamia Deliveo. جميع الحقوق محفوظة.</p>
+  </footer>
 
 </body>
 </html>
