@@ -38,6 +38,7 @@
       background-color: var(--light-gray);
       color: var(--black);
       line-height: 1.6;
+      padding-bottom: 80px; /* مساحة للشريط السفلي */
     }
 
     /* الهيدر الثابت */
@@ -89,6 +90,76 @@
 
     .search-icon-header:hover {
       transform: scale(1.1);
+    }
+
+    /* زر التصنيف المنزلق */
+    .category-slider-btn {
+      position: sticky;
+      top: 80px;
+      z-index: 900;
+      background: var(--white);
+      padding: 15px 20px;
+      margin: 0 20px 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-slider-btn:hover {
+      background: #f8f9fa;
+    }
+
+    .category-slider-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .category-slider-btn.active i {
+      transform: rotate(180deg);
+    }
+
+    /* قائمة التصنيفات المنزلقة */
+    .categories-slider {
+      background: var(--white);
+      margin: 0 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .categories-slider.active {
+      max-height: 300px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .category-item {
+      text-align: center;
+      padding: 15px 10px;
+      border-radius: var(--border-radius);
+      background: var(--light-gray);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-item:hover {
+      background: var(--primary-orange);
+      color: var(--white);
+    }
+
+    .category-item.active {
+      background: var(--primary-orange);
+      color: var(--white);
     }
 
     /* فلتر البحث */
@@ -282,6 +353,45 @@
       background: var(--accent-red);
     }
 
+    /* الشريط السفلي */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--medium-gray);
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      padding: 5px 15px;
+    }
+
+    .nav-item.active, .nav-item:hover {
+      color: var(--primary-orange);
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
       .restaurants-grid {
@@ -300,6 +410,10 @@
       
       .filters-grid {
         grid-template-columns: 1fr;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -320,6 +434,14 @@
       .card-content {
         padding: 15px;
       }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-slider-btn, .categories-slider {
+        margin: 0 10px 10px;
+      }
     }
   </style>
 </head>
@@ -339,6 +461,26 @@
     </div>
   </header>
 
+  <!-- زر التصنيف المنزلق -->
+  <div class="category-slider-btn" id="categorySliderBtn">
+    <span>التصنيفات</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <!-- قائمة التصنيفات المنزلقة -->
+  <div class="categories-slider" id="categoriesSlider">
+    <div class="categories-grid">
+      <div class="category-item active">الكل</div>
+      <div class="category-item">بيتزا</div>
+      <div class="category-item">برغر</div>
+      <div class="category-item">مشاوي</div>
+      <div class="category-item">سوري</div>
+      <div class="category-item">حلويات</div>
+      <div class="category-item">بحري</div>
+      <div class="category-item">صحي</div>
+    </div>
+  </div>
+
   <!-- قسم الفلترة -->
   <section class="filters-section">
     <div class="filters-grid">
@@ -348,18 +490,6 @@
           <option value="">جميع المطاعم</option>
           <option value="open">المفتوحة الآن</option>
           <option value="closed">المغلقة</option>
-        </select>
-      </div>
-      
-      <div class="filter-group">
-        <label class="filter-label">التصنيف</label>
-        <select class="filter-select">
-          <option value="">جميع التصنيفات</option>
-          <option value="pizza">بيتزا</option>
-          <option value="burger">برغر</option>
-          <option value="grill">مشاوي</option>
-          <option value="syrian">وجبات سورية</option>
-          <option value="desserts">حلويات</option>
         </select>
       </div>
       
@@ -518,6 +648,28 @@
     </div>
   </section>
 
+  <!-- الشريط السفلي -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="#" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-utensils"></i>
+        <span>المطاعم</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-shopping-bag"></i>
+        <span>طلباتي</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>حسابي</span>
+      </a>
+    </div>
+  </nav>
+
   <script>
     // تفعيل زر المفضلة
     document.querySelectorAll('.favorite-btn').forEach(btn => {
@@ -538,6 +690,29 @@
     document.querySelector('.search-icon-header').addEventListener('click', function() {
       alert('سيتم فتح شريط البحث هنا');
       // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
+    });
+
+    // تفعيل زر التصنيف المنزلق
+    const categorySliderBtn = document.getElementById('categorySliderBtn');
+    const categoriesSlider = document.getElementById('categoriesSlider');
+    
+    categorySliderBtn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      categoriesSlider.classList.toggle('active');
+    });
+
+    // تفعيل اختيار التصنيفات
+    document.querySelectorAll('.category-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        
+        // يمكن إضافة وظيفة تصفية المطاعم حسب التصنيف هنا
+        setTimeout(() => {
+          categoriesSlider.classList.remove('active');
+          categorySliderBtn.classList.remove('active');
+        }, 300);
+      });
     });
   </script>
 </body>
