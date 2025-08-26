@@ -38,16 +38,15 @@
       background-color: var(--light-gray);
       color: var(--black);
       line-height: 1.6;
-      transition: all 0.3s ease;
     }
 
-    /* الهيدر الثابت - تم التعديل */
+    /* الهيدر الثابت */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 12px 0; /* تم تقليل padding */
+      padding: 15px 0;
       box-shadow: var(--shadow-md);
     }
 
@@ -61,7 +60,7 @@
     }
 
     .logo-container img {
-      height: 50px; /* زيادة حجم اللوجو */
+      height: 50px;
       width: auto;
     }
 
@@ -79,94 +78,49 @@
       background: rgba(255,255,255,0.3);
     }
 
-    /* زر الفلاتر العائم - جديد */
-    .floating-filter-btn {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      z-index: 999;
-      background: var(--primary-orange);
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-lg);
+    /* زر البحث في الهيدر */
+    .search-icon-header {
+      color: var(--white);
+      font-size: 1.2rem;
       cursor: pointer;
+      padding: 10px;
       transition: all 0.3s ease;
     }
 
-    .floating-filter-btn:hover {
+    .search-icon-header:hover {
       transform: scale(1.1);
-      background: var(--accent-red);
     }
 
-    .floating-filter-btn i {
-      font-size: 1.5rem;
-    }
-
-    /* الشريط الجانبي للفلاتر - جديد */
-    .filters-sidebar {
-      position: fixed;
-      top: 0;
-      right: -350px; /* مخفي بشكل افتراضي */
-      width: 350px;
-      height: 100vh;
+    /* فلتر البحث */
+    .filters-section {
       background: var(--white);
-      box-shadow: var(--shadow-lg);
-      z-index: 1001;
-      transition: all 0.4s ease;
-      overflow-y: auto;
       padding: 20px;
+      margin: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
     }
 
-    .filters-sidebar.active {
-      right: 0; /* يظهر عند التفعيل */
-    }
-
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid var(--light-gray);
-    }
-
-    .sidebar-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-    }
-
-    .close-sidebar {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--medium-gray);
-      transition: all 0.3s ease;
-    }
-
-    .close-sidebar:hover {
-      color: var(--accent-red);
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .filter-group {
-      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .filter-label {
       font-weight: 600;
       color: var(--dark-blue);
-      margin-bottom: 10px;
-      display: block;
+      font-size: 0.9rem;
     }
 
     .filter-select {
-      width: 100%;
       padding: 12px 15px;
       border: 2px solid var(--light-gray);
       border-radius: var(--border-radius);
@@ -180,41 +134,6 @@
     .filter-select:focus {
       border-color: var(--primary-orange);
       outline: none;
-    }
-
-    .apply-filters-btn {
-      width: 100%;
-      padding: 15px;
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      border-radius: var(--border-radius);
-      font-family: 'Cairo', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .apply-filters-btn:hover {
-      background: var(--accent-red);
-    }
-
-    /* غطاء عند فتح الشريط الجانبي - جديد */
-    .sidebar-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      display: none;
-    }
-
-    .sidebar-overlay.active {
-      display: block;
     }
 
     /* شبكة المطاعم */
@@ -244,13 +163,13 @@
 
     .restaurants-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 25px;
     }
 
-    /* بطاقة المطعم - تم إضافة تدرج لوني */
+    /* بطاقة المطعم - تصميم مبسط */
     .restaurant-card {
-      background: linear-gradient(135deg, #ffffff, #f8f9fa); /* تدرج لوني */
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
       border-radius: var(--border-radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
@@ -259,7 +178,7 @@
     }
 
     .restaurant-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
 
@@ -284,12 +203,11 @@
       right: 15px;
       background: var(--accent-red);
       color: var(--white);
-      padding: 8px 15px; /* زيادة الحشوة */
-      border-radius: 20px; /* زيادة الانحناء */
+      padding: 6px 12px;
+      border-radius: 15px;
       font-size: 0.8rem;
       font-weight: 600;
       z-index: 2;
-      box-shadow: var(--shadow-sm); /* إضافة ظل */
     }
 
     .favorite-btn {
@@ -298,8 +216,8 @@
       left: 15px;
       background: rgba(255,255,255,0.9);
       border: none;
-      width: 45px; /* زيادة الحجم */
-      height: 45px; /* زيادة الحجم */
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -311,7 +229,11 @@
 
     .favorite-btn:hover {
       background: var(--white);
-      transform: scale(1.2);
+      transform: scale(1.1);
+    }
+
+    .favorite-btn.active i {
+      color: var(--accent-red);
     }
 
     .card-content {
@@ -319,22 +241,15 @@
     }
 
     .restaurant-name {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--dark-blue);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .restaurant-category {
       color: var(--medium-gray);
       font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .restaurant-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: 15px;
     }
 
@@ -344,37 +259,6 @@
       gap: 5px;
       color: var(--warning);
       font-weight: 600;
-    }
-
-    .delivery-info {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .delivery-time {
-      background: var(--light-gray);
-      padding: 5px 12px;
-      border-radius: 15px;
-      font-size: 0.9rem;
-      color: var(--dark-blue);
-    }
-
-    .delivery-price {
-      color: var(--medium-gray);
-      font-size: 0.9rem;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 15px;
-      border-top: 1px solid var(--light-gray);
-    }
-
-    .min-order {
-      color: var(--medium-gray);
       font-size: 0.9rem;
     }
 
@@ -389,11 +273,13 @@
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
+      width: 100%;
+      text-align: center;
+      margin-top: 15px;
     }
 
     .view-btn:hover {
       background: var(--accent-red);
-      transform: scale(1.05);
     }
 
     /* التكيف مع الشاشات الصغيرة */
@@ -412,12 +298,8 @@
         font-size: 1.5rem;
       }
       
-      .filters-sidebar {
-        width: 300px;
-      }
-      
-      .logo-container img {
-        height: 40px;
+      .filters-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -426,20 +308,17 @@
         padding: 0 15px;
       }
       
+      .filters-section {
+        margin: 10px;
+        padding: 15px;
+      }
+      
       .restaurants-section {
         padding: 10px;
       }
       
       .card-content {
         padding: 15px;
-      }
-      
-      .restaurant-name {
-        font-size: 1.2rem;
-      }
-      
-      .filters-sidebar {
-        width: 280px;
       }
     }
   </style>
@@ -454,68 +333,57 @@
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
       </div>
-      <div style="width: 100px;"></div>
+      <div class="search-icon-header">
+        <i class="fas fa-search"></i>
+      </div>
     </div>
   </header>
 
-  <!-- زر الفلاتر العائم - جديد -->
-  <div class="floating-filter-btn" id="filterBtn">
-    <i class="fas fa-filter"></i>
-  </div>
-
-  <!-- الشريط الجانبي للفلاتر - جديد -->
-  <div class="filters-sidebar" id="filtersSidebar">
-    <div class="sidebar-header">
-      <h2 class="sidebar-title">فلاتر البحث</h2>
-      <button class="close-sidebar" id="closeSidebar">&times;</button>
+  <!-- قسم الفلترة -->
+  <section class="filters-section">
+    <div class="filters-grid">
+      <div class="filter-group">
+        <label class="filter-label">الحالة</label>
+        <select class="filter-select" id="status-filter">
+          <option value="">جميع المطاعم</option>
+          <option value="open">المفتوحة الآن</option>
+          <option value="closed">المغلقة</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">التصنيف</label>
+        <select class="filter-select">
+          <option value="">جميع التصنيفات</option>
+          <option value="pizza">بيتزا</option>
+          <option value="burger">برغر</option>
+          <option value="grill">مشاوي</option>
+          <option value="syrian">وجبات سورية</option>
+          <option value="desserts">حلويات</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">التقييم</label>
+        <select class="filter-select">
+          <option value="">جميع التقييمات</option>
+          <option value="5">5 نجوم</option>
+          <option value="4">4 نجوم فأكثر</option>
+          <option value="3">3 نجوم فأكثر</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label class="filter-label">ترتيب حسب</label>
+        <select class="filter-select">
+          <option value="popular">الأكثر شيوعاً</option>
+          <option value="rating">الأعلى تقييماً</option>
+          <option value="delivery">أسرع توصيل</option>
+          <option value="price">السعر</option>
+        </select>
+      </div>
     </div>
-    
-    <div class="filter-group">
-      <label class="filter-label">الحالة</label>
-      <select class="filter-select" id="status-filter">
-        <option value="">جميع المطاعم</option>
-        <option value="open">المفتوحة الآن</option>
-        <option value="closed">المغلقة</option>
-      </select>
-    </div>
-    
-    <div class="filter-group">
-      <label class="filter-label">التصنيف</label>
-      <select class="filter-select">
-        <option value="">جميع التصنيفات</option>
-        <option value="pizza">بيتزا</option>
-        <option value="burger">برغر</option>
-        <option value="grill">مشاوي</option>
-        <option value="syrian">وجبات سورية</option>
-        <option value="desserts">حلويات</option>
-      </select>
-    </div>
-    
-    <div class="filter-group">
-      <label class="filter-label">التقييم</label>
-      <select class="filter-select">
-        <option value="">جميع التقييمات</option>
-        <option value="5">5 نجوم</option>
-        <option value="4">4 نجوم فأكثر</option>
-        <option value="3">3 نجوم فأكثر</option>
-      </select>
-    </div>
-    
-    <div class="filter-group">
-      <label class="filter-label">ترتيب حسب</label>
-      <select class="filter-select">
-        <option value="popular">الأكثر شيوعاً</option>
-        <option value="rating">الأعلى تقييماً</option>
-        <option value="delivery">أسرع توصيل</option>
-        <option value="price">السعر</option>
-      </select>
-    </div>
-    
-    <button class="apply-filters-btn">تطبيق الفلاتر</button>
-  </div>
-
-  <!-- غطاء الجانب - جديد -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  </section>
 
   <!-- قسم المطاعم -->
   <section class="restaurants-section">
@@ -525,7 +393,6 @@
     </div>
 
     <div class="restaurants-grid">
-      <!-- المطاعم (نفس المحتوى السابق) -->
       <!-- مطعم 1 -->
       <div class="restaurant-card">
         <div class="card-header">
@@ -539,20 +406,11 @@
         <div class="card-content">
           <h3 class="restaurant-name">بيتزا سلمية</h3>
           <p class="restaurant-category">بيتزا • وجبات إيطالية</p>
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.8 (124)
-            </div>
-            <div class="delivery-info">
-              <span class="delivery-time">30-45 دقيقة</span>
-              <span class="delivery-price">5,000 ل.س</span>
-            </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.8 (124 تقييم)
           </div>
-          <div class="card-footer">
-            <span class="min-order">حد أدنى 25,000 ل.س</span>
-            <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
-          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
@@ -569,24 +427,94 @@
         <div class="card-content">
           <h3 class="restaurant-name">برغر هاوس</h3>
           <p class="restaurant-category">برغر • وجبات سريعة</p>
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.7 (89)
-            </div>
-            <div class="delivery-info">
-              <span class="delivery-time">25-40 دقيقة</span>
-              <span class="delivery-price">4,000 ل.س</span>
-            </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.7 (89 تقييم)
           </div>
-          <div class="card-footer">
-            <span class="min-order">حد أدنى 20,000 ل.س</span>
-            <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
-          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
-      <!-- باقي المطاعم بنفس النمط -->
+      <!-- مطعم 3 -->
+      <div class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="مشاوي العائلة" class="restaurant-image">
+          <button class="favorite-btn">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">مشاوي العائلة</h3>
+          <p class="restaurant-category">مشاوي • وجبات عربية</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.9 (156 تقييم)
+          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+        </div>
+      </div>
+
+      <!-- مطعم 4 -->
+      <div class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="حلويات لذيذة" class="restaurant-image">
+          <button class="favorite-btn">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">حلويات لذيذة</h3>
+          <p class="restaurant-category">حلويات • مشروبات</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.6 (78 تقييم)
+          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+        </div>
+      </div>
+
+      <!-- مطعم 5 -->
+      <div class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="مطعم الأصالة" class="restaurant-image">
+          <div class="card-badge">عرض خاص</div>
+          <button class="favorite-btn">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">مطعم الأصالة</h3>
+          <p class="restaurant-category">وجبات سورية • مشاوي</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.5 (92 تقييم)
+          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+        </div>
+      </div>
+
+      <!-- مطعم 6 -->
+      <div class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="مطعم البحر" class="restaurant-image">
+          <button class="favorite-btn">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">مطعم البحر</h3>
+          <p class="restaurant-category">مأكولات بحرية</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            4.3 (67 تقييم)
+          </div>
+          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -594,38 +522,22 @@
     // تفعيل زر المفضلة
     document.querySelectorAll('.favorite-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        this.classList.toggle('active');
         const icon = this.querySelector('i');
-        if (icon.classList.contains('far')) {
+        if (this.classList.contains('active')) {
           icon.classList.remove('far');
           icon.classList.add('fas');
-          this.style.color = '#E83F3F';
         } else {
           icon.classList.remove('fas');
           icon.classList.add('far');
-          this.style.color = '';
         }
       });
     });
 
-    // تفعيل الشريط الجانبي للفلاتر - جديد
-    const filterBtn = document.getElementById('filterBtn');
-    const filtersSidebar = document.getElementById('filtersSidebar');
-    const closeSidebar = document.getElementById('closeSidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-    filterBtn.addEventListener('click', () => {
-      filtersSidebar.classList.add('active');
-      sidebarOverlay.classList.add('active');
-    });
-
-    closeSidebar.addEventListener('click', () => {
-      filtersSidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-    });
-
-    sidebarOverlay.addEventListener('click', () => {
-      filtersSidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
+    // تفعيل البحث عند النقر على الأيقونة
+    document.querySelector('.search-icon-header').addEventListener('click', function() {
+      alert('سيتم فتح شريط البحث هنا');
+      // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
     });
   </script>
 </body>
