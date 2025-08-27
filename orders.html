@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>طلباتي - Salamia Deliveo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-orange: #FF6B35;
+      --secondary-yellow: #FFC857;
+      --accent-red: #E83F3F;
+      --dark-blue: #2C3E50;
+      --light-gray: #ECF0F1;
+      --medium-gray: #BDC3C7;
+      --white: #FFFFFF;
+      --black: #2D3436;
+      --success: #27AE60;
+      --warning: #F39C12;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+      --border-radius: 16px;
+      --border-radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--black);
+      line-height: 1.6;
+      padding-bottom: 80px; /* مساحة للشريط السفلي */
+    }
+
+    /* الهيدر الثابت */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      padding: 15px 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo-container img {
+      height: 50px;
+      width: auto;
+    }
+
+    .back-btn {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* زر البحث في الهيدر */
+    .search-icon-header {
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .search-icon-header:hover {
+      transform: scale(1.1);
+    }
+
+    /* تبويبات الطلبات */
+    .orders-tabs {
+      display: flex;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 80px;
+      z-index: 900;
+      padding: 0 20px;
+    }
+
+    .order-tab {
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .order-tab.active {
+      color: var(--primary-orange);
+      border-bottom: 3px solid var(--primary-orange);
+    }
+
+    /* قسم الطلبات */
+    .orders-section {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .results-count {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+    }
+
+    /* رسالة عدم وجود طلبات */
+    .no-orders {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      margin-top: 20px;
+    }
+
+    .no-orders i {
+      font-size: 4rem;
+      color: var(--medium-gray);
+      margin-bottom: 20px;
+    }
+
+    .no-orders h3 {
+      font-size: 1.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+
+    .no-orders p {
+      color: var(--medium-gray);
+      margin-bottom: 20px;
+    }
+
+    .browse-btn {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .browse-btn:hover {
+      background: var(--accent-red);
+    }
+
+    /* بطاقة الطلب */
+    .order-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .order-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #f8f9fa;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .order-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .restaurant-image-small {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .order-details h3 {
+      font-size: 1.1rem;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+    }
+
+    .order-details p {
+      font-size: 0.9rem;
+      color: var(--medium-gray);
+    }
+
+    .order-status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .status-preparing {
+      background: #FFF3CD;
+      color: #856404;
+    }
+
+    .status-delivering {
+      background: #CCE5FF;
+      color: #004085;
+    }
+
+    .status-delivered {
+      background: #D4EDDA;
+      color: #155724;
+    }
+
+    .status-cancelled {
+      background: #F8D7DA;
+      color: #721C24;
+    }
+
+    .order-body {
+      padding: 20px;
+    }
+
+    .order-items {
+      margin-bottom: 15px;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item-name {
+      font-weight: 500;
+    }
+
+    .item-price {
+      color: var(--dark-blue);
+      font-weight: 600;
+    }
+
+    .order-summary {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 15px;
+      border-top: 1px solid var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+
+    .total-price {
+      color: var(--primary-orange);
+      font-size: 1.1rem;
+    }
+
+    .order-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #f8f9fa;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .order-date {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+    }
+
+    .order-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-btn {
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      border: none;
+    }
+
+    .reorder-btn {
+      background: var(--primary-orange);
+      color: var(--white);
+    }
+
+    .reorder-btn:hover {
+      background: var(--accent-red);
+    }
+
+    .rate-btn {
+      background: var(--light-gray);
+      color: var(--dark-blue);
+    }
+
+    .rate-btn:hover {
+      background: var(--medium-gray);
+    }
+
+    /* تبويب المفضلة */
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .favorite-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .favorite-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .favorite-header {
+      position: relative;
+    }
+
+    .favorite-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .favorite-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent-red);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .favorite-btn.active {
+      background: var(--accent-red);
+    }
+
+    .favorite-btn.active i {
+      color: var(--white);
+    }
+
+    .favorite-content {
+      padding: 20px;
+    }
+
+    .favorite-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 8px;
+    }
+
+    .favorite-category {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .favorite-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--warning);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .view-menu-btn {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .view-menu-btn:hover {
+      background: var(--accent-red);
+    }
+
+    /* الشريط السفلي */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--medium-gray);
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      padding: 5px 15px;
+    }
+
+    .nav-item.active, .nav-item:hover {
+      color: var(--primary-orange);
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    /* التكيف مع الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .orders-tabs {
+        flex-direction: column;
+      }
+      
+      .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .order-footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .order-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .action-btn {
+        flex: 1;
+        text-align: center;
+      }
+      
+      .favorites-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-content {
+        padding: 0 15px;
+      }
+      
+      .orders-section {
+        padding: 10px;
+      }
+      
+      .order-body, .favorite-content {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- الهيدر الثابت -->
+  <header class="sticky-header">
+    <div class="header-content">
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-right"></i> العودة
+      </a>
+      <div class="logo-container">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+      </div>
+      <div class="search-icon-header">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- تبويبات الطلبات -->
+  <div class="orders-tabs">
+    <div class="order-tab active" data-tab="active">الطلبات النشطة</div>
+    <div class="order-tab" data-tab="previous">الطلبات السابقة</div>
+    <div class="order-tab" data-tab="favorites">المفضلة</div>
+  </div>
+
+  <!-- قسم الطلبات -->
+  <section class="orders-section">
+    <div class="section-header">
+      <h2 class="section-title" id="orders-title">الطلبات النشطة</h2>
+      <span class="results-count" id="orders-count">عرض 2 من 2 طلب</span>
+    </div>
+
+    <!-- محتوى الطلبات النشطة -->
+    <div class="orders-content" id="active-orders">
+      <!-- طلب نشط 1 -->
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-info">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا سلمية" class="restaurant-image-small">
+            <div class="order-details">
+              <h3>بيتزا سلمية</h3>
+              <p>طلب #12345</p>
+            </div>
+          </div>
+          <div class="order-status status-preparing">قيد التجهيز</div>
+        </div>
+        <div class="order-body">
+          <div class="order-items">
+            <div class="order-item">
+              <span class="item-name">بيتزا بيبروني كبيرة</span>
+              <span class="item-price">35.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">صوص ثوم إضافي</span>
+              <span class="item-price">2.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">كوكاكولا 500 مل</span>
+              <span class="item-price">4.000 د.ل</span>
+            </div>
+          </div>
+          <div class="order-summary">
+            <span>المجموع</span>
+            <span class="total-price">41.000 د.ل</span>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-date">منذ 25 دقيقة</div>
+          <div class="order-actions">
+            <button class="action-btn rate-btn">تقييم</button>
+            <button class="action-btn reorder-btn">إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- طلب نشط 2 -->
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-info">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="برغر هاوس" class="restaurant-image-small">
+            <div class="order-details">
+              <h3>برغر هاوس</h3>
+              <p>طلب #12346</p>
+            </div>
+          </div>
+          <div class="order-status status-delivering">قيد التوصيل</div>
+        </div>
+        <div class="order-body">
+          <div class="order-items">
+            <div class="order-item">
+              <span class="item-name">برغر هاوس الخاص</span>
+              <span class="item-price">22.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">بطاطس مقلية كبيرة</span>
+              <span class="item-price">6.000 د.ل</span>
+            </div>
+          </div>
+          <div class="order-summary">
+            <span>المجموع</span>
+            <span class="total-price">28.000 د.ل</span>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-date">منذ 40 دقيقة</div>
+          <div class="order-actions">
+            <button class="action-btn rate-btn">تقييم</button>
+            <button class="action-btn reorder-btn">إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- محتوى الطلبات السابقة -->
+    <div class="orders-content" id="previous-orders" style="display: none;">
+      <!-- طلب سابق 1 -->
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-info">
+            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="مشاوي العائلة" class="restaurant-image-small">
+            <div class="order-details">
+              <h3>مشاوي العائلة</h3>
+              <p>طلب #12344</p>
+            </div>
+          </div>
+          <div class="order-status status-delivered">تم التوصيل</div>
+        </div>
+        <div class="order-body">
+          <div class="order-items">
+            <div class="order-item">
+              <span class="item-name">شاورما لحم</span>
+              <span class="item-price">18.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">شاورما دجاج</span>
+              <span class="item-price">16.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">سلطة متنوعة</span>
+              <span class="item-price">8.000 د.ل</span>
+            </div>
+          </div>
+          <div class="order-summary">
+            <span>المجموع</span>
+            <span class="total-price">42.000 د.ل</span>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-date">منذ 3 أيام</div>
+          <div class="order-actions">
+            <button class="action-btn rate-btn">تقييم</button>
+            <button class="action-btn reorder-btn">إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- طلب سابق 2 -->
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-info">
+            <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="حلويات لذيذة" class="restaurant-image-small">
+            <div class="order-details">
+              <h3>حلويات لذيذة</h3>
+              <p>طلب #12343</p>
+            </div>
+          </div>
+          <div class="order-status status-delivered">تم التوصيل</div>
+        </div>
+        <div class="order-body">
+          <div class="order-items">
+            <div class="order-item">
+              <span class="item-name">كنافة نابلسية</span>
+              <span class="item-price">25.000 د.ل</span>
+            </div>
+            <div class="order-item">
+              <span class="item-name">بقلاوة</span>
+              <span class="item-price">20.000 د.ل</span>
+            </div>
+          </div>
+          <div class="order-summary">
+            <span>المجموع</span>
+            <span class="total-price">45.000 د.ل</span>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-date">منذ 5 أيام</div>
+          <div class="order-actions">
+            <button class="action-btn rate-btn">تقييم</button>
+            <button class="action-btn reorder-btn">إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- محتوى المفضلة -->
+    <div class="orders-content" id="favorites-content" style="display: none;">
+      <div class="favorites-grid">
+        <!-- مطعم مفضل 1 -->
+        <div class="favorite-card">
+          <div class="favorite-header">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا سلمية" class="favorite-image">
+            <div class="favorite-badge">مفضل</div>
+            <button class="favorite-btn active">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="favorite-content">
+            <h3 class="favorite-name">بيتزا سلمية</h3>
+            <p class="favorite-category">بيتزا • وجبات إيطالية</p>
+            <div class="favorite-rating">
+              <i class="fas fa-star"></i>
+              4.8 (124 تقييم)
+            </div>
+            <button class="view-menu-btn">عرض القائمة</button>
+          </div>
+        </div>
+
+        <!-- مطعم مفضل 2 -->
+        <div class="favorite-card">
+          <div class="favorite-header">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="برغر هاوس" class="favorite-image">
+            <div class="favorite-badge">مفضل</div>
+            <button class="favorite-btn active">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+          <div class="favorite-content">
+            <h3 class="favorite-name">برغر هاوس</h3>
+            <p class="favorite-category">برغر • وجبات سريعة</p>
+            <div class="favorite-rating">
+              <i class="fas fa-star"></i>
+              4.7 (89 تقييم)
+            </div>
+            <button class="view-menu-btn">عرض القائمة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- رسالة عدم وجود طلبات -->
+    <div class="no-orders" id="no-orders" style="display: none;">
+      <i class="fas fa-clipboard-list"></i>
+      <h3>لا توجد طلبات حالية</h3>
+      <p>لم تقم بأي طلبات حتى الآن، ابدأ بالتصفح واطلب وجبتك الأولى!</p>
+      <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+    </div>
+  </section>
+
+  <!-- الشريط السفلي -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="restaurants.html" class="nav-item">
+        <i class="fas fa-utensils"></i>
+        <span>المطاعم</span>
+      </a>
+      <a href="orders.html" class="nav-item active">
+        <i class="fas fa-shopping-bag"></i>
+        <span>طلباتي</span>
+      </a>
+      <a href="profile.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>حسابي</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // تفعيل التبويبات
+    const tabs = document.querySelectorAll('.order-tab');
+    const ordersTitle = document.getElementById('orders-title');
+    const ordersCount = document.getElementById('orders-count');
+    const activeOrders = document.getElementById('active-orders');
+    const previousOrders = document.getElementById('previous-orders');
+    const favoritesContent = document.getElementById('favorites-content');
+    const noOrders = document.getElementById('no-orders');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة النشاط من جميع التبويبات
+        tabs.forEach(t => t.classList.remove('active'));
+        // إضافة النشاط للتبويب المحدد
+        tab.classList.add('active');
+        
+        // إخفاء جميع المحتويات
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'none';
+        
+        // عرض المحتوى المناسب
+        const tabName = tab.getAttribute('data-tab');
+        
+        if (tabName === 'active') {
+          ordersTitle.textContent = 'الطلبات النشطة';
+          if (activeOrders.querySelectorAll('.order-card').length > 0) {
+            activeOrders.style.display = 'block';
+            ordersCount.textContent = `عرض ${activeOrders.querySelectorAll('.order-card').length} من ${activeOrders.querySelectorAll('.order-card').length} طلب`;
+          } else {
+            noOrders.style.display = 'block';
+            ordersCount.textContent = 'عرض 0 من 0 طلب';
+          }
+        } else if (tabName === 'previous') {
+          ordersTitle.textContent = 'الطلبات السابقة';
+          if (previousOrders.querySelectorAll('.order-card').length > 0) {
+            previousOrders.style.display = 'block';
+            ordersCount.textContent = `عرض ${previousOrders.querySelectorAll('.order-card').length} من ${previousOrders.querySelectorAll('.order-card').length} طلب`;
+          } else {
+            noOrders.style.display = 'block';
+            ordersCount.textContent = 'عرض 0 من 0 طلب';
+          }
+        } else if (tabName === 'favorites') {
+          ordersTitle.textContent = 'المفضلة';
+          if (favoritesContent.querySelectorAll('.favorite-card').length > 0) {
+            favoritesContent.style.display = 'block';
+            ordersCount.textContent = `عرض ${favoritesContent.querySelectorAll('.favorite-card').length} من ${favoritesContent.querySelectorAll('.favorite-card').length} مفضلة`;
+          } else {
+            noOrders.innerHTML = `
+              <i class="fas fa-heart"></i>
+              <h3>لا توجد مطاعم مفضلة</h3>
+              <p>لم تقم بإضافة أي مطاعم إلى المفضلة حتى الآن</p>
+              <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+            `;
+            noOrders.style.display = 'block';
+            ordersCount.textContent = 'عرض 0 من 0 مفضلة';
+          }
+        }
+      });
+    });
+
+    // تفعيل زر المفضلة
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const icon = this.querySelector('i');
+        if (this.classList.contains('active')) {
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+        }
+      });
+    });
+
+    // تفعيل زر إعادة الطلب
+    document.querySelectorAll('.reorder-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('تمت إضافة الوجبات إلى سلة التسوق');
+        // يمكن استبدال هذا بتنفيذ حقيقي لإضافة الطلب إلى السلة
+      });
+    });
+
+    // تفعيل زر التقييم
+    document.querySelectorAll('.rate-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('سيتم فتح نموذج التقييم');
+        // يمكن استبدال هذا بتنفيذ حقيقي لنموذج التقييم
+      });
+    });
+
+    // تفعيل زر عرض القائمة
+    document.querySelectorAll('.view-menu-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('سيتم الانتقال إلى صفحة المطعم');
+        // يمكن استبدال هذا بتنفيذ حقيقي للانتقال إلى صفحة المطعم
+      });
+    });
+
+    // تفعيل البحث عند النقر على الأيقونة
+    document.querySelector('.search-icon-header').addEventListener('click', function() {
+      alert('سيتم فتح شريط البحث هنا');
+      // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
+    });
+  </script>
+</body>
+</html>
