@@ -551,7 +551,10 @@
       align-items: center;
       text-decoration: none;
       color: var(--medium-gray);
-      font-size: 0.8rem;
+      font-size: 0.7rem;
+      flex: 1;
+      min-width: 0;
+      padding: 0 5px;
     }
 
     .nav-item.active {
@@ -559,7 +562,7 @@
     }
 
     .nav-icon {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       margin-bottom: 5px;
     }
 
@@ -615,6 +618,14 @@
       .offer-discount {
         font-size: 1.6rem;
       }
+      
+      .nav-item {
+        font-size: 0.65rem;
+      }
+      
+      .nav-icon {
+        font-size: 1.1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -651,6 +662,14 @@
       
       .offer-discount {
         font-size: 1.4rem;
+      }
+      
+      .nav-item {
+        font-size: 0.6rem;
+      }
+      
+      .nav-icon {
+        font-size: 1rem;
       }
     }
   </style>
@@ -860,6 +879,10 @@
       <a href="https://deluxe-genie-d796da.netlify.app/restaurants.html" class="nav-item">
         <i class="fas fa-utensils nav-icon"></i>
         <span>المطاعم</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-shopping-bag nav-icon"></i>
+        <span>طلباتي</span>
       </a>
       <a href="#" class="nav-item">
         <i class="fas fa-percentage nav-icon"></i>
