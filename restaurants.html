@@ -92,16 +92,14 @@
       transform: scale(1.1);
     }
 
-    /* أزرار الفلترة تحت الهيدر - تم تعديلها */
+    /* أزرار الفلترة تحت الهيدر - تم إزالة التثبيت */
     .filter-buttons {
       display: flex;
       justify-content: space-between;
       padding: 15px 20px;
       background: var(--white);
       box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 80px; /* يقع تحت الهيدر مباشرة */
-      z-index: 950; /* أقل من الهيدر */
+      /* تم إزالة position: sticky لجعل الشريط جزءًا من تدفق الصفحة */
     }
 
     .filter-btn {
@@ -285,7 +283,7 @@
     .restaurants-section {
       padding: 20px;
       max-width: 1200px;
-      margin: 140px auto 0; /* زيادة الهامش العلوي لاستيعاب العناصر الثابتة */
+      margin: 0 auto; /* تم إزالة الهامش العلوي الإضافي */
     }
 
     .section-header {
@@ -490,10 +488,6 @@
       .filter-btn, .search-btn {
         justify-content: center;
       }
-      
-      .restaurants-section {
-        margin-top: 160px; /* زيادة الهامش للشاشات الصغيرة */
-      }
     }
 
     @media (max-width: 480px) {
@@ -503,7 +497,6 @@
       
       .restaurants-section {
         padding: 10px;
-        margin-top: 170px; /* زيادة الهامش للشاشات الصغيرة جدًا */
       }
       
       .card-content {
@@ -532,7 +525,7 @@
     </div>
   </header>
 
-  <!-- أزرار الفلترة تحت الهيدر - أصبحت ثابتة الآن -->
+  <!-- أزرار الفلترة تحت الهيدر - لم تعد ثابتة -->
   <div class="filter-buttons">
     <button class="filter-btn" id="filterBtn">
       <i class="fas fa-filter"></i>
