@@ -38,7 +38,7 @@
       background-color: var(--light-gray);
       color: var(--black);
       line-height: 1.6;
-      padding-bottom: 80px; /* مساحة للشريط السفلي */
+      padding-bottom: 80px;
     }
 
     /* الهيدر الثابت */
@@ -92,14 +92,13 @@
       transform: scale(1.1);
     }
 
-    /* أزرار الفلترة تحت الهيدر - تم إزالة التثبيت */
+    /* أزرار الفلترة تحت الهيدر */
     .filter-buttons {
       display: flex;
       justify-content: space-between;
       padding: 15px 20px;
       background: var(--white);
       box-shadow: var(--shadow-sm);
-      /* تم إزالة position: sticky لجعل الشريط جزءًا من تدفق الصفحة */
     }
 
     .filter-btn {
@@ -283,7 +282,7 @@
     .restaurants-section {
       padding: 20px;
       max-width: 1200px;
-      margin: 0 auto; /* تم إزالة الهامش العلوي الإضافي */
+      margin: 0 auto;
     }
 
     .section-header {
@@ -310,7 +309,7 @@
       gap: 25px;
     }
 
-    /* بطاقة المطعم - تصميم مبسط */
+    /* بطاقة المطعم - مع إضافة الشعار الدائري */
     .restaurant-card {
       background: linear-gradient(135deg, #ffffff, #f8f9fa);
       border-radius: var(--border-radius-lg);
@@ -338,6 +337,27 @@
 
     .restaurant-card:hover .restaurant-image {
       transform: scale(1.05);
+    }
+
+    /* الشعار الدائري */
+    .restaurant-logo {
+      position: absolute;
+      bottom: -25px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      z-index: 3;
+      overflow: hidden;
+    }
+
+    .restaurant-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .card-badge {
@@ -380,7 +400,7 @@
     }
 
     .card-content {
-      padding: 20px;
+      padding: 30px 20px 20px;
     }
 
     .restaurant-name {
@@ -488,6 +508,16 @@
       .filter-btn, .search-btn {
         justify-content: center;
       }
+      
+      .restaurant-logo {
+        width: 50px;
+        height: 50px;
+        bottom: -20px;
+      }
+      
+      .card-content {
+        padding: 25px 15px 15px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -500,11 +530,18 @@
       }
       
       .card-content {
-        padding: 15px;
+        padding: 25px 15px 15px;
       }
       
       .filter-sidebar {
         width: 90%;
+      }
+      
+      .restaurant-logo {
+        width: 45px;
+        height: 45px;
+        bottom: -18px;
+        right: 15px;
       }
     }
   </style>
@@ -525,7 +562,7 @@
     </div>
   </header>
 
-  <!-- أزرار الفلترة تحت الهيدر - لم تعد ثابتة -->
+  <!-- أزرار الفلترة تحت الهيدر -->
   <div class="filter-buttons">
     <button class="filter-btn" id="filterBtn">
       <i class="fas fa-filter"></i>
@@ -664,6 +701,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="بيتزا سلمية" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8P1DcR1T/pizza-logo.png" alt="بيتزا سلمية">
+          </div>
           <div class="card-badge">مميز</div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
@@ -685,6 +725,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="برغر هاوس" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8z0W0H2F/burger-logo.png" alt="برغر هاوس">
+          </div>
           <div class="card-badge">جديد</div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
@@ -706,6 +749,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="مشاوي العائلة" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8Cz7w0qK/grill-logo.png" alt="مشاوي العائلة">
+          </div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
           </button>
@@ -726,6 +772,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="حلويات لذيذة" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8P3q7v2V/dessert-logo.png" alt="حلويات لذيذة">
+          </div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
           </button>
@@ -746,6 +795,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="مطعم الأصالة" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8z3T2c7N/syrian-logo.png" alt="مطعم الأصالة">
+          </div>
           <div class="card-badge">عرض خاص</div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
@@ -767,6 +819,9 @@
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="مطعم البحر" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://i.postimg.cc/8C9Y4b8J/seafood-logo.png" alt="مطعم البحر">
+          </div>
           <button class="favorite-btn">
             <i class="far fa-heart"></i>
           </button>
@@ -784,33 +839,31 @@
     </div>
   </section>
 
-<!-- الشريط السفلي -->
-<nav class="bottom-nav">
-  <div class="nav-items">
-    <!-- تحديث رابط الرئيسية -->
-    <a href="index.html" class="nav-item">
-      <i class="fas fa-home"></i>
-      <span>الرئيسية</span>
-    </a>
-
-    <a href="#" class="nav-item active">
-      <i class="fas fa-utensils"></i>
-      <span>المطاعم</span>
-    </a>
-    <a href="#" class="nav-item">
-      <i class="fas fa-percentage"></i>
-      <span>العروض</span>
-    </a>
-    <a href="#" class="nav-item">
-      <i class="fas fa-shopping-bag"></i>
-      <span>طلباتي</span>
-    </a>
-    <a href="#" class="nav-item">
-      <i class="fas fa-user"></i>
-      <span>حسابي</span>
-    </a>
-  </div>
-</nav>
+  <!-- الشريط السفلي -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="#" class="nav-item active">
+        <i class="fas fa-utensils"></i>
+        <span>المطاعم</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-percentage"></i>
+        <span>العروض</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-shopping-bag"></i>
+        <span>طلباتي</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>حسابي</span>
+      </a>
+    </div>
+  </nav>
 
   <script>
     // تفعيل زر المفضلة
@@ -831,7 +884,6 @@
     // تفعيل البحث عند النقر على الأيقونة
     document.querySelector('.search-icon-header').addEventListener('click', function() {
       alert('سيتم فتح شريط البحث هنا');
-      // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
     });
 
     // تفعيل الشاشة الجانبية للفلترة
@@ -860,7 +912,6 @@
     // تفعيل خيارات الفلترة
     document.querySelectorAll('.filter-option').forEach(option => {
       option.addEventListener('click', function() {
-        // إذا كان radio button
         const radioInput = this.querySelector('input[type="radio"]');
         if (radioInput) {
           document.querySelectorAll(`input[name="${radioInput.name}"]`).forEach(input => {
@@ -868,9 +919,7 @@
           });
           this.classList.add('active');
           radioInput.checked = true;
-        } 
-        // إذا كان checkbox
-        else {
+        } else {
           const checkboxInput = this.querySelector('input[type="checkbox"]');
           if (checkboxInput) {
             checkboxInput.checked = !checkboxInput.checked;
@@ -883,7 +932,6 @@
     // تفعيل زر البحث في الفلترة
     document.querySelector('.search-btn').addEventListener('click', function() {
       alert('سيتم فتح شاشة البحث المتقدم');
-      // يمكن استبدال هذا بتنفيذ حقيقي للبحث
     });
   </script>
 </body>
