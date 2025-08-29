@@ -73,6 +73,9 @@
       border-radius: 20px;
       transition: all 0.3s ease;
       background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .back-btn:hover {
@@ -185,6 +188,7 @@
 
     .browse-btn:hover {
       background: var(--accent-red);
+      transform: translateY(-2px);
     }
 
     /* بطاقة الطلب */
@@ -333,6 +337,9 @@
       transition: all 0.3s ease;
       font-size: 0.9rem;
       border: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .reorder-btn {
@@ -342,6 +349,7 @@
 
     .reorder-btn:hover {
       background: var(--accent-red);
+      transform: translateY(-2px);
     }
 
     .rate-btn {
@@ -351,6 +359,7 @@
 
     .rate-btn:hover {
       background: var(--medium-gray);
+      transform: translateY(-2px);
     }
 
     /* تبويب المفضلة */
@@ -466,6 +475,7 @@
 
     .view-menu-btn:hover {
       background: var(--accent-red);
+      transform: translateY(-2px);
     }
 
     /* الشريط السفلي */
@@ -506,22 +516,27 @@
     .nav-item i {
       font-size: 1.2rem;
       margin-bottom: 5px;
+      transition: all 0.3s ease;
     }
 
-    /* تأثير النقر على زر الشريط السفلي */
-    .nav-item:active {
-      transform: scale(0.95);
+    .nav-item.active i {
+      transform: scale(1.15);
     }
 
-    /* مؤشر للزر النشط */
+    /* مؤشر الصفحة النشطة */
     .nav-item.active::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       width: 6px;
       height: 6px;
       background-color: var(--primary-orange);
       border-radius: 50%;
+    }
+
+    /* تأثير النقر على الأزرار */
+    .nav-item:active {
+      transform: scale(0.95);
     }
 
     /* التكيف مع الشاشات الصغيرة */
@@ -556,7 +571,13 @@
       }
       
       .nav-item.active::after {
-        bottom: -8px;
+        bottom: -6px;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
     }
 
@@ -571,6 +592,15 @@
       
       .order-body, .favorite-content {
         padding: 15px;
+      }
+      
+      .order-tab {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        font-size: 1.7rem;
       }
     }
   </style>
@@ -643,8 +673,8 @@
         <div class="order-footer">
           <div class="order-date">منذ 25 دقيقة</div>
           <div class="order-actions">
-            <button class="action-btn rate-btn">تقييم</button>
-            <button class="action-btn reorder-btn">إعادة الطلب</button>
+            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
+            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
           </div>
         </div>
       </div>
@@ -681,8 +711,8 @@
         <div class="order-footer">
           <div class="order-date">منذ 40 دقيقة</div>
           <div class="order-actions">
-            <button class="action-btn rate-btn">تقييم</button>
-            <button class="action-btn reorder-btn">إعادة الطلب</button>
+            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
+            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
           </div>
         </div>
       </div>
@@ -726,8 +756,8 @@
         <div class="order-footer">
           <div class="order-date">منذ 3 أيام</div>
           <div class="order-actions">
-            <button class="action-btn rate-btn">تقييم</button>
-            <button class="action-btn reorder-btn">إعادة الطلب</button>
+            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
+            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
           </div>
         </div>
       </div>
@@ -764,8 +794,8 @@
         <div class="order-footer">
           <div class="order-date">منذ 5 أيام</div>
           <div class="order-actions">
-            <button class="action-btn rate-btn">تقييم</button>
-            <button class="action-btn reorder-btn">إعادة الطلب</button>
+            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
+            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
           </div>
         </div>
       </div>
@@ -823,7 +853,7 @@
       <i class="fas fa-clipboard-list"></i>
       <h3>لا توجد طلبات حالية</h3>
       <p>لم تقم بأي طلبات حتى الآن، ابدأ بالتصفح واطلب وجبتك الأولى!</p>
-      <a href="restaurants.html" class="browse-btn">تصفح المطاعм</a>
+      <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
     </div>
   </section>
 
@@ -930,6 +960,12 @@
     // تفعيل زر إعادة الطلب
     document.querySelectorAll('.reorder-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        // تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+        
         alert('تمت إضافة الوجبات إلى سلة التسوق');
         // يمكن استبدال هذا بتنفيذ حقيقي لإضافة الطلب إلى السلة
       });
@@ -938,6 +974,12 @@
     // تفعيل زر التقييم
     document.querySelectorAll('.rate-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        // تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+        
         alert('سيتم فتح نموذج التقييم');
         // يمكن استبدال هذا بتنفيذ حقيقي لنموذج التقييم
       });
@@ -946,6 +988,12 @@
     // تفعيل زر عرض القائمة
     document.querySelectorAll('.view-menu-btn').forEach(btn => {
       btn.addEventListener('click', function() {
+        // تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+        
         alert('سيتم الانتقال إلى صفحة المطعم');
         // يمكن استبدال هذا بتنفيذ حقيقي للانتقال إلى صفحة المطعم
       });
@@ -953,31 +1001,37 @@
 
     // تفعيل البحث عند النقر على الأيقونة
     document.querySelector('.search-icon-header').addEventListener('click', function() {
+      // تأثير النقر
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200);
+      
       alert('سيتم فتح شريط البحث هنا');
       // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
     });
 
-    // إضافة تأثير عند النقر على زر طلباتي في الشريط السفلي
+    // إضافة تأثيرات النقر على أزرار الشريط السفلي
     document.querySelectorAll('.nav-item').forEach(item => {
       item.addEventListener('click', function(e) {
-        // إزالة النشاط من جميع الأزرار
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        
-        // إضافة النشاط للزر المحدد
-        this.classList.add('active');
-        
-        // إذا كان الزر هو زر طلباتي، نضيف تأثيرًا مرئيًا
-        if (this.getAttribute('href') === 'orders.html') {
-          e.preventDefault(); // منع الانتقال إلى الصفحة (لأننا فيها بالفعل)
+        // إذا كان الزر هو زر طلباتي والصفحة الحالية هي صفحة الطلبات
+        if (this.getAttribute('href') === 'orders.html' && window.location.pathname.includes('orders.html')) {
+          e.preventDefault(); // منع الانتقال إلى الصفحة
           
-          // تأثير اهتزاز بسيط
-          this.style.transform = 'scale(0.95)';
+          // تأثير النقر
+          this.style.transform = 'scale(0.9)';
           setTimeout(() => {
             this.style.transform = '';
           }, 200);
           
           // إظهار رسالة توضيحية
           alert('أنت بالفعل في صفحة طلباتي');
+        } else {
+          // تأثير النقر للأزرار الأخرى
+          this.style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 200);
         }
       });
     });
