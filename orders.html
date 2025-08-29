@@ -149,7 +149,7 @@
     /* رسالة عدم وجود طلبات */
     .no-orders {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       background: var(--white);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-sm);
@@ -157,38 +157,43 @@
     }
 
     .no-orders i {
-      font-size: 4rem;
+      font-size: 5rem;
       color: var(--medium-gray);
       margin-bottom: 20px;
+      opacity: 0.7;
     }
 
     .no-orders h3 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--dark-blue);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .no-orders p {
       color: var(--medium-gray);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
     }
 
     .browse-btn {
       background: var(--primary-orange);
       color: var(--white);
       border: none;
-      padding: 12px 30px;
+      padding: 15px 40px;
       border-radius: 30px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .browse-btn:hover {
       background: var(--accent-red);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
     }
 
     /* بطاقة الطلب */
@@ -579,6 +584,18 @@
         align-items: flex-start;
         gap: 10px;
       }
+      
+      .no-orders {
+        padding: 40px 15px;
+      }
+      
+      .no-orders i {
+        font-size: 4rem;
+      }
+      
+      .no-orders h3 {
+        font-size: 1.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -601,6 +618,27 @@
       
       .section-title {
         font-size: 1.7rem;
+      }
+      
+      .no-orders {
+        padding: 30px 10px;
+      }
+      
+      .no-orders i {
+        font-size: 3.5rem;
+      }
+      
+      .no-orders h3 {
+        font-size: 1.3rem;
+      }
+      
+      .no-orders p {
+        font-size: 1rem;
+      }
+      
+      .browse-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -631,220 +669,24 @@
   <!-- قسم الطلبات -->
   <section class="orders-section">
     <div class="section-header">
-      <h2 class="section-title" id="orders-title">الطلبات النشطة</h2>
+      <h2 class="section-title" id="orders-title">طلباتي</h2>
       <span class="results-count" id="orders-count">عرض 2 من 2 طلب</span>
     </div>
 
     <!-- محتوى الطلبات النشطة -->
     <div class="orders-content" id="active-orders">
-      <!-- طلب نشط 1 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-info">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="بيتزا سلمية" class="restaurant-image-small">
-            <div class="order-details">
-              <h3>بيتزا سلمية</h3>
-              <p>طلب #12345</p>
-            </div>
-          </div>
-          <div class="order-status status-preparing">قيد التجهيز</div>
-        </div>
-        <div class="order-body">
-          <div class="order-items">
-            <div class="order-item">
-              <span class="item-name">بيتزا بيبروني كبيرة</span>
-              <span class="item-price">35.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">صوص ثوم إضافي</span>
-              <span class="item-price">2.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">كوكاكولا 500 مل</span>
-              <span class="item-price">4.000 د.ل</span>
-            </div>
-          </div>
-          <div class="order-summary">
-            <span>المجموع</span>
-            <span class="total-price">41.000 د.ل</span>
-          </div>
-        </div>
-        <div class="order-footer">
-          <div class="order-date">منذ 25 دقيقة</div>
-          <div class="order-actions">
-            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
-            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- طلب نشط 2 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-info">
-            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="برغر هاوس" class="restaurant-image-small">
-            <div class="order-details">
-              <h3>برغر هاوس</h3>
-              <p>طلب #12346</p>
-            </div>
-          </div>
-          <div class="order-status status-delivering">قيد التوصيل</div>
-        </div>
-        <div class="order-body">
-          <div class="order-items">
-            <div class="order-item">
-              <span class="item-name">برغر هاوس الخاص</span>
-              <span class="item-price">22.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">بطاطس مقلية كبيرة</span>
-              <span class="item-price">6.000 د.ل</span>
-            </div>
-          </div>
-          <div class="order-summary">
-            <span>المجموع</span>
-            <span class="total-price">28.000 د.ل</span>
-          </div>
-        </div>
-        <div class="order-footer">
-          <div class="order-date">منذ 40 دقيقة</div>
-          <div class="order-actions">
-            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
-            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
+      <!-- سيتم عرض الطلبات النشطة هنا -->
     </div>
 
     <!-- محتوى الطلبات السابقة -->
-    <div class="orders-content" id="previous-orders" style="display: none;">
-      <!-- طلب سابق 1 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-info">
-            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="مشاوي العائلة" class="restaurant-image-small">
-            <div class="order-details">
-              <h3>مشاوي العائلة</h3>
-              <p>طلب #12344</p>
-            </div>
-          </div>
-          <div class="order-status status-delivered">تم التوصيل</div>
-        </div>
-        <div class="order-body">
-          <div class="order-items">
-            <div class="order-item">
-              <span class="item-name">شاورما لحم</span>
-              <span class="item-price">18.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">شاورما دجاج</span>
-              <span class="item-price">16.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">سلطة متنوعة</span>
-              <span class="item-price">8.000 د.ل</span>
-            </div>
-          </div>
-          <div class="order-summary">
-            <span>المجموع</span>
-            <span class="total-price">42.000 د.ل</span>
-          </div>
-        </div>
-        <div class="order-footer">
-          <div class="order-date">منذ 3 أيام</div>
-          <div class="order-actions">
-            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
-            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- طلب سابق 2 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-info">
-            <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="حلويات لذيذة" class="restaurant-image-small">
-            <div class="order-details">
-              <h3>حلويات لذيذة</h3>
-              <p>طلب #12343</p>
-            </div>
-          </div>
-          <div class="order-status status-delivered">تم التوصيل</div>
-        </div>
-        <div class="order-body">
-          <div class="order-items">
-            <div class="order-item">
-              <span class="item-name">كنافة نابلسية</span>
-              <span class="item-price">25.000 د.ل</span>
-            </div>
-            <div class="order-item">
-              <span class="item-name">بقلاوة</span>
-              <span class="item-price">20.000 د.ل</span>
-            </div>
-          </div>
-          <div class="order-summary">
-            <span>المجموع</span>
-            <span class="total-price">45.000 د.ل</span>
-          </div>
-        </div>
-        <div class="order-footer">
-          <div class="order-date">منذ 5 أيام</div>
-          <div class="order-actions">
-            <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
-            <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
+    <div class="orders-content" id="previous-orders">
+      <!-- سيتم عرض الطلبات السابقة هنا -->
     </div>
 
     <!-- محتوى المفضلة -->
     <div class="orders-content" id="favorites-content" style="display: none;">
       <div class="favorites-grid">
-        <!-- مطعم مفضل 1 -->
-        <div class="favorite-card">
-          <div class="favorite-header">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="بيتزا سلمية" class="favorite-image">
-            <div class="favorite-badge">مفضل</div>
-            <button class="favorite-btn active">
-              <i class="fas fa-heart"></i>
-            </button>
-          </div>
-          <div class="favorite-content">
-            <h3 class="favorite-name">بيتزا سلمية</h3>
-            <p class="favorite-category">بيتزا • وجبات إيطالية</p>
-            <div class="favorite-rating">
-              <i class="fas fa-star"></i>
-              4.8 (124 تقييم)
-            </div>
-            <button class="view-menu-btn">عرض القائمة</button>
-          </div>
-        </div>
-
-        <!-- مطعم مفضل 2 -->
-        <div class="favorite-card">
-          <div class="favorite-header">
-            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="برغر هاوس" class="favorite-image">
-            <div class="favorite-badge">مفضل</div>
-            <button class="favorite-btn active">
-              <i class="fas fa-heart"></i>
-            </button>
-          </div>
-          <div class="favorite-content">
-            <h3 class="favorite-name">برغر هاوس</h3>
-            <p class="favorite-category">برغر • وجبات سريعة</p>
-            <div class="favorite-rating">
-              <i class="fas fa-star"></i>
-              4.7 (89 تقييم)
-            </div>
-            <button class="view-menu-btn">عرض القائمة</button>
-          </div>
-        </div>
+        <!-- سيتم عرض المطاعم المفضلة هنا -->
       </div>
     </div>
 
@@ -880,7 +722,84 @@
   </nav>
 
   <script>
-    // تفعيل التبويبات
+    // بيانات الطلبات (يمكن استبدالها ببيانات حقيقية من قاعدة البيانات)
+    const userOrders = {
+      hasOrders: true, // تغيير إلى false لرؤية حالة عدم وجود طلبات
+      activeOrders: [
+        {
+          id: "12345",
+          restaurant: "بيتزا سلمية",
+          image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          status: "preparing",
+          statusText: "قيد التجهيز",
+          date: "منذ 25 دقيقة",
+          items: [
+            { name: "بيتزا بيبروني كبيرة", price: "35.000 د.ل" },
+            { name: "صوص ثوم إضافي", price: "2.000 د.ل" },
+            { name: "كوكاكولا 500 مل", price: "4.000 د.ل" }
+          ],
+          total: "41.000 د.ل"
+        },
+        {
+          id: "12346",
+          restaurant: "برغر هاوس",
+          image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          status: "delivering",
+          statusText: "قيد التوصيل",
+          date: "منذ 40 دقيقة",
+          items: [
+            { name: "برغر هاوس الخاص", price: "22.000 د.ل" },
+            { name: "بطاطس مقلية كبيرة", price: "6.000 د.ل" }
+          ],
+          total: "28.000 د.ل"
+        }
+      ],
+      previousOrders: [
+        {
+          id: "12344",
+          restaurant: "مشاوي العائلة",
+          image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          status: "delivered",
+          statusText: "تم التوصيل",
+          date: "منذ 3 أيام",
+          items: [
+            { name: "شاورما لحم", price: "18.000 د.ل" },
+            { name: "شاورما دجاج", price: "16.000 د.ل" },
+            { name: "سلطة متنوعة", price: "8.000 د.ل" }
+          ],
+          total: "42.000 د.ل"
+        },
+        {
+          id: "12343",
+          restaurant: "حلويات لذيذة",
+          image: "https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          status: "delivered",
+          statusText: "تم التوصيل",
+          date: "منذ 5 أيام",
+          items: [
+            { name: "كنافة نابلسية", price: "25.000 د.ل" },
+            { name: "بقلاوة", price: "20.000 د.ل" }
+          ],
+          total: "45.000 د.ل"
+        }
+      ],
+      favorites: [
+        {
+          name: "بيتزا سلمية",
+          image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          category: "بيتزا • وجبات إيطالية",
+          rating: "4.8 (124 تقييم)"
+        },
+        {
+          name: "برغر هاوس",
+          image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          category: "برغر • وجبات سريعة",
+          rating: "4.7 (89 تقييم)"
+        }
+      ]
+    };
+
+    // عناصر DOM
     const tabs = document.querySelectorAll('.order-tab');
     const ordersTitle = document.getElementById('orders-title');
     const ordersCount = document.getElementById('orders-count');
@@ -889,6 +808,206 @@
     const favoritesContent = document.getElementById('favorites-content');
     const noOrders = document.getElementById('no-orders');
 
+    // تهيئة الصفحة عند التحميل
+    document.addEventListener('DOMContentLoaded', function() {
+      // التحقق من وجود طلبات
+      if (!userOrders.hasOrders) {
+        showNoOrders();
+      } else {
+        loadActiveOrders();
+        loadPreviousOrders();
+        loadFavorites();
+        showActiveOrders();
+      }
+    });
+
+    // عرض رسالة عدم وجود طلبات
+    function showNoOrders() {
+      // إخفاء جميع المحتويات
+      activeOrders.style.display = 'none';
+      previousOrders.style.display = 'none';
+      favoritesContent.style.display = 'none';
+      
+      // إظهار رسالة عدم وجود طلبات
+      noOrders.style.display = 'block';
+      ordersCount.textContent = 'عرض 0 من 0 طلب';
+    }
+
+    // تحميل الطلبات النشطة
+    function loadActiveOrders() {
+      if (userOrders.activeOrders.length === 0) {
+        activeOrders.innerHTML = '<div class="no-orders"><i class="fas fa-clock"></i><h3>لا توجد طلبات نشطة</h3><p>ليس لديك أي طلبات قيد التجهيز أو التوصيل حالياً</p></div>';
+      } else {
+        let activeOrdersHTML = '';
+        userOrders.activeOrders.forEach(order => {
+          activeOrdersHTML += generateOrderCard(order);
+        });
+        activeOrders.innerHTML = activeOrdersHTML;
+      }
+    }
+
+    // تحميل الطلبات السابقة
+    function loadPreviousOrders() {
+      if (userOrders.previousOrders.length === 0) {
+        previousOrders.innerHTML = '<div class="no-orders"><i class="fas fa-history"></i><h3>لا توجد طلبات سابقة</h3><p>لم تقم بأي طلبات سابقة حتى الآن</p></div>';
+      } else {
+        let previousOrdersHTML = '';
+        userOrders.previousOrders.forEach(order => {
+          previousOrdersHTML += generateOrderCard(order);
+        });
+        previousOrders.innerHTML = previousOrdersHTML;
+      }
+    }
+
+    // تحميل المفضلة
+    function loadFavorites() {
+      if (userOrders.favorites.length === 0) {
+        favoritesContent.innerHTML = '<div class="no-orders"><i class="fas fa-heart"></i><h3>لا توجد مطاعم مفضلة</h3><p>لم تقم بإضافة أي مطاعم إلى المفضلة حتى الآن</p><a href="restaurants.html" class="browse-btn">تصفح المطاعم</a></div>';
+      } else {
+        let favoritesHTML = '';
+        userOrders.favorites.forEach(favorite => {
+          favoritesHTML += `
+            <div class="favorite-card">
+              <div class="favorite-header">
+                <img src="${favorite.image}" alt="${favorite.name}" class="favorite-image">
+                <div class="favorite-badge">مفضل</div>
+                <button class="favorite-btn active">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+              <div class="favorite-content">
+                <h3 class="favorite-name">${favorite.name}</h3>
+                <p class="favorite-category">${favorite.category}</p>
+                <div class="favorite-rating">
+                  <i class="fas fa-star"></i>
+                  ${favorite.rating}
+                </div>
+                <button class="view-menu-btn">عرض القائمة</button>
+              </div>
+            </div>
+          `;
+        });
+        favoritesContent.innerHTML = `<div class="favorites-grid">${favoritesHTML}</div>`;
+      }
+    }
+
+    // توليد بطاقة الطلب
+    function generateOrderCard(order) {
+      let itemsHTML = '';
+      order.items.forEach(item => {
+        itemsHTML += `
+          <div class="order-item">
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">${item.price}</span>
+          </div>
+        `;
+      });
+
+      return `
+        <div class="order-card">
+          <div class="order-header">
+            <div class="order-info">
+              <img src="${order.image}" alt="${order.restaurant}" class="restaurant-image-small">
+              <div class="order-details">
+                <h3>${order.restaurant}</h3>
+                <p>طلب #${order.id}</p>
+              </div>
+            </div>
+            <div class="order-status status-${order.status}">${order.statusText}</div>
+          </div>
+          <div class="order-body">
+            <div class="order-items">
+              ${itemsHTML}
+            </div>
+            <div class="order-summary">
+              <span>المجموع</span>
+              <span class="total-price">${order.total}</span>
+            </div>
+          </div>
+          <div class="order-footer">
+            <div class="order-date">${order.date}</div>
+            <div class="order-actions">
+              <button class="action-btn rate-btn"><i class="fas fa-star"></i> تقييم</button>
+              <button class="action-btn reorder-btn"><i class="fas fa-redo"></i> إعادة الطلب</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // عرض الطلبات النشطة
+    function showActiveOrders() {
+      ordersTitle.textContent = 'الطلبات النشطة';
+      if (userOrders.activeOrders.length > 0) {
+        activeOrders.style.display = 'block';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'none';
+        ordersCount.textContent = `عرض ${userOrders.activeOrders.length} من ${userOrders.activeOrders.length} طلب`;
+      } else {
+        ordersCount.textContent = 'عرض 0 من 0 طلب';
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'block';
+        noOrders.innerHTML = `
+          <i class="fas fa-clock"></i>
+          <h3>لا توجد طلبات نشطة</h3>
+          <p>ليس لديك أي طلبات قيد التجهيز أو التوصيل حالياً</p>
+          <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+        `;
+      }
+    }
+
+    // عرض الطلبات السابقة
+    function showPreviousOrders() {
+      ordersTitle.textContent = 'الطلبات السابقة';
+      if (userOrders.previousOrders.length > 0) {
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'block';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'none';
+        ordersCount.textContent = `عرض ${userOrders.previousOrders.length} من ${userOrders.previousOrders.length} طلب`;
+      } else {
+        ordersCount.textContent = 'عرض 0 من 0 طلب';
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'block';
+        noOrders.innerHTML = `
+          <i class="fas fa-history"></i>
+          <h3>لا توجد طلبات سابقة</h3>
+          <p>لم تقم بأي طلبات سابقة حتى الآن</p>
+          <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+        `;
+      }
+    }
+
+    // عرض المفضلة
+    function showFavorites() {
+      ordersTitle.textContent = 'المفضلة';
+      if (userOrders.favorites.length > 0) {
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'block';
+        noOrders.style.display = 'none';
+        ordersCount.textContent = `عرض ${userOrders.favorites.length} من ${userOrders.favorites.length} مفضلة`;
+      } else {
+        ordersCount.textContent = 'عرض 0 من 0 مفضلة';
+        activeOrders.style.display = 'none';
+        previousOrders.style.display = 'none';
+        favoritesContent.style.display = 'none';
+        noOrders.style.display = 'block';
+        noOrders.innerHTML = `
+          <i class="fas fa-heart"></i>
+          <h3>لا توجد مطاعم مفضلة</h3>
+          <p>لم تقم بإضافة أي مطاعم إلى المفضلة حتى الآن</p>
+          <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+        `;
+      }
+    }
+
+    // تفعيل التبويبات
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         // إزالة النشاط من جميع التبويبات
@@ -896,107 +1015,78 @@
         // إضافة النشاط للتبويب المحدد
         tab.classList.add('active');
         
-        // إخفاء جميع المحتويات
-        activeOrders.style.display = 'none';
-        previousOrders.style.display = 'none';
-        favoritesContent.style.display = 'none';
-        noOrders.style.display = 'none';
-        
         // عرض المحتوى المناسب
         const tabName = tab.getAttribute('data-tab');
         
         if (tabName === 'active') {
-          ordersTitle.textContent = 'الطلبات النشطة';
-          if (activeOrders.querySelectorAll('.order-card').length > 0) {
-            activeOrders.style.display = 'block';
-            ordersCount.textContent = `عرض ${activeOrders.querySelectorAll('.order-card').length} من ${activeOrders.querySelectorAll('.order-card').length} طلب`;
-          } else {
-            noOrders.style.display = 'block';
-            ordersCount.textContent = 'عرض 0 من 0 طلب';
-          }
+          showActiveOrders();
         } else if (tabName === 'previous') {
-          ordersTitle.textContent = 'الطلبات السابقة';
-          if (previousOrders.querySelectorAll('.order-card').length > 0) {
-            previousOrders.style.display = 'block';
-            ordersCount.textContent = `عرض ${previousOrders.querySelectorAll('.order-card').length} من ${previousOrders.querySelectorAll('.order-card').length} طلب`;
-          } else {
-            noOrders.style.display = 'block';
-            ordersCount.textContent = 'عرض 0 من 0 طلب';
-          }
+          showPreviousOrders();
         } else if (tabName === 'favorites') {
-          ordersTitle.textContent = 'المفضلة';
-          if (favoritesContent.querySelectorAll('.favorite-card').length > 0) {
-            favoritesContent.style.display = 'block';
-            ordersCount.textContent = `عرض ${favoritesContent.querySelectorAll('.favorite-card').length} من ${favoritesContent.querySelectorAll('.favorite-card').length} مفضلة`;
-          } else {
-            noOrders.innerHTML = `
-              <i class="fas fa-heart"></i>
-              <h3>لا توجد مطاعم مفضلة</h3>
-              <p>لم تقم بإضافة أي مطاعم إلى المفضلة حتى الآن</p>
-              <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
-            `;
-            noOrders.style.display = 'block';
-            ordersCount.textContent = 'عرض 0 من 0 مفضلة';
-          }
+          showFavorites();
         }
       });
     });
 
     // تفعيل زر المفضلة
-    document.querySelectorAll('.favorite-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.classList.toggle('active');
-        const icon = this.querySelector('i');
-        if (this.classList.contains('active')) {
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.favorite-btn')) {
+        const btn = e.target.closest('.favorite-btn');
+        btn.classList.toggle('active');
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('active')) {
           icon.classList.remove('far');
           icon.classList.add('fas');
         } else {
           icon.classList.remove('fas');
           icon.classList.add('far');
         }
-      });
+      }
     });
 
     // تفعيل زر إعادة الطلب
-    document.querySelectorAll('.reorder-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.reorder-btn')) {
+        const btn = e.target.closest('.reorder-btn');
         // تأثير النقر
-        this.style.transform = 'scale(0.95)';
+        btn.style.transform = 'scale(0.95)';
         setTimeout(() => {
-          this.style.transform = '';
+          btn.style.transform = '';
         }, 200);
         
         alert('تمت إضافة الوجبات إلى سلة التسوق');
         // يمكن استبدال هذا بتنفيذ حقيقي لإضافة الطلب إلى السلة
-      });
+      }
     });
 
     // تفعيل زر التقييم
-    document.querySelectorAll('.rate-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.rate-btn')) {
+        const btn = e.target.closest('.rate-btn');
         // تأثير النقر
-        this.style.transform = 'scale(0.95)';
+        btn.style.transform = 'scale(0.95)';
         setTimeout(() => {
-          this.style.transform = '';
+          btn.style.transform = '';
         }, 200);
         
         alert('سيتم فتح نموذج التقييم');
         // يمكن استبدال هذا بتنفيذ حقيقي لنموذج التقييم
-      });
+      }
     });
 
     // تفعيل زر عرض القائمة
-    document.querySelectorAll('.view-menu-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.view-menu-btn')) {
+        const btn = e.target.closest('.view-menu-btn');
         // تأثير النقر
-        this.style.transform = 'scale(0.95)';
+        btn.style.transform = 'scale(0.95)';
         setTimeout(() => {
-          this.style.transform = '';
+          btn.style.transform = '';
         }, 200);
         
         alert('سيتم الانتقال إلى صفحة المطعم');
         // يمكن استبدال هذا بتنفيذ حقيقي للانتقال إلى صفحة المطعم
-      });
+      }
     });
 
     // تفعيل البحث عند النقر على الأيقونة
@@ -1023,9 +1113,6 @@
           setTimeout(() => {
             this.style.transform = '';
           }, 200);
-          
-          // إظهار رسالة توضيحية
-          alert('أنت بالفعل في صفحة طلباتي');
         } else {
           // تأثير النقر للأزرار الأخرى
           this.style.transform = 'scale(0.9)';
