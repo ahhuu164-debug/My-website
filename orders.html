@@ -496,6 +496,7 @@
       font-size: 0.8rem;
       transition: all 0.3s ease;
       padding: 5px 15px;
+      position: relative;
     }
 
     .nav-item.active, .nav-item:hover {
@@ -505,6 +506,22 @@
     .nav-item i {
       font-size: 1.2rem;
       margin-bottom: 5px;
+    }
+
+    /* تأثير النقر على زر الشريط السفلي */
+    .nav-item:active {
+      transform: scale(0.95);
+    }
+
+    /* مؤشر للزر النشط */
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary-orange);
+      border-radius: 50%;
     }
 
     /* التكيف مع الشاشات الصغيرة */
@@ -536,6 +553,10 @@
       
       .favorites-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .nav-item.active::after {
+        bottom: -8px;
       }
     }
 
@@ -802,7 +823,7 @@
       <i class="fas fa-clipboard-list"></i>
       <h3>لا توجد طلبات حالية</h3>
       <p>لم تقم بأي طلبات حتى الآن، ابدأ بالتصفح واطلب وجبتك الأولى!</p>
-      <a href="restaurants.html" class="browse-btn">تصفح المطاعم</a>
+      <a href="restaurants.html" class="browse-btn">تصفح المطاعм</a>
     </div>
   </section>
 
@@ -934,6 +955,31 @@
     document.querySelector('.search-icon-header').addEventListener('click', function() {
       alert('سيتم فتح شريط البحث هنا');
       // يمكن استبدال هذا بتنفيذ حقيقي لشريط البحث
+    });
+
+    // إضافة تأثير عند النقر على زر طلباتي في الشريط السفلي
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        // إزالة النشاط من جميع الأزرار
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        
+        // إضافة النشاط للزر المحدد
+        this.classList.add('active');
+        
+        // إذا كان الزر هو زر طلباتي، نضيف تأثيرًا مرئيًا
+        if (this.getAttribute('href') === 'orders.html') {
+          e.preventDefault(); // منع الانتقال إلى الصفحة (لأننا فيها بالفعل)
+          
+          // تأثير اهتزاز بسيط
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 200);
+          
+          // إظهار رسالة توضيحية
+          alert('أنت بالفعل في صفحة طلباتي');
+        }
+      });
     });
   </script>
 </body>
