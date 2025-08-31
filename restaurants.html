@@ -92,193 +92,43 @@
       transform: scale(1.1);
     }
 
-    /* أزرار الفلترة تحت الهيدر */
-    .filter-buttons {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 20px;
+    /* شريط البحث */
+    .search-container {
       background: var(--white);
+      padding: 15px 20px;
       box-shadow: var(--shadow-sm);
     }
 
-    .filter-btn {
+    .search-bar {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--light-gray);
-      border: none;
-      border-radius: var(--border-radius);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 12px 20px;
+      border: 2px solid var(--light-gray);
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
       font-family: 'Cairo', sans-serif;
-      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .search-button {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .filter-btn:hover {
-      background: var(--primary-orange);
-      color: var(--white);
-    }
-
-    .search-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      border-radius: var(--border-radius);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .search-btn:hover {
+    .search-button:hover {
       background: var(--accent-red);
     }
 
-    /* الشاشة الجانبية للفلترة */
-    .filter-sidebar {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 85%;
-      max-width: 400px;
-      height: 100%;
-      background: var(--white);
-      z-index: 1100;
-      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-      transition: right 0.4s ease;
-      overflow-y: auto;
-      padding: 20px;
-    }
-
-    .filter-sidebar.active {
-      right: 0;
-    }
-
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid var(--light-gray);
-    }
-
-    .sidebar-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-    }
-
-    .close-sidebar {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--medium-gray);
-      transition: color 0.3s ease;
-    }
-
-    .close-sidebar:hover {
-      color: var(--accent-red);
-    }
-
-    .filter-group {
-      margin-bottom: 25px;
-    }
-
-    .filter-group-title {
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-
-    .filter-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .filter-option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 15px;
-      background: var(--light-gray);
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-option:hover {
-      background: #e0e0e0;
-    }
-
-    .filter-option.active {
-      background: var(--primary-orange);
-      color: var(--white);
-    }
-
-    .filter-option input[type="checkbox"] {
-      display: none;
-    }
-
-    .filter-option label {
-      cursor: pointer;
-      flex-grow: 1;
-    }
-
-    .apply-filters {
-      position: sticky;
-      bottom: 0;
-      background: var(--white);
-      padding: 20px 0;
-      border-top: 2px solid var(--light-gray);
-    }
-
-    .apply-btn {
-      width: 100%;
-      padding: 15px;
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      border-radius: var(--border-radius);
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .apply-btn:hover {
-      background: var(--accent-red);
-    }
-
-    /* غطاء الشاشة الجانبية */
-    .sidebar-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1050;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* شبكة المطاعم */
+    /* قسم المطاعم */
     .restaurants-section {
       padding: 20px;
       max-width: 1200px;
@@ -293,14 +143,14 @@
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--dark-blue);
     }
 
-    .results-count {
+    .section-subtitle {
       color: var(--medium-gray);
-      font-size: 0.9rem;
+      margin-top: 5px;
     }
 
     .restaurants-grid {
@@ -309,14 +159,13 @@
       gap: 25px;
     }
 
-    /* بطاقة المطعم - تم إصلاح مشكلة الشعار */
+    /* بطاقة المطعم */
     .restaurant-card {
-      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      background: var(--white);
       border-radius: var(--border-radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
-      position: relative;
     }
 
     .restaurant-card:hover {
@@ -341,25 +190,18 @@
       transform: scale(1.05);
     }
 
-    /* الشعار الدائري - تم إصلاح مشكلة القص */
     .restaurant-logo {
       position: absolute;
-      bottom: -25px; /* تم تقليل المسافة من الأسفل */
+      bottom: -25px;
       right: 20px;
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       border: 4px solid var(--white);
       background-color: var(--white);
       box-shadow: var(--shadow-lg);
       z-index: 3;
       overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .restaurant-card:hover .restaurant-logo {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
 
     .restaurant-logo img {
@@ -381,34 +223,8 @@
       z-index: 2;
     }
 
-    .favorite-btn {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: rgba(255,255,255,0.9);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 2;
-    }
-
-    .favorite-btn:hover {
-      background: var(--white);
-      transform: scale(1.1);
-    }
-
-    .favorite-btn.active i {
-      color: var(--accent-red);
-    }
-
     .card-content {
-      padding: 60px 20px 20px; /* زيادة المسافة العلوية لاستيعاب الشعار بشكل كامل */
+      padding: 50px 20px 20px;
     }
 
     .restaurant-name {
@@ -424,12 +240,24 @@
       margin-bottom: 15px;
     }
 
+    .restaurant-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
     .rating {
       display: flex;
       align-items: center;
       gap: 5px;
       color: var(--warning);
       font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .delivery-time {
+      color: var(--medium-gray);
       font-size: 0.9rem;
     }
 
@@ -446,7 +274,6 @@
       display: inline-block;
       width: 100%;
       text-align: center;
-      margin-top: 15px;
     }
 
     .view-btn:hover {
@@ -507,25 +334,6 @@
       .section-title {
         font-size: 1.5rem;
       }
-      
-      .filter-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .filter-btn, .search-btn {
-        justify-content: center;
-      }
-      
-      .restaurant-logo {
-        width: 80px;
-        height: 80px;
-        bottom: -20px; /* تعديل الموضع للشاشات الصغيرة */
-      }
-      
-      .card-content {
-        padding: 50px 15px 15px; /* تعديل المسافات للشاشات الصغيرة */
-      }
     }
 
     @media (max-width: 480px) {
@@ -539,17 +347,6 @@
       
       .card-content {
         padding: 45px 15px 15px;
-      }
-      
-      .filter-sidebar {
-        width: 90%;
-      }
-      
-      .restaurant-logo {
-        width: 75px;
-        height: 75px;
-        bottom: -18px; /* تعديل الموضع للشاشات الصغيرة جداً */
-        right: 15px;
       }
     }
   </style>
@@ -570,278 +367,167 @@
     </div>
   </header>
 
-  <!-- أزرار الفلترة تحت الهيدر -->
-  <div class="filter-buttons">
-    <button class="filter-btn" id="filterBtn">
-      <i class="fas fa-filter"></i>
-      <span>التصنيفات والفلترة</span>
-    </button>
-    <button class="search-btn">
-      <i class="fas fa-search"></i>
-      <span>بحث</span>
-    </button>
-  </div>
-
-  <!-- الشاشة الجانبية للفلترة -->
-  <div class="filter-sidebar" id="filterSidebar">
-    <div class="sidebar-header">
-      <h2 class="sidebar-title">الفلاتر والتصنيفات</h2>
-      <button class="close-sidebar" id="closeSidebar">
-        <i class="fas fa-times"></i>
+  <!-- شريط البحث -->
+  <div class="search-container">
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="ابحث عن مطعم أو وجبة...">
+      <button class="search-button">
+        <i class="fas fa-search"></i>
       </button>
     </div>
-
-    <!-- التصنيفات -->
-    <div class="filter-group">
-      <h3 class="filter-group-title">التصنيفات</h3>
-      <div class="filter-options">
-        <div class="filter-option active">
-          <input type="checkbox" id="category-all" checked>
-          <label for="category-all">جميع التصنيفات</label>
-        </div>
-        <div class="filter-option">
-          <input type="checkbox" id="category-pizza">
-          <label for="category-pizza">بيتزا</label>
-        </div>
-        <div class="filter-option">
-          <input type="checkbox" id="category-burger">
-          <label for="category-burger">برغر</label>
-        </div>
-        <div class="filter-option">
-          <input type="checkbox" id="category-grill">
-          <label for="category-grill">مشاوي</label>
-        </div>
-        <div class="filter-option">
-          <input type="checkbox" id="category-syrian">
-          <label for="category-syrian">وجبات سورية</label>
-        </div>
-        <div class="filter-option">
-          <input type="checkbox" id="category-desserts">
-          <label for="category-desserts">حلويات</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- الحالة -->
-    <div class="filter-group">
-      <h3 class="filter-group-title">الحالة</h3>
-      <div class="filter-options">
-        <div class="filter-option active">
-          <input type="radio" name="status" id="status-all" checked>
-          <label for="status-all">جميع المطاعم</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="status" id="status-open">
-          <label for="status-open">المفتوحة الآن</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="status" id="status-closed">
-          <label for="status-closed">المغلقة</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- التقييم -->
-    <div class="filter-group">
-      <h3 class="filter-group-title">التقييم</h3>
-      <div class="filter-options">
-        <div class="filter-option active">
-          <input type="radio" name="rating" id="rating-all" checked>
-          <label for="rating-all">جميع التقييمات</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="rating" id="rating-5">
-          <label for="rating-5">5 نجوم</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="rating" id="rating-4">
-          <label for="rating-4">4 نجوم فأكثر</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="rating" id="rating-3">
-          <label for="rating-3">3 نجوم فأكثر</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- ترتيب حسب -->
-    <div class="filter-group">
-      <h3 class="filter-group-title">ترتيب حسب</h3>
-      <div class="filter-options">
-        <div class="filter-option active">
-          <input type="radio" name="sort" id="sort-popular" checked>
-          <label for="sort-popular">الأكثر شيوعاً</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="sort" id="sort-rating">
-          <label for="sort-rating">الأعلى تقييماً</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="sort" id="sort-delivery">
-          <label for="sort-delivery">أسرع توصيل</label>
-        </div>
-        <div class="filter-option">
-          <input type="radio" name="sort" id="sort-price">
-          <label for="sort-price">السعر</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- تطبيق الفلاتر -->
-    <div class="apply-filters">
-      <button class="apply-btn" id="applyFilters">تطبيق الفلاتت</button>
-    </div>
   </div>
-
-  <!-- غطاء الشاشة الجانبية -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- قسم المطاعم -->
   <section class="restaurants-section">
     <div class="section-header">
-      <h2 class="section-title">جميع المطاعم</h2>
-      <span class="results-count">عرض 12 من 45 مطعم</span>
+      <div>
+        <h2 class="section-title">مطاعم سلمية</h2>
+        <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
+      </div>
     </div>
 
     <div class="restaurants-grid">
-      <!-- مطعم 1 -->
+      <!-- مطعم 1 - مشاوي العائلة -->
+      <div class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="مشاوي العائلة" class="restaurant-image">
+          <div class="restaurant-logo">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
+          </div>
+          <div class="card-badge">مميز</div>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">مشاوي العائلة</h3>
+          <p class="restaurant-category">مشاوي • وجبات سورية • وجبات سريعة</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.9 (156 تقييم)
+            </div>
+            <div class="delivery-time">30-45 دقيقة</div>
+          </div>
+          <!-- الرابط الصحيح لمشاوي العائلة -->
+          <a href="mashawi-alaila.html" class="view-btn">عرض المطعم</a>
+        </div>
+      </div>
+
+      <!-- مطعم 2 - بيتزا سلمية -->
       <div class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="بيتزا سلمية" class="restaurant-image">
           <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="بيتزا سلمية">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
           </div>
-          <div class="card-badge">مميز</div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
+          <div class="card-badge">شعبي</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">بيتزا سلمية</h3>
-          <p class="restaurant-category">بيتزا • وجبات إيطالية</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.8 (124 تقييم)
+          <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.8 (243 تقييم)
+            </div>
+            <div class="delivery-time">25-40 دقيقة</div>
           </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+          <!-- الرابط الصحيح لبيتزا سلمية -->
+          <a href="pizza-salamia.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
-      <!-- مطعم 2 -->
+      <!-- مطعم 3 - برغر هاوس -->
       <div class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="برغر هاوس" class="restaurant-image">
           <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="برغر هاوس">
+            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
           </div>
-          <div class="card-badge">جديد</div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">برغر هاوس</h3>
-          <p class="restaurant-category">برغر • وجبات سريعة</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.7 (89 تقييم)
+          <p class="restaurant-category">برغر • وجبات سريعة • بطاطا</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.7 (189 تقييم)
+            </div>
+            <div class="delivery-time">20-35 دقيقة</div>
           </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+          <a href="burger-house.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
-      <!-- مطعم 3 -->
+      <!-- مطعم 4 - مطعم البحر -->
       <div class="restaurant-card">
         <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-               alt="مشاوي العائلة" class="restaurant-image">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+               alt="مطعم البحر" class="restaurant-image">
           <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="مشاوي العائلة">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم البحر">
           </div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
+          <div class="card-badge">جديد</div>
         </div>
         <div class="card-content">
-          <h3 class="restaurant-name">مشاوي العائلة</h3>
-          <p class="restaurant-category">مشاوي • وجبات عربية</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.9 (156 تقييم)
+          <h3 class="restaurant-name">مطعم البحر</h3>
+          <p class="restaurant-category">مأكولات بحرية • أسماك</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.6 (132 تقييم)
+            </div>
+            <div class="delivery-time">35-50 دقيقة</div>
           </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+          <a href="sea-restaurant.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
-      <!-- مطعم 4 -->
+      <!-- مطعم 5 - حلويات لذيذة -->
       <div class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="حلويات لذيذة" class="restaurant-image">
           <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="حلويات لذيذة">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="حلويات لذيذة">
           </div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">حلويات لذيذة</h3>
-          <p class="restaurant-category">حلويات • مشروبات</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.6 (78 تقييم)
+          <p class="restaurant-category">حلويات • مشروبات • معجنات</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.8 (167 تقييم)
+            </div>
+            <div class="delivery-time">15-30 دقيقة</div>
           </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+          <a href="sweets-delicious.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
 
-      <!-- مطعم 5 -->
+      <!-- مطعم 6 - مطعم الأصالة -->
       <div class="restaurant-card">
         <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                alt="مطعم الأصالة" class="restaurant-image">
           <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="مطعم الأصالة">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم الأصالة">
           </div>
           <div class="card-badge">عرض خاص</div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">مطعم الأصالة</h3>
-          <p class="restaurant-category">وجبات سورية • مشاوي</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.5 (92 تقييم)
+          <p class="restaurant-category">وجبات عربية • مشاوي • مقبلات</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.5 (98 تقييم)
+            </div>
+            <div class="delivery-time">30-45 دقيقة</div>
           </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
-        </div>
-      </div>
-
-      <!-- مطعم 6 -->
-      <div class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-               alt="مطعم البحر" class="restaurant-image">
-          <div class="restaurant-logo">
-            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="مطعم البحر">
-          </div>
-          <button class="favorite-btn">
-            <i class="far fa-heart"></i>
-          </button>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">مطعم البحر</h3>
-          <p class="restaurant-category">مأكولات بحرية</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            4.3 (67 تقييم)
-          </div>
-          <a href="restaurant-details.html" class="view-btn">عرض المطعم</a>
+          <a href="alasala-restaurant.html" class="view-btn">عرض المطعم</a>
         </div>
       </div>
     </div>
@@ -858,80 +544,32 @@
         <i class="fas fa-utensils"></i>
         <span>المطاعم</span>
       </a>
-        <a href="#" class="nav-item">
-        <i class="fas fa-percentage"></i>
-        <span>العروض</span>
+      <a href="#" class="nav-item">
+        <i class="fas fa-shopping-cart"></i>
+        <span>السلة</span>
       </a>
     </div>
   </nav>
 
   <script>
-    // تفعيل زر المفضلة
-    document.querySelectorAll('.favorite-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.classList.toggle('active');
-        const icon = this.querySelector('i');
-        if (this.classList.contains('active')) {
-          icon.classList.remove('far');
-          icon.classList.add('fas');
-        } else {
-          icon.classList.remove('fas');
-          icon.classList.add('far');
-        }
-      });
-    });
-
     // تفعيل البحث عند النقر على الأيقونة
     document.querySelector('.search-icon-header').addEventListener('click', function() {
-      alert('سيتم فتح شريط البحث هنا');
+      document.querySelector('.search-input').focus();
     });
 
-    // تفعيل الشاشة الجانبية للفلترة
-    const filterBtn = document.getElementById('filterBtn');
-    const filterSidebar = document.getElementById('filterSidebar');
-    const closeSidebar = document.getElementById('closeSidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const applyFilters = document.getElementById('applyFilters');
-
-    filterBtn.addEventListener('click', function() {
-      filterSidebar.classList.add('active');
-      sidebarOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    // تفعيل زر البحث
+    document.querySelector('.search-button').addEventListener('click', function() {
+      const searchTerm = document.querySelector('.search-input').value;
+      if (searchTerm.trim() !== '') {
+        alert(`سيتم البحث عن: ${searchTerm}`);
+      }
     });
 
-    function closeFilterSidebar() {
-      filterSidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    closeSidebar.addEventListener('click', closeFilterSidebar);
-    sidebarOverlay.addEventListener('click', closeFilterSidebar);
-    applyFilters.addEventListener('click', closeFilterSidebar);
-
-    // تفعيل خيارات الفلترة
-    document.querySelectorAll('.filter-option').forEach(option => {
-      option.addEventListener('click', function() {
-        const radioInput = this.querySelector('input[type="radio"]');
-        if (radioInput) {
-          document.querySelectorAll(`input[name="${radioInput.name}"]`).forEach(input => {
-            input.parentElement.classList.remove('active');
-          });
-          this.classList.add('active');
-          radioInput.checked = true;
-        } else {
-          const checkboxInput = this.querySelector('input[type="checkbox"]');
-          if (checkboxInput) {
-            checkboxInput.checked = !checkboxInput.checked;
-            this.classList.toggle('active');
-          }
-        }
-      });
-    });
-
-    // تفعيل زر البحث في الفلترة
-    document.querySelector('.search-btn').addEventListener('click', function() {
-      alert('سيتم فتح شاشة البحث المتقدم');
+    // تفعيل البحث عند الضغط على Enter
+    document.querySelector('.search-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.querySelector('.search-button').click();
+      }
     });
   </script>
 </body>
