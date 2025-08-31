@@ -338,6 +338,41 @@
       color: var(--primary-orange);
     }
 
+    /* عداد الكمية - جديد */
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .quantity-btn:hover {
+      background: var(--primary-orange);
+      color: white;
+    }
+
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      margin: 0 8px;
+      border: 1px solid var(--medium-gray);
+      border-radius: 5px;
+      padding: 5px;
+    }
+
     .add-to-cart {
       background: var(--primary-orange);
       color: var(--white);
@@ -348,10 +383,172 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
     }
 
     .add-to-cart:hover {
       background: var(--accent-red);
+    }
+
+    /* سلة التسوق المنبثقة - جديد */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      left: -400px;
+      width: 350px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      z-index: 1100;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-sidebar.open {
+      left: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .cart-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--medium-gray);
+    }
+
+    .cart-items {
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+      color: var(--primary-orange);
+      font-weight: 700;
+    }
+
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-quantity-btn {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .cart-quantity-input {
+      width: 30px;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .cart-summary {
+      padding-top: 15px;
+      border-top: 2px solid var(--medium-gray);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-order-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: var(--border-radius);
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .whatsapp-order-btn:hover {
+      background: #128C7E;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* زر فتح السلة في الشريط السفلي */
+    .cart-icon-badge {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      background: var(--accent-red);
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* الشريط السفلي */
@@ -415,6 +612,10 @@
       .info-details {
         grid-template-columns: 1fr;
       }
+
+      .cart-sidebar {
+        width: 300px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -432,6 +633,10 @@
       
       .cover-image {
         height: 200px;
+      }
+
+      .cart-sidebar {
+        width: 85%;
       }
     }
   </style>
@@ -508,7 +713,7 @@
     <div class="tab-content active" id="menu-content">
       <div class="menu-grid">
         <!-- صنف 1 -->
-        <div class="menu-item">
+        <div class="menu-item" data-id="1" data-name="بيتزا بيبروني" data-price="45000">
           <div class="menu-item-image">
             <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                  alt="بيتزا بيبروني">
@@ -516,6 +721,11 @@
           <div class="menu-item-content">
             <h3 class="menu-item-title">بيتزا بيبروني</h3>
             <p class="menu-item-desc">بيتزا ببيبروني مع جبنة موزاريلا وصوص الطماطم</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">٤٥,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
@@ -524,7 +734,7 @@
         </div>
 
         <!-- صنف 2 -->
-        <div class="menu-item">
+        <div class="menu-item" data-id="2" data-name="بيتزا الخضار" data-price="40000">
           <div class="menu-item-image">
             <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                  alt="بيتزا خضار">
@@ -532,6 +742,11 @@
           <div class="menu-item-content">
             <h3 class="menu-item-title">بيتزا الخضار</h3>
             <p class="menu-item-desc">بيتزا بالخضار الطازجة وجبنة موزاريلا</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">٤٠,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
@@ -540,7 +755,7 @@
         </div>
 
         <!-- صنف 3 -->
-        <div class="menu-item">
+        <div class="menu-item" data-id="3" data-name="معكرونة بولونيز" data-price="35000">
           <div class="menu-item-image">
             <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                  alt="معكرونة بولونيز">
@@ -548,6 +763,11 @@
           <div class="menu-item-content">
             <h3 class="menu-item-title">معكرونة بولونيز</h3>
             <p class="menu-item-desc">معكرونة بصلصة البولونيز واللحم المفروم</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">٣٥,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
@@ -556,7 +776,7 @@
         </div>
 
         <!-- صنف 4 -->
-        <div class="menu-item">
+        <div class="menu-item" data-id="4" data-name="سلطة سيزر" data-price="25000">
           <div class="menu-item-image">
             <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                  alt="سلطة سيزر">
@@ -564,6 +784,11 @@
           <div class="menu-item-content">
             <h3 class="menu-item-title">سلطة سيزر</h3>
             <p class="menu-item-desc">سلطة سيزر مع الدجاج والصلصة الخاصة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">٢٥,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
@@ -573,6 +798,30 @@
       </div>
     </div>
   </section>
+
+  <!-- سلة التسوق المنبثقة -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="cart-title">سلة الطلبات</h2>
+      <button class="close-cart" id="close-cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cart-total-price">٠ ل.س</span>
+      </div>
+      <button class="whatsapp-order-btn" id="whatsapp-order">
+        <i class="fab fa-whatsapp"></i>
+        اطلب عبر واتساب
+      </button>
+    </div>
+  </div>
 
   <!-- الشريط السفلي -->
   <nav class="bottom-nav">
@@ -585,21 +834,96 @@
         <i class="fas fa-utensils"></i>
         <span>المطاعم</span>
       </a>
-      <a href="#" class="nav-item active">
+      <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
         <i class="fas fa-shopping-cart"></i>
         <span>السلة</span>
+        <span class="cart-badge" id="cart-badge">0</span>
       </a>
     </div>
   </nav>
 
   <script>
-    // تفعيل أزرار إضافة إلى السلة
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-      button.addEventListener('click', function() {
-        const itemName = this.closest('.menu-item').querySelector('.menu-item-title').textContent;
-        alert(`تمت إضافة ${itemName} إلى سلة التسوق`);
+    // بيانات التطبيق
+    let cart = [];
+    const restaurantName = "بيتزا سلمية";
+    const restaurantPhone = "1234567890"; // استبدل برقم الهاتف الفعلي
+
+    // عناصر DOM
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const openCartBtn = document.getElementById('open-cart');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+    const cartBadge = document.getElementById('cart-badge');
+    const whatsappOrderBtn = document.getElementById('whatsapp-order');
+
+    // فتح وإغلاق سلة التسوق
+    openCartBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      cartSidebar.classList.add('open');
+      cartOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeCart() {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    closeCartBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+
+    // إعداد أزرار الكمية في قائمة الطعام
+    document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        input.value = parseInt(input.value) + 1;
+      });
+    });
+
+    document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        if (parseInt(input.value) > 1) {
+          input.value = parseInt(input.value) - 1;
+        }
+      });
+    });
+
+    // إضافة عنصر إلى السلة
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const menuItem = this.closest('.menu-item');
+        const id = menuItem.dataset.id;
+        const name = menuItem.dataset.name;
+        const price = parseInt(menuItem.dataset.price);
+        const quantity = parseInt(menuItem.querySelector('.quantity-input').value);
         
-        // تأثير مرئي عند النقر
+        // البحث إذا كان العنصر موجوداً بالفعل في السلة
+        const existingItemIndex = cart.findIndex(item => item.id === id);
+        
+        if (existingItemIndex !== -1) {
+          // تحديث الكمية إذا كان العنصر موجوداً
+          cart[existingItemIndex].quantity += quantity;
+        } else {
+          // إضافة عنصر جديد إلى السلة
+          cart.push({
+            id,
+            name,
+            price,
+            quantity
+          });
+        }
+        
+        // إعادة تعيين العداد إلى 1
+        menuItem.querySelector('.quantity-input').value = 1;
+        
+        // تحديث واجهة المستخدم
+        updateCartUI();
+        
+        // إظهار تأكيد الإضافة
         this.textContent = 'تمت الإضافة';
         this.style.background = 'var(--success)';
         
@@ -610,10 +934,116 @@
       });
     });
 
+    // تحديث واجهة سلة التسوق
+    function updateCartUI() {
+      // تحديث العداد
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      cartBadge.textContent = totalItems;
+      
+      // تحديث قائمة العناصر في السلة
+      cartItemsContainer.innerHTML = '';
+      
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">السلة فارغة</p>';
+        cartTotalPrice.textContent = '٠ ل.س';
+        return;
+      }
+      
+      let totalPrice = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        
+        const cartItemElement = document.createElement('div');
+        cartItemElement.className = 'cart-item';
+        cartItemElement.innerHTML = `
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${formatPrice(item.price)} ل.س</div>
+          </div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-btn minus" data-id="${item.id}">-</button>
+            <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" readonly>
+            <button class="cart-quantity-btn plus" data-id="${item.id}">+</button>
+          </div>
+        `;
+        
+        cartItemsContainer.appendChild(cartItemElement);
+      });
+      
+      // تحديث السعر الإجمالي
+      cartTotalPrice.textContent = `${formatPrice(totalPrice)} ل.س`;
+      
+      // إضافة معالجات الأحداث لأزرار الكمية في السلة
+      document.querySelectorAll('.cart-quantity-btn.plus').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const item = cart.find(item => item.id === id);
+          if (item) {
+            item.quantity += 1;
+            updateCartUI();
+          }
+        });
+      });
+      
+      document.querySelectorAll('.cart-quantity-btn.minus').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const itemIndex = cart.findIndex(item => item.id === id);
+          if (itemIndex !== -1) {
+            if (cart[itemIndex].quantity > 1) {
+              cart[itemIndex].quantity -= 1;
+            } else {
+              cart.splice(itemIndex, 1);
+            }
+            updateCartUI();
+          }
+        });
+      });
+    }
+
+    // تنسيق السعر
+    function formatPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // إرسال الطلب عبر واتساب
+    whatsappOrderBtn.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('السلة فارغة. أضف بعض العناصر أولاً.');
+        return;
+      }
+      
+      let message = `مرحباً، أريد طلب التالي من ${restaurantName}:\n\n`;
+      
+      let totalPrice = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        message += `${item.name} - ${item.quantity} × ${formatPrice(item.price)} = ${formatPrice(itemTotal)} ل.س\n`;
+      });
+      
+      message += `\nالمجموع: ${formatPrice(totalPrice)} ل.س\n\n`;
+      message += `شكراً!`;
+      
+      // ترميز الرسالة للرابط
+      const encodedMessage = encodeURIComponent(message);
+      
+      // إنشاء رابط واتساب
+      const whatsappURL = `https://wa.me/${restaurantPhone}?text=${encodedMessage}`;
+      
+      // فتح الرابط في نافذة جديدة
+      window.open(whatsappURL, '_blank');
+    });
+
     // تفعيل البحث عند النقر على الأيقونة
     document.querySelector('.search-icon-header').addEventListener('click', function() {
       alert('سيتم فتح شريط البحث هنا');
     });
+
+    // تهيئة واجهة السلة
+    updateCartUI();
   </script>
 </body>
 </html>
