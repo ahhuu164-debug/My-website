@@ -170,20 +170,6 @@
       margin-bottom: 15px;
     }
 
-    .rating-badge {
-      display: inline-flex;
-      align-items: center;
-      background: var(--warning);
-      color: var(--white);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-weight: 700;
-    }
-
-    .rating-badge i {
-      margin-left: 5px;
-    }
-
     .info-details {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -337,98 +323,6 @@
       background: var(--accent-red);
     }
 
-    /* التقييمات */
-    .reviews-container {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: 25px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .review-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--light-gray);
-    }
-
-    .review-item:last-child {
-      border-bottom: none;
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .reviewer-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-left: 15px;
-    }
-
-    .reviewer-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .reviewer-info {
-      flex-grow: 1;
-    }
-
-    .reviewer-name {
-      font-weight: 700;
-      margin-bottom: 3px;
-    }
-
-    .review-date {
-      font-size: 0.8rem;
-      color: var(--medium-gray);
-    }
-
-    .review-rating {
-      color: var(--warning);
-    }
-
-    .review-content {
-      line-height: 1.6;
-    }
-
-    /* معلومات التوصيل */
-    .delivery-info {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: 25px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .info-card {
-      background: var(--light-gray);
-      border-radius: var(--border-radius);
-      padding: 20px;
-    }
-
-    .info-card-title {
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: var(--dark-blue);
-      display: flex;
-      align-items: center;
-    }
-
-    .info-card-title i {
-      margin-left: 10px;
-      color: var(--primary-orange);
-    }
-
     /* الشريط السفلي */
     .bottom-nav {
       position: fixed;
@@ -545,10 +439,6 @@
         <div class="title-section">
           <h1 class="restaurant-title">بيتزا سلمية</h1>
           <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
-          <div class="rating-badge">
-            <i class="fas fa-star"></i>
-            4.8 (124 تقييم)
-          </div>
         </div>
       </div>
 
@@ -561,24 +451,17 @@
           </div>
         </div>
         <div class="info-item">
-          <i class="fas fa-truck"></i>
+          <i class="fas fa-phone"></i>
           <div class="info-text">
-            <div class="info-label">وقت التوصيل</div>
-            <div class="info-value">٣٠ - ٤٥ دقيقة</div>
+            <div class="info-label">هاتف</div>
+            <div class="info-value">٠٩٣٣٤٥٦٧٨٩</div>
           </div>
         </div>
         <div class="info-item">
-          <i class="fas fa-money-bill-wave"></i>
+          <i class="fas fa-map-marker-alt"></i>
           <div class="info-text">
-            <div class="info-label">حد أدنى للطلب</div>
-            <div class="info-value">٢٥,٠٠٠ ل.س</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-receipt"></i>
-          <div class="info-text">
-            <div class="info-label">رسوم التوصيل</div>
-            <div class="info-value">٥,٠٠٠ ل.س</div>
+            <div class="info-label">العنوان</div>
+            <div class="info-value">سلمية، الشارع الرئيسي</div>
           </div>
         </div>
       </div>
@@ -587,8 +470,6 @@
     <!-- علامات التبويب -->
     <div class="tabs">
       <div class="tab active" data-tab="menu">قائمة الطعام</div>
-      <div class="tab" data-tab="reviews">التقييمات</div>
-      <div class="tab" data-tab="info">معلومات المطعم</div>
     </div>
 
     <!-- محتوى التبويب: قائمة الطعام -->
@@ -657,87 +538,36 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- محتوى التبويب: التقييمات -->
-    <div class="tab-content" id="reviews-content">
-      <div class="reviews-container">
-        <!-- تقييم 1 -->
-        <div class="review-item">
-          <div class="review-header">
-            <div class="reviewer-avatar">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="محمد أحمد">
-            </div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">محمد أحمد</div>
-              <div class="review-date">٢٠ أكتوبر ٢٠٢٣</div>
-            </div>
-            <div class="review-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
+        <!-- صنف 5 -->
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا مارجريتا">
           </div>
-          <div class="review-content">
-            البيتزا كانت لذيذة جداً والتوصيل كان سريعاً. أنصح الجميع بتجربة البيتزا البيبروني.
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">بيتزا مارجريتا</h3>
+            <p class="menu-item-desc">بيتزا كلاسيكية بجبنة الموزاريلا ورقائق الطماطم</p>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٨,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
           </div>
         </div>
 
-        <!-- تقييم 2 -->
-        <div class="review-item">
-          <div class="review-header">
-            <div class="reviewer-avatar">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="سارة علي">
+        <!-- صنف 6 -->
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="معكرونة ألفريدو">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">معكرونة ألفريدو</h3>
+            <p class="menu-item-desc">معكرونة بصلصة الكريمة والجبن والدجاج</p>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٢,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
             </div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">سارة علي</div>
-              <div class="review-date">١٨ أكتوبر ٢٠٢٣</div>
-            </div>
-            <div class="review-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-          </div>
-          <div class="review-content">
-            الطعم جيد ولكن وقت التوصيل كان أطول من المتوقع. المعكرونة البولونيز كانت رائعة.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- محتوى التبويب: معلومات المطعم -->
-    <div class="tab-content" id="info-content">
-      <div class="delivery-info">
-        <h2>معلومات التوصيل والدفع</h2>
-        
-        <div class="info-grid">
-          <div class="info-card">
-            <h3 class="info-card-title"><i class="fas fa-map-marker-alt"></i> مناطق التوصيل</h3>
-            <p>نقوم بالتوصيل إلى جميع مناطق سلمية وأحياء المدينة.</p>
-          </div>
-          
-          <div class="info-card">
-            <h3 class="info-card-title"><i class="fas fa-clock"></i> أوقات العمل</h3>
-            <p>السبت - الخميس: ١٠:٠٠ ص - ١٢:٠٠ ص</p>
-            <p>الجمعة: ١٢:٠٠ م - ١٢:٠٠ ص</p>
-          </div>
-          
-          <div class="info-card">
-            <h3 class="info-card-title"><i class="fas fa-credit-card"></i> طرق الدفع</h3>
-            <p>الدفع نقداً عند الاستلام</p>
-            <p>الدفع بالبطاقة (قريباً)</p>
-          </div>
-          
-          <div class="info-card">
-            <h3 class="info-card-title"><i class="fas fa-info-circle"></i> معلومات إضافية</h3>
-            <p>نتشرف بتلقي طلباتكم عبر التطبيق أو الهاتف.</p>
-            <p>هاتف: ٠٩٣٣٤٥٦٧٨٩</p>
           </div>
         </div>
       </div>
@@ -763,24 +593,6 @@
   </nav>
 
   <script>
-    // تفعيل علامات التبويب
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabId = tab.getAttribute('data-tab');
-        
-        // إزالة النشاط من جميع الألسنة والمحتويات
-        tabs.forEach(t => t.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
-        
-        // إضافة النشاط للسان والمحتوى المحدد
-        tab.classList.add('active');
-        document.getElementById(`${tabId}-content`).classList.add('active');
-      });
-    });
-
     // تفعيل أزرار إضافة إلى السلة
     document.querySelectorAll('.add-to-cart').forEach(button => {
       button.addEventListener('click', function() {
