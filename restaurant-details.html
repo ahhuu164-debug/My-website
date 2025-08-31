@@ -92,7 +92,7 @@
       transform: scale(1.1);
     }
 
-    /* صورة الغلاف */
+    /* صورة الغلاف - تم التحسين هنا */
     .cover-image {
       height: 250px;
       width: 100%;
@@ -104,6 +104,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* تحسين الصورة: زيادة السطوع والتباين والتشبع */
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .cover-image:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.1) contrast(1.15) saturate(1.15);
     }
 
     .overlay {
@@ -112,7 +120,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      /* تحسين التدرج اللوني: جعله أكثر نعومة وتركيزاً من الأسفل */
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
     }
 
     /* معلومات المطعم */
@@ -130,6 +139,8 @@
       padding: 25px;
       box-shadow: var(--shadow-md);
       margin-bottom: 30px;
+      /* تحسين الظل للبطاقة */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
 
     .info-header {
@@ -146,12 +157,16 @@
       box-shadow: var(--shadow-lg);
       overflow: hidden;
       margin-left: 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .restaurant-logo-large img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* تحسين صورة الشعار */
+      filter: brightness(1.05) contrast(1.05);
     }
 
     .title-section {
@@ -265,6 +280,7 @@
       height: 180px;
       width: 100%;
       overflow: hidden;
+      position: relative;
     }
 
     .menu-item-image img {
@@ -272,10 +288,25 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      /* تحسين صور الأطعمة */
+      filter: brightness(1.05) contrast(1.05);
     }
 
     .menu-item:hover .menu-item-image img {
       transform: scale(1.05);
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    /* إضافة تدرج لوني خفيف على صور الأطعمة */
+    .menu-item-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 100%);
+      pointer-events: none;
     }
 
     .menu-item-content {
@@ -421,7 +452,7 @@
     </div>
   </header>
 
-  <!-- صورة الغلاف -->
+  <!-- صورة الغلاف مع التحسينات -->
   <div class="cover-image">
     <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
          alt="بيتزا سلمية">
@@ -443,6 +474,7 @@
       </div>
 
       <div class="info-details">
+        <!-- تم إزالة خانة الهاتف والرقم -->
         <div class="info-item">
           <i class="fas fa-clock"></i>
           <div class="info-text">
@@ -451,17 +483,17 @@
           </div>
         </div>
         <div class="info-item">
-          <i class="fas fa-phone"></i>
-          <div class="info-text">
-            <div class="info-label">هاتف</div>
-            <div class="info-value">٠٩٣٣٤٥٦٧٨٩</div>
-          </div>
-        </div>
-        <div class="info-item">
           <i class="fas fa-map-marker-alt"></i>
           <div class="info-text">
             <div class="info-label">العنوان</div>
             <div class="info-value">سلمية، الشارع الرئيسي</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-truck"></i>
+          <div class="info-text">
+            <div class="info-label">خدمة التوصيل</div>
+            <div class="info-value">متوفرة لجميع أنحاء المدينة</div>
           </div>
         </div>
       </div>
@@ -534,38 +566,6 @@
             <p class="menu-item-desc">سلطة سيزر مع الدجاج والصلصة الخاصة</p>
             <div class="menu-item-footer">
               <span class="menu-item-price">٢٥,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- صنف 5 -->
-        <div class="menu-item">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="بيتزا مارجريتا">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">بيتزا مارجريتا</h3>
-            <p class="menu-item-desc">بيتزا كلاسيكية بجبنة الموزاريلا ورقائق الطماطم</p>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">٣٨,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- صنف 6 -->
-        <div class="menu-item">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="معكرونة ألفريدو">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">معكرونة ألفريدو</h3>
-            <p class="menu-item-desc">معكرونة بصلصة الكريمة والجبن والدجاج</p>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">٣٢,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
