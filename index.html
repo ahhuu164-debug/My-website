@@ -1295,13 +1295,19 @@
     // إجراء البحث
     function performSearch(query, url, highlightItem) {
       if (query.trim()) {
-        // إذا كان هناك عنصر محدد لتسليط الضوء عليه
-        if (highlightItem) {
-          // إضافة معلمة لتسليط الضوء على الوجبة المطلوبة
-          window.location.href = `${url}?highlight=${encodeURIComponent(highlightItem)}&search=${encodeURIComponent(query)}`;
+        // التحقق من أن الرابط موجود
+        if (url && url !== 'undefined') {
+          // إذا كان هناك عنصر محدد لتسليط الضوء عليه
+          if (highlightItem) {
+            // إضافة معلمة لتسليط الضوء على الوجبة المطلوبة
+            window.location.href = `${url}?highlight=${encodeURIComponent(highlightItem)}&search=${encodeURIComponent(query)}`;
+          } else {
+            // الانتقال إلى صفحة المطعم فقط
+            window.location.href = `${url}?search=${encodeURIComponent(query)}`;
+          }
         } else {
-          // الانتقال إلى صفحة المطعم فقط
-          window.location.href = `${url}?search=${encodeURIComponent(query)}`;
+          // إذا لم يكن الرابط موجودًا، الانتقال إلى صفحة المطاعم العامة
+          window.location.href = `https://deluxe-genie-d796da.netlify.app/restaurants.html?search=${encodeURIComponent(query)}`;
         }
       } else {
         window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
@@ -1363,7 +1369,7 @@
           item.name === restaurantName && item.type === "مطعم"
         );
         
-        if (restaurant) {
+        if (restaurant && restaurant.url) {
           window.location.href = restaurant.url;
         } else {
           // إذا لم يتم العثور على المطعم، الانتقال إلى صفحة المطاعم العامة
