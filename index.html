@@ -217,7 +217,7 @@
       left: 100%;
     }
 
-    /* شريط البحث */
+    /* شريط البحث - التعديلات الجديدة */
     .search-section {
       padding: 40px 20px;
       background: var(--white);
@@ -264,19 +264,69 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       color: var(--white);
       border: none;
-      padding: 15px 25px;
-      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
     }
 
     .search-btn:hover {
       transform: scale(1.05);
       box-shadow: var(--shadow-md);
+    }
+
+    /* نتائج البحث */
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 100;
+      display: none;
+    }
+
+    .search-result-item {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--light-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-result-item:hover {
+      background-color: var(--light-gray);
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    .result-icon {
+      color: var(--primary-orange);
+      font-size: 1.2rem;
+    }
+
+    .result-text {
+      font-weight: 500;
+    }
+
+    .no-results {
+      padding: 20px;
+      text-align: center;
+      color: var(--medium-gray);
     }
 
     /* زر المطاعم الرئيسي */
@@ -810,6 +860,11 @@
         font-size: 1.6rem;
       }
       
+      .search-btn {
+        width: 45px;
+        height: 45px;
+      }
+      
       .nav-icon {
         font-size: 1.3rem;
       }
@@ -863,6 +918,11 @@
         font-size: 1.4rem;
       }
       
+      .search-btn {
+        width: 40px;
+        height: 40px;
+      }
+      
       .nav-icon {
         font-size: 1.2rem;
       }
@@ -900,7 +960,7 @@
     </div>
   </section>
 
-  <!-- شريط البحث -->
+  <!-- شريط البحث - التعديلات الجديدة -->
   <section class="search-section">
     <div class="search-container">
       <div class="smart-search">
@@ -908,9 +968,12 @@
         <div class="search-actions">
           <button class="search-btn">
             <i class="fas fa-search"></i>
-            بحث
           </button>
         </div>
+      </div>
+      <!-- نتائج البحث -->
+      <div class="search-results" id="searchResults">
+        <!-- سيتم إضافة نتائج البحث هنا ديناميكيًا -->
       </div>
     </div>
   </section>
@@ -1099,13 +1162,94 @@
       }
     });
 
-    // تفعيل زر البحث
-    document.querySelector('.search-btn').addEventListener('click', function() {
-      const searchTerm = document.querySelector('.search-input').value;
-      if (searchTerm) {
-        window.location.href = `https://deluxe-genie-d796da.netlify.app/restaurants.html?search=${encodeURIComponent(searchTerm)}`;
+    // بيانات البحث المزيفة (يمكن استبدالها ببيانات حقيقية من قاعدة بيانات)
+    const searchData = [
+      { name: "بيتزا سلمية", type: "مطعم", category: "بيتزا", icon: "fas fa-pizza-slice" },
+      { name: "برغر هاوس", type: "مطعم", category: "برغر", icon: "fas fa-hamburger" },
+      { name: "مشاوي العائلة", type: "مطعم", category: "مشاوي", icon: "fas fa-drumstick-bite" },
+      { name: "مطعم الأصالة", type: "مطعم", category: "وجبات عربية", icon: "fas fa-utensils" },
+      { name: "بيتزا مارغريتا", type: "وجبة", category: "بيتزا", icon: "fas fa-pizza-slice" },
+      { name: "برغر دجاج", type: "وجبة", category: "برغر", icon: "fas fa-hamburger" },
+      { name: "شاورما دجاج", type: "وجبة", category: "شاورما", icon: "fas fa-drumstick-bite" },
+      { name: "كباب مشوي", type: "وجبة", category: "مشاوي", icon: "fas fa-drumstick-bite" },
+      { name: "سلطة سيزر", type: "وجبة", category: "سلطات", icon: "fas fa-leaf" },
+      { name: "مشروبات غازية", type: "مشروب", category: "مشروبات", icon: "fas fa-wine-bottle" }
+    ];
+
+    // عناصر البحث
+    const searchInput = document.querySelector('.search-input');
+    const searchBtn = document.querySelector('.search-btn');
+    const searchResults = document.getElementById('searchResults');
+
+    // عرض نتائج البحث
+    function showSearchResults(query) {
+      // إخفاء النتائج إذا كان الاستعلام فارغًا
+      if (!query.trim()) {
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      // تصفية البيانات بناءً على الاستعلام
+      const filteredResults = searchData.filter(item => 
+        item.name.includes(query) || item.category.includes(query)
+      );
+
+      // عرض النتائج
+      if (filteredResults.length > 0) {
+        searchResults.innerHTML = filteredResults.map(item => `
+          <div class="search-result-item" data-name="${item.name}">
+            <i class="${item.icon} result-icon"></i>
+            <span class="result-text">${item.name} - ${item.category}</span>
+          </div>
+        `).join('');
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.innerHTML = '<div class="no-results">لا توجد نتائج مطابقة لبحثك</div>';
+        searchResults.style.display = 'block';
+      }
+
+      // إضافة مستمعي الأحداث لعناصر النتائج
+      document.querySelectorAll('.search-result-item').forEach(item => {
+        item.addEventListener('click', function() {
+          const itemName = this.getAttribute('data-name');
+          searchInput.value = itemName;
+          searchResults.style.display = 'none';
+          performSearch(itemName);
+        });
+      });
+    }
+
+    // إجراء البحث
+    function performSearch(query) {
+      if (query.trim()) {
+        // في التطبيق الحقيقي، يمكن إرسال الاستعلام إلى الخادم
+        // هنا نقوم بمحاكاة البحث عن طريق إعادة التوجيه مع معلمات البحث
+        window.location.href = `https://deluxe-genie-d796da.netlify.app/restaurants.html?search=${encodeURIComponent(query)}`;
       } else {
         window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
+      }
+    }
+
+    // إخفاء نتائج البحث عند النقر خارجها
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-container')) {
+        searchResults.style.display = 'none';
+      }
+    });
+
+    // إضافة مستمعي الأحداث
+    searchInput.addEventListener('input', function() {
+      showSearchResults(this.value);
+    });
+
+    searchBtn.addEventListener('click', function() {
+      performSearch(searchInput.value);
+    });
+
+    // تحسين البحث بالضغط على Enter
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch(this.value);
       }
     });
 
@@ -1119,13 +1263,6 @@
       btn.addEventListener('click', function() {
         window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
       });
-    });
-
-    // تحسين البحث بالضغط على Enter
-    document.querySelector('.search-input').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        document.querySelector('.search-btn').click();
-      }
     });
   </script>
 </body>
