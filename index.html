@@ -38,12 +38,17 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--white);
       color: var(--black);
       line-height: 1.6;
       padding-bottom: 70px;
+      overflow-x: hidden;
     }
 
     /* الخلفية المائية */
@@ -67,8 +72,13 @@
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 40px 0;
+      padding: 30px 0;
       box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .sticky-header.scrolled {
+      padding: 15px 0;
     }
 
     .header-content {
@@ -86,9 +96,13 @@
     }
 
     .logo-container img {
-      height: 100px;
+      height: 80px;
       width: auto;
       transition: all 0.3s ease;
+    }
+
+    .sticky-header.scrolled .logo-container img {
+      height: 60px;
     }
 
     .contact-link {
@@ -104,10 +118,14 @@
       font-weight: 600;
       font-size: 14px;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .contact-link:hover {
       background: rgba(255,255,255,0.3);
+      transform: translateY(-50%) scale(1.05);
     }
 
     /* قسم البطل */
@@ -115,11 +133,27 @@
       background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,200,87,0.1));
       padding: 80px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,107,53,0.03)"/></svg>');
+      background-size: cover;
+      z-index: 0;
     }
 
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title {
@@ -130,6 +164,7 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1.2;
     }
 
     .hero-subtitle {
@@ -153,11 +188,28 @@
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.6s;
     }
 
     .cta-button:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
     }
 
     /* شريط البحث */
@@ -212,6 +264,9 @@
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .search-btn:hover {
@@ -227,7 +282,7 @@
       justify-content: space-between;
       width: 90%;
       max-width: 600px;
-      height: 140px; /* ارتفاع 140px */
+      height: 140px;
       margin: 40px auto;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       border-radius: 20px;
@@ -239,9 +294,25 @@
       position: relative;
     }
 
+    .restaurant-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
     .restaurant-btn:hover {
       transform: scale(1.03);
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .restaurant-btn:hover::after {
+      opacity: 1;
     }
 
     .restaurant-btn .text {
@@ -263,6 +334,11 @@
       object-fit: cover;
       position: relative;
       z-index: 2;
+      transition: transform 0.5s ease;
+    }
+
+    .restaurant-btn:hover img {
+      transform: scale(1.05);
     }
 
     /* قسم المطاعم المميزة */
@@ -277,6 +353,21 @@
       font-weight: 700;
       color: var(--dark-blue);
       margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(to left, var(--primary-orange), var(--secondary-yellow));
+      border-radius: 2px;
     }
 
     .restaurants-scroll {
@@ -284,13 +375,23 @@
       gap: 20px;
       overflow-x: auto;
       padding: 20px 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-orange) var(--light-gray);
       scroll-behavior: smooth;
     }
 
     .restaurants-scroll::-webkit-scrollbar {
-      display: none;
+      height: 8px;
+    }
+
+    .restaurants-scroll::-webkit-scrollbar-track {
+      background: var(--light-gray);
+      border-radius: 10px;
+    }
+
+    .restaurants-scroll::-webkit-scrollbar-thumb {
+      background: var(--primary-orange);
+      border-radius: 10px;
     }
 
     .restaurant-card {
@@ -301,6 +402,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .restaurant-card:hover {
@@ -316,6 +418,11 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .restaurant-card:hover .restaurant-image {
+      transform: scale(1.05);
     }
 
     .card-badge {
@@ -328,6 +435,7 @@
       border-radius: 15px;
       font-size: 0.8rem;
       font-weight: 600;
+      z-index: 2;
     }
 
     .card-content {
@@ -391,6 +499,20 @@
       color: var(--white);
       padding: 30px 20px;
       margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offers-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
+      z-index: 0;
     }
 
     .offers-scroll {
@@ -398,13 +520,24 @@
       gap: 20px;
       overflow-x: auto;
       padding: 15px 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.5) transparent;
       scroll-behavior: smooth;
+      position: relative;
+      z-index: 1;
     }
 
     .offers-scroll::-webkit-scrollbar {
-      display: none;
+      height: 6px;
+    }
+
+    .offers-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .offers-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.5);
+      border-radius: 10px;
     }
 
     .offer-card {
@@ -419,6 +552,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.2);
     }
 
     .offer-discount {
@@ -453,11 +593,30 @@
       text-align: center;
       box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to left, var(--primary-orange), var(--secondary-yellow));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
     }
 
     .step-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
+    }
+
+    .step-card:hover::before {
+      transform: scaleX(1);
     }
 
     .step-icon {
@@ -538,6 +697,7 @@
       box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
       z-index: 1000;
       padding: 12px 0 8px;
+      backdrop-filter: blur(10px);
     }
 
     .nav-items {
@@ -557,10 +717,21 @@
       min-width: 0;
       padding: 5px;
       transition: all 0.2s ease;
+      position: relative;
     }
 
     .nav-item.active {
       color: var(--primary-orange);
+    }
+
+    .nav-item.active::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-orange);
+      border-radius: 50%;
     }
 
     .nav-icon {
@@ -573,14 +744,65 @@
       transform: translateY(-2px);
     }
 
+    /* زر العودة للأعلى */
+    .back-to-top {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-orange);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent-red);
+      transform: translateY(-3px);
+    }
+
+    /* مؤشر التحميل */
+    .loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary-orange), var(--accent-red));
+      z-index: 1001;
+      transition: width 0.3s ease;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .sticky-header {
-        padding: 30px 0;
+        padding: 20px 0;
+      }
+      
+      .sticky-header.scrolled {
+        padding: 12px 0;
       }
       
       .logo-container img {
-        height: 80px;
+        height: 70px;
+      }
+      
+      .sticky-header.scrolled .logo-container img {
+        height: 50px;
       }
       
       .contact-link {
@@ -633,15 +855,30 @@
       .nav-item {
         font-size: 0.7rem;
       }
+      
+      .back-to-top {
+        bottom: 70px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+      }
     }
 
     @media (max-width: 480px) {
       .sticky-header {
-        padding: 25px 0;
+        padding: 15px 0;
+      }
+      
+      .sticky-header.scrolled {
+        padding: 10px 0;
       }
       
       .logo-container img {
-        height: 70px;
+        height: 60px;
+      }
+      
+      .sticky-header.scrolled .logo-container img {
+        height: 45px;
       }
       
       .contact-link {
@@ -684,11 +921,14 @@
 </head>
 <body>
 
+  <!-- شريط التحميل -->
+  <div class="loading-bar" id="loadingBar"></div>
+
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
   <!-- الهيدر الثابت -->
-  <header class="sticky-header">
+  <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
       <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
         <i class="fas fa-phone"></i> تواصل معنا
@@ -877,6 +1117,11 @@
     </div>
   </footer>
 
+  <!-- زر العودة للأعلى -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
   <!-- Bottom Navigation - Mobile - تم التعديل -->
   <nav class="bottom-nav">
     <div class="nav-items">
@@ -896,6 +1141,40 @@
   </nav>
 
   <script>
+    // شريط التحميل
+    window.addEventListener('load', function() {
+      const loadingBar = document.getElementById('loadingBar');
+      loadingBar.style.width = '100%';
+      setTimeout(() => {
+        loadingBar.style.opacity = '0';
+        setTimeout(() => {
+          loadingBar.style.display = 'none';
+        }, 300);
+      }, 500);
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('stickyHeader');
+      const backToTop = document.getElementById('backToTop');
+      
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        backToTop.classList.add('visible');
+      } else {
+        header.classList.remove('scrolled');
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // زر العودة للأعلى
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
     // تفعيل زر البحث
     document.querySelector('.search-btn').addEventListener('click', function() {
       const searchTerm = document.querySelector('.search-input').value;
@@ -932,6 +1211,35 @@
             });
           }
         }
+      });
+    });
+
+    // تحسين البحث بالضغط على Enter
+    document.querySelector('.search-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.querySelector('.search-btn').click();
+      }
+    });
+
+    // تأثيرات عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+      // إضافة تأثير ظهور تدريجي للعناصر
+      const elementsToAnimate = document.querySelectorAll('.hero-content, .search-container, .restaurant-btn, .section-title, .restaurant-card, .step-card, .offer-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      elementsToAnimate.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
       });
     });
   </script>
