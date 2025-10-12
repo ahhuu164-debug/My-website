@@ -66,7 +66,7 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت */
+    /* الهيدر الثابت - تم إصلاح الاهتزاز */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -75,6 +75,7 @@
       padding: 30px 0;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
+      transform: translateZ(0); /* إصلاح الاهتزاز */
     }
 
     .sticky-header.scrolled {
@@ -105,13 +106,14 @@
       height: 60px;
     }
 
+    /* زر التواصل - الخلفية الصفراء */
     .contact-link {
       position: absolute;
       left: 20px;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%); /* إصلاح الاهتزاز - إزالة التحويل المزدوج */
       background: var(--secondary-yellow);
-      color: var(--white);
+      color: var(--dark-blue);
       padding: 10px 18px;
       border-radius: 20px;
       text-decoration: none;
@@ -121,11 +123,12 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      will-change: transform; /* تحسين الأداء */
     }
 
     .contact-link:hover {
-      background: rgba(255,255,255,0.3);
-      transform: translateY(-50%) scale(1.05);
+      background: var(--white);
+      transform: translateY(-50%) scale(1.05); /* إصلاح الاهتزاز */
     }
 
     /* قسم البطل */
@@ -274,7 +277,7 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* زر المطاعم الرئيسي - تم التعديل */
+    /* زر المطاعم الرئيسي */
     .restaurant-btn {
       display: flex;
       flex-direction: row-reverse;
@@ -493,7 +496,7 @@
       transform: scale(1.05);
     }
 
-    /* شريط العروض */
+    /* شريط العروض - تم إضافة كلمة "عروض خاصة" */
     .offers-banner {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
       color: var(--white);
@@ -687,7 +690,7 @@
       transform: translateY(-3px);
     }
 
-    /* Bottom Navigation - Mobile - تم التعديل */
+    /* Bottom Navigation - Mobile */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -742,49 +745,6 @@
 
     .nav-item.active .nav-icon {
       transform: translateY(-2px);
-    }
-
-    /* زر العودة للأعلى */
-    .back-to-top {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
-      background: var(--primary-orange);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background: var(--accent-red);
-      transform: translateY(-3px);
-    }
-
-    /* مؤشر التحميل */
-    .loading-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(to right, var(--primary-orange), var(--accent-red));
-      z-index: 1001;
-      transition: width 0.3s ease;
     }
 
     /* Responsive Design */
@@ -855,13 +815,6 @@
       .nav-item {
         font-size: 0.7rem;
       }
-      
-      .back-to-top {
-        bottom: 70px;
-        left: 15px;
-        width: 45px;
-        height: 45px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -921,13 +874,10 @@
 </head>
 <body>
 
-  <!-- شريط التحميل -->
-  <div class="loading-bar" id="loadingBar"></div>
-
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر الثابت -->
+  <!-- الهيدر الثابت - تم إصلاح الاهتزاز -->
   <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
       <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
@@ -942,8 +892,7 @@
   <!-- قسم البطل -->
   <section class="hero-section">
     <div class="hero-content">
-      <h1 class="hero-title">رحلة طعام مميزة تبدأ من هنا...</h1>
-      <h1 class="hero-title">من أفضل مطاعم سلمية إلى موائدكم</h1>
+      <h1 class="hero-title">أشهى الوجبات خلال دقائق</h1>
       <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
       <button class="cta-button">ابدأ الطلب الآن</button>
     </div>
@@ -964,7 +913,7 @@
     </div>
   </section>
 
-  <!-- زر المطاعم الرئيسي - تم التعديل -->
+  <!-- زر المطاعم الرئيسي -->
   <a href="https://deluxe-genie-d796da.netlify.app/restaurants.html" class="restaurant-btn">
     <div class="text">استكشف المطاعم →</div>
     <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
@@ -1056,7 +1005,7 @@
     </div>
   </section>
 
-  <!-- شريط العروض -->
+  <!-- شريط العروض - تم إضافة كلمة "عروض خاصة" -->
   <section class="offers-banner">
     <h2 class="section-title" style="color: white; margin-bottom: 25px;">عروض خاصة</h2>
     <div class="offers-scroll">
@@ -1118,12 +1067,7 @@
     </div>
   </footer>
 
-  <!-- زر العودة للأعلى -->
-  <div class="back-to-top" id="backToTop">
-    <i class="fas fa-chevron-up"></i>
-  </div>
-
-  <!-- Bottom Navigation - Mobile - تم التعديل -->
+  <!-- Bottom Navigation - Mobile -->
   <nav class="bottom-nav">
     <div class="nav-items">
       <a href="https://deluxe-genie-d796da.netlify.app/index.html" class="nav-item active">
@@ -1142,38 +1086,15 @@
   </nav>
 
   <script>
-    // شريط التحميل
-    window.addEventListener('load', function() {
-      const loadingBar = document.getElementById('loadingBar');
-      loadingBar.style.width = '100%';
-      setTimeout(() => {
-        loadingBar.style.opacity = '0';
-        setTimeout(() => {
-          loadingBar.style.display = 'none';
-        }, 300);
-      }, 500);
-    });
-
-    // تأثير التمرير على الهيدر
+    // إصلاح الاهتزاز في الهيدر
     window.addEventListener('scroll', function() {
       const header = document.getElementById('stickyHeader');
-      const backToTop = document.getElementById('backToTop');
       
       if (window.scrollY > 100) {
         header.classList.add('scrolled');
-        backToTop.classList.add('visible');
       } else {
         header.classList.remove('scrolled');
-        backToTop.classList.remove('visible');
       }
-    });
-
-    // زر العودة للأعلى
-    document.getElementById('backToTop').addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
     });
 
     // تفعيل زر البحث
@@ -1198,50 +1119,11 @@
       });
     });
 
-    // إضافة تأثيرات التنقل السلسة
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId !== '#') {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-      });
-    });
-
     // تحسين البحث بالضغط على Enter
     document.querySelector('.search-input').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         document.querySelector('.search-btn').click();
       }
-    });
-
-    // تأثيرات عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-      // إضافة تأثير ظهور تدريجي للعناصر
-      const elementsToAnimate = document.querySelectorAll('.hero-content, .search-container, .restaurant-btn, .section-title, .restaurant-card, .step-card, .offer-card');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      elementsToAnimate.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-      });
     });
   </script>
 </body>
