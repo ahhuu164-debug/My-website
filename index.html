@@ -979,7 +979,7 @@
   </section>
 
   <!-- زر المطاعم الرئيسي -->
-  <a href="https://deluxe-genie-d796da.netlify.app/restaurants.html" class="restaurant-btn">
+  <a href="restaurants.html" class="restaurant-btn">
     <div class="text">استكشف المطاعم →</div>
     <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
          alt="كولاج مطاعم: مشويات، سناكات، مقبلات">
@@ -1135,11 +1135,11 @@
   <!-- Bottom Navigation - Mobile -->
   <nav class="bottom-nav">
     <div class="nav-items">
-      <a href="https://deluxe-genie-d796da.netlify.app/index.html" class="nav-item active">
+      <a href="index.html" class="nav-item active">
         <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
       </a>
-      <a href="https://deluxe-genie-d796da.netlify.app/restaurants.html" class="nav-item">
+      <a href="restaurants.html" class="nav-item">
         <i class="fas fa-utensils nav-icon"></i>
         <span>المطاعم</span>
       </a>
@@ -1162,14 +1162,14 @@
       }
     });
 
-    // بيانات البحث المزيفة مع روابط محددة
+    // بيانات البحث المحدثة مع روابط صحيحة
     const searchData = [
       { 
         name: "بيتزا سلمية", 
         type: "مطعم", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-pizza-salamia.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: null
       },
       { 
@@ -1177,7 +1177,7 @@
         type: "مطعم", 
         category: "برغر", 
         icon: "fas fa-hamburger",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-burger-house.html",
+        url: "restaurant-burger-house.html", 
         highlightItem: null
       },
       { 
@@ -1185,7 +1185,7 @@
         type: "مطعم", 
         category: "مشاوي", 
         icon: "fas fa-drumstick-bite",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-family-grill.html",
+        url: "restaurant-family-grill.html",
         highlightItem: null
       },
       { 
@@ -1193,7 +1193,7 @@
         type: "مطعم", 
         category: "وجبات عربية", 
         icon: "fas fa-utensils",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-al-asala.html",
+        url: "restaurant-al-asala.html",
         highlightItem: null
       },
       { 
@@ -1201,23 +1201,39 @@
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-pizza-salamia.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: "pizza-margherita"
+      },
+      { 
+        name: "بيتزا بيبروني", 
+        type: "وجبة", 
+        category: "بيتزا", 
+        icon: "fas fa-pizza-slice",
+        url: "restaurant-pizza-salamia.html",
+        highlightItem: "pizza-pepperoni"
       },
       { 
         name: "برغر دجاج", 
         type: "وجبة", 
         category: "برغر", 
         icon: "fas fa-hamburger",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-burger-house.html",
+        url: "restaurant-burger-house.html",
         highlightItem: "chicken-burger"
+      },
+      { 
+        name: "برغر لحم", 
+        type: "وجبة", 
+        category: "برغر", 
+        icon: "fas fa-hamburger",
+        url: "restaurant-burger-house.html",
+        highlightItem: "beef-burger"
       },
       { 
         name: "شاورما دجاج", 
         type: "وجبة", 
         category: "شاورما", 
         icon: "fas fa-drumstick-bite",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-family-grill.html",
+        url: "restaurant-family-grill.html",
         highlightItem: "chicken-shawarma"
       },
       { 
@@ -1225,7 +1241,7 @@
         type: "وجبة", 
         category: "مشاوي", 
         icon: "fas fa-drumstick-bite",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-family-grill.html",
+        url: "restaurant-family-grill.html",
         highlightItem: "grilled-kebab"
       },
       { 
@@ -1233,7 +1249,7 @@
         type: "وجبة", 
         category: "سلطات", 
         icon: "fas fa-leaf",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-al-asala.html",
+        url: "restaurant-al-asala.html",
         highlightItem: "caesar-salad"
       },
       { 
@@ -1241,7 +1257,7 @@
         type: "مشروب", 
         category: "مشروبات", 
         icon: "fas fa-wine-bottle",
-        url: "https://deluxe-genie-d796da.netlify.app/restaurant-pizza-salamia.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: "soft-drinks"
       }
     ];
@@ -1253,23 +1269,25 @@
 
     // عرض نتائج البحث
     function showSearchResults(query) {
-      // إخفاء النتائج إذا كان الاستعلام فارغًا
       if (!query.trim()) {
         searchResults.style.display = 'none';
         return;
       }
 
-      // تصفية البيانات بناءً على الاستعلام
       const filteredResults = searchData.filter(item => 
         item.name.includes(query) || item.category.includes(query)
       );
 
-      // عرض النتائج
       if (filteredResults.length > 0) {
         searchResults.innerHTML = filteredResults.map(item => `
           <div class="search-result-item" data-name="${item.name}" data-url="${item.url}" data-highlight="${item.highlightItem || ''}">
             <i class="${item.icon} result-icon"></i>
-            <span class="result-text">${item.name} - ${item.category}</span>
+            <span class="result-text">
+              ${item.name} 
+              <small style="color: var(--medium-gray); font-size: 0.9rem;">
+                - ${item.type === 'مطعم' ? 'مطعم' : 'وجبة'} ${item.category}
+              </small>
+            </span>
           </div>
         `).join('');
         searchResults.style.display = 'block';
@@ -1292,25 +1310,20 @@
       });
     }
 
-    // إجراء البحث
+    // إجراء البحث - الإصدار المحسن
     function performSearch(query, url, highlightItem) {
       if (query.trim()) {
-        // التحقق من أن الرابط موجود
-        if (url && url !== 'undefined') {
-          // إذا كان هناك عنصر محدد لتسليط الضوء عليه
-          if (highlightItem) {
-            // إضافة معلمة لتسليط الضوء على الوجبة المطلوبة
-            window.location.href = `${url}?highlight=${encodeURIComponent(highlightItem)}&search=${encodeURIComponent(query)}`;
-          } else {
-            // الانتقال إلى صفحة المطعم فقط
-            window.location.href = `${url}?search=${encodeURIComponent(query)}`;
-          }
+        let targetUrl = url;
+        
+        // إذا كان هناك عنصر محدد لتسليط الضوء عليه
+        if (highlightItem) {
+          targetUrl += `?highlight=${encodeURIComponent(highlightItem)}&search=${encodeURIComponent(query)}`;
         } else {
-          // إذا لم يكن الرابط موجودًا، الانتقال إلى صفحة المطاعم العامة
-          window.location.href = `https://deluxe-genie-d796da.netlify.app/restaurants.html?search=${encodeURIComponent(query)}`;
+          targetUrl += `?search=${encodeURIComponent(query)}`;
         }
-      } else {
-        window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
+        
+        console.log('الانتقال إلى:', targetUrl);
+        window.location.href = targetUrl;
       }
     }
 
@@ -1327,7 +1340,6 @@
     });
 
     searchBtn.addEventListener('click', function() {
-      // البحث عن أول نتيجة مطابقة
       const query = searchInput.value;
       if (query.trim()) {
         const filteredResults = searchData.filter(item => 
@@ -1338,11 +1350,10 @@
           const firstResult = filteredResults[0];
           performSearch(query, firstResult.url, firstResult.highlightItem);
         } else {
-          // إذا لم توجد نتائج، الانتقال إلى صفحة المطاعم العامة
-          window.location.href = `https://deluxe-genie-d796da.netlify.app/restaurants.html?search=${encodeURIComponent(query)}`;
+          window.location.href = `restaurants.html?search=${encodeURIComponent(query)}`;
         }
       } else {
-        window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
+        window.location.href = 'restaurants.html';
       }
     });
 
@@ -1355,25 +1366,21 @@
 
     // تفعيل زر CTA
     document.querySelector('.cta-button').addEventListener('click', function() {
-      window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
+      window.location.href = 'restaurants.html';
     });
 
     // تفعيل أزرار عرض المطعم
     document.querySelectorAll('.view-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        // الحصول على اسم المطعم من البطاقة
         const restaurantName = this.closest('.restaurant-card').querySelector('.restaurant-name').textContent;
-        
-        // البحث عن المطعم في قاعدة البيانات
         const restaurant = searchData.find(item => 
           item.name === restaurantName && item.type === "مطعم"
         );
         
-        if (restaurant && restaurant.url) {
+        if (restaurant) {
           window.location.href = restaurant.url;
         } else {
-          // إذا لم يتم العثور على المطعم، الانتقال إلى صفحة المطاعم العامة
-          window.location.href = 'https://deluxe-genie-d796da.netlify.app/restaurants.html';
+          window.location.href = 'restaurants.html';
         }
       });
     });
