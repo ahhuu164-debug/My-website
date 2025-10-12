@@ -66,7 +66,7 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت - تم إصلاح الاهتزاز */
+    /* الهيدر الثابت - الإصلاح النهائي للاهتزاز */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -74,8 +74,10 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       padding: 30px 0;
       box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-      transform: translateZ(0); /* إصلاح الاهتزاز */
+      transition: padding 0.3s ease;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
     }
 
     .sticky-header.scrolled {
@@ -99,19 +101,19 @@
     .logo-container img {
       height: 80px;
       width: auto;
-      transition: all 0.3s ease;
+      transition: height 0.3s ease;
     }
 
     .sticky-header.scrolled .logo-container img {
       height: 60px;
     }
 
-    /* زر التواصل - الخلفية الصفراء */
+    /* زر التواصل - الإصلاح النهائي للاهتزاز */
     .contact-link {
       position: absolute;
       left: 20px;
       top: 50%;
-      transform: translateY(-50%); /* إصلاح الاهتزاز - إزالة التحويل المزدوج */
+      transform: translateY(-50%);
       background: var(--secondary-yellow);
       color: var(--dark-blue);
       padding: 10px 18px;
@@ -119,16 +121,16 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
-      will-change: transform; /* تحسين الأداء */
+      backface-visibility: hidden;
     }
 
     .contact-link:hover {
       background: var(--white);
-      transform: translateY(-50%) scale(1.05); /* إصلاح الاهتزاز */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* قسم البطل */
@@ -496,7 +498,7 @@
       transform: scale(1.05);
     }
 
-    /* شريط العروض - تم إضافة كلمة "عروض خاصة" */
+    /* شريط العروض */
     .offers-banner {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
       color: var(--white);
@@ -877,7 +879,7 @@
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر الثابت - تم إصلاح الاهتزاز -->
+  <!-- الهيدر الثابت - الإصلاح النهائي للاهتزاز -->
   <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
       <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
@@ -889,10 +891,10 @@
     </div>
   </header>
 
-  <!-- قسم البطل -->
+  <!-- قسم البطل - الجملة الأصلية -->
   <section class="hero-section">
     <div class="hero-content">
-      <h1 class="hero-title">أشهى الوجبات خلال دقائق</h1>
+      <h1 class="hero-title">أطيب المأكولات إلى باب منزلك</h1>
       <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
       <button class="cta-button">ابدأ الطلب الآن</button>
     </div>
@@ -1005,7 +1007,7 @@
     </div>
   </section>
 
-  <!-- شريط العروض - تم إضافة كلمة "عروض خاصة" -->
+  <!-- شريط العروض -->
   <section class="offers-banner">
     <h2 class="section-title" style="color: white; margin-bottom: 25px;">عروض خاصة</h2>
     <div class="offers-scroll">
