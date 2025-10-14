@@ -14,7 +14,7 @@ class WhatsAppProtector {
         const mathEncrypted = this.mathDecrypt('102,105,108,45,48,51,45,54,57,51');
         
         // طريقة 3: Base64 encoding - غير الرقم هنا فقط
-        const base64Encoded = atob('OTYzOTQ3Mjc1MzQ3');
+        const base64Encoded = atob('OTYzMTIzNDU2Nzg5');
         
         return base64Encoded;
     }
