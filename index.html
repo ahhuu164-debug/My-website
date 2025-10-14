@@ -126,6 +126,9 @@
       align-items: center;
       gap: 8px;
       backface-visibility: hidden;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
     }
 
     .contact-link:hover {
@@ -942,9 +945,10 @@
   <!-- الهيدر الثابت - الإصلاح النهائي للاهتزاز -->
   <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
-      <a href="https://wa.me/963XXXXXXXXX" class="contact-link" target="_blank">
+      <!-- التعديل: تغيير الرابط إلى زر مع دالة JavaScript -->
+      <button class="contact-link" onclick="openWhatsApp()">
         <i class="fas fa-phone"></i> تواصل معنا
-      </a>
+      </button>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
       </div>
@@ -1151,6 +1155,20 @@
   </nav>
 
   <script>
+    // =============================================
+    // دالة حماية بسيطة لرابط الواتساب
+    // =============================================
+    function openWhatsApp() {
+        const myNumber = "963XXXXXXXXX"; // ضع رقمك الحقيقي هنا
+        const message = "مرحباً، أريد الاستفسار عن خدمات التوصيل";
+        const url = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    // =============================================
+    // الكود الأصلي للصفحة (بقي كما هو)
+    // =============================================
+
     // إصلاح الاهتزاز في الهيدر
     window.addEventListener('scroll', function() {
       const header = document.getElementById('stickyHeader');
@@ -1387,4 +1405,3 @@
   </script>
 </body>
 </html>
-اقترح لي الحل الانسب قبل ان تكتب كود
