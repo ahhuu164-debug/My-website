@@ -1103,6 +1103,74 @@
             });
         });
     });
+  <!-- استدعاء ملف البحث -->
+  <script src="search.js"></script>
+
+  <script>
+    // كود JavaScript الخاص بالصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+        // التأكد من تحميل البحث
+        if (typeof initSearch === 'function') {
+            initSearch();
+        }
+        
+        // الكود الآخر...
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('stickyHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            window.location.href = 'restaurants.html';
+        });
+    });
+  </script>
+
+  <!-- استدعاء ملف البحث -->
+  <script src="search.js"></script>
+
+  <script>
+    // كود JavaScript الخاص بالصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+        // التأكد من تحميل البحث
+        if (typeof initSearch === 'function') {
+            initSearch();
+        }
+        
+        // الكود الآخر...
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('stickyHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            window.location.href = 'restaurants.html';
+        });
+
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const restaurantId = this.getAttribute('data-restaurant');
+                if (restaurantId === 'pizza-salamia') {
+                    window.location.href = 'restaurant-pizza-salamia.html';
+                } else if (restaurantId === 'burger-house') {
+                    window.location.href = 'restaurant-burger-house.html';
+                } else if (restaurantId === 'family-grill') {
+                    window.location.href = 'restaurant-family-grill.html';
+                } else {
+                    window.location.href = 'restaurants.html';
+                }
+            });
+        });
+    });
   </script>
 </body>
 </html>
+ 
