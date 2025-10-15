@@ -1,13 +1,13 @@
 // search.js - ملف البحث المنفصل
 
-// بيانات البحث
+// بيانات البحث - معدلة للصفحات الموجودة
 const searchData = [
     { 
         name: "بيتزا سلمية", 
         type: "مطعم", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurant-pizza-salamia.html",
+        url: "restaurants.html",
         highlightItem: null
     },
     { 
@@ -15,7 +15,7 @@ const searchData = [
         type: "مطعم", 
         category: "برغر", 
         icon: "fas fa-hamburger",
-        url: "restaurant-burger-house.html", 
+        url: "restaurants.html", 
         highlightItem: null
     },
     { 
@@ -23,7 +23,7 @@ const searchData = [
         type: "مطعم", 
         category: "مشاوي", 
         icon: "fas fa-drumstick-bite",
-        url: "restaurant-family-grill.html",
+        url: "restaurants.html",
         highlightItem: null
     },
     { 
@@ -31,7 +31,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurant-pizza-salamia.html",
+        url: "restaurants.html",
         highlightItem: "pizza-margherita"
     },
     { 
@@ -39,7 +39,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurant-pizza-salamia.html",
+        url: "restaurants.html",
         highlightItem: "pizza-pepperoni"
     },
     { 
@@ -47,7 +47,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurant-pizza-salamia.html",
+        url: "restaurants.html",
         highlightItem: "pizza-vegetable"
     }
 ];
@@ -88,7 +88,7 @@ function showSearchResults(query, searchResults, searchInput) {
                 
                 // الانتقال إلى الصفحة
                 if (highlightItem) {
-                    window.location.href = itemUrl + '?highlight=' + highlightItem;
+                    window.location.href = itemUrl + '?highlight=' + encodeURIComponent(highlightItem);
                 } else {
                     window.location.href = itemUrl;
                 }
@@ -98,17 +98,6 @@ function showSearchResults(query, searchResults, searchInput) {
         searchResults.innerHTML = '<div class="no-results">لا توجد نتائج مطابقة لبحثك</div>';
         searchResults.style.display = 'block';
     }
-}
-
-// وظيفة إجراء البحث والانتقال
-function performSearch(url, highlightItem = null) {
-    let targetUrl = url;
-    
-    if (highlightItem) {
-        targetUrl += '?highlight=' + highlightItem;
-    }
-    
-    window.location.href = targetUrl;
 }
 
 // تهيئة البحث
@@ -136,7 +125,11 @@ function initSearch() {
             
             if (filteredResults.length > 0) {
                 const firstResult = filteredResults[0];
-                performSearch(firstResult.url, firstResult.highlightItem);
+                if (firstResult.highlightItem) {
+                    window.location.href = firstResult.url + '?highlight=' + encodeURIComponent(firstResult.highlightItem);
+                } else {
+                    window.location.href = firstResult.url;
+                }
             } else {
                 alert('لم نجد نتائج مطابقة لبحثك');
             }
