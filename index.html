@@ -713,125 +713,6 @@
       transform: translateY(-2px);
     }
 
-    /* محاكاة صفحة المطعم */
-    .restaurant-page {
-      display: none;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .restaurant-header {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    .restaurant-header img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: var(--border-radius-lg);
-    }
-
-    .restaurant-details {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .menu-section {
-      margin-bottom: 40px;
-    }
-
-    .menu-category {
-      margin-bottom: 25px;
-    }
-
-    .category-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--light-gray);
-    }
-
-    .menu-items {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .menu-item {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      position: relative;
-    }
-
-    .menu-item.highlighted {
-      border-color: var(--primary-orange);
-      background: rgba(255, 107, 53, 0.05);
-      transform: scale(1.02);
-      box-shadow: var(--shadow-md);
-    }
-
-    .menu-item.highlighted::before {
-      content: "نتيجة بحثك";
-      position: absolute;
-      top: -10px;
-      right: 15px;
-      background: var(--primary-orange);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .menu-item-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin-bottom: 10px;
-    }
-
-    .menu-item-description {
-      color: var(--medium-gray);
-      margin-bottom: 15px;
-      font-size: 0.9rem;
-    }
-
-    .menu-item-price {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary-orange);
-    }
-
-    .back-button {
-      background: var(--light-gray);
-      color: var(--dark-blue);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-bottom: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .back-button:hover {
-      background: var(--medium-gray);
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
       .sticky-header {
@@ -1251,30 +1132,6 @@
     </footer>
   </div>
 
-  <!-- صفحة المطعم (مخفية في البداية) -->
-  <div id="restaurantPage" class="restaurant-page">
-    <button class="back-button" id="backButton">
-      <i class="fas fa-arrow-right"></i> العودة للرئيسية
-    </button>
-    <div class="restaurant-header">
-      <img id="restaurantPageImage" src="" alt="">
-      <div class="restaurant-details">
-        <h1 id="restaurantPageName"></h1>
-        <div class="restaurant-info">
-          <div class="rating" id="restaurantPageRating"></div>
-          <span class="delivery-time" id="restaurantPageDeliveryTime"></span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="menu-section">
-      <h2 class="category-title">قائمة الطعام</h2>
-      <div class="menu-items" id="menuItems">
-        <!-- سيتم ملء عناصر القائمة هنا ديناميكيًا -->
-      </div>
-    </div>
-  </div>
-
   <!-- Bottom Navigation - Mobile -->
   <nav class="bottom-nav">
     <div class="nav-items">
@@ -1293,312 +1150,55 @@
     </div>
   </nav>
 
+  <!-- استدعاء ملف البحث -->
+  <script src="search.js"></script>
+
   <script>
-    // بيانات المطاعم
-    const restaurantsData = {
-      "pizza-salamia": {
-        name: "بيتزا سلمية - أفضل بيتزا في المدينة",
-        image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: "4.8 (124)",
-        deliveryTime: "30-45 دقيقة",
-        menu: [
-          { id: "pizza-margherita", name: "بيتزا مارغريتا", description: "بيتزا إيطالية كلاسيكية مع جبنة موزاريلا وطماطم طازجة", price: "25,000 ل.س" },
-          { id: "pizza-pepperoni", name: "بيتزا بيبروني", description: "بيتزا مع صلصة الطماطم وجبنة موزاريلا وشرائح البيبروني", price: "28,000 ل.س" },
-          { id: "pizza-vegetable", name: "بيتزا خضار", description: "بيتزا نباتية مع فلفل حلو، زيتون، بصل، وفطر طازج", price: "26,000 ل.س" },
-          { id: "pizza-meat", name: "بيتزا لحم", description: "بيتزا مع لحم بقري مفروم، فلفل، بصل، وجبنة موزاريلا", price: "30,000 ل.س" },
-          { id: "garlic-bread", name: "خبز ثوم", description: "خبز طازج مع زبدة الثوم والأعشاب الإيطالية", price: "8,000 ل.س" }
-        ]
-      },
-      "burger-house": {
-        name: "برغر هاوس - أشهى البرغر الأمريكي",
-        image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: "4.7 (89)",
-        deliveryTime: "25-40 دقيقة",
-        menu: [
-          { id: "beef-burger", name: "برغر لحم", description: "برغر لحم بقري طازج مع خس، طماطم، بصل، ومخلل", price: "22,000 ل.س" },
-          { id: "chicken-burger", name: "برغر دجاج", description: "برغر دجاج مشوي مع مايونيز خاص وخضار طازجة", price: "20,000 ل.س" },
-          { id: "cheese-burger", name: "برغر جبن", description: "برغر لحم مع جبنة شيدر ذائبة وصلصة خاصة", price: "24,000 ل.س" },
-          { id: "double-burger", name: "برغر مزدوج", description: "برغر مع قطعتين من اللحم وجبنة شيدر", price: "32,000 ل.س" },
-          { id: "french-fries", name: "بطاطس مقلية", description: "بطاطس مقلية طازجة مع صلصة اختيارية", price: "7,000 ل.س" }
-        ]
-      },
-      "family-grill": {
-        name: "مشاوي العائلة - أشهى المشاوي الشرقية",
-        image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: "4.9 (156)",
-        deliveryTime: "40-55 دقيقة",
-        menu: [
-          { id: "chicken-shawarma", name: "شاورما دجاج", description: "شاورما دجاج مشوي مع خضار طازجة وصلصة ثوم", price: "18,000 ل.س" },
-          { id: "beef-shawarma", name: "شاورما لحم", description: "شاورما لحم بقري مع خضار طازجة وصلصة طحينة", price: "20,000 ل.س" },
-          { id: "grilled-kebab", name: "كباب مشوي", description: "كباب لحم ضأن مشوي مع أرص وصوص طماطم", price: "25,000 ل.س" },
-          { id: "mixed-grill", name: "مشاوي مشكلة", description: "مشكلة من الكباب والشيش طاووق والكفتة", price: "35,000 ل.س" },
-          { id: "hummus", name: "حمص", description: "حمص مع طحينة وزيت زيتون", price: "6,000 ل.س" }
-        ]
-      }
-    };
-
-    // بيانات البحث
-    const searchData = [
-      { 
-        name: "بيتزا سلمية", 
-        type: "مطعم", 
-        category: "بيتزا", 
-        icon: "fas fa-pizza-slice",
-        restaurantId: "pizza-salamia",
-        highlightItem: null
-      },
-      { 
-        name: "برغر هاوس", 
-        type: "مطعم", 
-        category: "برغر", 
-        icon: "fas fa-hamburger",
-        restaurantId: "burger-house", 
-        highlightItem: null
-      },
-      { 
-        name: "مشاوي العائلة", 
-        type: "مطعم", 
-        category: "مشاوي", 
-        icon: "fas fa-drumstick-bite",
-        restaurantId: "family-grill",
-        highlightItem: null
-      },
-      { 
-        name: "بيتزا مارغريتا", 
-        type: "وجبة", 
-        category: "بيتزا", 
-        icon: "fas fa-pizza-slice",
-        restaurantId: "pizza-salamia",
-        highlightItem: "pizza-margherita"
-      },
-      { 
-        name: "بيتزا بيبروني", 
-        type: "وجبة", 
-        category: "بيتزا", 
-        icon: "fas fa-pizza-slice",
-        restaurantId: "pizza-salamia",
-        highlightItem: "pizza-pepperoni"
-      },
-      { 
-        name: "بيتزا خضار", 
-        type: "وجبة", 
-        category: "بيتزا", 
-        icon: "fas fa-pizza-slice",
-        restaurantId: "pizza-salamia",
-        highlightItem: "pizza-vegetable"
-      },
-      { 
-        name: "برغر دجاج", 
-        type: "وجبة", 
-        category: "برغر", 
-        icon: "fas fa-hamburger",
-        restaurantId: "burger-house",
-        highlightItem: "chicken-burger"
-      },
-      { 
-        name: "برغر لحم", 
-        type: "وجبة", 
-        category: "برغر", 
-        icon: "fas fa-hamburger",
-        restaurantId: "burger-house",
-        highlightItem: "beef-burger"
-      },
-      { 
-        name: "شاورما دجاج", 
-        type: "وجبة", 
-        category: "شاورما", 
-        icon: "fas fa-drumstick-bite",
-        restaurantId: "family-grill",
-        highlightItem: "chicken-shawarma"
-      },
-      { 
-        name: "كباب مشوي", 
-        type: "وجبة", 
-        category: "مشاوي", 
-        icon: "fas fa-drumstick-bite",
-        restaurantId: "family-grill",
-        highlightItem: "grilled-kebab"
-      }
-    ];
-
-    // عناصر DOM
-    const searchInput = document.querySelector('.search-input');
-    const searchBtn = document.querySelector('.search-btn');
-    const searchResults = document.getElementById('searchResults');
-    const mainPage = document.getElementById('mainPage');
-    const restaurantPage = document.getElementById('restaurantPage');
-    const backButton = document.getElementById('backButton');
-    const restaurantPageName = document.getElementById('restaurantPageName');
-    const restaurantPageImage = document.getElementById('restaurantPageImage');
-    const restaurantPageRating = document.getElementById('restaurantPageRating');
-    const restaurantPageDeliveryTime = document.getElementById('restaurantPageDeliveryTime');
-    const menuItems = document.getElementById('menuItems');
-
-    // إصلاح الاهتزاز في الهيدر
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('stickyHeader');
-      
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // عرض نتائج البحث
-    function showSearchResults(query) {
-      if (!query.trim()) {
-        searchResults.style.display = 'none';
-        return;
-      }
-
-      const filteredResults = searchData.filter(item => 
-        item.name.includes(query) || item.category.includes(query)
-      );
-
-      if (filteredResults.length > 0) {
-        searchResults.innerHTML = filteredResults.map(item => `
-          <div class="search-result-item" data-restaurant-id="${item.restaurantId}" data-highlight="${item.highlightItem || ''}">
-            <i class="${item.icon} result-icon"></i>
-            <span class="result-text">
-              ${item.name} 
-              <small style="color: var(--medium-gray); font-size: 0.9rem;">
-                - ${item.type === 'مطعم' ? 'مطعم' : 'وجبة'} ${item.category}
-              </small>
-            </span>
-          </div>
-        `).join('');
-        searchResults.style.display = 'block';
-      } else {
-        searchResults.innerHTML = '<div class="no-results">لا توجد نتائج مطابقة لبحثك</div>';
-        searchResults.style.display = 'block';
-      }
-
-      // إضافة مستمعي الأحداث لعناصر النتائج
-      document.querySelectorAll('.search-result-item').forEach(item => {
-        item.addEventListener('click', function() {
-          const restaurantId = this.getAttribute('data-restaurant-id');
-          const highlightItem = this.getAttribute('data-highlight');
-          
-          searchInput.value = '';
-          searchResults.style.display = 'none';
-          showRestaurantPage(restaurantId, highlightItem);
-        });
-      });
-    }
-
-    // عرض صفحة المطعم
-    function showRestaurantPage(restaurantId, highlightItem = null) {
-      const restaurant = restaurantsData[restaurantId];
-      
-      if (!restaurant) {
-        console.error('المطعم غير موجود:', restaurantId);
-        return;
-      }
-      
-      // تحديث بيانات صفحة المطعم
-      restaurantPageName.textContent = restaurant.name;
-      restaurantPageImage.src = restaurant.image;
-      restaurantPageImage.alt = restaurant.name;
-      restaurantPageRating.innerHTML = `<i class="fas fa-star"></i> ${restaurant.rating}`;
-      restaurantPageDeliveryTime.textContent = restaurant.deliveryTime;
-      
-      // إنشاء قائمة الطعام
-      menuItems.innerHTML = restaurant.menu.map(item => {
-        const isHighlighted = item.id === highlightItem;
-        return `
-          <div class="menu-item ${isHighlighted ? 'highlighted' : ''}" data-item-id="${item.id}">
-            <h3 class="menu-item-name">${item.name}</h3>
-            <p class="menu-item-description">${item.description}</p>
-            <div class="menu-item-price">${item.price}</div>
-          </div>
-        `;
-      }).join('');
-      
-      // إظهار صفحة المطعم وإخفاء الرئيسية
-      mainPage.style.display = 'none';
-      restaurantPage.style.display = 'block';
-      
-      // التمرير إلى الأعلى
-      window.scrollTo(0, 0);
-      
-      // إذا كان هناك عنصر مميز، قم بالتمرير إليه
-      if (highlightItem) {
-        setTimeout(() => {
-          const highlightedItem = document.querySelector(`.menu-item[data-item-id="${highlightItem}"]`);
-          if (highlightedItem) {
-            highlightedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 500);
-      }
-    }
-
-    // العودة إلى الصفحة الرئيسية
-    function showMainPage() {
-      mainPage.style.display = 'block';
-      restaurantPage.style.display = 'none';
-      window.scrollTo(0, 0);
-    }
-
-    // إضافة مستمعي الأحداث
-    searchInput.addEventListener('input', function() {
-      showSearchResults(this.value);
-    });
-
-    searchBtn.addEventListener('click', function() {
-      const query = searchInput.value;
-      if (query.trim()) {
-        const filteredResults = searchData.filter(item => 
-          item.name.includes(query) || item.category.includes(query)
-        );
+    // تهيئة البحث بعد تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+        // هذه الدالة موجودة في search.js
+        initSearch();
         
-        if (filteredResults.length > 0) {
-          const firstResult = filteredResults[0];
-          showRestaurantPage(firstResult.restaurantId, firstResult.highlightItem);
-        } else {
-          alert('لم نجد نتائج مطابقة لبحثك. حاول بكلمات أخرى.');
-        }
-      }
-    });
+        // الكود الآخر الذي تريده (غير متعلق بالبحث)
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('stickyHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        searchBtn.click();
-      }
-    });
+        // زر ابدأ الطلب الآن
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            window.location.href = 'restaurants.html';
+        });
 
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.search-container')) {
-        searchResults.style.display = 'none';
-      }
-    });
+        // أزرار عرض المطعم
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const restaurantCard = this.closest('.restaurant-card');
+                const restaurantName = restaurantCard.querySelector('.restaurant-name').textContent;
+                // يمكنك إضافة الانتقال إلى صفحة المطعم هنا
+                alert('سيتم الانتقال إلى صفحة ' + restaurantName);
+            });
+        });
 
-    backButton.addEventListener('click', showMainPage);
+        // التنقل في القائمة السفلية
+        document.getElementById('homeNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    document.querySelectorAll('.view-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const restaurantId = this.getAttribute('data-restaurant');
-        showRestaurantPage(restaurantId);
-      });
-    });
+        document.getElementById('restaurantsNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.restaurants-section').scrollIntoView({ behavior: 'smooth' });
+        });
 
-    document.querySelector('.cta-button').addEventListener('click', function() {
-      document.querySelector('.restaurants-section').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    document.getElementById('homeNav').addEventListener('click', function(e) {
-      e.preventDefault();
-      showMainPage();
-    });
-
-    document.getElementById('restaurantsNav').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector('.restaurants-section').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    document.getElementById('offersNav').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector('.platform-offers').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('offersNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.platform-offers').scrollIntoView({ behavior: 'smooth' });
+        });
     });
   </script>
 </body>
