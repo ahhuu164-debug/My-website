@@ -218,6 +218,108 @@
       margin-top: 3px;
     }
 
+    /* قسم التقييمات - جديد */
+    .ratings-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 25px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 30px;
+    }
+
+    .ratings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .ratings-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .overall-rating {
+      text-align: center;
+    }
+
+    .rating-score {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .rating-stars {
+      color: var(--secondary-yellow);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .rating-count {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+    }
+
+    .add-rating {
+      text-align: center;
+      padding: 20px;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      margin-top: 20px;
+    }
+
+    .add-rating-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--dark-blue);
+    }
+
+    .rating-stars-input {
+      direction: ltr;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .star {
+      font-size: 2rem;
+      color: var(--medium-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 2px;
+    }
+
+    .star:hover,
+    .star.active {
+      color: var(--secondary-yellow);
+      transform: scale(1.1);
+    }
+
+    .submit-rating {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 20px;
+      padding: 10px 30px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-rating:hover {
+      background: var(--accent-red);
+    }
+
+    .submit-rating:disabled {
+      background: var(--medium-gray);
+      cursor: not-allowed;
+    }
+
     /* علامات التبويب */
     .tabs {
       display: flex;
@@ -482,6 +584,40 @@
       margin: 0 5px;
     }
 
+    /* خانات معلومات العميل - جديد */
+    .customer-info {
+      margin-bottom: 20px;
+      padding-top: 15px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .customer-info-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--dark-blue);
+    }
+
+    .customer-input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--medium-gray);
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .customer-input:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+    }
+
+    .customer-input::placeholder {
+      color: var(--medium-gray);
+    }
+
     .cart-summary {
       padding-top: 15px;
       border-top: 2px solid var(--medium-gray);
@@ -496,7 +632,7 @@
     }
 
     .whatsapp-order-btn {
-      background: #25D366;
+      background: #BDC3C7;
       color: white;
       border: none;
       padding: 15px;
@@ -505,14 +641,20 @@
       font-weight: 700;
       font-size: 1.1rem;
       width: 100%;
-      cursor: pointer;
+      cursor: not-allowed;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .whatsapp-order-btn:hover {
+    .whatsapp-order-btn.active {
+      background: #25D366;
+      cursor: pointer;
+    }
+
+    .whatsapp-order-btn.active:hover {
       background: #128C7E;
     }
 
@@ -616,6 +758,12 @@
       .cart-sidebar {
         width: 300px;
       }
+
+      .ratings-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -637,6 +785,14 @@
 
       .cart-sidebar {
         width: 85%;
+      }
+
+      .rating-score {
+        font-size: 2.5rem;
+      }
+
+      .star {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -700,6 +856,38 @@
             <div class="info-value">متوفرة لجميع أنحاء المدينة</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- قسم التقييمات - جديد -->
+    <div class="ratings-section">
+      <div class="ratings-header">
+        <h2 class="ratings-title">تقييم المطعم</h2>
+        <div class="overall-rating">
+          <div class="rating-score" id="average-rating">4.3</div>
+          <div class="rating-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="rating-count" id="total-ratings">(28 تقييم)</div>
+        </div>
+      </div>
+
+      <div class="add-rating">
+        <div class="add-rating-title">قيم تجربتك</div>
+        <div class="rating-stars-input" id="rating-stars-input">
+          <i class="far fa-star star" data-rating="1"></i>
+          <i class="far fa-star star" data-rating="2"></i>
+          <i class="far fa-star star" data-rating="3"></i>
+          <i class="far fa-star star" data-rating="4"></i>
+          <i class="far fa-star star" data-rating="5"></i>
+        </div>
+        <button class="submit-rating" id="submit-rating" disabled>
+          إرسال التقييم
+        </button>
       </div>
     </div>
 
@@ -852,6 +1040,15 @@
     <div class="cart-items" id="cart-items">
       <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
     </div>
+    
+    <!-- خانات معلومات العميل - جديد -->
+    <div class="customer-info">
+      <div class="customer-info-title">معلومات التوصيل</div>
+      <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
+      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required>
+      <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
+    </div>
+    
     <div class="cart-summary">
       <div class="cart-total">
         <span>المجموع:</span>
@@ -887,8 +1084,19 @@
     // بيانات التطبيق
     let cart = [];
     const restaurantName = "مشاوي العائلة";
-    // تم إضافة رقم الواتساب هنا
     const restaurantPhone = "0957275347";
+
+    // بيانات التقييمات
+    let ratings = [
+      { stars: 5 }, { stars: 4 }, { stars: 5 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 4 }, { stars: 3 }, { stars: 5 },
+      { stars: 4 }, { stars: 5 }, { stars: 4 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 4 }, { stars: 3 }, { stars: 5 },
+      { stars: 4 }, { stars: 5 }, { stars: 4 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 2 }
+    ];
+
+    let selectedRating = 0;
 
     // عناصر DOM
     const cartSidebar = document.getElementById('cart-sidebar');
@@ -899,14 +1107,26 @@
     const cartTotalPrice = document.getElementById('cart-total-price');
     const cartBadge = document.getElementById('cart-badge');
     const whatsappOrderBtn = document.getElementById('whatsapp-order');
+    const customerNameInput = document.getElementById('customer-name');
+    const customerAddressInput = document.getElementById('customer-address');
+    const customerPhoneInput = document.getElementById('customer-phone');
+    const averageRatingElement = document.getElementById('average-rating');
+    const totalRatingsElement = document.getElementById('total-ratings');
+    const ratingStarsInput = document.getElementById('rating-stars-input');
+    const submitRatingButton = document.getElementById('submit-rating');
+    const stars = ratingStarsInput.querySelectorAll('.star');
 
     // فتح وإغلاق سلة التسوق
     openCartBtn.addEventListener('click', function(e) {
       e.preventDefault();
+      openCart();
+    });
+
+    function openCart() {
       cartSidebar.classList.add('open');
       cartOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
+    }
 
     function closeCart() {
       cartSidebar.classList.remove('open');
@@ -943,14 +1163,11 @@
         const price = parseInt(menuItem.dataset.price);
         const quantity = parseInt(menuItem.querySelector('.quantity-input').value);
         
-        // البحث إذا كان العنصر موجوداً بالفعل في السلة
         const existingItemIndex = cart.findIndex(item => item.id === id);
         
         if (existingItemIndex !== -1) {
-          // تحديث الكمية إذا كان العن� موجوداً
           cart[existingItemIndex].quantity += quantity;
         } else {
-          // إضافة عنصر جديد إلى السلة
           cart.push({
             id,
             name,
@@ -959,13 +1176,10 @@
           });
         }
         
-        // إعادة تعيين العداد إلى 1
         menuItem.querySelector('.quantity-input').value = 1;
-        
-        // تحديث واجهة المستخدم
         updateCartUI();
+        openCart();
         
-        // إظهار تأكيد الإضافة
         this.textContent = 'تمت الإضافة';
         this.style.background = 'var(--success)';
         
@@ -978,11 +1192,9 @@
 
     // تحديث واجهة سلة التسوق
     function updateCartUI() {
-      // تحديث العداد
       const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
       cartBadge.textContent = totalItems;
       
-      // تحديث قائمة العناصر في السلة
       cartItemsContainer.innerHTML = '';
       
       if (cart.length === 0) {
@@ -1014,10 +1226,8 @@
         cartItemsContainer.appendChild(cartItemElement);
       });
       
-      // تحديث السعر الإجمالي
       cartTotalPrice.textContent = `${formatPrice(totalPrice)} ل.س`;
       
-      // إضافة معالجات الأحداث لأزرار الكمية في السلة
       document.querySelectorAll('.cart-quantity-btn.plus').forEach(btn => {
         btn.addEventListener('click', function() {
           const id = this.dataset.id;
@@ -1050,12 +1260,41 @@
       return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    // التحقق من ملء جميع الحقول وتفعيل زر الواتساب
+    function checkFormValidity() {
+      const name = customerNameInput.value.trim();
+      const address = customerAddressInput.value.trim();
+      const phone = customerPhoneInput.value.trim();
+      
+      if (name && address && phone) {
+        whatsappOrderBtn.classList.add('active');
+        whatsappOrderBtn.disabled = false;
+      } else {
+        whatsappOrderBtn.classList.remove('active');
+        whatsappOrderBtn.disabled = true;
+      }
+    }
+
+    // إضافة مستمعات الأحداث لحقول الإدخال
+    customerNameInput.addEventListener('input', checkFormValidity);
+    customerAddressInput.addEventListener('input', checkFormValidity);
+    customerPhoneInput.addEventListener('input', checkFormValidity);
+
     // إرسال الطلب عبر واتساب
     whatsappOrderBtn.addEventListener('click', function() {
       if (cart.length === 0) {
         alert('السلة فارغة. أضف بعض العناصر أولاً.');
         return;
       }
+      
+      if (!whatsappOrderBtn.classList.contains('active')) {
+        alert('يرجى ملء جميع معلومات التوصيل أولاً.');
+        return;
+      }
+      
+      const customerName = customerNameInput.value.trim();
+      const customerAddress = customerAddressInput.value.trim();
+      const customerPhone = customerPhoneInput.value.trim();
       
       let message = `مرحباً، أريد طلب التالي من ${restaurantName}:\n\n`;
       
@@ -1067,16 +1306,117 @@
       });
       
       message += `\nالمجموع: ${formatPrice(totalPrice)} ل.س\n\n`;
+      message += `معلومات التوصيل:\n`;
+      message += `الاسم: ${customerName}\n`;
+      message += `العنوان: ${customerAddress}\n`;
+      message += `الهاتف: ${customerPhone}\n\n`;
       message += `شكراً!`;
       
-      // ترميز الرسالة للرابط
       const encodedMessage = encodeURIComponent(message);
-      
-      // إنشاء رابط واتساب
       const whatsappURL = `https://wa.me/${restaurantPhone}?text=${encodedMessage}`;
-      
-      // فتح الرابط في نافذة جديدة
       window.open(whatsappURL, '_blank');
+    });
+
+    // نظام التقييمات
+    function calculateAverageRating() {
+      if (ratings.length === 0) return 0;
+      const total = ratings.reduce((sum, rating) => sum + rating.stars, 0);
+      return (total / ratings.length).toFixed(1);
+    }
+
+    function updateRatingDisplay() {
+      const average = calculateAverageRating();
+      const total = ratings.length;
+      
+      averageRatingElement.textContent = average;
+      totalRatingsElement.textContent = `(${total} تقييم)`;
+      
+      updateOverallStars(average);
+    }
+
+    function updateOverallStars(average) {
+      const overallStarsContainer = document.querySelector('.overall-rating .rating-stars');
+      overallStarsContainer.innerHTML = '';
+      
+      const fullStars = Math.floor(average);
+      const hasHalfStar = average % 1 >= 0.5;
+      
+      for (let i = 0; i < fullStars; i++) {
+        overallStarsContainer.innerHTML += '<i class="fas fa-star"></i>';
+      }
+      
+      if (hasHalfStar) {
+        overallStarsContainer.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+      }
+      
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+      for (let i = 0; i < emptyStars; i++) {
+        overallStarsContainer.innerHTML += '<i class="far fa-star"></i>';
+      }
+    }
+
+    // إضافة مستمعات الأحداث للنجوم
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        const rating = parseInt(this.dataset.rating);
+        selectedRating = rating;
+        
+        stars.forEach((s, index) => {
+          if (index < rating) {
+            s.classList.remove('far');
+            s.classList.add('fas', 'active');
+          } else {
+            s.classList.remove('fas', 'active');
+            s.classList.add('far');
+          }
+        });
+        
+        submitRatingButton.disabled = false;
+      });
+      
+      star.addEventListener('mouseenter', function() {
+        const rating = parseInt(this.dataset.rating);
+        stars.forEach((s, index) => {
+          if (index < rating) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+      });
+      
+      star.addEventListener('mouseleave', function() {
+        if (selectedRating === 0) {
+          stars.forEach(s => {
+            s.classList.remove('active');
+          });
+        } else {
+          stars.forEach((s, index) => {
+            if (index < selectedRating) {
+              s.classList.add('active');
+            } else {
+              s.classList.remove('active');
+            }
+          });
+        }
+      });
+    });
+
+    // إرسال التقييم
+    submitRatingButton.addEventListener('click', function() {
+      if (selectedRating > 0) {
+        ratings.push({ stars: selectedRating });
+        updateRatingDisplay();
+        
+        selectedRating = 0;
+        stars.forEach(star => {
+          star.classList.remove('fas', 'active');
+          star.classList.add('far');
+        });
+        
+        submitRatingButton.disabled = true;
+        alert(`شكراً لك! تم إضافة تقييمك: ${selectedRating} نجوم`);
+      }
     });
 
     // تفعيل البحث عند النقر على الأيقونة
@@ -1084,8 +1424,10 @@
       alert('سيتم فتح شريط البحث هنا');
     });
 
-    // تهيئة واجهة السلة
+    // تهيئة واجهة السلة والتقييمات
     updateCartUI();
+    checkFormValidity();
+    updateRatingDisplay();
   </script>
 
    <script src="protection.js"></script>
