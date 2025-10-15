@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -482,6 +483,40 @@
       margin: 0 5px;
     }
 
+    /* خانات معلومات العميل - جديد */
+    .customer-info {
+      margin-bottom: 20px;
+      padding-top: 15px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .customer-info-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--dark-blue);
+    }
+
+    .customer-input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--medium-gray);
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .customer-input:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+    }
+
+    .customer-input::placeholder {
+      color: var(--medium-gray);
+    }
+
     .cart-summary {
       padding-top: 15px;
       border-top: 2px solid var(--medium-gray);
@@ -496,7 +531,7 @@
     }
 
     .whatsapp-order-btn {
-      background: #25D366;
+      background: #BDC3C7;
       color: white;
       border: none;
       padding: 15px;
@@ -505,14 +540,20 @@
       font-weight: 700;
       font-size: 1.1rem;
       width: 100%;
-      cursor: pointer;
+      cursor: not-allowed;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .whatsapp-order-btn:hover {
+    .whatsapp-order-btn.active {
+      background: #25D366;
+      cursor: pointer;
+    }
+
+    .whatsapp-order-btn.active:hover {
       background: #128C7E;
     }
 
@@ -811,6 +852,15 @@
     <div class="cart-items" id="cart-items">
       <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
     </div>
+    
+    <!-- خانات معلومات العميل - جديد -->
+    <div class="customer-info">
+      <div class="customer-info-title">معلومات التوصيل</div>
+      <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
+      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required>
+      <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
+    </div>
+    
     <div class="cart-summary">
       <div class="cart-total">
         <span>المجموع:</span>
@@ -858,14 +908,21 @@
     const cartTotalPrice = document.getElementById('cart-total-price');
     const cartBadge = document.getElementById('cart-badge');
     const whatsappOrderBtn = document.getElementById('whatsapp-order');
+    const customerNameInput = document.getElementById('customer-name');
+    const customerAddressInput = document.getElementById('customer-address');
+    const customerPhoneInput = document.getElementById('customer-phone');
 
     // فتح وإغلاق سلة التسوق
     openCartBtn.addEventListener('click', function(e) {
       e.preventDefault();
+      openCart();
+    });
+
+    function openCart() {
       cartSidebar.classList.add('open');
       cartOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
+    }
 
     function closeCart() {
       cartSidebar.classList.remove('open');
@@ -923,6 +980,9 @@
         
         // تحديث واجهة المستخدم
         updateCartUI();
+        
+        // فتح السلة تلقائياً بعد الإضافة
+        openCart();
         
         // إظهار تأكيد الإضافة
         this.textContent = 'تمت الإضافة';
@@ -1009,12 +1069,41 @@
       return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    // التحقق من ملء جميع الحقول وتفعيل زر الواتساب
+    function checkFormValidity() {
+      const name = customerNameInput.value.trim();
+      const address = customerAddressInput.value.trim();
+      const phone = customerPhoneInput.value.trim();
+      
+      if (name && address && phone) {
+        whatsappOrderBtn.classList.add('active');
+        whatsappOrderBtn.disabled = false;
+      } else {
+        whatsappOrderBtn.classList.remove('active');
+        whatsappOrderBtn.disabled = true;
+      }
+    }
+
+    // إضافة مستمعات الأحداث لحقول الإدخال
+    customerNameInput.addEventListener('input', checkFormValidity);
+    customerAddressInput.addEventListener('input', checkFormValidity);
+    customerPhoneInput.addEventListener('input', checkFormValidity);
+
     // إرسال الطلب عبر واتساب
     whatsappOrderBtn.addEventListener('click', function() {
       if (cart.length === 0) {
         alert('السلة فارغة. أضف بعض العناصر أولاً.');
         return;
       }
+      
+      if (!whatsappOrderBtn.classList.contains('active')) {
+        alert('يرجى ملء جميع معلومات التوصيل أولاً.');
+        return;
+      }
+      
+      const customerName = customerNameInput.value.trim();
+      const customerAddress = customerAddressInput.value.trim();
+      const customerPhone = customerPhoneInput.value.trim();
       
       let message = `مرحباً، أريد طلب التالي من ${restaurantName}:\n\n`;
       
@@ -1026,6 +1115,10 @@
       });
       
       message += `\nالمجموع: ${formatPrice(totalPrice)} ل.س\n\n`;
+      message += `معلومات التوصيل:\n`;
+      message += `الاسم: ${customerName}\n`;
+      message += `العنوان: ${customerAddress}\n`;
+      message += `الهاتف: ${customerPhone}\n\n`;
       message += `شكراً!`;
       
       // ترميز الرسالة للرابط
@@ -1045,6 +1138,7 @@
 
     // تهيئة واجهة السلة
     updateCartUI();
+    checkFormValidity(); // التحقق من الحقول في البداية
   </script>
 
    <script src="protection.js"></script>
