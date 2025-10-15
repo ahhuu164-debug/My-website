@@ -49,38 +49,6 @@ const searchData = [
         icon: "fas fa-pizza-slice",
         url: "restaurant-pizza-salamia.html",
         highlightItem: "pizza-vegetable"
-    },
-    { 
-        name: "برغر دجاج", 
-        type: "وجبة", 
-        category: "برغر", 
-        icon: "fas fa-hamburger",
-        url: "restaurant-burger-house.html",
-        highlightItem: "chicken-burger"
-    },
-    { 
-        name: "برغر لحم", 
-        type: "وجبة", 
-        category: "برغر", 
-        icon: "fas fa-hamburger",
-        url: "restaurant-burger-house.html",
-        highlightItem: "beef-burger"
-    },
-    { 
-        name: "شاورما دجاج", 
-        type: "وجبة", 
-        category: "شاورما", 
-        icon: "fas fa-drumstick-bite",
-        url: "restaurant-family-grill.html",
-        highlightItem: "chicken-shawarma"
-    },
-    { 
-        name: "كباب مشوي", 
-        type: "وجبة", 
-        category: "مشاوي", 
-        icon: "fas fa-drumstick-bite",
-        url: "restaurant-family-grill.html",
-        highlightItem: "grilled-kebab"
     }
 ];
 
@@ -101,41 +69,45 @@ function showSearchResults(query, searchResults, searchInput) {
                 <i class="${item.icon} result-icon"></i>
                 <span class="result-text">
                     ${item.name} 
-                    <small style="color: var(--medium-gray); font-size: 0.9rem;">
+                    <small style="color: #BDC3C7; font-size: 0.9rem;">
                         - ${item.type === 'مطعم' ? 'مطعم' : 'وجبة'} ${item.category}
                     </small>
                 </span>
             </div>
         `).join('');
         searchResults.style.display = 'block';
+        
+        // إضافة مستمعي الأحداث لعناصر النتائج
+        document.querySelectorAll('.search-result-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const itemUrl = this.getAttribute('data-url');
+                const highlightItem = this.getAttribute('data-highlight');
+                
+                searchInput.value = '';
+                searchResults.style.display = 'none';
+                
+                // الانتقال إلى الصفحة
+                if (highlightItem) {
+                    window.location.href = itemUrl + '?highlight=' + highlightItem;
+                } else {
+                    window.location.href = itemUrl;
+                }
+            });
+        });
     } else {
         searchResults.innerHTML = '<div class="no-results">لا توجد نتائج مطابقة لبحثك</div>';
         searchResults.style.display = 'block';
     }
-
-    // إضافة مستمعي الأحداث لعناصر النتائج
-    document.querySelectorAll('.search-result-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const itemUrl = this.getAttribute('data-url');
-            const highlightItem = this.getAttribute('data-highlight');
-            
-            searchInput.value = '';
-            searchResults.style.display = 'none';
-            performSearch(itemUrl, highlightItem);
-        });
-    });
 }
 
 // وظيفة إجراء البحث والانتقال
 function performSearch(url, highlightItem = null) {
     let targetUrl = url;
     
-    // إذا كان هناك عنصر محدد لتسليط الضوء عليه
     if (highlightItem) {
-        targetUrl += `?highlight=${encodeURIComponent(highlightItem)}`;
+        targetUrl += '?highlight=' + highlightItem;
     }
     
-    console.log('الانتقال إلى:', targetUrl);
     window.location.href = targetUrl;
 }
 
@@ -146,7 +118,7 @@ function initSearch() {
     const searchResults = document.getElementById('searchResults');
 
     if (!searchInput || !searchBtn || !searchResults) {
-        console.warn('عناصر البحث غير موجودة في الصفحة');
+        console.log('عناصر البحث غير موجودة');
         return;
     }
 
@@ -166,10 +138,8 @@ function initSearch() {
                 const firstResult = filteredResults[0];
                 performSearch(firstResult.url, firstResult.highlightItem);
             } else {
-                window.location.href = `restaurants.html?search=${encodeURIComponent(query)}`;
+                alert('لم نجد نتائج مطابقة لبحثك');
             }
-        } else {
-            window.location.href = 'restaurants.html';
         }
     });
 
@@ -187,10 +157,10 @@ function initSearch() {
         }
     });
 
-    console.log('تم تهيئة نظام البحث بنجاح');
+    console.log('تم تهيئة نظام البحث');
 }
 
-// تصدير الوظائف للاستخدام في ملفات أخرى
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { initSearch, searchData, performSearch };
-}
+// تهيئة البحث عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    initSearch();
+});
