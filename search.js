@@ -1,13 +1,13 @@
 // search.js - ملف البحث المنفصل
 
-// بيانات البحث - معدلة للصفحات الموجودة
+// بيانات البحث - معدلة مع الروابط الصحيحة
 const searchData = [
     { 
         name: "بيتزا سلمية", 
         type: "مطعم", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurants.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: null
     },
     { 
@@ -15,7 +15,7 @@ const searchData = [
         type: "مطعم", 
         category: "برغر", 
         icon: "fas fa-hamburger",
-        url: "restaurants.html", 
+        url: "restaurant-burger-house.html", 
         highlightItem: null
     },
     { 
@@ -23,7 +23,7 @@ const searchData = [
         type: "مطعم", 
         category: "مشاوي", 
         icon: "fas fa-drumstick-bite",
-        url: "restaurants.html",
+        url: "restaurant-family-grill.html",
         highlightItem: null
     },
     { 
@@ -31,7 +31,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurants.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: "pizza-margherita"
     },
     { 
@@ -39,7 +39,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurants.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: "pizza-pepperoni"
     },
     { 
@@ -47,7 +47,7 @@ const searchData = [
         type: "وجبة", 
         category: "بيتزا", 
         icon: "fas fa-pizza-slice",
-        url: "restaurants.html",
+        url: "restaurant-pizza-salamia.html",
         highlightItem: "pizza-vegetable"
     }
 ];
@@ -83,12 +83,11 @@ function showSearchResults(query, searchResults, searchInput) {
                 const itemUrl = this.getAttribute('data-url');
                 const highlightItem = this.getAttribute('data-highlight');
                 
-                searchInput.value = '';
-                searchResults.style.display = 'none';
+                console.log('الانتقال إلى:', itemUrl);
                 
                 // الانتقال إلى الصفحة
                 if (highlightItem) {
-                    window.location.href = itemUrl + '?highlight=' + encodeURIComponent(highlightItem);
+                    window.location.href = itemUrl + '?highlight=' + highlightItem;
                 } else {
                     window.location.href = itemUrl;
                 }
@@ -126,7 +125,7 @@ function initSearch() {
             if (filteredResults.length > 0) {
                 const firstResult = filteredResults[0];
                 if (firstResult.highlightItem) {
-                    window.location.href = firstResult.url + '?highlight=' + encodeURIComponent(firstResult.highlightItem);
+                    window.location.href = firstResult.url + '?highlight=' + firstResult.highlightItem;
                 } else {
                     window.location.href = firstResult.url;
                 }
