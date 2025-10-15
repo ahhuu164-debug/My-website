@@ -15,7 +15,7 @@ const searchData = [
         type: "مطعم", 
         category: "برغر", 
         icon: "fas fa-hamburger",
-        url: "restaurant-burger-house.html", 
+        url: "#", 
         highlightItem: null
     },
     { 
@@ -23,7 +23,7 @@ const searchData = [
         type: "مطعم", 
         category: "مشاوي", 
         icon: "fas fa-drumstick-bite",
-        url: "restaurant-family-grill.html",
+        url: "#",
         highlightItem: null
     },
     { 
@@ -83,13 +83,17 @@ function showSearchResults(query, searchResults, searchInput) {
                 const itemUrl = this.getAttribute('data-url');
                 const highlightItem = this.getAttribute('data-highlight');
                 
-                console.log('الانتقال إلى:', itemUrl);
+                console.log('الانتقال إلى:', itemUrl, 'مع highlight:', highlightItem);
                 
                 // الانتقال إلى الصفحة
-                if (highlightItem) {
-                    window.location.href = itemUrl + '?highlight=' + highlightItem;
+                if (itemUrl && itemUrl !== '#') {
+                    if (highlightItem) {
+                        window.location.href = itemUrl + '?highlight=' + highlightItem;
+                    } else {
+                        window.location.href = itemUrl;
+                    }
                 } else {
-                    window.location.href = itemUrl;
+                    alert('هذه الصفحة قيد التطوير');
                 }
             });
         });
@@ -124,10 +128,14 @@ function initSearch() {
             
             if (filteredResults.length > 0) {
                 const firstResult = filteredResults[0];
-                if (firstResult.highlightItem) {
-                    window.location.href = firstResult.url + '?highlight=' + firstResult.highlightItem;
+                if (firstResult.url && firstResult.url !== '#') {
+                    if (firstResult.highlightItem) {
+                        window.location.href = firstResult.url + '?highlight=' + firstResult.highlightItem;
+                    } else {
+                        window.location.href = firstResult.url;
+                    }
                 } else {
-                    window.location.href = firstResult.url;
+                    alert('هذه الصفحة قيد التطوير');
                 }
             } else {
                 alert('لم نجد نتائج مطابقة لبحثك');
