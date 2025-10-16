@@ -309,6 +309,7 @@
       scrollbar-width: thin;
       scrollbar-color: var(--primary-orange) var(--light-gray);
       scroll-behavior: smooth;
+      justify-content: center;
     }
 
     .offers-grid::-webkit-scrollbar {
@@ -327,9 +328,9 @@
 
     .platform-offer-card {
       flex: 0 0 auto;
-      width: 300px;
+      width: 400px;
       background: rgba(255,255,255,0.15);
-      padding: 25px 20px;
+      padding: 40px 20px;
       border-radius: var(--border-radius);
       backdrop-filter: blur(10px);
       text-align: center;
@@ -348,7 +349,7 @@
     }
 
     .platform-offer-discount {
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: 800;
       margin-bottom: 10px;
     }
@@ -719,12 +720,12 @@
         width: 280px;
       }
       .platform-offer-card {
-        width: 280px;
+        width: 350px;
         min-height: 120px;
-        padding: 20px 15px;
+        padding: 30px 15px;
       }
       .platform-offer-discount {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
       }
       .search-btn {
         width: 45px;
@@ -764,12 +765,12 @@
         width: 250px;
       }
       .platform-offer-card {
-        width: 250px;
+        width: 300px;
         min-height: 110px;
-        padding: 18px 15px;
+        padding: 25px 15px;
       }
       .platform-offer-discount {
-        font-size: 1.6rem;
+        font-size: 2.2rem;
       }
       .search-btn {
         width: 40px;
@@ -824,20 +825,8 @@
       <div class="offers-container">
         <div class="offers-grid">
           <div class="platform-offer-card">
-            <div class="platform-offer-discount">20% OFF</div>
-            <div class="platform-offer-description">خصم على جميع المطاعم المشاركة</div>
-          </div>
-          <div class="platform-offer-card">
-            <div class="platform-offer-discount">توصيل مجاني</div>
-            <div class="platform-offer-description">للطلبات فوق 50,000 ل.س</div>
-          </div>
-          <div class="platform-offer-card">
-            <div class="platform-offer-discount">هدية مجانية</div>
-            <div class="platform-offer-description">مع كل طلب من مطعمين مختلفين</div>
-          </div>
-          <div class="platform-offer-card">
-            <div class="platform-offer-discount">خصم 30%</div>
-            <div class="platform-offer-description">على أول طلب للمستخدمين الجدد</div>
+            <div class="platform-offer-discount">قريباً...</div>
+            <div class="platform-offer-description">عروض حصرية قادمة قريباً</div>
           </div>
         </div>
       </div>
@@ -1064,14 +1053,8 @@
     </div>
   </nav>
 
-  <script src="search.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // البحث
-        if (typeof initSearch === 'function') {
-            initSearch();
-        }
-        
         // الهيدر
         window.addEventListener('scroll', function() {
             const header = document.getElementById('stickyHeader');
@@ -1103,74 +1086,6 @@
             });
         });
     });
-  <!-- استدعاء ملف البحث -->
-  <script src="search.js"></script>
-
-  <script>
-    // كود JavaScript الخاص بالصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-        // التأكد من تحميل البحث
-        if (typeof initSearch === 'function') {
-            initSearch();
-        }
-        
-        // الكود الآخر...
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('stickyHeader');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            window.location.href = 'restaurants.html';
-        });
-    });
-  </script>
-
-  <!-- استدعاء ملف البحث -->
-  <script src="search.js"></script>
-
-  <script>
-    // كود JavaScript الخاص بالصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-        // التأكد من تحميل البحث
-        if (typeof initSearch === 'function') {
-            initSearch();
-        }
-        
-        // الكود الآخر...
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('stickyHeader');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            window.location.href = 'restaurants.html';
-        });
-
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const restaurantId = this.getAttribute('data-restaurant');
-                if (restaurantId === 'pizza-salamia') {
-                    window.location.href = 'restaurant-pizza-salamia.html';
-                } else if (restaurantId === 'burger-house') {
-                    window.location.href = 'restaurant-burger-house.html';
-                } else if (restaurantId === 'family-grill') {
-                    window.location.href = 'restaurant-family-grill.html';
-                } else {
-                    window.location.href = 'restaurants.html';
-                }
-            });
-        });
-    });
   </script>
 </body>
 </html>
- 
