@@ -210,7 +210,7 @@
       margin-top: 3px;
     }
 
-    /* قسم التقييمات - جديد */
+    /* قسم التقييمات */
     .ratings-section {
       background: var(--white);
       border-radius: var(--border-radius-lg);
@@ -348,10 +348,12 @@
       display: block;
     }
 
+    /* التعديل الأساسي: عرض الوجبات في صفين */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr); /* عمودين ثابتين */
+      gap: 20px;
+      width: 100%;
     }
 
     .menu-item {
@@ -360,6 +362,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
+      width: 100%; /* تأكد من أن العرض 100% */
     }
 
     .menu-item:hover {
@@ -714,6 +717,7 @@
       margin-bottom: 5px;
     }
 
+    /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
       .info-header {
         flex-direction: column;
@@ -724,6 +728,7 @@
         margin: 0 auto 20px;
       }
       
+      /* على الشاشات الصغيرة، عرض وجبة واحدة في كل صف */
       .menu-grid {
         grid-template-columns: 1fr;
       }
@@ -840,7 +845,7 @@
       </div>
     </div>
 
-    <!-- قسم التقييمات - جديد -->
+    <!-- قسم التقييمات -->
     <div class="ratings-section">
       <div class="ratings-header">
         <h2 class="ratings-title">تقييم المطعم</h2>
@@ -959,6 +964,48 @@
             </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">٢٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 5 -->
+        <div class="menu-item" data-id="5" data-name="بيتزا مارجريتا" data-price="38000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا مارجريتا">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">بيتزا مارجريتا</h3>
+            <p class="menu-item-desc">بيتزا كلاسيكية مع جبنة موزاريلا وريحان طازج</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٨,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 6 -->
+        <div class="menu-item" data-id="6" data-name="لازانيا" data-price="42000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1619895092539-128d4c0c8f93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="لازانيا">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">لازانيا</h3>
+            <p class="menu-item-desc">لازانيا إيطالية باللحم المفروم والجبن</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٤٢,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
