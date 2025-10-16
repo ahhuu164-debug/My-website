@@ -1,11 +1,173 @@
-/* ⭐⭐⭐ إضافة جديدة لبطاقات المطاعم في صفحة المطاعم ⭐⭐⭐ */
+/* ===== إعدادات عامة ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* شبكة المطاعم - صفين */
-.restaurants-container {
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #ECF0F1;
+  color: #2D3436;
+  line-height: 1.6;
+  padding-bottom: 80px;
+}
+
+/* ===== الخلفية الثابتة المائلة ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  opacity: 0.05;
+  z-index: -1;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+/* ===== الهيدر العام ===== */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #F15A29, #FFD27F);
+  padding: 15px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
+}
+
+.back-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+}
+
+.search-icon-header {
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* ===== شريط البحث ===== */
+.search-container {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 16px;
+}
+
+.search-bar {
+  display: flex;
   width: 100%;
+  background: #ECF0F1;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+}
+
+.search-button {
+  background: #F15A29;
+  color: white;
+  border: none;
+  padding: 0 25px;
+  cursor: pointer;
+}
+
+/* ===== زر المطاعم في الصفحة الرئيسية ===== */
+.restaurant-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 240px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, #F15A29, #FFD27F);
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.restaurant-btn:hover {
+  transform: scale(1.02);
+}
+
+.restaurant-btn .text {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.restaurant-btn img {
+  flex: 2;
+  height: 100%;
+  max-width: 300px;
+  object-fit: cover;
+}
+
+/* ===== صفحة المطاعم - الشبكة ===== */
+.restaurants-section {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2C3E50;
+  margin-bottom: 5px;
+}
+
+.section-subtitle {
+  color: #BDC3C7;
+}
+
+/* ⭐⭐⭐ الشبكة الجديدة للمطاعم - صفين ⭐⭐⭐ */
+.restaurants-container {
+  width: 100%;
 }
 
 .restaurant-row {
@@ -19,7 +181,6 @@
   clear: both;
 }
 
-/* بطاقة المطعم */
 .restaurant-card {
   background: white;
   border-radius: 24px;
@@ -38,19 +199,16 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* البطاقة على اليمين */
 .restaurant-card.right {
   float: right;
   margin-left: 4%;
 }
 
-/* البطاقة على اليسار */
 .restaurant-card.left {
   float: left;
   margin-left: 0;
 }
 
-/* صورة المطعم */
 .restaurant-card .card-header {
   position: relative;
   height: 180px;
@@ -63,7 +221,6 @@
   object-fit: cover;
 }
 
-/* اللوغو الدائري */
 .restaurant-card .logo-background {
   position: absolute;
   bottom: -25px;
@@ -93,7 +250,6 @@
   object-fit: cover;
 }
 
-/* البادج المميز */
 .restaurant-card .card-badge {
   position: absolute;
   top: 15px;
@@ -106,7 +262,6 @@
   font-weight: 600;
 }
 
-/* محتوى البطاقة */
 .restaurant-card .card-content {
   padding: 45px 20px 20px;
 }
@@ -144,7 +299,45 @@
   font-size: 0.9rem;
 }
 
-/* التكيف مع الشاشات الصغيرة */
+/* ===== الشريط السفلي ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #BDC3C7;
+  font-size: 0.8rem;
+  padding: 5px 15px;
+}
+
+.nav-item.active {
+  color: #F15A29;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* ===== التكيف مع الشاشات الصغيرة ===== */
 @media (max-width: 768px) {
   .restaurant-card {
     width: 100%;
@@ -152,18 +345,11 @@
     margin-left: 0 !important;
   }
   
-  .restaurant-card .card-header {
-    height: 160px;
+  .restaurant-btn {
+    height: 200px;
   }
   
-  .restaurant-card .logo-background {
-    width: 80px;
-    height: 80px;
-    bottom: -20px;
-  }
-  
-  .restaurant-card .restaurant-logo {
-    width: 70px;
-    height: 70px;
+  .restaurant-btn .text {
+    font-size: 32px;
   }
 }
