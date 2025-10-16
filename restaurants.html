@@ -179,14 +179,8 @@
 
     /* تصميم جديد للبطاقات - صفين عموديات */
     .restaurants-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .restaurant-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 25px;
     }
 
@@ -202,7 +196,6 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      height: 100%;
     }
 
     .restaurant-card:hover {
@@ -373,7 +366,7 @@
 
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 900px) {
-      .restaurant-row {
+      .restaurants-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -514,27 +507,6 @@
       });
     }
 
-    // تحسين: استخدام التخزين المؤقت للبيانات
-    function getCachedRestaurants() {
-      const cached = localStorage.getItem('restaurantsData');
-      const timestamp = localStorage.getItem('restaurantsTimestamp');
-      
-      if (cached && timestamp) {
-        const now = new Date().getTime();
-        // تخزين البيانات لمدة 5 دقائق
-        if (now - timestamp < 5 * 60 * 1000) {
-          return JSON.parse(cached);
-        }
-      }
-      
-      return null;
-    }
-
-    function cacheRestaurants(data) {
-      localStorage.setItem('restaurantsData', JSON.stringify(data));
-      localStorage.setItem('restaurantsTimestamp', new Date().getTime());
-    }
-
     // تحميل المطاعم من ملف JSON
     async function loadRestaurants() {
       // تحسين: عرض مؤشر التحميل فوراً
@@ -544,23 +516,10 @@
         </div>
       `;
 
-      // تحسين: التحقق من وجود بيانات مخزنة
-      const cachedData = getCachedRestaurants();
-      if (cachedData) {
-        allRestaurants = cachedData;
-        filteredRestaurants = [...allRestaurants];
-        displayRestaurants();
-        return;
-      }
-
       try {
         const response = await fetch('restaurants.json');
         const data = await response.json();
         allRestaurants = data.restaurants;
-        
-        // تحسين: تخزين البيانات مؤقتاً
-        cacheRestaurants(allRestaurants);
-        
         filteredRestaurants = [...allRestaurants];
         displayRestaurants();
       } catch (error) {
@@ -671,7 +630,7 @@
 
       if (filteredRestaurants.length === 0) {
         restaurantsGrid.innerHTML = `
-          <div style="text-align: center; padding: 40px;">
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
             <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 15px;"></i>
             <h3 style="color: var(--medium-gray);">لا توجد مطاعم مطابقة للبحث</h3>
           </div>
@@ -682,23 +641,10 @@
       // تحسين: استخدام DocumentFragment لتحسين الأداء
       const fragment = document.createDocumentFragment();
       
-      // تقسيم المطاعم إلى صفوف كل صف يحتوي على مطعمين
-      for (let i = 0; i < filteredRestaurants.length; i += 2) {
-        const row = document.createElement('div');
-        row.className = 'restaurant-row';
-        
-        // إضافة المطعم الأول في الصف
-        const restaurantCard1 = createRestaurantCard(filteredRestaurants[i]);
-        row.appendChild(restaurantCard1);
-        
-        // إضافة المطعم الثاني في الصف إذا كان موجوداً
-        if (i + 1 < filteredRestaurants.length) {
-          const restaurantCard2 = createRestaurantCard(filteredRestaurants[i + 1]);
-          row.appendChild(restaurantCard2);
-        }
-        
-        fragment.appendChild(row);
-      }
+      filteredRestaurants.forEach(restaurant => {
+        const restaurantCard = createRestaurantCard(restaurant);
+        fragment.appendChild(restaurantCard);
+      });
       
       restaurantsGrid.appendChild(fragment);
       
