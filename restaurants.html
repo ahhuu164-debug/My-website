@@ -180,8 +180,9 @@
     /* تصميم جديد للبطاقات - صفين عموديات */
     .restaurants-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 25px;
+      width: 100%;
     }
 
     /* بطاقة المطعم - قابلة للنقر بالكامل */
@@ -196,6 +197,7 @@
       text-decoration: none;
       color: inherit;
       display: block;
+      width: 100%;
     }
 
     .restaurant-card:hover {
@@ -365,13 +367,11 @@
     }
 
     /* التكيف مع الشاشات الصغيرة */
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .restaurants-grid {
         grid-template-columns: 1fr;
       }
-    }
-
-    @media (max-width: 768px) {
+      
       .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -485,51 +485,20 @@
     let filteredRestaurants = [];
     let searchTimeout;
 
-    // تحسين: تحميل الصور بشكل متقطع لتجنب التحميل الزائد
-    function lazyLoadImages() {
-      const images = document.querySelectorAll('.restaurant-image, .restaurant-logo img');
-      
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            imageObserver.unobserve(img);
-          }
-        });
-      });
-
-      images.forEach(img => {
-        if (img.dataset.src) {
-          imageObserver.observe(img);
-        }
-      });
-    }
-
-    // تحميل المطاعم من ملف JSON
-    async function loadRestaurants() {
-      // تحسين: عرض مؤشر التحميل فوراً
+    // تحميل المطاعم مباشرة بدون انتظار
+    function loadRestaurants() {
+      // عرض مؤشر التحميل فوراً
       document.getElementById('restaurantsGrid').innerHTML = `
         <div class="loading">
           <div class="loading-spinner"></div>
         </div>
       `;
 
-      try {
-        const response = await fetch('restaurants.json');
-        const data = await response.json();
-        allRestaurants = data.restaurants;
-        filteredRestaurants = [...allRestaurants];
-        displayRestaurants();
-      } catch (error) {
-        console.error('خطأ في تحميل المطاعم:', error);
-        // نسخة احتياطية إذا فشل تحميل الملف
-        loadFallbackRestaurants();
-      }
+      // استخدام البيانات مباشرة بدون fetch
+      loadFallbackRestaurants();
     }
 
-    // نسخة احتياطية من المطاعم
+    // بيانات المطاعم
     function loadFallbackRestaurants() {
       allRestaurants = [
         {
@@ -638,18 +607,11 @@
         return;
       }
 
-      // تحسين: استخدام DocumentFragment لتحسين الأداء
-      const fragment = document.createDocumentFragment();
-      
+      // إضافة البطاقات مباشرة إلى الشبكة
       filteredRestaurants.forEach(restaurant => {
         const restaurantCard = createRestaurantCard(restaurant);
-        fragment.appendChild(restaurantCard);
+        restaurantsGrid.appendChild(restaurantCard);
       });
-      
-      restaurantsGrid.appendChild(fragment);
-      
-      // تحسين: تفعيل lazy loading للصور بعد عرض البطاقات
-      setTimeout(lazyLoadImages, 100);
     }
 
     // إنشاء بطاقة مطعم
@@ -661,17 +623,14 @@
       card.className = 'restaurant-card';
       card.href = restaurantPage;
       
-      // تحسين: استخدام data-src للتحميل المتقطع للصور
       card.innerHTML = `
         <div class="card-header">
-          <img data-src="${restaurant.image}" 
-               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='180' viewBox='0 0 300 180'%3E%3Crect width='300' height='180' fill='%23ECF0F1'/%3E%3C/svg%3E"
-               alt="${restaurant.name}" class="restaurant-image lazy">
+          <img src="${restaurant.image}" 
+               alt="${restaurant.name}" class="restaurant-image">
           <div class="logo-background">
             <div class="restaurant-logo">
-              <img data-src="${restaurant.logo}" 
-                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ECF0F1'/%3E%3C/svg%3E"
-                   alt="${restaurant.name}" class="lazy">
+              <img src="${restaurant.logo}" 
+                   alt="${restaurant.name}">
             </div>
           </div>
           ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
@@ -694,7 +653,7 @@
 
     // البحث في المطاعم
     function searchRestaurants(query) {
-      // تحسين: استخدام debounce لتجنب البحث المستمر أثناء الكتابة
+      // استخدام debounce لتجنب البحث المستمر أثناء الكتابة
       clearTimeout(searchTimeout);
       
       searchTimeout = setTimeout(() => {
@@ -711,10 +670,10 @@
       }, 300); // تأخير 300 مللي ثانية
     }
 
-    // تحسين: تحميل الصفحة بشكل أسرع
+    // تحميل الصفحة بشكل فوري
     document.addEventListener('DOMContentLoaded', function() {
-      // تحسين: تحميل البيانات بعد تحميل الصفحة الأساسية
-      setTimeout(loadRestaurants, 100);
+      // تحميل البيانات مباشرة
+      loadRestaurants();
       
       // تفعيل البحث عند النقر على الأيقونة
       document.querySelector('.search-icon-header').addEventListener('click', function() {
