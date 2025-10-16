@@ -1,74 +1,169 @@
+/* ⭐⭐⭐ إضافة جديدة لبطاقات المطاعم في صفحة المطاعم ⭐⭐⭐ */
 
-/* زر المطاعم */
-.restaurant-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  height: 240px;
-  margin: 30px auto;
-  background: linear-gradient(135deg, #F15A29, #FFD27F);
-  border-radius: 16px;
+/* شبكة المطاعم - صفين */
+.restaurants-container {
+  width: 100%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.restaurant-row {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.restaurant-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* بطاقة المطعم */
+.restaurant-card {
+  background: white;
+  border-radius: 24px;
   overflow: hidden;
-  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   text-decoration: none;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  color: inherit;
+  display: block;
+  width: 48%;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
 }
 
-.restaurant-btn:hover {
-  transform: scale(1.02);
+.restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-.restaurant-btn .text {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 42px;
-  font-weight: bold;
+/* البطاقة على اليمين */
+.restaurant-card.right {
+  float: right;
+  margin-left: 4%;
 }
 
-/* تثبيت حجم صورة زر المطاعم */
-.restaurant-btn img {
-  flex: 2;
+/* البطاقة على اليسار */
+.restaurant-card.left {
+  float: left;
+  margin-left: 0;
+}
+
+/* صورة المطعم */
+.restaurant-card .card-header {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.restaurant-card .restaurant-image {
+  width: 100%;
   height: 100%;
-  max-width: 300px; /* 👈 حطيت حد أقصى للعرض */
   object-fit: cover;
 }
 
-/* الخلفية الثابتة المائلة -45 */
-body::before {
-  content: "";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
-  background-repeat: repeat;
-  background-size: 120px 120px;
-  opacity: 0.05;
-  z-index: -1;
-  transform: rotate(-45deg);
-  pointer-events: none;
+/* اللوغو الدائري */
+.restaurant-card .logo-background {
+  position: absolute;
+  bottom: -25px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F15A29, #FFD27F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* الهيدر واللوغو الموحد لكل الصفحات */
-header {
-  background-color: #FFD27F;
-  text-align: center;
-  padding: 20px 0;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+.restaurant-card .restaurant-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background-color: white;
+  overflow: hidden;
 }
 
-header img.logo {
-  width: 60%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+.restaurant-card .restaurant-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* البادج المميز */
+.restaurant-card .card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #E83F3F;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* محتوى البطاقة */
+.restaurant-card .card-content {
+  padding: 45px 20px 20px;
+}
+
+.restaurant-card .restaurant-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 8px;
+}
+
+.restaurant-card .restaurant-category {
+  color: #BDC3C7;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.restaurant-card .restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurant-card .rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #F39C12;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.restaurant-card .delivery-time {
+  color: #BDC3C7;
+  font-size: 0.9rem;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .restaurant-card {
+    width: 100%;
+    float: none !important;
+    margin-left: 0 !important;
+  }
+  
+  .restaurant-card .card-header {
+    height: 160px;
+  }
+  
+  .restaurant-card .logo-background {
+    width: 80px;
+    height: 80px;
+    bottom: -20px;
+  }
+  
+  .restaurant-card .restaurant-logo {
+    width: 70px;
+    height: 70px;
+  }
 }
