@@ -177,12 +177,22 @@
       margin-top: 5px;
     }
 
-    /* الشبكة الرئيسية - FLEXBOX بدلاً من GRID */
-    .restaurants-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: space-between;
+    /* الحاوية الرئيسية */
+    .restaurants-container {
+      width: 100%;
+    }
+
+    /* صف المطاعم */
+    .restaurant-row {
+      display: block;
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    .restaurant-row:after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
     /* بطاقة المطعم */
@@ -197,8 +207,15 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      width: calc(50% - 12.5px); /* نصف العرض ناقص نصف الجاب */
-      min-width: 300px;
+      width: 48%;
+      float: right;
+      margin-left: 4%;
+      margin-bottom: 25px;
+    }
+
+    .restaurant-card:nth-child(2n) {
+      margin-left: 0;
+      float: left;
     }
 
     .restaurant-card:hover {
@@ -371,7 +388,14 @@
     @media (max-width: 768px) {
       .restaurant-card {
         width: 100%;
-        min-width: auto;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+      .restaurant-card:nth-child(2n) {
+        float: none;
+        margin-left: 0;
       }
       
       .section-header {
@@ -456,7 +480,7 @@
       </div>
     </div>
 
-    <div class="restaurants-grid" id="restaurantsGrid">
+    <div class="restaurants-container" id="restaurantsContainer">
       <!-- سيتم ملء المطاعم تلقائياً -->
     </div>
   </section>
@@ -546,11 +570,11 @@
 
     // عرض المطاعم مباشرة عند تحميل الصفحة
     function displayRestaurants(restaurantsToShow = restaurants) {
-      const restaurantsGrid = document.getElementById('restaurantsGrid');
-      restaurantsGrid.innerHTML = '';
+      const restaurantsContainer = document.getElementById('restaurantsContainer');
+      restaurantsContainer.innerHTML = '';
 
       if (restaurantsToShow.length === 0) {
-        restaurantsGrid.innerHTML = `
+        restaurantsContainer.innerHTML = `
           <div class="loading">
             <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 15px;"></i>
             <h3 style="color: var(--medium-gray);">لا توجد مطاعم مطابقة للبحث</h3>
@@ -559,36 +583,55 @@
         return;
       }
 
-      restaurantsToShow.forEach(restaurant => {
-        const card = document.createElement('a');
-        card.className = 'restaurant-card';
-        card.href = `${restaurant.id}.html`;
+      // إنشاء صفوف كل صف يحتوي على مطعمين
+      for (let i = 0; i < restaurantsToShow.length; i += 2) {
+        const row = document.createElement('div');
+        row.className = 'restaurant-row';
         
-        card.innerHTML = `
-          <div class="card-header">
-            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
-            <div class="logo-background">
-              <div class="restaurant-logo">
-                <img src="${restaurant.logo}" alt="${restaurant.name}">
-              </div>
-            </div>
-            ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">${restaurant.name}</h3>
-            <p class="restaurant-category">${restaurant.category}</p>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                ${restaurant.rating} (${restaurant.reviews} تقييم)
-              </div>
-              <div class="delivery-time">${restaurant.deliveryTime}</div>
-            </div>
-          </div>
-        `;
+        // المطعم الأول في الصف
+        const restaurant1 = createRestaurantCard(restaurantsToShow[i]);
+        row.appendChild(restaurant1);
         
-        restaurantsGrid.appendChild(card);
-      });
+        // المطعم الثاني في الصف إذا كان موجوداً
+        if (i + 1 < restaurantsToShow.length) {
+          const restaurant2 = createRestaurantCard(restaurantsToShow[i + 1]);
+          row.appendChild(restaurant2);
+        }
+        
+        restaurantsContainer.appendChild(row);
+      }
+    }
+
+    // إنشاء بطاقة مطعم
+    function createRestaurantCard(restaurant) {
+      const card = document.createElement('a');
+      card.className = 'restaurant-card';
+      card.href = `${restaurant.id}.html`;
+      
+      card.innerHTML = `
+        <div class="card-header">
+          <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+          <div class="logo-background">
+            <div class="restaurant-logo">
+              <img src="${restaurant.logo}" alt="${restaurant.name}">
+            </div>
+          </div>
+          ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">${restaurant.name}</h3>
+          <p class="restaurant-category">${restaurant.category}</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              ${restaurant.rating} (${restaurant.reviews} تقييم)
+            </div>
+            <div class="delivery-time">${restaurant.deliveryTime}</div>
+          </div>
+        </div>
+      `;
+      
+      return card;
     }
 
     // البحث في المطاعم
