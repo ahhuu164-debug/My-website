@@ -126,11 +126,10 @@
       color: var(--medium-gray);
     }
 
-    /* الشبكة - هام جداً */
-    .restaurants-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    /* الحل الجديد - inline-block */
+    .restaurants-container {
+      width: 100%;
+      font-size: 0; /* لإزالة المسافة بين العناصر inline-block */
     }
 
     .restaurant-card {
@@ -140,7 +139,19 @@
       box-shadow: var(--shadow-md);
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: inline-block;
+      width: 48%;
+      margin-bottom: 20px;
+      vertical-align: top;
+      font-size: 16px; /* إعادة تعيين حجم الخط */
+    }
+
+    .restaurant-card:nth-child(odd) {
+      margin-left: 4%;
+    }
+
+    .restaurant-card:nth-child(even) {
+      margin-left: 0;
     }
 
     .card-header {
@@ -269,8 +280,9 @@
     }
 
     @media (max-width: 768px) {
-      .restaurants-grid {
-        grid-template-columns: 1fr;
+      .restaurant-card {
+        width: 100%;
+        margin-left: 0 !important;
       }
     }
   </style>
@@ -305,7 +317,7 @@
       <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
     </div>
 
-    <div class="restaurants-grid">
+    <div class="restaurants-container">
       <!-- المطعم 1 -->
       <a href="pizza-salamia.html" class="restaurant-card">
         <div class="card-header">
@@ -399,6 +411,53 @@
           </div>
         </div>
       </a>
+
+      <!-- المطعم 5 -->
+      <a href="al-nawras.html" class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
+          <div class="logo-background">
+            <div class="restaurant-logo">
+              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
+            </div>
+          </div>
+          <div class="card-badge">مميز</div>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">مطعم النورس</h3>
+          <p class="restaurant-category">مأكولات بحرية • وجبات عربية</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.9 (312 تقييم)
+            </div>
+            <div class="delivery-time">35-50 دقيقة</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- المطعم 6 -->
+      <a href="sweet-corner.html" class="restaurant-card">
+        <div class="card-header">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
+          <div class="logo-background">
+            <div class="restaurant-logo">
+              <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">زاوية الحلويات</h3>
+          <p class="restaurant-category">حلويات • معجنات • مشروبات</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              4.8 (201 تقييم)
+            </div>
+            <div class="delivery-time">20-35 دقيقة</div>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -420,7 +479,6 @@
   </nav>
 
   <script>
-    // دالة البحث البسيطة
     function searchRestaurants() {
       const query = document.querySelector('.search-input').value.toLowerCase();
       const cards = document.querySelectorAll('.restaurant-card');
@@ -430,14 +488,13 @@
         const category = card.querySelector('.restaurant-category').textContent.toLowerCase();
         
         if (name.includes(query) || category.includes(query)) {
-          card.style.display = 'block';
+          card.style.display = 'inline-block';
         } else {
           card.style.display = 'none';
         }
       });
     }
 
-    // إضافة أحداث البحث
     document.querySelector('.search-button').addEventListener('click', searchRestaurants);
     document.querySelector('.search-input').addEventListener('keyup', searchRestaurants);
   </script>
