@@ -144,8 +144,21 @@
 
     .section-title {
       font-size: 1.8rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--dark-blue);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to left, var(--primary-orange), var(--secondary-yellow));
+      border-radius: 2px;
     }
 
     .section-subtitle {
@@ -175,7 +188,7 @@
 
     .card-header {
       position: relative;
-      height: 200px;
+      height: 160px; /* تم تقليل الارتفاع من 200px */
       overflow: hidden;
     }
 
@@ -319,6 +332,29 @@
       margin-bottom: 5px;
     }
 
+    /* مؤشر التحميل */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      grid-column: 1 / -1;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--light-gray);
+      border-top: 4px solid var(--primary-orange);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
       .restaurants-grid {
@@ -359,7 +395,7 @@
         <i class="fas fa-arrow-right"></i> العودة
       </a>
       <div class="logo-container">
-        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo" width="150" height="50">
       </div>
       <div class="search-icon-header">
         <i class="fas fa-search"></i>
@@ -387,7 +423,9 @@
     </div>
 
     <div class="restaurants-grid" id="restaurantsGrid">
-      <!-- سيتم ملء المطاعم تلقائياً من خلال JavaScript -->
+      <div class="loading">
+        <div class="loading-spinner"></div>
+      </div>
     </div>
   </section>
 
@@ -409,167 +447,247 @@
     </div>
   </nav>
 
-  <!-- إضافة ملف الحماية -->
-  <script src="protection.js"></script>
-
   <script>
     // بيانات التطبيق
     let allRestaurants = [];
     let filteredRestaurants = [];
+    let searchTimeout;
+
+    // تحسين: تحميل الصور بشكل متقطع لتجنب التحميل الزائد
+    function lazyLoadImages() {
+      const images = document.querySelectorAll('.restaurant-image, .restaurant-logo img');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => {
+        if (img.dataset.src) {
+          imageObserver.observe(img);
+        }
+      });
+    }
+
+    // تحسين: استخدام التخزين المؤقت للبيانات
+    function getCachedRestaurants() {
+      const cached = localStorage.getItem('restaurantsData');
+      const timestamp = localStorage.getItem('restaurantsTimestamp');
+      
+      if (cached && timestamp) {
+        const now = new Date().getTime();
+        // تخزين البيانات لمدة 5 دقائق
+        if (now - timestamp < 5 * 60 * 1000) {
+          return JSON.parse(cached);
+        }
+      }
+      
+      return null;
+    }
+
+    function cacheRestaurants(data) {
+      localStorage.setItem('restaurantsData', JSON.stringify(data));
+      localStorage.setItem('restaurantsTimestamp', new Date().getTime());
+    }
 
     // تحميل المطاعم من ملف JSON
     async function loadRestaurants() {
-        try {
-            const response = await fetch('restaurants.json');
-            const data = await response.json();
-            allRestaurants = data.restaurants;
-            filteredRestaurants = [...allRestaurants];
-            displayRestaurants();
-        } catch (error) {
-            console.error('خطأ في تحميل المطاعم:', error);
-            // نسخة احتياطية إذا فشل تحميل الملف
-            loadFallbackRestaurants();
-        }
+      // تحسين: عرض مؤشر التحميل فوراً
+      document.getElementById('restaurantsGrid').innerHTML = `
+        <div class="loading">
+          <div class="loading-spinner"></div>
+        </div>
+      `;
+
+      // تحسين: التحقق من وجود بيانات مخزنة
+      const cachedData = getCachedRestaurants();
+      if (cachedData) {
+        allRestaurants = cachedData;
+        filteredRestaurants = [...allRestaurants];
+        displayRestaurants();
+        return;
+      }
+
+      try {
+        const response = await fetch('restaurants.json');
+        const data = await response.json();
+        allRestaurants = data.restaurants;
+        
+        // تحسين: تخزين البيانات مؤقتاً
+        cacheRestaurants(allRestaurants);
+        
+        filteredRestaurants = [...allRestaurants];
+        displayRestaurants();
+      } catch (error) {
+        console.error('خطأ في تحميل المطاعم:', error);
+        // نسخة احتياطية إذا فشل تحميل الملف
+        loadFallbackRestaurants();
+      }
     }
 
     // نسخة احتياطية من المطاعم
     function loadFallbackRestaurants() {
-        allRestaurants = [
-            {
-                id: "pizza-salamia",
-                name: "بيتزا سلمية",
-                category: "بيتزا • وجبات إيطالية • معجنات",
-                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                logo: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-                rating: 4.8,
-                reviews: 243,
-                deliveryTime: "25-40 دقيقة"
-            },
-            {
-                id: "mashawi-alaila",
-                name: "مشاوي العائلة",
-                category: "مشاوي • وجبات سورية • وجبات سريعة",
-                image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                logo: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-                rating: 4.9,
-                reviews: 156,
-                deliveryTime: "30-45 دقيقة"
-            },
-            {
-                id: "burger-house",
-                name: "برغر هاوس",
-                category: "برغر • وجبات سريعة • بطاطا",
-                image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                logo: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-                rating: 4.7,
-                reviews: 189,
-                deliveryTime: "20-35 دقيقة"
-            }
-        ];
-        filteredRestaurants = [...allRestaurants];
-        displayRestaurants();
+      allRestaurants = [
+        {
+          id: "pizza-salamia",
+          name: "بيتزا سلمية",
+          category: "بيتزا • وجبات إيطالية • معجنات",
+          image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.8,
+          reviews: 243,
+          deliveryTime: "25-40 دقيقة"
+        },
+        {
+          id: "mashawi-alaila",
+          name: "مشاوي العائلة",
+          category: "مشاوي • وجبات سورية • وجبات سريعة",
+          image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.9,
+          reviews: 156,
+          deliveryTime: "30-45 دقيقة"
+        },
+        {
+          id: "burger-house",
+          name: "برغر هاوس",
+          category: "برغر • وجبات سريعة • بطاطا",
+          image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.7,
+          reviews: 189,
+          deliveryTime: "20-35 دقيقة"
+        }
+      ];
+      filteredRestaurants = [...allRestaurants];
+      displayRestaurants();
     }
 
     // عرض المطاعم في الشبكة
     function displayRestaurants() {
-        const restaurantsGrid = document.getElementById('restaurantsGrid');
-        
-        if (!restaurantsGrid) {
-            console.error('لم يتم العثور على عنصر عرض المطاعم');
-            return;
-        }
+      const restaurantsGrid = document.getElementById('restaurantsGrid');
+      
+      if (!restaurantsGrid) {
+        console.error('لم يتم العثور على عنصر عرض المطاعم');
+        return;
+      }
 
-        restaurantsGrid.innerHTML = '';
+      restaurantsGrid.innerHTML = '';
 
-        if (filteredRestaurants.length === 0) {
-            restaurantsGrid.innerHTML = `
-                <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                    <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 15px;"></i>
-                    <h3 style="color: var(--medium-gray);">لا توجد مطاعم مطابقة للبحث</h3>
-                </div>
-            `;
-            return;
-        }
+      if (filteredRestaurants.length === 0) {
+        restaurantsGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 15px;"></i>
+            <h3 style="color: var(--medium-gray);">لا توجد مطاعم مطابقة للبحث</h3>
+          </div>
+        `;
+        return;
+      }
 
-        filteredRestaurants.forEach(restaurant => {
-            const restaurantCard = createRestaurantCard(restaurant);
-            restaurantsGrid.appendChild(restaurantCard);
-        });
+      // تحسين: استخدام DocumentFragment لتحسين الأداء
+      const fragment = document.createDocumentFragment();
+      
+      filteredRestaurants.forEach(restaurant => {
+        const restaurantCard = createRestaurantCard(restaurant);
+        fragment.appendChild(restaurantCard);
+      });
+      
+      restaurantsGrid.appendChild(fragment);
+      
+      // تحسين: تفعيل lazy loading للصور بعد عرض البطاقات
+      setTimeout(lazyLoadImages, 100);
     }
 
     // إنشاء بطاقة مطعم
     function createRestaurantCard(restaurant) {
-        const card = document.createElement('div');
-        card.className = 'restaurant-card';
-        
-        // إنشاء رابط الصفحة الديناميكي
-        const restaurantPage = `${restaurant.id}.html`;
-        
-        card.innerHTML = `
-            <div class="card-header">
-                <img src="${restaurant.image}" 
-                     alt="${restaurant.name}" class="restaurant-image">
-                <div class="restaurant-logo">
-                    <img src="${restaurant.logo}" alt="${restaurant.name}">
-                </div>
-                ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+      const card = document.createElement('div');
+      card.className = 'restaurant-card';
+      
+      // إنشاء رابط الصفحة الديناميكي
+      const restaurantPage = `${restaurant.id}.html`;
+      
+      // تحسين: استخدام data-src للتحميل المتقطع للصور
+      card.innerHTML = `
+        <div class="card-header">
+          <img data-src="${restaurant.image}" 
+               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23ECF0F1'/%3E%3C/svg%3E"
+               alt="${restaurant.name}" class="restaurant-image lazy">
+          <div class="restaurant-logo">
+            <img data-src="${restaurant.logo}" 
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ECF0F1'/%3E%3C/svg%3E"
+                 alt="${restaurant.name}" class="lazy">
+          </div>
+          ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+        </div>
+        <div class="card-content">
+          <h3 class="restaurant-name">${restaurant.name}</h3>
+          <p class="restaurant-category">${restaurant.category}</p>
+          <div class="restaurant-info">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              ${restaurant.rating} (${restaurant.reviews} تقييم)
             </div>
-            <div class="card-content">
-                <h3 class="restaurant-name">${restaurant.name}</h3>
-                <p class="restaurant-category">${restaurant.category}</p>
-                <div class="restaurant-info">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        ${restaurant.rating} (${restaurant.reviews} تقييم)
-                    </div>
-                    <div class="delivery-time">${restaurant.deliveryTime}</div>
-                </div>
-                <a href="${restaurantPage}" class="view-btn">عرض المطعم</a>
-            </div>
-        `;
-        
-        return card;
+            <div class="delivery-time">${restaurant.deliveryTime}</div>
+          </div>
+          <a href="${restaurantPage}" class="view-btn">عرض المطعم</a>
+        </div>
+      `;
+      
+      return card;
     }
 
     // البحث في المطاعم
     function searchRestaurants(query) {
+      // تحسين: استخدام debounce لتجنب البحث المستمر أثناء الكتابة
+      clearTimeout(searchTimeout);
+      
+      searchTimeout = setTimeout(() => {
         if (!query.trim()) {
-            filteredRestaurants = [...allRestaurants];
+          filteredRestaurants = [...allRestaurants];
         } else {
-            filteredRestaurants = allRestaurants.filter(restaurant => 
-                restaurant.name.includes(query) || 
-                restaurant.category.includes(query)
-            );
+          const searchTerm = query.toLowerCase();
+          filteredRestaurants = allRestaurants.filter(restaurant => 
+            restaurant.name.toLowerCase().includes(searchTerm) || 
+            restaurant.category.toLowerCase().includes(searchTerm)
+          );
         }
         displayRestaurants();
+      }, 300); // تأخير 300 مللي ثانية
     }
 
-    // تفعيل البحث عند النقر على الأيقونة
-    document.querySelector('.search-icon-header').addEventListener('click', function() {
+    // تحسين: تحميل الصفحة بشكل أسرع
+    document.addEventListener('DOMContentLoaded', function() {
+      // تحسين: تحميل البيانات بعد تحميل الصفحة الأساسية
+      setTimeout(loadRestaurants, 100);
+      
+      // تفعيل البحث عند النقر على الأيقونة
+      document.querySelector('.search-icon-header').addEventListener('click', function() {
         document.querySelector('.search-input').focus();
-    });
+      });
 
-    // تفعيل زر البحث
-    document.querySelector('.search-button').addEventListener('click', function() {
+      // تفعيل زر البحث
+      document.querySelector('.search-button').addEventListener('click', function() {
         const searchTerm = document.querySelector('.search-input').value;
         searchRestaurants(searchTerm);
-    });
+      });
 
-    // تفعيل البحث عند الضغط على Enter
-    document.querySelector('.search-input').addEventListener('keypress', function(e) {
+      // تفعيل البحث عند الضغط على Enter
+      document.querySelector('.search-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
-            searchRestaurants(this.value);
+          searchRestaurants(this.value);
         }
-    });
+      });
 
-    // البحث الفوري أثناء الكتابة
-    document.querySelector('.search-input').addEventListener('input', function(e) {
+      // البحث الفوري أثناء الكتابة
+      document.querySelector('.search-input').addEventListener('input', function(e) {
         searchRestaurants(this.value);
-    });
-
-    // تحميل المطاعم عند بدء التشغيل
-    document.addEventListener('DOMContentLoaded', function() {
-        loadRestaurants();
+      });
     });
   </script>
 </body>
