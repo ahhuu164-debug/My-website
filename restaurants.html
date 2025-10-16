@@ -92,36 +92,47 @@
       transform: scale(1.1);
     }
 
-    /* شريط البحث */
+    /* شريط البحث - تم التصحيح */
     .search-container {
       background: var(--white);
-      padding: 15px 20px;
+      padding: 20px;
       box-shadow: var(--shadow-sm);
+      margin: 0 auto;
+      max-width: 1200px;
+      border-radius: var(--border-radius);
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .search-bar {
       display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
+      width: 100%;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
 
     .search-input {
       flex: 1;
-      padding: 12px 20px;
-      border: 2px solid var(--light-gray);
-      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      padding: 15px 20px;
+      border: none;
+      background: transparent;
       font-family: 'Cairo', sans-serif;
       font-size: 1rem;
+      outline: none;
     }
 
     .search-button {
       background: var(--primary-orange);
       color: var(--white);
       border: none;
-      padding: 0 20px;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      padding: 0 25px;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .search-button:hover {
@@ -166,19 +177,25 @@
       margin-top: 5px;
     }
 
+    /* تصميم جديد للبطاقات - صفين عموديات */
     .restaurants-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 25px;
     }
 
-    /* بطاقة المطعم */
+    /* بطاقة المطعم - قابلة للنقر بالكامل */
     .restaurant-card {
       background: var(--white);
       border-radius: var(--border-radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .restaurant-card:hover {
@@ -188,7 +205,7 @@
 
     .card-header {
       position: relative;
-      height: 160px; /* تم تقليل الارتفاع من 200px */
+      height: 160px;
       overflow: hidden;
     }
 
@@ -203,17 +220,28 @@
       transform: scale(1.05);
     }
 
-    .restaurant-logo {
+    /* خلفية متدرجة خلف اللوغو */
+    .logo-background {
       position: absolute;
-      bottom: -25px;
+      bottom: -30px;
       right: 20px;
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .restaurant-logo {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       border: 4px solid var(--white);
       background-color: var(--white);
-      box-shadow: var(--shadow-lg);
-      z-index: 3;
       overflow: hidden;
     }
 
@@ -274,23 +302,9 @@
       font-size: 0.9rem;
     }
 
+    /* إزالة زر العرض القديم */
     .view-btn {
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-    }
-
-    .view-btn:hover {
-      background: var(--accent-red);
+      display: none;
     }
 
     /* الشريط السفلي */
@@ -356,11 +370,13 @@
     }
 
     /* التكيف مع الشاشات الصغيرة */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .restaurants-grid {
         grid-template-columns: 1fr;
       }
-      
+    }
+
+    @media (max-width: 768px) {
       .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -369,6 +385,11 @@
       
       .section-title {
         font-size: 1.5rem;
+      }
+      
+      .search-container {
+        margin: 10px;
+        padding: 15px;
       }
     }
 
@@ -383,6 +404,17 @@
       
       .card-content {
         padding: 45px 15px 15px;
+      }
+      
+      .logo-background {
+        right: 15px;
+        width: 90px;
+        height: 90px;
+      }
+      
+      .restaurant-logo {
+        width: 80px;
+        height: 80px;
       }
     }
   </style>
@@ -403,7 +435,7 @@
     </div>
   </header>
 
-  <!-- شريط البحث -->
+  <!-- شريط البحث - تم التصحيح -->
   <div class="search-container">
     <div class="search-bar">
       <input type="text" class="search-input" placeholder="ابحث عن مطعم أو وجبة...">
@@ -563,6 +595,36 @@
           rating: 4.7,
           reviews: 189,
           deliveryTime: "20-35 دقيقة"
+        },
+        {
+          id: "shawarma-express",
+          name: "شاورما اكسبرس",
+          category: "شاورما • وجبات سريعة • سندويشات",
+          image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.6,
+          reviews: 178,
+          deliveryTime: "15-30 دقيقة"
+        },
+        {
+          id: "al-nawras",
+          name: "مطعم النورس",
+          category: "مأكولات بحرية • وجبات عربية",
+          image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.9,
+          reviews: 312,
+          deliveryTime: "35-50 دقيقة"
+        },
+        {
+          id: "sweet-corner",
+          name: "زاوية الحلويات",
+          category: "حلويات • معجنات • مشروبات",
+          image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          logo: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          rating: 4.8,
+          reviews: 201,
+          deliveryTime: "20-35 دقيقة"
         }
       ];
       filteredRestaurants = [...allRestaurants];
@@ -606,11 +668,12 @@
 
     // إنشاء بطاقة مطعم
     function createRestaurantCard(restaurant) {
-      const card = document.createElement('div');
-      card.className = 'restaurant-card';
-      
       // إنشاء رابط الصفحة الديناميكي
       const restaurantPage = `${restaurant.id}.html`;
+      
+      const card = document.createElement('a');
+      card.className = 'restaurant-card';
+      card.href = restaurantPage;
       
       // تحسين: استخدام data-src للتحميل المتقطع للصور
       card.innerHTML = `
@@ -618,10 +681,12 @@
           <img data-src="${restaurant.image}" 
                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Crect width='300' height='160' fill='%23ECF0F1'/%3E%3C/svg%3E"
                alt="${restaurant.name}" class="restaurant-image lazy">
-          <div class="restaurant-logo">
-            <img data-src="${restaurant.logo}" 
-                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ECF0F1'/%3E%3C/svg%3E"
-                 alt="${restaurant.name}" class="lazy">
+          <div class="logo-background">
+            <div class="restaurant-logo">
+              <img data-src="${restaurant.logo}" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ECF0F1'/%3E%3C/svg%3E"
+                   alt="${restaurant.name}" class="lazy">
+            </div>
           </div>
           ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
         </div>
@@ -635,7 +700,6 @@
             </div>
             <div class="delivery-time">${restaurant.deliveryTime}</div>
           </div>
-          <a href="${restaurantPage}" class="view-btn">عرض المطعم</a>
         </div>
       `;
       
