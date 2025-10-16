@@ -7,27 +7,10 @@
 
 body {
   font-family: 'Cairo', sans-serif;
-  background-color: #ECF0F1;
+  background-color: #f8f9fa;
   color: #2D3436;
   line-height: 1.6;
   padding-bottom: 80px;
-}
-
-/* ===== الخلفية الثابتة المائلة ===== */
-body::before {
-  content: "";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
-  background-repeat: repeat;
-  background-size: 120px 120px;
-  opacity: 0.05;
-  z-index: -1;
-  transform: rotate(-45deg);
-  pointer-events: none;
 }
 
 /* ===== الهيدر العام ===== */
@@ -61,13 +44,6 @@ body::before {
   padding: 8px 16px;
   border-radius: 20px;
   background: rgba(255,255,255,0.2);
-}
-
-.search-icon-header {
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 10px;
 }
 
 /* ===== شريط البحث ===== */
@@ -105,45 +81,7 @@ body::before {
   cursor: pointer;
 }
 
-/* ===== زر المطاعم في الصفحة الرئيسية ===== */
-.restaurant-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  height: 240px;
-  margin: 30px auto;
-  background: linear-gradient(135deg, #F15A29, #FFD27F);
-  border-radius: 16px;
-  overflow: hidden;
-  color: #fff;
-  text-decoration: none;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-
-.restaurant-btn:hover {
-  transform: scale(1.02);
-}
-
-.restaurant-btn .text {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 42px;
-  font-weight: bold;
-}
-
-.restaurant-btn img {
-  flex: 2;
-  height: 100%;
-  max-width: 300px;
-  object-fit: cover;
-}
-
-/* ===== صفحة المطاعم - الشبكة ===== */
+/* ===== صفحة المطاعم - الحل الجديد ===== */
 .restaurants-section {
   padding: 20px;
   max-width: 1200px;
@@ -152,6 +90,7 @@ body::before {
 
 .section-header {
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .section-title {
@@ -165,92 +104,75 @@ body::before {
   color: #BDC3C7;
 }
 
-/* ⭐⭐⭐ الشبكة الجديدة للمطاعم - صفين ⭐⭐⭐ */
-.restaurants-container {
-  width: 100%;
-}
-
-.restaurant-row {
-  width: 100%;
-  margin-bottom: 25px;
-}
-
-.restaurant-row:after {
-  content: "";
-  display: table;
-  clear: both;
+/* ⭐⭐⭐ الحل الجديد - Flexbox مبسط ⭐⭐⭐ */
+.restaurants-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .restaurant-card {
   background: white;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-decoration: none;
   color: inherit;
   display: block;
-  width: 48%;
-  margin-bottom: 25px;
+  width: 48%; /* 👈 هذا يضمن عرض مطعمين في الصف */
+  min-width: 300px;
   transition: all 0.3s ease;
+  margin-bottom: 0;
 }
 
 .restaurant-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.restaurant-card.right {
-  float: right;
-  margin-left: 4%;
-}
-
-.restaurant-card.left {
-  float: left;
-  margin-left: 0;
-}
-
-.restaurant-card .card-header {
+.card-header {
   position: relative;
-  height: 180px;
+  height: 160px;
   overflow: hidden;
 }
 
-.restaurant-card .restaurant-image {
+.restaurant-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.restaurant-card .logo-background {
+.logo-background {
   position: absolute;
-  bottom: -25px;
+  bottom: -20px;
   right: 20px;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: linear-gradient(135deg, #F15A29, #FFD27F);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.restaurant-card .restaurant-logo {
-  width: 80px;
-  height: 80px;
+.restaurant-logo {
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 3px solid white;
   background-color: white;
   overflow: hidden;
 }
 
-.restaurant-card .restaurant-logo img {
+.restaurant-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.restaurant-card .card-badge {
+.card-badge {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -262,30 +184,30 @@ body::before {
   font-weight: 600;
 }
 
-.restaurant-card .card-content {
-  padding: 45px 20px 20px;
+.card-content {
+  padding: 40px 20px 20px;
 }
 
-.restaurant-card .restaurant-name {
-  font-size: 1.3rem;
+.restaurant-name {
+  font-size: 1.2rem;
   font-weight: 700;
   color: #2C3E50;
   margin-bottom: 8px;
 }
 
-.restaurant-card .restaurant-category {
+.restaurant-category {
   color: #BDC3C7;
   font-size: 0.9rem;
   margin-bottom: 15px;
 }
 
-.restaurant-card .restaurant-info {
+.restaurant-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.restaurant-card .rating {
+.rating {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -294,7 +216,7 @@ body::before {
   font-size: 0.9rem;
 }
 
-.restaurant-card .delivery-time {
+.delivery-time {
   color: #BDC3C7;
   font-size: 0.9rem;
 }
@@ -340,16 +262,11 @@ body::before {
 /* ===== التكيف مع الشاشات الصغيرة ===== */
 @media (max-width: 768px) {
   .restaurant-card {
-    width: 100%;
-    float: none !important;
-    margin-left: 0 !important;
+    width: 100%; /* 👈 على الجوال، بطاقة واحدة في الصف */
+    min-width: auto;
   }
   
-  .restaurant-btn {
-    height: 200px;
-  }
-  
-  .restaurant-btn .text {
-    font-size: 32px;
+  .restaurants-grid {
+    gap: 15px;
   }
 }
