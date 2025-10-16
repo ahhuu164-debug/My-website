@@ -177,45 +177,22 @@
       margin-top: 5px;
     }
 
-    /* الحاوية الرئيسية */
-    .restaurants-container {
-      width: 100%;
+    /* الشبكة المبسطة */
+    .restaurants-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    /* صف المطاعم */
-    .restaurant-row {
-      display: block;
-      width: 100%;
-      margin-bottom: 25px;
-    }
-
-    .restaurant-row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    /* بطاقة المطعم */
     .restaurant-card {
       background: var(--white);
       border-radius: var(--border-radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
-      position: relative;
-      cursor: pointer;
+      width: calc(50% - 10px);
       text-decoration: none;
       color: inherit;
-      display: block;
-      width: 48%;
-      float: right;
-      margin-left: 4%;
-      margin-bottom: 25px;
-    }
-
-    .restaurant-card:nth-child(2n) {
-      margin-left: 0;
-      float: left;
     }
 
     .restaurant-card:hover {
@@ -225,7 +202,7 @@
 
     .card-header {
       position: relative;
-      height: 180px;
+      height: 160px;
       overflow: hidden;
     }
 
@@ -240,13 +217,12 @@
       transform: scale(1.05);
     }
 
-    /* خلفية متدرجة خلف اللوغو */
     .logo-background {
       position: absolute;
       bottom: -25px;
       right: 20px;
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       display: flex;
@@ -257,8 +233,8 @@
     }
 
     .restaurant-logo {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       border: 3px solid var(--white);
       background-color: var(--white);
@@ -285,11 +261,11 @@
     }
 
     .card-content {
-      padding: 45px 20px 20px;
+      padding: 40px 20px 20px;
     }
 
     .restaurant-name {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--dark-blue);
       margin-bottom: 8px;
@@ -305,7 +281,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
     }
 
     .rating {
@@ -361,41 +336,10 @@
       margin-bottom: 5px;
     }
 
-    /* مؤشر التحميل */
-    .loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      width: 100%;
-    }
-
-    .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid var(--light-gray);
-      border-top: 4px solid var(--primary-orange);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
       .restaurant-card {
         width: 100%;
-        float: none;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      
-      .restaurant-card:nth-child(2n) {
-        float: none;
-        margin-left: 0;
       }
       
       .section-header {
@@ -411,10 +355,6 @@
       .search-container {
         margin: 10px;
         padding: 15px;
-      }
-      
-      .card-header {
-        height: 160px;
       }
     }
 
@@ -433,14 +373,14 @@
       
       .logo-background {
         right: 15px;
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         bottom: -20px;
       }
       
       .restaurant-logo {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
       }
     }
   </style>
@@ -480,8 +420,8 @@
       </div>
     </div>
 
-    <div class="restaurants-container" id="restaurantsContainer">
-      <!-- سيتم ملء المطاعم تلقائياً -->
+    <div class="restaurants-grid" id="restaurantsGrid">
+      <!-- المطاعم ستظهر هنا -->
     </div>
   </section>
 
@@ -504,7 +444,7 @@
   </nav>
 
   <script>
-    // بيانات المطاعم مباشرة
+    // بيانات المطاعم
     const restaurants = [
       {
         id: "pizza-salamia",
@@ -568,101 +508,94 @@
       }
     ];
 
-    // عرض المطاعم مباشرة عند تحميل الصفحة
-    function displayRestaurants(restaurantsToShow = restaurants) {
-      const restaurantsContainer = document.getElementById('restaurantsContainer');
-      restaurantsContainer.innerHTML = '';
+    // عرض المطاعم
+    function displayRestaurants() {
+      const grid = document.getElementById('restaurantsGrid');
+      grid.innerHTML = '';
 
-      if (restaurantsToShow.length === 0) {
-        restaurantsContainer.innerHTML = `
-          <div class="loading">
-            <i class="fas fa-search" style="font-size: 3rem; color: var(--medium-gray); margin-bottom: 15px;"></i>
-            <h3 style="color: var(--medium-gray);">لا توجد مطاعم مطابقة للبحث</h3>
+      restaurants.forEach(restaurant => {
+        const card = document.createElement('a');
+        card.href = `${restaurant.id}.html`;
+        card.className = 'restaurant-card';
+        card.innerHTML = `
+          <div class="card-header">
+            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="${restaurant.logo}" alt="${restaurant.name}">
+              </div>
+            </div>
+            ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">${restaurant.name}</h3>
+            <p class="restaurant-category">${restaurant.category}</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                ${restaurant.rating} (${restaurant.reviews} تقييم)
+              </div>
+              <div class="delivery-time">${restaurant.deliveryTime}</div>
+            </div>
           </div>
         `;
-        return;
-      }
-
-      // إنشاء صفوف كل صف يحتوي على مطعمين
-      for (let i = 0; i < restaurantsToShow.length; i += 2) {
-        const row = document.createElement('div');
-        row.className = 'restaurant-row';
-        
-        // المطعم الأول في الصف
-        const restaurant1 = createRestaurantCard(restaurantsToShow[i]);
-        row.appendChild(restaurant1);
-        
-        // المطعم الثاني في الصف إذا كان موجوداً
-        if (i + 1 < restaurantsToShow.length) {
-          const restaurant2 = createRestaurantCard(restaurantsToShow[i + 1]);
-          row.appendChild(restaurant2);
-        }
-        
-        restaurantsContainer.appendChild(row);
-      }
+        grid.appendChild(card);
+      });
     }
 
-    // إنشاء بطاقة مطعم
-    function createRestaurantCard(restaurant) {
-      const card = document.createElement('a');
-      card.className = 'restaurant-card';
-      card.href = `${restaurant.id}.html`;
-      
-      card.innerHTML = `
-        <div class="card-header">
-          <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="${restaurant.logo}" alt="${restaurant.name}">
-            </div>
-          </div>
-          ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">${restaurant.name}</h3>
-          <p class="restaurant-category">${restaurant.category}</p>
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              ${restaurant.rating} (${restaurant.reviews} تقييم)
-            </div>
-            <div class="delivery-time">${restaurant.deliveryTime}</div>
-          </div>
-        </div>
-      `;
-      
-      return card;
-    }
-
-    // البحث في المطاعم
+    // البحث
     function searchRestaurants(query) {
-      if (!query.trim()) {
-        displayRestaurants(restaurants);
-        return;
-      }
-
-      const searchTerm = query.toLowerCase();
       const filtered = restaurants.filter(restaurant => 
-        restaurant.name.toLowerCase().includes(searchTerm) || 
-        restaurant.category.toLowerCase().includes(searchTerm)
+        restaurant.name.includes(query) || 
+        restaurant.category.includes(query)
       );
       
-      displayRestaurants(filtered);
+      const grid = document.getElementById('restaurantsGrid');
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div style="width:100%; text-align:center; padding:40px; color:var(--medium-gray)">لا توجد مطاعم مطابقة</div>';
+        return;
+      }
+
+      filtered.forEach(restaurant => {
+        const card = document.createElement('a');
+        card.href = `${restaurant.id}.html`;
+        card.className = 'restaurant-card';
+        card.innerHTML = `
+          <div class="card-header">
+            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="${restaurant.logo}" alt="${restaurant.name}">
+              </div>
+            </div>
+            ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">${restaurant.name}</h3>
+            <p class="restaurant-category">${restaurant.category}</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                ${restaurant.rating} (${restaurant.reviews} تقييم)
+              </div>
+              <div class="delivery-time">${restaurant.deliveryTime}</div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
     }
 
     // تحميل الصفحة
     document.addEventListener('DOMContentLoaded', function() {
-      // عرض المطاعم مباشرة
       displayRestaurants();
-      
-      // تفعيل البحث
-      document.querySelector('.search-icon-header').addEventListener('click', function() {
-        document.querySelector('.search-input').focus();
-      });
 
+      // أحداث البحث
       document.querySelector('.search-button').addEventListener('click', function() {
-        const searchTerm = document.querySelector('.search-input').value;
-        searchRestaurants(searchTerm);
+        const query = document.querySelector('.search-input').value;
+        searchRestaurants(query);
       });
 
       document.querySelector('.search-input').addEventListener('keypress', function(e) {
