@@ -8,303 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-orange: #FF6B35;
-      --secondary-yellow: #FFC857;
-      --accent-red: #E83F3F;
-      --dark-blue: #2C3E50;
-      --light-gray: #ECF0F1;
-      --medium-gray: #BDC3C7;
-      --white: #FFFFFF;
-      --black: #2D3436;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-      --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
-      --border-radius: 16px;
-      --border-radius-lg: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--light-gray);
-      color: var(--black);
-      line-height: 1.6;
-      padding-bottom: 80px;
-    }
-
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 15px 0;
-      box-shadow: var(--shadow-md);
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .logo-container img {
-      height: 50px;
-      width: auto;
-    }
-
-    .back-btn {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .search-icon-header {
-      color: var(--white);
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    .search-container {
-      background: var(--white);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-      margin: 20px auto;
-      max-width: 1200px;
-      border-radius: var(--border-radius);
-    }
-
-    .search-bar {
-      display: flex;
-      width: 100%;
-      background: var(--light-gray);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-    }
-
-    .search-input {
-      flex: 1;
-      padding: 15px 20px;
-      border: none;
-      background: transparent;
-      font-family: 'Cairo', sans-serif;
-      font-size: 1rem;
-    }
-
-    .search-button {
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      padding: 0 25px;
-      cursor: pointer;
-    }
-
-    .restaurants-section {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 30px;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--dark-blue);
-      margin-bottom: 5px;
-    }
-
-    .section-subtitle {
-      color: var(--medium-gray);
-    }
-
-    /* الحل باستخدام Table */
-    .restaurants-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .restaurants-table td {
-      width: 50%;
-      padding: 10px;
-      vertical-align: top;
-    }
-
-    .restaurant-card {
-      background: var(--white);
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .card-header {
-      position: relative;
-      height: 160px;
-      overflow: hidden;
-    }
-
-    .restaurant-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .logo-background {
-      position: absolute;
-      bottom: -20px;
-      right: 20px;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .restaurant-logo {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 3px solid var(--white);
-      background-color: var(--white);
-      overflow: hidden;
-    }
-
-    .restaurant-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--accent-red);
-      color: var(--white);
-      padding: 6px 12px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .card-content {
-      padding: 40px 20px 20px;
-    }
-
-    .restaurant-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin-bottom: 8px;
-    }
-
-    .restaurant-category {
-      color: var(--medium-gray);
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .restaurant-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: #F39C12;
-      font-weight: 600;
-    }
-
-    .delivery-time {
-      color: var(--medium-gray);
-      font-size: 0.9rem;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 10px 0;
-    }
-
-    .nav-items {
-      display: flex;
-      justify-content: space-around;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--medium-gray);
-      font-size: 0.8rem;
-      padding: 5px 15px;
-    }
-
-    .nav-item.active {
-      color: var(--primary-orange);
-    }
-
-    .nav-item i {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-
-    /* التكيف مع الشاشات الصغيرة */
-    @media (max-width: 768px) {
-      .restaurants-table, 
-      .restaurants-table tbody, 
-      .restaurants-table tr, 
-      .restaurants-table td {
-        display: block;
-        width: 100%;
-      }
-      
-      .restaurants-table td {
-        padding: 5px;
-      }
-      
-      .section-header {
-        text-align: center;
-      }
-      
-      .search-container {
-        margin: 10px;
-        padding: 15px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- الهيدر الثابت -->
@@ -339,164 +43,157 @@
       <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
     </div>
 
-    <table class="restaurants-table">
-      <tr>
-        <!-- الصف الأول -->
-        <td>
-          <!-- المطعم 1 -->
-          <a href="pizza-salamia.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
-                </div>
-              </div>
-              <div class="card-badge">مميز</div>
-            </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">بيتزا سلمية</h3>
-              <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.8 (243 تقييم)
-                </div>
-                <div class="delivery-time">25-40 دقيقة</div>
+    <div class="restaurants-container">
+      <!-- الصف الأول -->
+      <div class="restaurant-row">
+        <!-- المطعم 1 -->
+        <a href="pizza-salamia.html" class="restaurant-card right">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
               </div>
             </div>
-          </a>
-        </td>
-        <td>
-          <!-- المطعم 2 -->
-          <a href="mashawi-alaila.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
-                </div>
+            <div class="card-badge">مميز</div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">بيتزا سلمية</h3>
+            <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.8 (243 تقييم)
               </div>
-              <div class="card-badge">مميز</div>
+              <div class="delivery-time">25-40 دقيقة</div>
             </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">مشاوي العائلة</h3>
-              <p class="restaurant-category">مشاوي • وجبات سورية • وجبات سريعة</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.9 (156 تقييم)
-                </div>
-                <div class="delivery-time">30-45 دقيقة</div>
-              </div>
-            </div>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <!-- الصف الثاني -->
-        <td>
-          <!-- المطعم 3 -->
-          <a href="burger-house.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
-                </div>
+          </div>
+        </a>
+
+        <!-- المطعم 2 -->
+        <a href="mashawi-alaila.html" class="restaurant-card left">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
               </div>
             </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">برغر هاوس</h3>
-              <p class="restaurant-category">برغر • وجبات سريعة • بطاطا</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.7 (189 تقييم)
-                </div>
-                <div class="delivery-time">20-35 دقيقة</div>
+            <div class="card-badge">مميز</div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">مشاوي العائلة</h3>
+            <p class="restaurant-category">مشاوي • وجبات سورية • وجبات سريعة</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.9 (156 تقييم)
+              </div>
+              <div class="delivery-time">30-45 دقيقة</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- الصف الثاني -->
+      <div class="restaurant-row">
+        <!-- المطعم 3 -->
+        <a href="burger-house.html" class="restaurant-card right">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
               </div>
             </div>
-          </a>
-        </td>
-        <td>
-          <!-- المطعم 4 -->
-          <a href="shawarma-express.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="شاورما اكسبرس" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="شاورما اكسبرس">
-                </div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">برغر هاوس</h3>
+            <p class="restaurant-category">برغر • وجبات سريعة • بطاطا</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.7 (189 تقييم)
+              </div>
+              <div class="delivery-time">20-35 دقيقة</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- المطعم 4 -->
+        <a href="shawarma-express.html" class="restaurant-card left">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="شاورما اكسبرس" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="شاورما اكسبرس">
               </div>
             </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">شاورما اكسبرس</h3>
-              <p class="restaurant-category">شاورما • وجبات سريعة • سندويشات</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.6 (178 تقييم)
-                </div>
-                <div class="delivery-time">15-30 دقيقة</div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">شاورما اكسبرس</h3>
+            <p class="restaurant-category">شاورما • وجبات سريعة • سندويشات</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 (178 تقييم)
+              </div>
+              <div class="delivery-time">15-30 دقيقة</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- الصف الثالث -->
+      <div class="restaurant-row">
+        <!-- المطعم 5 -->
+        <a href="al-nawras.html" class="restaurant-card right">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
               </div>
             </div>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <!-- الصف الثالث -->
-        <td>
-          <!-- المطعم 5 -->
-          <a href="al-nawras.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
-                </div>
+            <div class="card-badge">مميز</div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">مطعم النورس</h3>
+            <p class="restaurant-category">مأكولات بحرية • وجبات عربية</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.9 (312 تقييم)
               </div>
-              <div class="card-badge">مميز</div>
+              <div class="delivery-time">35-50 دقيقة</div>
             </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">مطعم النورس</h3>
-              <p class="restaurant-category">مأكولات بحرية • وجبات عربية</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.9 (312 تقييم)
-                </div>
-                <div class="delivery-time">35-50 دقيقة</div>
+          </div>
+        </a>
+
+        <!-- المطعم 6 -->
+        <a href="sweet-corner.html" class="restaurant-card left">
+          <div class="card-header">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
               </div>
             </div>
-          </a>
-        </td>
-        <td>
-          <!-- المطعم 6 -->
-          <a href="sweet-corner.html" class="restaurant-card">
-            <div class="card-header">
-              <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
-              <div class="logo-background">
-                <div class="restaurant-logo">
-                  <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
-                </div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">زاوية الحلويات</h3>
+            <p class="restaurant-category">حلويات • معجنات • مشروبات</p>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.8 (201 تقييم)
               </div>
+              <div class="delivery-time">20-35 دقيقة</div>
             </div>
-            <div class="card-content">
-              <h3 class="restaurant-name">زاوية الحلويات</h3>
-              <p class="restaurant-category">حلويات • معجنات • مشروبات</p>
-              <div class="restaurant-info">
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  4.8 (201 تقييم)
-                </div>
-                <div class="delivery-time">20-35 دقيقة</div>
-              </div>
-            </div>
-          </a>
-        </td>
-      </tr>
-    </table>
+          </div>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- الشريط السفلي -->
