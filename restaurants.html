@@ -118,7 +118,7 @@
     /* ⭐⭐⭐ الحل الجديد - Grid System ⭐⭐⭐ */
     .restaurants-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 👈 دائمًا عمودين */
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       width: 100%;
     }
@@ -142,7 +142,7 @@
 
     .card-header {
       position: relative;
-      height: 140px; /* 👈 تصغير الارتفاع للجوال */
+      height: 140px;
       overflow: hidden;
     }
 
@@ -152,27 +152,33 @@
       object-fit: cover;
     }
 
+    /* ⭐⭐⭐ تحسين اللوغو - أكبر وفي المنتصف ⭐⭐⭐ */
     .logo-background {
       position: absolute;
-      bottom: -15px;
-      right: 15px;
-      width: 60px; /* 👈 تصغير الحجم للجوال */
-      height: 60px;
+      top: 50%; /* 👈 في المنتصف عمودياً */
+      right: 50%; /* 👈 في المنتصف أفقياً */
+      transform: translate(50%, -50%); /* 👈 توسيط تام */
+      width: 100px; /* 👈 حجم أكبر */
+      height: 100px;
       border-radius: 50%;
       background: linear-gradient(135deg, #F15A29, #FFD27F);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border: 5px solid white; /* 👈 إطار أبيض لحماية اللوغو */
+      z-index: 2;
     }
 
     .restaurant-logo {
-      width: 50px;
-      height: 50px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
-      border: 2px solid white;
       background-color: white;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .restaurant-logo img {
@@ -191,31 +197,28 @@
       border-radius: 12px;
       font-size: 0.7rem;
       font-weight: 600;
+      z-index: 3;
     }
 
     .card-content {
-      padding: 30px 15px 15px;
+      padding: 25px 15px 15px;
+      text-align: center; /* 👈 محاذاة النص في المنتصف */
     }
 
     .restaurant-name {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 800;
       color: #2C3E50;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       line-height: 1.3;
     }
 
-    .restaurant-category {
-      color: #BDC3C7;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
+    /* ⭐⭐⭐ إزالة التقييم ومدة التوصيل ⭐⭐⭐ */
     .restaurant-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      margin-top: 10px;
     }
 
     .rating {
@@ -224,12 +227,7 @@
       gap: 3px;
       color: #F39C12;
       font-weight: 600;
-      font-size: 0.8rem;
-    }
-
-    .delivery-time {
-      color: #BDC3C7;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     /* ===== الشريط السفلي ===== */
@@ -273,7 +271,7 @@
     /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
     @media (max-width: 480px) {
       .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr); /* 👈 يبقى عمودين */
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
       
@@ -282,27 +280,21 @@
       }
       
       .logo-background {
-        width: 50px;
-        height: 50px;
-        bottom: -12px;
-        right: 10px;
+        width: 80px;
+        height: 80px;
       }
       
       .restaurant-logo {
-        width: 40px;
-        height: 40px;
+        width: 70px;
+        height: 70px;
       }
       
       .card-content {
-        padding: 25px 12px 12px;
+        padding: 20px 12px 12px;
       }
       
       .restaurant-name {
-        font-size: 0.9rem;
-      }
-      
-      .restaurant-category {
-        font-size: 0.75rem;
+        font-size: 1rem;
       }
       
       .search-container {
@@ -318,7 +310,7 @@
     /* ===== تحسينات للشاشات الكبيرة ===== */
     @media (min-width: 769px) {
       .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr); /* 👈 يبقى عمودين */
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
       
@@ -327,34 +319,28 @@
       }
       
       .logo-background {
-        width: 80px;
-        height: 80px;
-        bottom: -20px;
-        right: 20px;
+        width: 120px;
+        height: 120px;
       }
       
       .restaurant-logo {
-        width: 70px;
-        height: 70px;
+        width: 110px;
+        height: 110px;
       }
       
       .card-content {
-        padding: 45px 20px 20px;
+        padding: 30px 20px 20px;
       }
       
       .restaurant-name {
-        font-size: 1.2rem;
-      }
-      
-      .restaurant-category {
-        font-size: 0.9rem;
+        font-size: 1.3rem;
       }
     }
 
     /* ===== تحسينات للشاشات المتوسطة ===== */
     @media (min-width: 481px) and (max-width: 768px) {
       .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr); /* 👈 يبقى عمودين */
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
       
@@ -363,15 +349,13 @@
       }
       
       .logo-background {
-        width: 70px;
-        height: 70px;
-        bottom: -18px;
-        right: 15px;
+        width: 100px;
+        height: 100px;
       }
       
       .restaurant-logo {
-        width: 60px;
-        height: 60px;
+        width: 90px;
+        height: 90px;
       }
     }
   </style>
@@ -423,13 +407,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">بيتزا سلمية</h3>
-          <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.8 (243)
+              4.8
             </div>
-            <div class="delivery-time">25-40 د</div>
           </div>
         </div>
       </a>
@@ -447,13 +430,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">مشاوي العائلة</h3>
-          <p class="restaurant-category">مشاوي • وجبات سورية • وجبات سريعة</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.9 (156)
+              4.9
             </div>
-            <div class="delivery-time">30-45 د</div>
           </div>
         </div>
       </a>
@@ -470,13 +452,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">برغر هاوس</h3>
-          <p class="restaurant-category">برغر • وجبات سريعة • بطاطا</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.7 (189)
+              4.7
             </div>
-            <div class="delivery-time">20-35 د</div>
           </div>
         </div>
       </a>
@@ -493,13 +474,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">شاورما اكسبرس</h3>
-          <p class="restaurant-category">شاورما • وجبات سريعة • سندويشات</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.6 (178)
+              4.6
             </div>
-            <div class="delivery-time">15-30 د</div>
           </div>
         </div>
       </a>
@@ -517,13 +497,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">مطعم النورس</h3>
-          <p class="restaurant-category">مأكولات بحرية • وجبات عربية</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.9 (312)
+              4.9
             </div>
-            <div class="delivery-time">35-50 د</div>
           </div>
         </div>
       </a>
@@ -540,13 +519,12 @@
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">زاوية الحلويات</h3>
-          <p class="restaurant-category">حلويات • معجنات • مشروبات</p>
+          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
-              4.8 (201)
+              4.8
             </div>
-            <div class="delivery-time">20-35 د</div>
           </div>
         </div>
       </a>
@@ -578,9 +556,8 @@
       
       cards.forEach(card => {
         const name = card.querySelector('.restaurant-name').textContent.toLowerCase();
-        const category = card.querySelector('.restaurant-category').textContent.toLowerCase();
         
-        if (name.includes(query) || category.includes(query)) {
+        if (name.includes(query)) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';
