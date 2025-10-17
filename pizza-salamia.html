@@ -312,6 +312,64 @@
       cursor: not-allowed;
     }
 
+    /* قسم المنيو المصغر */
+    .menu-summary-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 25px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 30px;
+    }
+
+    .menu-summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .menu-summary-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .menu-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .menu-summary-item {
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .menu-summary-item:hover {
+      background: var(--white);
+      border-color: var(--primary-orange);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu-summary-item-name {
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+    }
+
+    .menu-summary-item-price {
+      color: var(--primary-orange);
+      font-weight: 700;
+    }
+
     .tabs {
       display: flex;
       background: var(--white);
@@ -733,6 +791,10 @@
         grid-template-columns: 1fr;
       }
       
+      .menu-summary-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .tabs {
         flex-direction: column;
       }
@@ -874,6 +936,39 @@
         <button class="submit-rating" id="submit-rating" disabled>
           إرسال التقييم
         </button>
+      </div>
+    </div>
+
+    <!-- قسم المنيو المصغر -->
+    <div class="menu-summary-section">
+      <div class="menu-summary-header">
+        <h2 class="menu-summary-title">قائمة الطعام</h2>
+      </div>
+      <div class="menu-summary-grid">
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">بيتزا بيبروني</div>
+          <div class="menu-summary-item-price">٤٥,٠٠٠ ل.س</div>
+        </div>
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">بيتزا الخضار</div>
+          <div class="menu-summary-item-price">٤٠,٠٠٠ ل.س</div>
+        </div>
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">معكرونة بولونيز</div>
+          <div class="menu-summary-item-price">٣٥,٠٠٠ ل.س</div>
+        </div>
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">سلطة سيزر</div>
+          <div class="menu-summary-item-price">٢٥,٠٠٠ ل.س</div>
+        </div>
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">بيتزا مارجريتا</div>
+          <div class="menu-summary-item-price">٣٨,٠٠٠ ل.س</div>
+        </div>
+        <div class="menu-summary-item">
+          <div class="menu-summary-item-name">لازانيا</div>
+          <div class="menu-summary-item-price">٤٢,٠٠٠ ل.س</div>
+        </div>
       </div>
     </div>
 
@@ -1409,6 +1504,15 @@
     // تفعيل البحث عند النقر على الأيقونة
     document.querySelector('.search-icon-header').addEventListener('click', function() {
       alert('سيتم فتح شريط البحث هنا');
+    });
+
+    // إضافة تفاعل لعناصر المنيو المصغر
+    document.querySelectorAll('.menu-summary-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const itemName = this.querySelector('.menu-summary-item-name').textContent;
+        alert(`سيتم الانتقال إلى ${itemName} في قائمة الطعام`);
+        // يمكنك إضافة كود للتمرير إلى العنصر المطلوب
+      });
     });
 
     // تهيئة واجهة السلة والتقييمات
