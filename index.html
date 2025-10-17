@@ -68,7 +68,6 @@
       padding: 30px 0;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
-      /* إصلاح نهائي لمشكلة الاهتزاز */
       transform: translate3d(0, 0, 0);
       will-change: transform;
       backface-visibility: hidden;
@@ -809,7 +808,7 @@
       <div class="hero-content">
         <h1 class="hero-title">Food...حيث يصبح الجوع إبداعاً</h1>
         <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
-        <button class="cta-button">ابدأ الطلب الآن</button>
+        <button class="cta-button" id="ctaButton">ابدأ الطلب الآن</button>
       </div>
     </section>
 
@@ -1049,7 +1048,7 @@
         <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
       </a>
-      <a href="restaurants.html" class="nav-item" id="restaurants-link">
+      <a href="restaurants.html" class="nav-item" id="restaurantsNavLink">
         <i class="fas fa-utensils nav-icon"></i>
         <span>المطاعم</span>
       </a>
@@ -1083,13 +1082,16 @@
         });
 
         // زر ابدأ الطلب الآن
-        document.querySelector('.cta-button').addEventListener('click', function() {
+        document.getElementById('ctaButton').addEventListener('click', function() {
             window.location.href = 'restaurants.html';
         });
 
-        // أزرار عرض المطعم - إصلاح المشكلة
+        // أزرار عرض المطعم - إصلاح نهائي
         document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 const restaurantId = this.getAttribute('data-restaurant');
                 
                 // ربط كل مطعم بصفحته الخاصة
@@ -1118,10 +1120,20 @@
             });
         });
 
-        // التأكد من أن رابط المطاعم في الشريط السفلي يعمل بشكل صحيح
-        document.getElementById('restaurants-link').addEventListener('click', function(e) {
+        // إصلاح نهائي لرابط المطاعم في الشريط السفلي
+        document.getElementById('restaurantsNavLink').addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             window.location.href = 'restaurants.html';
+        });
+
+        // منع أي سلوك افتراضي قد يتعارض مع التنقل
+        document.querySelectorAll('a[href="restaurants.html"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = 'restaurants.html';
+            });
         });
     });
   </script>
