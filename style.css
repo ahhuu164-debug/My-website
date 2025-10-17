@@ -376,21 +376,21 @@ body {
   display: block;
 }
 
-/* ⭐⭐⭐ الحل الأكيد - عرض الوجبات في صفين ⭐⭐⭐ */
+/* ⭐⭐⭐ الحل النهائي - عرض وجبتين في كل صف على جميع الأجهزة ⭐⭐⭐ */
 .menu-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   width: 100%;
 }
 
 .menu-item {
-  flex: 1 1 calc(50% - 8px);
   background: white;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .menu-item:hover {
@@ -747,10 +747,11 @@ body {
   margin-bottom: 5px;
 }
 
-/* ===== التكيف مع الشاشات الصغيرة ===== */
-@media (max-width: 768px) {
-  .menu-item {
-    flex: 1 1 100%;
+/* ===== التكيف مع الشاشات الصغيرة جداً فقط ===== */
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
   
   .simple-menu-grid {
