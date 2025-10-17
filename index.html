@@ -1060,7 +1060,6 @@
   </nav>
 
   <script>
-    // الحل النهائي - إعادة كتابة كاملة للجافاسكريبت
     document.addEventListener('DOMContentLoaded', function() {
         // الهيدر - إصلاح نهائي لمشكلة الاهتزاز
         let ticking = false;
@@ -1083,23 +1082,17 @@
         });
 
         // زر ابدأ الطلب الآن
-        const ctaButton = document.getElementById('ctaButton');
-        if (ctaButton) {
-            ctaButton.addEventListener('click', function() {
-                console.log('تم النقر على زر ابدأ الطلب الآن');
-                window.location.href = 'restaurants.html';
-            });
-        }
+        document.getElementById('ctaButton').addEventListener('click', function() {
+            window.location.href = 'restaurants.html';
+        });
 
-        // الحل النهائي لزر المطاعم في الشريط السفلي
+        // الحل النهائي: زر المطاعم في الشريط السفلي
         const restaurantsLink = document.getElementById('restaurantsNavLink');
         if (restaurantsLink) {
             restaurantsLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                e.stopImmediatePropagation();
-                console.log('تم النقر على زر المطاعم في الشريط السفلي');
+                e.stopPropagation();
                 window.location.href = 'restaurants.html';
-                return false;
             });
         }
 
@@ -1110,7 +1103,6 @@
                 e.stopPropagation();
                 
                 const restaurantId = this.getAttribute('data-restaurant');
-                console.log('تم النقر على زر عرض المطعم:', restaurantId);
                 
                 // ربط كل مطعم بصفحته الخاصة
                 if (restaurantId === 'pizza-salamia') {
@@ -1137,9 +1129,6 @@
                 }
             });
         });
-
-        // إضافة console.log للتأكد من تحميل السكريبت
-        console.log('تم تحميل صفحة index.html بنجاح');
     });
   </script>
 </body>
