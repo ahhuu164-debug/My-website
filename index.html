@@ -1049,7 +1049,7 @@
         <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
       </a>
-      <a href="restaurants.html" class="nav-item">
+      <a href="restaurants.html" class="nav-item" id="restaurants-link">
         <i class="fas fa-utensils nav-icon"></i>
         <span>المطاعم</span>
       </a>
@@ -1087,20 +1087,41 @@
             window.location.href = 'restaurants.html';
         });
 
-        // أزرار عرض المطعم
+        // أزرار عرض المطعم - إصلاح المشكلة
         document.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const restaurantId = this.getAttribute('data-restaurant');
+                
+                // ربط كل مطعم بصفحته الخاصة
                 if (restaurantId === 'pizza-salamia') {
                     window.location.href = 'restaurant-pizza-salamia.html';
                 } else if (restaurantId === 'burger-house') {
                     window.location.href = 'restaurant-burger-house.html';
                 } else if (restaurantId === 'family-grill') {
                     window.location.href = 'restaurant-family-grill.html';
+                } else if (restaurantId === 'al-asala') {
+                    window.location.href = 'restaurant-al-asala.html';
+                } else if (restaurantId === 'al-sharq') {
+                    window.location.href = 'restaurant-al-sharq.html';
+                } else if (restaurantId === 'al-thuqa') {
+                    window.location.href = 'restaurant-al-thuqa.html';
+                } else if (restaurantId === 'sweets-cafe') {
+                    window.location.href = 'restaurant-sweets-cafe.html';
+                } else if (restaurantId === 'sea-restaurant') {
+                    window.location.href = 'restaurant-sea-restaurant.html';
+                } else if (restaurantId === 'pizza-italia') {
+                    window.location.href = 'restaurant-pizza-italia.html';
                 } else {
+                    // إذا لم يكن هناك صفحة محددة، انتقل إلى صفحة المطاعم الرئيسية
                     window.location.href = 'restaurants.html';
                 }
             });
+        });
+
+        // التأكد من أن رابط المطاعم في الشريط السفلي يعمل بشكل صحيح
+        document.getElementById('restaurants-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'restaurants.html';
         });
     });
   </script>
