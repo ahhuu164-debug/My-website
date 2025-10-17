@@ -68,10 +68,11 @@
       padding: 30px 0;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
-      /* إصلاح مشكلة الاهتزاز */
-      transform: translateZ(0);
+      /* إصلاح نهائي لمشكلة الاهتزاز */
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
       backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+      perspective: 1000;
     }
 
     .sticky-header.scrolled {
@@ -638,13 +639,13 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      color: var(--primary-orange); /* تغيير لون الأيقونات إلى برتقالي */
+      color: var(--primary-orange);
     }
 
     .social-link:hover {
       background: var(--primary-orange);
       transform: translateY(-3px);
-      color: white; /* تغيير لون الأيقونات إلى أبيض عند التمرير */
+      color: white;
     }
 
     .bottom-nav {
@@ -806,7 +807,7 @@
   <div id="mainPage">
     <section class="hero-section">
       <div class="hero-content">
-        <h1 class="hero-title">فود...حيث يصبح الجوع إبداعاً</h1>
+        <h1 class="hero-title">Food...حيث يصبح الجوع إبداعاً</h1>
         <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
         <button class="cta-button">ابدأ الطلب الآن</button>
       </div>
@@ -1030,7 +1031,7 @@
     <footer class="main-footer">
       <div class="footer-content">
         <div class="footer-column">
-          <div class="footer-logo">فود</div>
+          <div class="footer-logo">فود - Food</div>
           <p class="footer-description">الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك</p>
           <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
@@ -1061,13 +1062,23 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // الهيدر - إصلاح مشكلة الاهتزاز
-        window.addEventListener('scroll', function() {
+        // الهيدر - إصلاح نهائي لمشكلة الاهتزاز
+        let ticking = false;
+        
+        function updateHeader() {
             const header = document.getElementById('stickyHeader');
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
             }
         });
 
