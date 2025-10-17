@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salamia Deliveo - اطلب من مطاعم سلمية</title>
+  <title>فود - اطلب من مطاعم سلمية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -67,7 +67,11 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       padding: 30px 0;
       box-shadow: var(--shadow-md);
-      transition: padding 0.3s ease;
+      transition: all 0.3s ease;
+      /* إصلاح مشكلة الاهتزاز */
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     .sticky-header.scrolled {
@@ -100,7 +104,7 @@
 
     .hero-section {
       background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,200,87,0.1));
-      padding: 60px 20px; /* تم التعديل من 80px */
+      padding: 60px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -129,7 +133,7 @@
       font-size: 3.2rem;
       font-weight: 800;
       color: var(--primary-orange);
-      margin-bottom: 15px; /* تم التعديل من 20px */
+      margin-bottom: 15px;
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -139,7 +143,7 @@
     .hero-subtitle {
       font-size: 1.3rem;
       color: var(--dark-blue);
-      margin-bottom: 25px; /* تم التعديل من 40px */
+      margin-bottom: 25px;
       opacity: 0.9;
     }
 
@@ -181,7 +185,7 @@
     }
 
     .search-section {
-      padding: 25px 20px; /* تم التعديل من 40px */
+      padding: 25px 20px;
       background: var(--white);
     }
 
@@ -291,9 +295,9 @@
     }
 
     .platform-offers {
-      padding: 15px 20px; /* تم التعديل من 30px */
+      padding: 15px 20px;
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
-      margin: 15px 0; /* تم التعديل من 20px */
+      margin: 15px 0;
     }
 
     .offers-container {
@@ -305,7 +309,7 @@
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      padding: 15px 0; /* تم التعديل من 20px */
+      padding: 15px 0;
       scrollbar-width: thin;
       scrollbar-color: var(--primary-orange) var(--light-gray);
       scroll-behavior: smooth;
@@ -330,14 +334,14 @@
       flex: 0 0 auto;
       width: 400px;
       background: rgba(255,255,255,0.15);
-      padding: 25px 20px; /* تم التعديل من 40px */
+      padding: 25px 20px;
       border-radius: var(--border-radius);
       backdrop-filter: blur(10px);
       text-align: center;
       transition: all 0.3s ease;
       border: 1px solid rgba(255,255,255,0.2);
       color: white;
-      min-height: 110px; /* تم التعديل من 140px */
+      min-height: 110px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -349,9 +353,9 @@
     }
 
     .platform-offer-discount {
-      font-size: 2.5rem; /* تم التعديل من 3rem */
+      font-size: 2.5rem;
       font-weight: 800;
-      margin-bottom: 8px; /* تم التعديل من 10px */
+      margin-bottom: 8px;
     }
 
     .platform-offer-description {
@@ -360,7 +364,7 @@
     }
 
     .restaurants-section {
-      padding: 50px 20px; /* تم التعديل من 60px */
+      padding: 50px 20px;
       background: var(--white);
     }
 
@@ -369,7 +373,7 @@
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--dark-blue);
-      margin-bottom: 25px; /* تم التعديل من 30px */
+      margin-bottom: 25px;
       position: relative;
       display: block;
       width: 100%;
@@ -529,7 +533,7 @@
     }
 
     .how-it-works {
-      padding: 50px 20px; /* تم التعديل من 60px */
+      padding: 50px 20px;
       background: var(--light-gray);
     }
 
@@ -594,7 +598,7 @@
     .main-footer {
       background: var(--dark-blue);
       color: var(--white);
-      padding: 50px 20px 30px; /* تم التعديل من 60px */
+      padding: 50px 20px 30px;
     }
 
     .footer-content {
@@ -634,11 +638,13 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
+      color: var(--primary-orange); /* تغيير لون الأيقونات إلى برتقالي */
     }
 
     .social-link:hover {
       background: var(--primary-orange);
       transform: translateY(-3px);
+      color: white; /* تغيير لون الأيقونات إلى أبيض عند التمرير */
     }
 
     .bottom-nav {
@@ -721,11 +727,11 @@
       }
       .platform-offer-card {
         width: 350px;
-        min-height: 100px; /* تم التعديل من 120px */
-        padding: 20px 15px; /* تم التعديل من 30px */
+        min-height: 100px;
+        padding: 20px 15px;
       }
       .platform-offer-discount {
-        font-size: 2.2rem; /* تم التعديل من 2.5rem */
+        font-size: 2.2rem;
       }
       .search-btn {
         width: 45px;
@@ -766,11 +772,11 @@
       }
       .platform-offer-card {
         width: 300px;
-        min-height: 90px; /* تم التعديل من 110px */
-        padding: 18px 15px; /* تم التعديل من 25px */
+        min-height: 90px;
+        padding: 18px 15px;
       }
       .platform-offer-discount {
-        font-size: 2rem; /* تم التعديل من 2.2rem */
+        font-size: 2rem;
       }
       .search-btn {
         width: 40px;
@@ -792,7 +798,7 @@
   <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
       <div class="logo-container">
-        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="فود">
       </div>
     </div>
   </header>
@@ -800,7 +806,7 @@
   <div id="mainPage">
     <section class="hero-section">
       <div class="hero-content">
-        <h1 class="hero-title">food...حيث يصبح الجوع إبداعاً</h1>
+        <h1 class="hero-title">فود...حيث يصبح الجوع إبداعاً</h1>
         <p class="hero-subtitle">اطلب من جميع مطاعم سلمية المفضلة لديك في مكان واحد، توصيل سريع وموثوق</p>
         <button class="cta-button">ابدأ الطلب الآن</button>
       </div>
@@ -1024,7 +1030,7 @@
     <footer class="main-footer">
       <div class="footer-content">
         <div class="footer-column">
-          <div class="footer-logo">Salamia Deliveo</div>
+          <div class="footer-logo">فود</div>
           <p class="footer-description">الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك</p>
           <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
@@ -1055,7 +1061,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // الهيدر
+        // الهيدر - إصلاح مشكلة الاهتزاز
         window.addEventListener('scroll', function() {
             const header = document.getElementById('stickyHeader');
             if (window.scrollY > 100) {
