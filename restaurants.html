@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>المطاعم - Salamia Deliveo</title>
+  <title>بيتزا سلمية - Salamia Deliveo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ===== إعدادات عامة ===== */
+    :root {
+      --primary-orange: #F15A29;
+      --secondary-yellow: #FFD27F;
+      --accent-red: #E83F3F;
+      --dark-blue: #2C3E50;
+      --light-gray: #ECF0F1;
+      --medium-gray: #BDC3C7;
+      --white: #FFFFFF;
+      --black: #2D3436;
+      --success: #27AE60;
+      --warning: #F39C12;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+      --border-radius: 16px;
+      --border-radius-lg: 24px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,20 +35,19 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f8f9fa;
-      color: #2D3436;
+      background-color: var(--light-gray);
+      color: var(--black);
       line-height: 1.6;
       padding-bottom: 80px;
     }
 
-    /* ===== الهيدر العام ===== */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #F15A29, #FFD27F);
-      padding: 15px 0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      padding: 12px 0;
+      box-shadow: var(--shadow-md);
     }
 
     .header-content {
@@ -40,206 +56,692 @@
       justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 15px;
     }
 
     .logo-container img {
-      height: 50px;
+      height: 45px;
       width: auto;
     }
 
     .back-btn {
-      color: white;
+      color: var(--white);
       text-decoration: none;
       font-weight: 600;
       padding: 8px 16px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* ===== شريط البحث ===== */
-    .search-container {
-      background: white;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 20px auto;
-      max-width: 1200px;
-      border-radius: 16px;
-    }
-
-    .search-bar {
-      display: flex;
-      width: 100%;
-      background: #ECF0F1;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .search-input {
-      flex: 1;
-      padding: 15px 20px;
-      border: none;
-      background: transparent;
-      font-family: 'Cairo', sans-serif;
-      font-size: 1rem;
-    }
-
-    .search-button {
-      background: #F15A29;
-      color: white;
-      border: none;
-      padding: 0 25px;
-      cursor: pointer;
-    }
-
-    /* ===== صفحة المطاعم - الحل الجديد ===== */
-    .restaurants-section {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #2C3E50;
-      margin-bottom: 5px;
-    }
-
-    .section-subtitle {
-      color: #BDC3C7;
-    }
-
-    /* ⭐⭐⭐ الحل الجديد - Grid System ⭐⭐⭐ */
-    .restaurants-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      width: 100%;
-    }
-
-    .restaurant-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      text-decoration: none;
-      color: inherit;
-      display: block;
       transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .restaurant-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-
-    .card-header {
-      position: relative;
-      height: 140px;
-      overflow: hidden;
-    }
-
-    .restaurant-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ⭐⭐⭐ تحسين اللوغو - أكبر وفي المنتصف ⭐⭐⭐ */
-    .logo-background {
-      position: absolute;
-      top: 50%; /* 👈 في المنتصف عمودياً */
-      right: 50%; /* 👈 في المنتصف أفقياً */
-      transform: translate(50%, -50%); /* 👈 توسيط تام */
-      width: 100px; /* 👈 حجم أكبر */
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #F15A29, #FFD27F);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      border: 5px solid white; /* 👈 إطار أبيض لحماية اللوغو */
-      z-index: 2;
-    }
-
-    .restaurant-logo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background-color: white;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .restaurant-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #E83F3F;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      z-index: 3;
-    }
-
-    .card-content {
-      padding: 25px 15px 15px;
-      text-align: center; /* 👈 محاذاة النص في المنتصف */
-    }
-
-    .restaurant-name {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #2C3E50;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    /* ⭐⭐⭐ إزالة التقييم ومدة التوصيل ⭐⭐⭐ */
-    .restaurant-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      color: #F39C12;
-      font-weight: 600;
+      background: rgba(255,255,255,0.2);
       font-size: 0.9rem;
     }
 
-    /* ===== الشريط السفلي ===== */
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .search-icon-header {
+      color: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .cover-image {
+      height: 200px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    }
+
+    .restaurant-info {
+      max-width: 1200px;
+      margin: -60px auto 0;
+      padding: 0 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 20px;
+    }
+
+    .info-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .restaurant-logo-large {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      margin-left: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .restaurant-logo-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title-section {
+      flex-grow: 1;
+    }
+
+    .restaurant-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+    }
+
+    .restaurant-category {
+      color: var(--medium-gray);
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .info-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .info-item i {
+      color: var(--primary-orange);
+      font-size: 1.1rem;
+      margin-left: 12px;
+      width: 20px;
+    }
+
+    .info-text {
+      flex-grow: 1;
+    }
+
+    .info-label {
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+    }
+
+    .info-value {
+      font-weight: 600;
+      margin-top: 2px;
+      font-size: 0.9rem;
+    }
+
+    /* قسم التقييمات */
+    .ratings-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 20px;
+    }
+
+    .ratings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .ratings-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .overall-rating {
+      text-align: center;
+    }
+
+    .rating-score {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .rating-stars {
+      color: var(--secondary-yellow);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .rating-count {
+      color: var(--medium-gray);
+      font-size: 0.8rem;
+    }
+
+    .add-rating {
+      text-align: center;
+      padding: 15px;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      margin-top: 15px;
+    }
+
+    .add-rating-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--dark-blue);
+      font-size: 0.9rem;
+    }
+
+    .rating-stars-input {
+      direction: ltr;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .star {
+      font-size: 1.8rem;
+      color: var(--medium-gray);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 2px;
+    }
+
+    .star:hover,
+    .star.active {
+      color: var(--secondary-yellow);
+      transform: scale(1.1);
+    }
+
+    .submit-rating {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 25px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .submit-rating:hover {
+      background: var(--accent-red);
+    }
+
+    .submit-rating:disabled {
+      background: var(--medium-gray);
+      cursor: not-allowed;
+    }
+
+    /* قسم المنيو المبسط */
+    .simple-menu-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 15px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 20px;
+      border: 2px solid var(--light-gray);
+    }
+
+    .simple-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .simple-menu-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .simple-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .simple-menu-item {
+      background: var(--light-gray);
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+    }
+
+    .simple-menu-item:hover {
+      background: var(--white);
+      border-color: var(--primary-orange);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .simple-menu-item-name {
+      font-weight: 600;
+      color: var(--dark-blue);
+    }
+
+    .tabs {
+      display: flex;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+      font-size: 0.9rem;
+    }
+
+    .tab.active {
+      color: var(--primary-orange);
+      border-bottom: 3px solid var(--primary-orange);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* ⭐⭐⭐ الحل النهائي - نظام Grid متجاوب ⭐⭐⭐ */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+
+    .menu-item {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .menu-item-image {
+      height: 120px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .menu-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover .menu-item-image img {
+      transform: scale(1.05);
+    }
+
+    .menu-item-content {
+      padding: 12px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: var(--dark-blue);
+      line-height: 1.3;
+    }
+
+    .menu-item-desc {
+      color: var(--medium-gray);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0;
+    }
+
+    .quantity-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      font-size: 0.85rem;
+    }
+
+    .quantity-btn:hover {
+      background: var(--primary-orange);
+      color: white;
+    }
+
+    .quantity-input {
+      width: 32px;
+      text-align: center;
+      margin: 0 6px;
+      border: 1px solid var(--medium-gray);
+      border-radius: 5px;
+      padding: 4px;
+      font-size: 0.85rem;
+    }
+
+    .menu-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .menu-item-price {
+      font-weight: 800;
+      color: var(--primary-orange);
+      font-size: 0.95rem;
+    }
+
+    .add-to-cart {
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 15px;
+      padding: 6px 12px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      flex: 1;
+      max-width: 70px;
+    }
+
+    .add-to-cart:hover {
+      background: var(--accent-red);
+    }
+
+    /* سلة التسوق */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      max-width: 350px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      z-index: 1100;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .cart-sidebar.open {
+      left: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .cart-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--medium-gray);
+    }
+
+    .cart-items {
+      margin-bottom: 15px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .cart-item-price {
+      color: var(--primary-orange);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-quantity-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .cart-quantity-input {
+      width: 28px;
+      text-align: center;
+      margin: 0 4px;
+      font-size: 0.85rem;
+    }
+
+    .customer-info {
+      margin-bottom: 15px;
+      padding-top: 12px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .customer-info-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--dark-blue);
+      font-size: 0.95rem;
+    }
+
+    .customer-input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--medium-gray);
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .customer-input:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 2px rgba(241, 90, 41, 0.2);
+    }
+
+    .customer-input::placeholder {
+      color: var(--medium-gray);
+    }
+
+    .cart-summary {
+      padding-top: 12px;
+      border-top: 2px solid var(--medium-gray);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .whatsapp-order-btn {
+      background: #BDC3C7;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: var(--border-radius);
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      cursor: not-allowed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-order-btn.active {
+      background: #25D366;
+      cursor: pointer;
+    }
+
+    .whatsapp-order-btn.active:hover {
+      background: #128C7E;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .cart-icon-badge {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      background: var(--accent-red);
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: white;
+      background: var(--white);
       box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
       z-index: 1000;
-      padding: 10px 0;
+      padding: 8px 0;
     }
 
     .nav-items {
@@ -254,108 +756,117 @@
       flex-direction: column;
       align-items: center;
       text-decoration: none;
-      color: #BDC3C7;
-      font-size: 0.7rem;
-      padding: 5px 10px;
+      color: var(--medium-gray);
+      font-size: 0.75rem;
+      transition: all 0.3s ease;
+      padding: 4px 12px;
     }
 
-    .nav-item.active {
-      color: #F15A29;
+    .nav-item.active, .nav-item:hover {
+      color: var(--primary-orange);
     }
 
     .nav-item i {
       font-size: 1.1rem;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
-    /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
-    @media (max-width: 480px) {
-      .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* ===== تحسينات للشاشات الصغيرة جداً ===== */
+    @media (max-width: 360px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
         gap: 10px;
       }
       
-      .card-header {
-        height: 120px;
+      .simple-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
       }
       
-      .logo-background {
-        width: 80px;
-        height: 80px;
+      .header-content {
+        padding: 0 10px;
       }
       
-      .restaurant-logo {
-        width: 70px;
-        height: 70px;
+      .restaurant-info {
+        padding: 0 10px;
       }
       
-      .card-content {
-        padding: 20px 12px 12px;
-      }
-      
-      .restaurant-name {
-        font-size: 1rem;
-      }
-      
-      .search-container {
-        margin: 10px;
+      .info-card {
         padding: 15px;
       }
       
-      .restaurants-section {
-        padding: 10px;
-      }
-    }
-
-    /* ===== تحسينات للشاشات الكبيرة ===== */
-    @media (min-width: 769px) {
-      .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      
-      .card-header {
+      .cover-image {
         height: 180px;
       }
-      
-      .logo-background {
-        width: 120px;
-        height: 120px;
+
+      .menu-item-image {
+        height: 100px;
       }
-      
-      .restaurant-logo {
-        width: 110px;
-        height: 110px;
+
+      .restaurant-logo-large {
+        width: 80px;
+        height: 80px;
       }
-      
-      .card-content {
-        padding: 30px 20px 20px;
-      }
-      
-      .restaurant-name {
+
+      .restaurant-title {
         font-size: 1.3rem;
       }
     }
 
     /* ===== تحسينات للشاشات المتوسطة ===== */
     @media (min-width: 481px) and (max-width: 768px) {
-      .restaurants-grid {
+      .menu-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
       }
       
-      .card-header {
-        height: 150px;
+      .menu-item-image {
+        height: 140px;
       }
       
-      .logo-background {
-        width: 100px;
-        height: 100px;
+      .cover-image {
+        height: 220px;
       }
       
-      .restaurant-logo {
-        width: 90px;
-        height: 90px;
+      .restaurant-info {
+        margin: -70px auto 0;
+      }
+    }
+
+    /* ===== تحسينات للشاشات الكبيرة ===== */
+    @media (min-width: 769px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .menu-item-image {
+        height: 160px;
+      }
+      
+      .cover-image {
+        height: 250px;
+      }
+      
+      .restaurant-info {
+        margin: -80px auto 0;
+        padding: 0 20px;
+      }
+      
+      .info-card {
+        padding: 25px;
+      }
+      
+      .header-content {
+        padding: 0 20px;
+      }
+    }
+
+    /* ===== تحسينات للشاشات الكبيرة جداً ===== */
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
       }
     }
   </style>
@@ -364,7 +875,7 @@
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
-      <a href="index.html" class="back-btn">
+      <a href="restaurants.html" class="back-btn">
         <i class="fas fa-arrow-right"></i> العودة
       </a>
       <div class="logo-container">
@@ -376,160 +887,280 @@
     </div>
   </header>
 
-  <!-- شريط البحث -->
-  <div class="search-container">
-    <div class="search-bar">
-      <input type="text" class="search-input" placeholder="ابحث عن مطعم أو وجبة...">
-      <button class="search-button">
-        <i class="fas fa-search"></i>
+  <!-- صورة الغلاف -->
+  <div class="cover-image">
+    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+         alt="بيتزا سلمية">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- معلومات المطعم -->
+  <section class="restaurant-info">
+    <div class="info-card">
+      <div class="info-header">
+        <div class="restaurant-logo-large">
+          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               alt="بيتزا سلمية">
+        </div>
+        <div class="title-section">
+          <h1 class="restaurant-title">بيتزا سلمية</h1>
+          <p class="restaurant-category">بيتزا • وجبات إيطالية • معجنات</p>
+        </div>
+      </div>
+
+      <div class="info-details">
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <div class="info-text">
+            <div class="info-label">ساعات العمل</div>
+            <div class="info-value">١٠:٠٠ ص - ١٢:٠٠ ص</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="info-text">
+            <div class="info-label">العنوان</div>
+            <div class="info-value">سلمية، الشارع الرئيسي</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-truck"></i>
+          <div class="info-text">
+            <div class="info-label">خدمة التوصيل</div>
+            <div class="info-value">متوفرة لجميع أنحاء المدينة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم التقييمات -->
+    <div class="ratings-section">
+      <div class="ratings-header">
+        <h2 class="ratings-title">تقييم المطعم</h2>
+        <div class="overall-rating">
+          <div class="rating-score" id="average-rating">4.2</div>
+          <div class="rating-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <div class="rating-count" id="total-ratings">(32 تقييم)</div>
+        </div>
+      </div>
+
+      <div class="add-rating">
+        <div class="add-rating-title">قيم تجربتك</div>
+        <div class="rating-stars-input" id="rating-stars-input">
+          <i class="far fa-star star" data-rating="1"></i>
+          <i class="far fa-star star" data-rating="2"></i>
+          <i class="far fa-star star" data-rating="3"></i>
+          <i class="far fa-star star" data-rating="4"></i>
+          <i class="far fa-star star" data-rating="5"></i>
+        </div>
+        <button class="submit-rating" id="submit-rating" disabled>
+          إرسال التقييم
+        </button>
+      </div>
+    </div>
+
+    <!-- قسم المنيو المبسط -->
+    <div class="simple-menu-section">
+      <div class="simple-menu-header">
+        <h2 class="simple-menu-title">قائمة الطعام</h2>
+      </div>
+      <div class="simple-menu-grid">
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا بيبروني</div>
+        </div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا الخضار</div>
+        </div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">معكرونة بولونيز</div>
+        </div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">سلطة سيزر</div>
+        </div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا مارجريتا</div>
+        </div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">لازانيا</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- علامات التبويب -->
+    <div class="tabs">
+      <div class="tab active" data-tab="menu">قائمة الطعام</div>
+    </div>
+
+    <!-- محتوى التبويب: قائمة الطعام -->
+    <div class="tab-content active" id="menu-content">
+      <div class="menu-grid">
+        <!-- صنف 1 -->
+        <div class="menu-item" data-id="1" data-name="بيتزا بيبروني" data-price="45000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا بيبروني">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">بيتزا بيبروني</h3>
+            <p class="menu-item-desc">بيتزا ببيبروني مع جبنة موزاريلا وصوص الطماطم</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٤٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 2 -->
+        <div class="menu-item" data-id="2" data-name="بيتزا الخضار" data-price="40000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا خضار">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">بيتزا الخضار</h3>
+            <p class="menu-item-desc">بيتزا بالخضار الطازجة وجبنة موزاريلا</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٤٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 3 -->
+        <div class="menu-item" data-id="3" data-name="معكرونة بولونيز" data-price="35000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="معكرونة بولونيز">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">معكرونة بولونيز</h3>
+            <p class="menu-item-desc">معكرونة بصلصة البولونيز واللحم المفروم</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 4 -->
+        <div class="menu-item" data-id="4" data-name="سلطة سيزر" data-price="25000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="سلطة سيزر">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">سلطة سيزر</h3>
+            <p class="menu-item-desc">سلطة سيزر مع الدجاج والصلصة الخاصة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٢٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 5 -->
+        <div class="menu-item" data-id="5" data-name="بيتزا مارجريتا" data-price="38000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="بيتزا مارجريتا">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">بيتزا مارجريتا</h3>
+            <p class="menu-item-desc">بيتزا كلاسيكية مع جبنة موزاريلا وريحان طازج</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٨,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صنف 6 -->
+        <div class="menu-item" data-id="6" data-name="لازانيا" data-price="42000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1619895092539-128d4c0c8f93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="لازانيا">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">لازانيا</h3>
+            <p class="menu-item-desc">لازانيا إيطالية باللحم المفروم والجبن</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٤٢,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- سلة التسوق المنبثقة -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="cart-title">سلة الطلبات</h2>
+      <button class="close-cart" id="close-cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
+    </div>
+    
+    <!-- خانات معلومات العميل -->
+    <div class="customer-info">
+      <div class="customer-info-title">معلومات التوصيل</div>
+      <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
+      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required>
+      <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
+    </div>
+    
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cart-total-price">٠ ل.س</span>
+      </div>
+      <button class="whatsapp-order-btn" id="whatsapp-order">
+        <i class="fab fa-whatsapp"></i>
+        اطلب عبر واتساب
       </button>
     </div>
   </div>
-
-  <!-- قسم المطاعم -->
-  <section class="restaurants-section">
-    <div class="section-header">
-      <h2 class="section-title">مطاعم سلمية</h2>
-      <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
-    </div>
-
-    <div class="restaurants-grid">
-      <!-- المطعم 1 -->
-      <a href="pizza-salamia.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">بيتزا سلمية</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.8
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 2 -->
-      <a href="mashawi-alaila.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">مشاوي العائلة</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.9
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 3 -->
-      <a href="burger-house.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">برغر هاوس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.7
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 4 -->
-      <a href="shawarma-express.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="شاورما اكسبرس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="شاورما اكسبرس">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">شاورما اكسبرس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.6
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 5 -->
-      <a href="al-nawras.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">مطعم النورس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.9
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 6 -->
-      <a href="sweet-corner.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">زاوية الحلويات</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.8
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
 
   <!-- الشريط السفلي -->
   <nav class="bottom-nav">
@@ -538,35 +1169,375 @@
         <i class="fas fa-home"></i>
         <span>الرئيسية</span>
       </a>
-      <a href="#" class="nav-item active">
+      <a href="restaurants.html" class="nav-item">
         <i class="fas fa-utensils"></i>
         <span>المطاعم</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
         <i class="fas fa-shopping-cart"></i>
         <span>السلة</span>
+        <span class="cart-badge" id="cart-badge">0</span>
       </a>
     </div>
   </nav>
 
   <script>
-    function searchRestaurants() {
-      const query = document.querySelector('.search-input').value.toLowerCase();
-      const cards = document.querySelectorAll('.restaurant-card');
-      
-      cards.forEach(card => {
-        const name = card.querySelector('.restaurant-name').textContent.toLowerCase();
-        
-        if (name.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+    // بيانات التطبيق
+    let cart = [];
+    const restaurantName = "بيتزا سلمية";
+    const restaurantPhone = "0957275347";
+
+    // بيانات التقييمات
+    let ratings = [
+      { stars: 5 }, { stars: 4 }, { stars: 5 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 4 }, { stars: 3 }, { stars: 5 },
+      { stars: 4 }, { stars: 5 }, { stars: 4 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 4 }, { stars: 3 }, { stars: 5 },
+      { stars: 4 }, { stars: 5 }, { stars: 4 }, { stars: 3 }, { stars: 4 },
+      { stars: 5 }, { stars: 4 }, { stars: 4 }, { stars: 3 }, { stars: 5 },
+      { stars: 4 }, { stars: 2 }
+    ];
+
+    let selectedRating = 0;
+
+    // عناصر DOM
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const openCartBtn = document.getElementById('open-cart');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+    const cartBadge = document.getElementById('cart-badge');
+    const whatsappOrderBtn = document.getElementById('whatsapp-order');
+    const customerNameInput = document.getElementById('customer-name');
+    const customerAddressInput = document.getElementById('customer-address');
+    const customerPhoneInput = document.getElementById('customer-phone');
+    const averageRatingElement = document.getElementById('average-rating');
+    const totalRatingsElement = document.getElementById('total-ratings');
+    const ratingStarsInput = document.getElementById('rating-stars-input');
+    const submitRatingButton = document.getElementById('submit-rating');
+    const stars = ratingStarsInput.querySelectorAll('.star');
+
+    // فتح وإغلاق سلة التسوق
+    openCartBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openCart();
+    });
+
+    function openCart() {
+      cartSidebar.classList.add('open');
+      cartOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    closeCartBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+
+    // إعداد أزرار الكمية في قائمة الطعام
+    document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        input.value = parseInt(input.value) + 1;
+      });
+    });
+
+    document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        if (parseInt(input.value) > 1) {
+          input.value = parseInt(input.value) - 1;
         }
+      });
+    });
+
+    // إضافة عنصر إلى السلة
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const menuItem = this.closest('.menu-item');
+        const id = menuItem.dataset.id;
+        const name = menuItem.dataset.name;
+        const price = parseInt(menuItem.dataset.price);
+        const quantity = parseInt(menuItem.querySelector('.quantity-input').value);
+        
+        const existingItemIndex = cart.findIndex(item => item.id === id);
+        
+        if (existingItemIndex !== -1) {
+          cart[existingItemIndex].quantity += quantity;
+        } else {
+          cart.push({
+            id,
+            name,
+            price,
+            quantity
+          });
+        }
+        
+        menuItem.querySelector('.quantity-input').value = 1;
+        updateCartUI();
+        openCart();
+        
+        this.textContent = 'تمت الإضافة';
+        this.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          this.textContent = 'إضافة';
+          this.style.background = 'var(--primary-orange)';
+        }, 1500);
+      });
+    });
+
+    // تحديث واجهة سلة التسوق
+    function updateCartUI() {
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      cartBadge.textContent = totalItems;
+      
+      cartItemsContainer.innerHTML = '';
+      
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">السلة فارغة</p>';
+        cartTotalPrice.textContent = '٠ ل.س';
+        return;
+      }
+      
+      let totalPrice = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        
+        const cartItemElement = document.createElement('div');
+        cartItemElement.className = 'cart-item';
+        cartItemElement.innerHTML = `
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${formatPrice(item.price)} ل.س</div>
+          </div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-btn minus" data-id="${item.id}">-</button>
+            <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" readonly>
+            <button class="cart-quantity-btn plus" data-id="${item.id}">+</button>
+          </div>
+        `;
+        
+        cartItemsContainer.appendChild(cartItemElement);
+      });
+      
+      cartTotalPrice.textContent = `${formatPrice(totalPrice)} ل.س`;
+      
+      document.querySelectorAll('.cart-quantity-btn.plus').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const item = cart.find(item => item.id === id);
+          if (item) {
+            item.quantity += 1;
+            updateCartUI();
+          }
+        });
+      });
+      
+      document.querySelectorAll('.cart-quantity-btn.minus').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const itemIndex = cart.findIndex(item => item.id === id);
+          if (itemIndex !== -1) {
+            if (cart[itemIndex].quantity > 1) {
+              cart[itemIndex].quantity -= 1;
+            } else {
+              cart.splice(itemIndex, 1);
+            }
+            updateCartUI();
+          }
+        });
       });
     }
 
-    document.querySelector('.search-button').addEventListener('click', searchRestaurants);
-    document.querySelector('.search-input').addEventListener('keyup', searchRestaurants);
+    // تنسيق السعر
+    function formatPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // التحقق من ملء جميع الحقول وتفعيل زر الواتساب
+    function checkFormValidity() {
+      const name = customerNameInput.value.trim();
+      const address = customerAddressInput.value.trim();
+      const phone = customerPhoneInput.value.trim();
+      
+      if (name && address && phone) {
+        whatsappOrderBtn.classList.add('active');
+        whatsappOrderBtn.disabled = false;
+      } else {
+        whatsappOrderBtn.classList.remove('active');
+        whatsappOrderBtn.disabled = true;
+      }
+    }
+
+    // إضافة مستمعات الأحداث لحقول الإدخال
+    customerNameInput.addEventListener('input', checkFormValidity);
+    customerAddressInput.addEventListener('input', checkFormValidity);
+    customerPhoneInput.addEventListener('input', checkFormValidity);
+
+    // إرسال الطلب عبر واتساب
+    whatsappOrderBtn.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('السلة فارغة. أضف بعض العناصر أولاً.');
+        return;
+      }
+      
+      if (!whatsappOrderBtn.classList.contains('active')) {
+        alert('يرجى ملء جميع معلومات التوصيل أولاً.');
+        return;
+      }
+      
+      const customerName = customerNameInput.value.trim();
+      const customerAddress = customerAddressInput.value.trim();
+      const customerPhone = customerPhoneInput.value.trim();
+      
+      let message = `مرحباً، أريد طلب التالي من ${restaurantName}:\n\n`;
+      
+      let totalPrice = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        message += `${item.name} - ${item.quantity} × ${formatPrice(item.price)} = ${formatPrice(itemTotal)} ل.س\n`;
+      });
+      
+      message += `\nالمجموع: ${formatPrice(totalPrice)} ل.س\n\n`;
+      message += `معلومات التوصيل:\n`;
+      message += `الاسم: ${customerName}\n`;
+      message += `العنوان: ${customerAddress}\n`;
+      message += `الهاتف: ${customerPhone}\n\n`;
+      message += `شكراً!`;
+      
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${restaurantPhone}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+    });
+
+    // نظام التقييمات
+    function calculateAverageRating() {
+      if (ratings.length === 0) return 0;
+      const total = ratings.reduce((sum, rating) => sum + rating.stars, 0);
+      return (total / ratings.length).toFixed(1);
+    }
+
+    function updateRatingDisplay() {
+      const average = calculateAverageRating();
+      const total = ratings.length;
+      
+      averageRatingElement.textContent = average;
+      totalRatingsElement.textContent = `(${total} تقييم)`;
+      
+      updateOverallStars(average);
+    }
+
+    function updateOverallStars(average) {
+      const overallStarsContainer = document.querySelector('.overall-rating .rating-stars');
+      overallStarsContainer.innerHTML = '';
+      
+      const fullStars = Math.floor(average);
+      const hasHalfStar = average % 1 >= 0.5;
+      
+      for (let i = 0; i < fullStars; i++) {
+        overallStarsContainer.innerHTML += '<i class="fas fa-star"></i>';
+      }
+      
+      if (hasHalfStar) {
+        overallStarsContainer.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+      }
+      
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+      for (let i = 0; i < emptyStars; i++) {
+        overallStarsContainer.innerHTML += '<i class="far fa-star"></i>';
+      }
+    }
+
+    // إضافة مستمعات الأحداث للنجوم
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        const rating = parseInt(this.dataset.rating);
+        selectedRating = rating;
+        
+        stars.forEach((s, index) => {
+          if (index < rating) {
+            s.classList.remove('far');
+            s.classList.add('fas', 'active');
+          } else {
+            s.classList.remove('fas', 'active');
+            s.classList.add('far');
+          }
+        });
+        
+        submitRatingButton.disabled = false;
+      });
+      
+      star.addEventListener('mouseenter', function() {
+        const rating = parseInt(this.dataset.rating);
+        stars.forEach((s, index) => {
+          if (index < rating) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+      });
+      
+      star.addEventListener('mouseleave', function() {
+        if (selectedRating === 0) {
+          stars.forEach(s => {
+            s.classList.remove('active');
+          });
+        } else {
+          stars.forEach((s, index) => {
+            if (index < selectedRating) {
+              s.classList.add('active');
+            } else {
+              s.classList.remove('active');
+            }
+          });
+        }
+      });
+    });
+
+    // إرسال التقييم
+    submitRatingButton.addEventListener('click', function() {
+      if (selectedRating > 0) {
+        ratings.push({ stars: selectedRating });
+        updateRatingDisplay();
+        
+        selectedRating = 0;
+        stars.forEach(star => {
+          star.classList.remove('fas', 'active');
+          star.classList.add('far');
+        });
+        
+        submitRatingButton.disabled = true;
+        alert(`شكراً لك! تم إضافة تقييمك: ${selectedRating} نجوم`);
+      }
+    });
+
+    // تفعيل البحث عند النقر على الأيقونة
+    document.querySelector('.search-icon-header').addEventListener('click', function() {
+      alert('سيتم فتح شريط البحث هنا');
+    });
+
+    // إضافة تفاعل لعناصر المنيو المبسط
+    document.querySelectorAll('.simple-menu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const itemName = this.querySelector('.simple-menu-item-name').textContent;
+        alert(`سيتم الانتقال إلى ${itemName} في قائمة الطعام`);
+      });
+    });
+
+    // تهيئة واجهة السلة والتقييمات
+    updateCartUI();
+    checkFormValidity();
+    updateRatingDisplay();
   </script>
 </body>
 </html>
