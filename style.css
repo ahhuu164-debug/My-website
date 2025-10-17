@@ -1,272 +1,136 @@
-/* ===== إعدادات عامة ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Cairo', sans-serif;
-  background-color: #f8f9fa;
-  color: #2D3436;
-  line-height: 1.6;
-  padding-bottom: 80px;
-}
-
-/* ===== الهيدر العام ===== */
-.sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(135deg, #F15A29, #FFD27F);
-  padding: 15px 0;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.logo-container img {
-  height: 50px;
-  width: auto;
-}
-
-.back-btn {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-}
-
-/* ===== شريط البحث ===== */
-.search-container {
-  background: white;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  margin: 20px auto;
-  max-width: 1200px;
-  border-radius: 16px;
-}
-
-.search-bar {
-  display: flex;
-  width: 100%;
-  background: #ECF0F1;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.search-input {
-  flex: 1;
-  padding: 15px 20px;
-  border: none;
-  background: transparent;
-  font-family: 'Cairo', sans-serif;
-  font-size: 1rem;
-}
-
-.search-button {
-  background: #F15A29;
-  color: white;
-  border: none;
-  padding: 0 25px;
-  cursor: pointer;
-}
-
-/* ===== صفحة المطاعم - الحل الجديد ===== */
-.restaurants-section {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-header {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #2C3E50;
-  margin-bottom: 5px;
-}
-
-.section-subtitle {
-  color: #BDC3C7;
-}
-
-/* ⭐⭐⭐ الحل الجديد - Flexbox مبسط ⭐⭐⭐ */
-.restaurants-grid {
+/* ⭐⭐⭐ الحل الصحيح - استخدام نفس نظام صفحة المطاعم ⭐⭐⭐ */
+.menu-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  width: 100%;
 }
 
-.restaurant-card {
-  background: white;
-  border-radius: 20px;
+.menu-item {
+  background: var(--white);
+  border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 48%; /* 👈 هذا يضمن عرض مطعمين في الصف */
-  min-width: 300px;
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
-  margin-bottom: 0;
+  width: 48%; /* 👈 نفس نظام صفحة المطاعم */
+  min-width: 300px;
 }
 
-.restaurant-card:hover {
+.menu-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-md);
 }
 
-.card-header {
-  position: relative;
+.menu-item-image {
   height: 160px;
+  width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
-.restaurant-image {
+.menu-item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+  filter: brightness(1.05) contrast(1.05);
 }
 
-.logo-background {
-  position: absolute;
-  bottom: -20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #F15A29, #FFD27F);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.menu-item:hover .menu-item-image img {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
 }
 
-.restaurant-logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 3px solid white;
-  background-color: white;
-  overflow: hidden;
+.menu-item-content {
+  padding: 15px;
 }
 
-.restaurant-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #E83F3F;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.card-content {
-  padding: 40px 20px 20px;
-}
-
-.restaurant-name {
-  font-size: 1.2rem;
+.menu-item-title {
   font-weight: 700;
-  color: #2C3E50;
+  font-size: 1.1rem;
   margin-bottom: 8px;
+  color: var(--dark-blue);
 }
 
-.restaurant-category {
-  color: #BDC3C7;
+.menu-item-desc {
+  color: var(--medium-gray);
   font-size: 0.9rem;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 
-.restaurant-info {
+.menu-item-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.rating {
+.menu-item-price {
+  font-weight: 800;
+  color: var(--primary-orange);
+}
+
+.quantity-controls {
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: #F39C12;
+  margin-top: 10px;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background: var(--primary-orange);
+  color: white;
+}
+
+.quantity-input {
+  width: 40px;
+  text-align: center;
+  margin: 0 8px;
+  border: 1px solid var(--medium-gray);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.add-to-cart {
+  background: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-family: 'Cairo', sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
 }
 
-.delivery-time {
-  color: #BDC3C7;
-  font-size: 0.9rem;
-}
-
-/* ===== الشريط السفلي ===== */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-  z-index: 1000;
-  padding: 10px 0;
-}
-
-.nav-items {
-  display: flex;
-  justify-content: space-around;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #BDC3C7;
-  font-size: 0.8rem;
-  padding: 5px 15px;
-}
-
-.nav-item.active {
-  color: #F15A29;
-}
-
-.nav-item i {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+.add-to-cart:hover {
+  background: var(--accent-red);
 }
 
 /* ===== التكيف مع الشاشات الصغيرة ===== */
 @media (max-width: 768px) {
-  .restaurant-card {
-    width: 100%; /* 👈 على الجوال، بطاقة واحدة في الصف */
+  .menu-item {
+    width: 100%; /* 👈 على الجوال، وجبة واحدة في الصف */
     min-width: auto;
   }
   
-  .restaurants-grid {
+  .menu-grid {
     gap: 15px;
   }
 }
