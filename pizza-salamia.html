@@ -312,8 +312,8 @@
       cursor: not-allowed;
     }
 
-    /* قسم المنيو المصغر */
-    .menu-summary-section {
+    /* قسم المنيو المبسط */
+    .simple-menu-section {
       background: var(--white);
       border-radius: var(--border-radius-lg);
       padding: 25px;
@@ -321,7 +321,7 @@
       margin-bottom: 30px;
     }
 
-    .menu-summary-header {
+    .simple-menu-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -330,19 +330,19 @@
       border-bottom: 2px solid var(--light-gray);
     }
 
-    .menu-summary-title {
+    .simple-menu-title {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--dark-blue);
     }
 
-    .menu-summary-grid {
+    .simple-menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
     }
 
-    .menu-summary-item {
+    .simple-menu-item {
       background: var(--light-gray);
       border-radius: var(--border-radius);
       padding: 15px;
@@ -352,22 +352,17 @@
       border: 2px solid transparent;
     }
 
-    .menu-summary-item:hover {
+    .simple-menu-item:hover {
       background: var(--white);
       border-color: var(--primary-orange);
       transform: translateY(-3px);
       box-shadow: var(--shadow-sm);
     }
 
-    .menu-summary-item-name {
+    .simple-menu-item-name {
       font-weight: 600;
       color: var(--dark-blue);
       margin-bottom: 5px;
-    }
-
-    .menu-summary-item-price {
-      color: var(--primary-orange);
-      font-weight: 700;
     }
 
     .tabs {
@@ -406,11 +401,11 @@
       display: block;
     }
 
-    /* التعديل الأساسي: عرض الوجبات في صفين */
+    /* ⭐⭐⭐ الحل الجديد - عرض الوجبات في صفين ⭐⭐⭐ */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* عمودين ثابتين */
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
       width: 100%;
     }
 
@@ -420,7 +415,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
-      width: 100%; /* تأكد من أن العرض 100% */
+      width: 100%;
     }
 
     .menu-item:hover {
@@ -429,7 +424,7 @@
     }
 
     .menu-item-image {
-      height: 180px;
+      height: 160px;
       width: 100%;
       overflow: hidden;
       position: relative;
@@ -775,46 +770,18 @@
       margin-bottom: 5px;
     }
 
-    /* التكيف مع الشاشات الصغيرة */
-    @media (max-width: 768px) {
-      .info-header {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .restaurant-logo-large {
-        margin: 0 auto 20px;
-      }
-      
-      /* على الشاشات الصغيرة، عرض وجبة واحدة في كل صف */
+    /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
+    @media (max-width: 480px) {
       .menu-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
       }
       
-      .menu-summary-grid {
+      .simple-menu-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
       }
       
-      .tabs {
-        flex-direction: column;
-      }
-      
-      .info-details {
-        grid-template-columns: 1fr;
-      }
-
-      .cart-sidebar {
-        width: 300px;
-      }
-
-      .ratings-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
       .header-content {
         padding: 0 15px;
       }
@@ -841,6 +808,32 @@
 
       .star {
         font-size: 1.8rem;
+      }
+    }
+
+    /* ===== تحسينات للشاشات الكبيرة ===== */
+    @media (min-width: 769px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .simple-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* ===== تحسينات للشاشات المتوسطة ===== */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .simple-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
       }
     }
   </style>
@@ -939,35 +932,29 @@
       </div>
     </div>
 
-    <!-- قسم المنيو المصغر -->
-    <div class="menu-summary-section">
-      <div class="menu-summary-header">
-        <h2 class="menu-summary-title">قائمة الطعام</h2>
+    <!-- قسم المنيو المبسط -->
+    <div class="simple-menu-section">
+      <div class="simple-menu-header">
+        <h2 class="simple-menu-title">قائمة الطعام</h2>
       </div>
-      <div class="menu-summary-grid">
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">بيتزا بيبروني</div>
-          <div class="menu-summary-item-price">٤٥,٠٠٠ ل.س</div>
+      <div class="simple-menu-grid">
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا بيبروني</div>
         </div>
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">بيتزا الخضار</div>
-          <div class="menu-summary-item-price">٤٠,٠٠٠ ل.س</div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا الخضار</div>
         </div>
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">معكرونة بولونيز</div>
-          <div class="menu-summary-item-price">٣٥,٠٠٠ ل.س</div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">معكرونة بولونيز</div>
         </div>
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">سلطة سيزر</div>
-          <div class="menu-summary-item-price">٢٥,٠٠٠ ل.س</div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">سلطة سيزر</div>
         </div>
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">بيتزا مارجريتا</div>
-          <div class="menu-summary-item-price">٣٨,٠٠٠ ل.س</div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">بيتزا مارجريتا</div>
         </div>
-        <div class="menu-summary-item">
-          <div class="menu-summary-item-name">لازانيا</div>
-          <div class="menu-summary-item-price">٤٢,٠٠٠ ل.س</div>
+        <div class="simple-menu-item">
+          <div class="simple-menu-item-name">لازانيا</div>
         </div>
       </div>
     </div>
@@ -1506,10 +1493,10 @@
       alert('سيتم فتح شريط البحث هنا');
     });
 
-    // إضافة تفاعل لعناصر المنيو المصغر
-    document.querySelectorAll('.menu-summary-item').forEach(item => {
+    // إضافة تفاعل لعناصر المنيو المبسط
+    document.querySelectorAll('.simple-menu-item').forEach(item => {
       item.addEventListener('click', function() {
-        const itemName = this.querySelector('.menu-summary-item-name').textContent;
+        const itemName = this.querySelector('.simple-menu-item-name').textContent;
         alert(`سيتم الانتقال إلى ${itemName} في قائمة الطعام`);
         // يمكنك إضافة كود للتمرير إلى العنصر المطلوب
       });
