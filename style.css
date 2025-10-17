@@ -748,3 +748,43 @@ body {
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
+
+/* ===== التكيف مع الشاشات الصغيرة جداً فقط ===== */
+@media (max-width: 480px) {
+  .menu-item {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .simple-menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-content {
+    padding: 0 15px;
+  }
+  
+  .restaurant-info {
+    padding: 0 15px;
+  }
+  
+  .info-card {
+    padding: 20px 15px;
+  }
+  
+  .cover-image {
+    height: 200px;
+  }
+
+  .cart-sidebar {
+    width: 85%;
+  }
+
+  .rating-score {
+    font-size: 2.5rem;
+  }
+
+  .star {
+    font-size: 1.8rem;
+  }
+}
