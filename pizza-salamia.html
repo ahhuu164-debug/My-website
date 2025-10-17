@@ -312,26 +312,27 @@
       cursor: not-allowed;
     }
 
-    /* قسم المنيو المبسط */
+    /* قسم المنيو المبسط - معدل */
     .simple-menu-section {
       background: var(--white);
       border-radius: var(--border-radius-lg);
-      padding: 25px;
+      padding: 20px;
       box-shadow: var(--shadow-md);
       margin-bottom: 30px;
+      border: 2px solid var(--light-gray);
     }
 
     .simple-menu-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--light-gray);
     }
 
     .simple-menu-title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--dark-blue);
     }
@@ -339,30 +340,30 @@
     .simple-menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 8px;
     }
 
     .simple-menu-item {
       background: var(--light-gray);
-      border-radius: var(--border-radius);
-      padding: 15px;
+      border-radius: 10px;
+      padding: 8px 12px;
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
     }
 
     .simple-menu-item:hover {
       background: var(--white);
       border-color: var(--primary-orange);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
 
     .simple-menu-item-name {
       font-weight: 600;
       color: var(--dark-blue);
-      margin-bottom: 5px;
     }
 
     .tabs {
@@ -778,8 +779,13 @@
       }
       
       .simple-menu-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+      
+      .simple-menu-item {
+        padding: 6px 8px;
+        font-size: 0.8rem;
       }
       
       .header-content {
@@ -820,7 +826,7 @@
       
       .simple-menu-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 10px;
       }
     }
 
@@ -833,7 +839,7 @@
       
       .simple-menu-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 8px;
       }
     }
   </style>
@@ -932,7 +938,7 @@
       </div>
     </div>
 
-    <!-- قسم المنيو المبسط -->
+    <!-- قسم المنيو المبسط - معدل -->
     <div class="simple-menu-section">
       <div class="simple-menu-header">
         <h2 class="simple-menu-title">قائمة الطعام</h2>
