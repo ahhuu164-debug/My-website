@@ -569,7 +569,7 @@
       margin-bottom: 15px;
       flex-grow: 1;
       overflow-y: auto;
-      max-height: calc(100vh - 400px);
+      max-height: calc(100vh - 450px);
       min-height: 150px;
     }
 
@@ -717,10 +717,6 @@
       background-color: rgba(241, 90, 41, 0.05);
     }
 
-    .payment-option input {
-      margin-left: 10px;
-    }
-
     .payment-icon {
       margin-left: 10px;
       font-size: 1.2rem;
@@ -742,11 +738,6 @@
       color: white;
     }
 
-    .whatsapp-pay {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: white;
-    }
-
     .cash {
       background: linear-gradient(135deg, #F15A29, #E83F3F);
       color: white;
@@ -758,6 +749,7 @@
       background: white;
       position: sticky;
       bottom: 0;
+      padding-bottom: 20px;
     }
 
     .cart-total {
@@ -772,7 +764,7 @@
       background: #BDC3C7;
       color: white;
       border: none;
-      padding: 12px;
+      padding: 15px;
       border-radius: 16px;
       font-family: 'Cairo', sans-serif;
       font-weight: 700;
@@ -784,6 +776,7 @@
       justify-content: center;
       gap: 8px;
       transition: all 0.3s ease;
+      margin-bottom: 10px;
     }
 
     .whatsapp-order-btn.active {
@@ -793,6 +786,64 @@
 
     .whatsapp-order-btn.active:hover {
       background: #128C7E;
+    }
+
+    .barcode-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .barcode-modal.active {
+      display: flex;
+    }
+
+    .barcode-content {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 300px;
+      width: 90%;
+    }
+
+    .barcode-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #2C3E50;
+      font-size: 1.2rem;
+    }
+
+    .barcode-image {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 15px;
+      border: 1px solid #ECF0F1;
+      border-radius: 8px;
+    }
+
+    .close-barcode {
+      background: #F15A29;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-barcode:hover {
+      background: #E83F3F;
     }
 
     .overlay {
@@ -918,6 +969,10 @@
 
       .restaurant-title {
         font-size: 1.3rem;
+      }
+      
+      .cart-summary {
+        padding-bottom: 15px;
       }
     }
 
@@ -1258,26 +1313,18 @@
     <div class="payment-methods">
       <div class="payment-methods-title">طريقة الدفع</div>
       <div class="payment-options">
-        <label class="payment-option cash" id="payment-cash">
-          <input type="radio" name="payment" value="cash" checked>
+        <div class="payment-option cash selected" id="payment-cash">
           <i class="fas fa-money-bill-wave payment-icon"></i>
           <span class="payment-label">الدفع نقداً عند الاستلام</span>
-        </label>
-        <label class="payment-option whatsapp-pay" id="payment-whatsapp">
-          <input type="radio" name="payment" value="whatsapp">
-          <i class="fab fa-whatsapp payment-icon"></i>
-          <span class="payment-label">الدفع عبر واتساب</span>
-        </label>
-        <label class="payment-option sham-cash" id="payment-shamcash">
-          <input type="radio" name="payment" value="shamcash">
+        </div>
+        <div class="payment-option sham-cash" id="payment-shamcash">
           <i class="fas fa-wallet payment-icon"></i>
           <span class="payment-label">شام كاش</span>
-        </label>
-        <label class="payment-option usdt" id="payment-usdt">
-          <input type="radio" name="payment" value="usdt">
+        </div>
+        <div class="payment-option usdt" id="payment-usdt">
           <i class="fas fa-dollar-sign payment-icon"></i>
           <span class="payment-label">USDT</span>
-        </label>
+        </div>
       </div>
     </div>
     
@@ -1290,6 +1337,16 @@
         <i class="fab fa-whatsapp"></i>
         اطلب عبر واتساب
       </button>
+    </div>
+  </div>
+
+  <!-- نافذة الباركود -->
+  <div class="barcode-modal" id="barcode-modal">
+    <div class="barcode-content">
+      <h3 class="barcode-title" id="barcode-title">باركود الدفع</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SalamiaDeliveo" 
+           alt="باركود الدفع" class="barcode-image" id="barcode-image">
+      <button class="close-barcode" id="close-barcode">إغلاق</button>
     </div>
   </div>
 
@@ -1329,9 +1386,12 @@
       const customerAddress = document.getElementById('customer-address');
       const customerPhone = document.getElementById('customer-phone');
       const paymentCash = document.getElementById('payment-cash');
-      const paymentWhatsapp = document.getElementById('payment-whatsapp');
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
+      const barcodeModal = document.getElementById('barcode-modal');
+      const barcodeTitle = document.getElementById('barcode-title');
+      const barcodeImage = document.getElementById('barcode-image');
+      const closeBarcode = document.getElementById('close-barcode');
       
       // سلة التسوق
       let cart = [];
@@ -1527,40 +1587,45 @@
         updatePaymentSelection();
       });
       
-      paymentWhatsapp.addEventListener('click', function() {
-        selectedPayment = 'whatsapp';
-        updatePaymentSelection();
-      });
-      
       paymentShamcash.addEventListener('click', function() {
         selectedPayment = 'shamcash';
         updatePaymentSelection();
+        showBarcode('شام كاش');
       });
       
       paymentUsdt.addEventListener('click', function() {
         selectedPayment = 'usdt';
         updatePaymentSelection();
+        showBarcode('USDT');
       });
       
       // تحديث اختيار طريقة الدفع
       function updatePaymentSelection() {
         // إزالة التحديد من جميع الخيارات
         paymentCash.classList.remove('selected');
-        paymentWhatsapp.classList.remove('selected');
         paymentShamcash.classList.remove('selected');
         paymentUsdt.classList.remove('selected');
         
         // إضافة التحديد للخيار المختار
         if (selectedPayment === 'cash') {
           paymentCash.classList.add('selected');
-        } else if (selectedPayment === 'whatsapp') {
-          paymentWhatsapp.classList.add('selected');
         } else if (selectedPayment === 'shamcash') {
           paymentShamcash.classList.add('selected');
         } else if (selectedPayment === 'usdt') {
           paymentUsdt.classList.add('selected');
         }
       }
+      
+      // عرض الباركود
+      function showBarcode(paymentMethod) {
+        barcodeTitle.textContent = `باركود ${paymentMethod}`;
+        barcodeModal.classList.add('active');
+      }
+      
+      // إغلاق نافذة الباركود
+      closeBarcode.addEventListener('click', function() {
+        barcodeModal.classList.remove('active');
+      });
       
       // إرسال الطلب عبر واتساب
       whatsappOrderBtn.addEventListener('click', function() {
@@ -1606,7 +1671,6 @@
       function getPaymentMethodName(method) {
         switch(method) {
           case 'cash': return 'نقداً عند الاستلام';
-          case 'whatsapp': return 'واتساب';
           case 'shamcash': return 'شام كاش';
           case 'usdt': return 'USDT';
           default: return 'غير محدد';
