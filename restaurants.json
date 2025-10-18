@@ -2,7 +2,7 @@
   "restaurants": [
     {
       "id": "pizza-salamia",
-      "name": '"بيتزا حماه",
+      "name": "بيتزا حماه",
       "category": "بيتزا • وجبات هندية • لحوم",
       "phone": "963947275347",
       "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
@@ -26,20 +26,6 @@
           "price": 60000,
           "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "بيتزا بالخضار الطازجة وجبنة موزاريلا"
-        },
-        {
-          "id": 3,
-          "name": "معكرونة بولونيز",
-          "price": 35000,
-          "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "معكرونة بصلصة البولونيز واللحم المفروم"
-        },
-        {
-          "id": 4,
-          "name": "سلطة سيزر",
-          "price": 25000,
-          "image": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "سلطة سيزر مع الدجاج والصلصة الخاصة"
         }
       ]
     },
@@ -62,13 +48,6 @@
           "price": 30000,
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "شاورما دجاج مع الخضار والصلصة"
-        },
-        {
-          "id": 2,
-          "name": "كباب مشوي",
-          "price": 40000,
-          "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "كباب مشوي مع الأرز والسلطة"
         }
       ]
     },
@@ -91,13 +70,6 @@
           "price": 35000,
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "برغر لحم مع الخضار والصلصة"
-        },
-        {
-          "id": 2,
-          "name": "برغر دجاج",
-          "price": 32000,
-          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "برغر دجاج مع المايونيز والسلطة"
         }
       ]
     }
