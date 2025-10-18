@@ -187,17 +187,29 @@
       object-fit: cover;
     }
 
+    /* ⭐⭐⭐ تصنيفات المطاعم - كما في صفحة index ⭐⭐⭐ */
     .card-badge {
       position: absolute;
       top: 10px;
       right: 10px;
-      background: #E83F3F;
       color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 0.7rem;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
       font-weight: 600;
       z-index: 3;
+    }
+
+    .badge-featured {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+    }
+
+    .badge-rising {
+      background: linear-gradient(135deg, #4A90E2, #357ABD);
+    }
+
+    .badge-new {
+      background: linear-gradient(135deg, #27AE60, #219653);
     }
 
     .card-content {
@@ -394,7 +406,7 @@
     </div>
 
     <div class="restaurants-grid">
-      <!-- المطعم 1 -->
+      <!-- المطعم 1 - مميز -->
       <a href="pizza-salamia.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
@@ -403,11 +415,10 @@
               <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
             </div>
           </div>
-          <div class="card-badge">مميز</div>
+          <div class="card-badge badge-featured">مميز</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">بيتزا سلمية</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
@@ -417,7 +428,7 @@
         </div>
       </a>
 
-      <!-- المطعم 2 -->
+      <!-- المطعم 2 - مميز -->
       <a href="mashawi-alaila.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
@@ -426,11 +437,10 @@
               <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
             </div>
           </div>
-          <div class="card-badge">مميز</div>
+          <div class="card-badge badge-featured">مميز</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">مشاوي العائلة</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
@@ -440,7 +450,7 @@
         </div>
       </a>
 
-      <!-- المطعم 3 -->
+      <!-- المطعم 3 - صاعد -->
       <a href="burger-house.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
@@ -449,10 +459,10 @@
               <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
             </div>
           </div>
+          <div class="card-badge badge-rising">صاعد</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">برغر هاوس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
@@ -462,7 +472,7 @@
         </div>
       </a>
 
-      <!-- المطعم 4 -->
+      <!-- المطعم 4 - صاعد -->
       <a href="shawarma-express.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="شاورما اكسبرس" class="restaurant-image">
@@ -471,10 +481,10 @@
               <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="شاورما اكسبرس">
             </div>
           </div>
+          <div class="card-badge badge-rising">صاعد</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">شاورما اكسبرس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
@@ -484,7 +494,7 @@
         </div>
       </a>
 
-      <!-- المطعم 5 -->
+      <!-- المطعم 5 - مميز -->
       <a href="al-nawras.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
@@ -493,11 +503,10 @@
               <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
             </div>
           </div>
-          <div class="card-badge">مميز</div>
+          <div class="card-badge badge-featured">مميز</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">مطعم النورس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
@@ -507,7 +516,7 @@
         </div>
       </a>
 
-      <!-- المطعم 6 -->
+      <!-- المطعم 6 - جديد -->
       <a href="sweet-corner.html" class="restaurant-card">
         <div class="card-header">
           <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
@@ -516,10 +525,10 @@
               <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
             </div>
           </div>
+          <div class="card-badge badge-new">جديد</div>
         </div>
         <div class="card-content">
           <h3 class="restaurant-name">زاوية الحلويات</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
           <div class="restaurant-info">
             <div class="rating">
               <i class="fas fa-star"></i>
