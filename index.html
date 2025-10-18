@@ -703,6 +703,19 @@
       transform: translateY(-2px);
     }
 
+    /* رابط الإدارة */
+    .admin-link {
+      position: absolute;
+      left: 20px;
+      background: #27AE60;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
       .sticky-header {
         padding: 20px 0;
@@ -745,6 +758,12 @@
       }
       .section-title {
         font-size: 2.2rem;
+      }
+      .admin-link {
+        position: relative;
+        left: 0;
+        margin-top: 10px;
+        display: inline-block;
       }
     }
 
@@ -797,6 +816,7 @@
 
   <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
+      <a href="admin.html" class="admin-link">⚙️ الإدارة</a>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="فود">
       </div>
@@ -838,171 +858,27 @@
       </div>
     </section>
 
+    <!-- قسم المطاعم المميزة -->
     <section class="restaurants-section">
       <h2 class="section-title">مطاعم مميزة <i class="fas fa-star" style="color: #FFD700;"></i></h2>
-      <div class="restaurants-scroll">
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
-            <div class="card-badge badge-featured">مميز</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">بيتزا سلمية - أفضل بيتزا في المدينة</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.8 (124)
-              </div>
-              <span class="delivery-time">30-45 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="pizza-salamia">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
-            <div class="card-badge badge-featured">مميز</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">برغر هاوس - أشهى البرغر الأمريكي</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.7 (89)
-              </div>
-              <span class="delivery-time">25-40 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="burger-house">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
-            <div class="card-badge badge-featured">مميز</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">مشاوي العائلة - أشهى المشاوي الشرقية</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.9 (156)
-              </div>
-              <span class="delivery-time">40-55 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="family-grill">عرض المطعم</button>
-          </div>
-        </div>
+      <div class="restaurants-scroll" id="featuredRestaurants">
+        <!-- المطاعم المميزة سيتم إضافتها هنا تلقائياً -->
       </div>
     </section>
 
+    <!-- قسم المطاعم الصاعدة -->
     <section class="restaurants-section" style="background: #f8f9fa;">
       <h2 class="section-title">مطاعم صاعدة <i class="fas fa-arrow-up" style="color: #4A90E2;"></i></h2>
-      <div class="restaurants-scroll">
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم الأصالة" class="restaurant-image">
-            <div class="card-badge badge-rising">صاعد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">مطعم الأصالة - المذاق الأصيل</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.5 (92)
-              </div>
-              <span class="delivery-time">35-50 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="al-asala">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم الشرق" class="restaurant-image">
-            <div class="card-badge badge-rising">صاعد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">مطعم الشرق - أطباق شرقية مميزة</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.3 (67)
-              </div>
-              <span class="delivery-time">30-45 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="al-sharq">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم الذواقة" class="restaurant-image">
-            <div class="card-badge badge-rising">صاعد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">مطعم الذواقة - لأصحاب الذوق الرفيع</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.4 (78)
-              </div>
-              <span class="delivery-time">40-55 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="al-thuqa">عرض المطعم</button>
-          </div>
-        </div>
+      <div class="restaurants-scroll" id="risingRestaurants">
+        <!-- المطاعم الصاعدة سيتم إضافتها هنا تلقائياً -->
       </div>
     </section>
 
+    <!-- قسم المطاعم الجديدة -->
     <section class="restaurants-section">
       <h2 class="section-title">مطاعم جديدة <i class="fas fa-certificate" style="color: #27AE60;"></i></h2>
-      <div class="restaurants-scroll">
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1559314809-0f155d88cb60?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="كافيه الحلويات" class="restaurant-image">
-            <div class="card-badge badge-new">جديد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">كافيه الحلويات - أشهى الحلويات الشرقية</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.6 (34)
-              </div>
-              <span class="delivery-time">20-35 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="sweets-cafe">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم البحر" class="restaurant-image">
-            <div class="card-badge badge-new">جديد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">مطعم البحر - أطباق بحرية طازجة</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.7 (41)
-              </div>
-              <span class="delivery-time">45-60 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="sea-restaurant">عرض المطعم</button>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="card-header">
-            <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا إيطاليا" class="restaurant-image">
-            <div class="card-badge badge-new">جديد</div>
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">بيتزا إيطاليا - البيتزا الإيطالية الأصيلة</h3>
-            <div class="restaurant-info">
-              <div class="rating">
-                <i class="fas fa-star"></i> 4.8 (29)
-              </div>
-              <span class="delivery-time">25-40 دقيقة</span>
-            </div>
-            <button class="view-btn" data-restaurant="pizza-italia">عرض المطعم</button>
-          </div>
-        </div>
+      <div class="restaurants-scroll" id="newRestaurants">
+        <!-- المطاعم الجديدة سيتم إضافتها هنا تلقائياً -->
       </div>
     </section>
 
@@ -1060,6 +936,97 @@
   </nav>
 
   <script>
+    // استرجاع المطاعم من التخزين المحلي
+    function getRestaurants() {
+      return JSON.parse(localStorage.getItem('restaurants')) || [];
+    }
+
+    // إنشاء بطاقة مطعم
+    function createRestaurantCard(restaurant) {
+      const badgeClass = {
+        'مميز': 'badge-featured',
+        'صاعد': 'badge-rising',
+        'جديد': 'badge-new'
+      }[restaurant.category] || 'badge-featured';
+
+      return `
+        <div class="restaurant-card">
+          <div class="card-header">
+            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+            <div class="card-badge ${badgeClass}">${restaurant.category}</div>
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">${restaurant.name}</h3>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i> ${restaurant.rating} (${restaurant.reviews || Math.floor(Math.random() * 100) + 50})
+              </div>
+              <span class="delivery-time">${restaurant.deliveryTime || '25-40 دقيقة'}</span>
+            </div>
+            <button class="view-btn" data-restaurant="${restaurant.id}">عرض المطعم</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // عرض المطاعم حسب التصنيف
+    function displayRestaurantsByCategory() {
+      const restaurants = getRestaurants();
+      
+      const featuredContainer = document.getElementById('featuredRestaurants');
+      const risingContainer = document.getElementById('risingRestaurants');
+      const newContainer = document.getElementById('newRestaurants');
+      
+      // مسح المحتوى القديم
+      featuredContainer.innerHTML = '';
+      risingContainer.innerHTML = '';
+      newContainer.innerHTML = '';
+      
+      if (restaurants.length === 0) {
+        const emptyMessage = `
+          <div style="text-align: center; padding: 40px; color: #666; width: 100%;">
+            <i class="fas fa-utensils" style="font-size: 3rem; margin-bottom: 20px; color: #ddd;"></i>
+            <h3>لا توجد مطاعم مضافة بعد</h3>
+            <p>استخدم صفحة الإدارة لإضافة مطاعم جديدة</p>
+            <a href="admin.html" style="display: inline-block; margin-top: 20px; background: var(--primary-orange); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none;">➕ إضافة مطعم</a>
+          </div>
+        `;
+        
+        featuredContainer.innerHTML = emptyMessage;
+        return;
+      }
+      
+      // تصنيف المطاعم
+      restaurants.forEach(restaurant => {
+        const cardHTML = createRestaurantCard(restaurant);
+        
+        switch(restaurant.category) {
+          case 'مميز':
+            featuredContainer.innerHTML += cardHTML;
+            break;
+          case 'صاعد':
+            risingContainer.innerHTML += cardHTML;
+            break;
+          case 'جديد':
+            newContainer.innerHTML += cardHTML;
+            break;
+          default:
+            featuredContainer.innerHTML += cardHTML;
+        }
+      });
+      
+      // إضافة أحداث النقر لأزرار عرض المطعم
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const restaurantId = this.getAttribute('data-restaurant');
+          window.location.href = `restaurant-details.html?id=${restaurantId}`;
+        });
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // الهيدر - إصلاح نهائي لمشكلة الاهتزاز
         let ticking = false;
@@ -1086,7 +1053,7 @@
             window.location.href = 'restaurants.html';
         });
 
-        // الحل النهائي: زر المطاعم في الشريط السفلي
+        // زر المطاعم في الشريط السفلي
         const restaurantsLink = document.getElementById('restaurantsNavLink');
         if (restaurantsLink) {
             restaurantsLink.addEventListener('click', function(e) {
@@ -1096,39 +1063,8 @@
             });
         }
 
-        // أزرار عرض المطعم
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const restaurantId = this.getAttribute('data-restaurant');
-                
-                // ربط كل مطعم بصفحته الخاصة
-                if (restaurantId === 'pizza-salamia') {
-                    window.location.href = 'restaurant-pizza-salamia.html';
-                } else if (restaurantId === 'burger-house') {
-                    window.location.href = 'restaurant-burger-house.html';
-                } else if (restaurantId === 'family-grill') {
-                    window.location.href = 'restaurant-family-grill.html';
-                } else if (restaurantId === 'al-asala') {
-                    window.location.href = 'restaurant-al-asala.html';
-                } else if (restaurantId === 'al-sharq') {
-                    window.location.href = 'restaurant-al-sharq.html';
-                } else if (restaurantId === 'al-thuqa') {
-                    window.location.href = 'restaurant-al-thuqa.html';
-                } else if (restaurantId === 'sweets-cafe') {
-                    window.location.href = 'restaurant-sweets-cafe.html';
-                } else if (restaurantId === 'sea-restaurant') {
-                    window.location.href = 'restaurant-sea-restaurant.html';
-                } else if (restaurantId === 'pizza-italia') {
-                    window.location.href = 'restaurant-pizza-italia.html';
-                } else {
-                    // إذا لم يكن هناك صفحة محددة، انتقل إلى صفحة المطاعم الرئيسية
-                    window.location.href = 'restaurants.html';
-                }
-            });
-        });
+        // عرض المطاعم عند تحميل الصفحة
+        displayRestaurantsByCategory();
     });
   </script>
 </body>
