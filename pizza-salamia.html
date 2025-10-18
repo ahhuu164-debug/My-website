@@ -732,6 +732,26 @@
       font-weight: 600;
     }
 
+    .sham-cash {
+      background: linear-gradient(135deg, #FFD700, #1E90FF);
+      color: white;
+    }
+
+    .usdt {
+      background: linear-gradient(135deg, #00AA00, #006400);
+      color: white;
+    }
+
+    .whatsapp-pay {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+    }
+
+    .cash {
+      background: linear-gradient(135deg, #F15A29, #E83F3F);
+      color: white;
+    }
+
     .cart-summary {
       padding-top: 12px;
       border-top: 2px solid #BDC3C7;
@@ -748,13 +768,7 @@
       margin-bottom: 15px;
     }
 
-    .order-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .whatsapp-order-btn, .cash-order-btn {
+    .whatsapp-order-btn {
       background: #BDC3C7;
       color: white;
       border: none;
@@ -779,15 +793,6 @@
 
     .whatsapp-order-btn.active:hover {
       background: #128C7E;
-    }
-
-    .cash-order-btn.active {
-      background: #F15A29;
-      cursor: pointer;
-    }
-
-    .cash-order-btn.active:hover {
-      background: #E83F3F;
     }
 
     .overlay {
@@ -1253,15 +1258,25 @@
     <div class="payment-methods">
       <div class="payment-methods-title">طريقة الدفع</div>
       <div class="payment-options">
-        <label class="payment-option" id="payment-cash">
+        <label class="payment-option cash" id="payment-cash">
           <input type="radio" name="payment" value="cash" checked>
           <i class="fas fa-money-bill-wave payment-icon"></i>
           <span class="payment-label">الدفع نقداً عند الاستلام</span>
         </label>
-        <label class="payment-option" id="payment-whatsapp">
+        <label class="payment-option whatsapp-pay" id="payment-whatsapp">
           <input type="radio" name="payment" value="whatsapp">
           <i class="fab fa-whatsapp payment-icon"></i>
           <span class="payment-label">الدفع عبر واتساب</span>
+        </label>
+        <label class="payment-option sham-cash" id="payment-shamcash">
+          <input type="radio" name="payment" value="shamcash">
+          <i class="fas fa-wallet payment-icon"></i>
+          <span class="payment-label">شام كاش</span>
+        </label>
+        <label class="payment-option usdt" id="payment-usdt">
+          <input type="radio" name="payment" value="usdt">
+          <i class="fas fa-dollar-sign payment-icon"></i>
+          <span class="payment-label">USDT</span>
         </label>
       </div>
     </div>
@@ -1271,16 +1286,10 @@
         <span>المجموع:</span>
         <span id="cart-total-price">٠ ل.س</span>
       </div>
-      <div class="order-buttons">
-        <button class="whatsapp-order-btn" id="whatsapp-order">
-          <i class="fab fa-whatsapp"></i>
-          اطلب عبر واتساب
-        </button>
-        <button class="cash-order-btn" id="cash-order">
-          <i class="fas fa-money-bill-wave"></i>
-          اطلب الآن
-        </button>
-      </div>
+      <button class="whatsapp-order-btn" id="whatsapp-order">
+        <i class="fab fa-whatsapp"></i>
+        اطلب عبر واتساب
+      </button>
     </div>
   </div>
 
@@ -1316,12 +1325,13 @@
       const cartBadge = document.getElementById('cart-badge');
       const cartTotalPrice = document.getElementById('cart-total-price');
       const whatsappOrderBtn = document.getElementById('whatsapp-order');
-      const cashOrderBtn = document.getElementById('cash-order');
       const customerName = document.getElementById('customer-name');
       const customerAddress = document.getElementById('customer-address');
       const customerPhone = document.getElementById('customer-phone');
       const paymentCash = document.getElementById('payment-cash');
       const paymentWhatsapp = document.getElementById('payment-whatsapp');
+      const paymentShamcash = document.getElementById('payment-shamcash');
+      const paymentUsdt = document.getElementById('payment-usdt');
       
       // سلة التسوق
       let cart = [];
@@ -1330,22 +1340,30 @@
       // فتح وإغلاق سلة التسوق
       openCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        cartSidebar.classList.add('open');
-        cartOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openCart();
       });
       
       closeCartBtn.addEventListener('click', function() {
-        cartSidebar.classList.remove('open');
-        cartOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        closeCart();
       });
       
       cartOverlay.addEventListener('click', function() {
+        closeCart();
+      });
+      
+      // وظيفة فتح السلة
+      function openCart() {
+        cartSidebar.classList.add('open');
+        cartOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // وظيفة إغلاق السلة
+      function closeCart() {
         cartSidebar.classList.remove('open');
         cartOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
-      });
+      }
       
       // إضافة عناصر إلى السلة
       document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -1358,6 +1376,9 @@
           const quantity = parseInt(quantityInput.value);
           
           addToCart(itemId, itemName, itemPrice, quantity);
+          
+          // فتح السلة تلقائياً
+          openCart();
           
           // إظهار رسالة تأكيد
           showNotification(`تم إضافة ${itemName} إلى السلة`);
@@ -1400,7 +1421,6 @@
           cartItemsContainer.appendChild(emptyCartMessage);
           emptyCartMessage.style.display = 'block';
           whatsappOrderBtn.classList.remove('active');
-          cashOrderBtn.classList.remove('active');
         } else {
           emptyCartMessage.style.display = 'none';
           
@@ -1409,7 +1429,7 @@
             cartItemsContainer.appendChild(cartItemElement);
           });
           
-          // تفعيل أزرار الطلب
+          // تفعيل زر الطلب
           validateCustomerInfo();
         }
       }
@@ -1489,14 +1509,10 @@
         
         if (name && address && phone && cart.length > 0) {
           whatsappOrderBtn.classList.add('active');
-          cashOrderBtn.classList.add('active');
           whatsappOrderBtn.disabled = false;
-          cashOrderBtn.disabled = false;
         } else {
           whatsappOrderBtn.classList.remove('active');
-          cashOrderBtn.classList.remove('active');
           whatsappOrderBtn.disabled = true;
-          cashOrderBtn.disabled = true;
         }
       }
       
@@ -1508,30 +1524,48 @@
       // اختيار طريقة الدفع
       paymentCash.addEventListener('click', function() {
         selectedPayment = 'cash';
-        paymentCash.classList.add('selected');
-        paymentWhatsapp.classList.remove('selected');
+        updatePaymentSelection();
       });
       
       paymentWhatsapp.addEventListener('click', function() {
         selectedPayment = 'whatsapp';
-        paymentWhatsapp.classList.add('selected');
-        paymentCash.classList.remove('selected');
+        updatePaymentSelection();
       });
+      
+      paymentShamcash.addEventListener('click', function() {
+        selectedPayment = 'shamcash';
+        updatePaymentSelection();
+      });
+      
+      paymentUsdt.addEventListener('click', function() {
+        selectedPayment = 'usdt';
+        updatePaymentSelection();
+      });
+      
+      // تحديث اختيار طريقة الدفع
+      function updatePaymentSelection() {
+        // إزالة التحديد من جميع الخيارات
+        paymentCash.classList.remove('selected');
+        paymentWhatsapp.classList.remove('selected');
+        paymentShamcash.classList.remove('selected');
+        paymentUsdt.classList.remove('selected');
+        
+        // إضافة التحديد للخيار المختار
+        if (selectedPayment === 'cash') {
+          paymentCash.classList.add('selected');
+        } else if (selectedPayment === 'whatsapp') {
+          paymentWhatsapp.classList.add('selected');
+        } else if (selectedPayment === 'shamcash') {
+          paymentShamcash.classList.add('selected');
+        } else if (selectedPayment === 'usdt') {
+          paymentUsdt.classList.add('selected');
+        }
+      }
       
       // إرسال الطلب عبر واتساب
       whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
-        submitOrder('whatsapp');
-      });
-      
-      // إرسال الطلب العادي
-      cashOrderBtn.addEventListener('click', function() {
-        if (this.disabled) return;
-        submitOrder('cash');
-      });
-      
-      // وظيفة إرسال الطلب
-      function submitOrder(paymentMethod) {
+        
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
@@ -1541,7 +1575,7 @@
         message += `الاسم: ${name}%0A`;
         message += `العنوان: ${address}%0A`;
         message += `الهاتف: ${phone}%0A`;
-        message += `طريقة الدفع: ${paymentMethod === 'cash' ? 'نقداً عند الاستلام' : 'واتساب'}%0A%0A`;
+        message += `طريقة الدفع: ${getPaymentMethodName(selectedPayment)}%0A%0A`;
         message += `الطلبات:%0A`;
         
         cart.forEach(item => {
@@ -1551,27 +1585,31 @@
         message += `%0Aالمجموع: ${cartTotalPrice.textContent}%0A%0A`;
         message += `شكراً لطلبكم من بيتزا سلمية!`;
         
-        if (paymentMethod === 'whatsapp') {
-          // رقم واتساب افتراضي (يمكن تغييره)
-          const whatsappNumber = '963123456789';
-          
-          // فتح واتساب مع رسالة الطلب
-          window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-        } else {
-          // في حالة الدفع نقداً، يمكن إرسال الطلب إلى الخادم أو عرض رسالة تأكيد
-          showNotification('تم استلام طلبك بنجاح! سيتم التواصل معك قريباً لتأكيد الطلب.');
-          
-          // إغلاق السلة وإعادة تعيين البيانات
-          setTimeout(() => {
-            cart = [];
-            updateCartUI();
-            customerName.value = '';
-            customerAddress.value = '';
-            customerPhone.value = '';
-            cartSidebar.classList.remove('open');
-            cartOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-          }, 2000);
+        // رقم واتساب افتراضي (يمكن تغييره)
+        const whatsappNumber = '963123456789';
+        
+        // فتح واتساب مع رسالة الطلب
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        
+        // إغلاق السلة وإعادة تعيين البيانات
+        setTimeout(() => {
+          cart = [];
+          updateCartUI();
+          customerName.value = '';
+          customerAddress.value = '';
+          customerPhone.value = '';
+          closeCart();
+        }, 1000);
+      });
+      
+      // الحصول على اسم طريقة الدفع
+      function getPaymentMethodName(method) {
+        switch(method) {
+          case 'cash': return 'نقداً عند الاستلام';
+          case 'whatsapp': return 'واتساب';
+          case 'shamcash': return 'شام كاش';
+          case 'usdt': return 'USDT';
+          default: return 'غير محدد';
         }
       }
       
@@ -1678,6 +1716,9 @@
         submitRatingBtn.disabled = true;
         selectedRating = 0;
       });
+      
+      // تهيئة اختيار طريقة الدفع الافتراضية
+      updatePaymentSelection();
     });
   </script>
 </body>
