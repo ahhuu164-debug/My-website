@@ -216,5 +216,42 @@
         }
       ]
     }
-  ]
+ ,
+    {
+      "id": "shawarma-plus",
+      "name": "شاورما بلس",
+      "category": "شاورما • وجبات سريعة • ساندويش",
+      "phone": "963947275353",
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1565299585323-38174c13fae8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 4.5,
+      "reviews": 0,
+      "deliveryTime": "20-35 دقيقة",
+      "hours": "١٠:٠٠ ص - ٢:٠٠ ص",
+      "address": "سلمية، شارع الجامعة",
+      "menu": [
+        {
+          "id": 1,
+          "name": "شاورما دجاج",
+          "price": 28000,
+          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "شاورما دجاج طازجة مع الخضار والصلصة"
+        },
+        {
+          "id": 2,
+          "name": "شاورما لحم",
+          "price": 32000,
+          "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "شاورما لحم مع الصلصة الخاصة والبهارات"
+        },
+        {
+          "id": 3,
+          "name": "ساندويش مكسيكي",
+          "price": 35000,
+          "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "ساندويش بالطعم المكسيكي الحار"
+        }
+      ]
+    }
+ ]
 }
