@@ -358,6 +358,13 @@
         height: 90px;
       }
     }
+
+    /* ===== تحميل ===== */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #BDC3C7;
+    }
   </style>
 </head>
 <body>
@@ -393,141 +400,12 @@
       <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
     </div>
 
-    <div class="restaurants-grid">
-      <!-- المطعم 1 -->
-      <a href="pizza-salamia.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="بيتزا سلمية" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="بيتزا سلمية">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">بيتزا سلمية</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.8
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 2 -->
-      <a href="mashawi-alaila.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مشاوي العائلة" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مشاوي العائلة">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">مشاوي العائلة</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.9
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 3 -->
-      <a href="burger-house.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="برغر هاوس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="برغر هاوس">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">برغر هاوس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.7
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 4 -->
-      <a href="shawarma-express.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="شاورما اكسبرس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="شاورما اكسبرس">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">شاورما اكسبرس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.6
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 5 -->
-      <a href="al-nawras.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="مطعم النورس" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="مطعم النورس">
-            </div>
-          </div>
-          <div class="card-badge">مميز</div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">مطعم النورس</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.9
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- المطعم 6 -->
-      <a href="sweet-corner.html" class="restaurant-card">
-        <div class="card-header">
-          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="زاوية الحلويات" class="restaurant-image">
-          <div class="logo-background">
-            <div class="restaurant-logo">
-              <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="زاوية الحلويات">
-            </div>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3 class="restaurant-name">زاوية الحلويات</h3>
-          <!-- ⭐⭐⭐ تم إزالة وصف المطعم ⭐⭐⭐ -->
-          <div class="restaurant-info">
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              4.8
-            </div>
-          </div>
-        </div>
-      </a>
+    <!-- ⭐⭐⭐ الحل الجديد - يتم ملؤه تلقائياً من JSON ⭐⭐⭐ -->
+    <div class="restaurants-grid" id="restaurants-container">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>جاري تحميل المطاعم...</p>
+      </div>
     </div>
   </section>
 
@@ -550,21 +428,68 @@
   </nav>
 
   <script>
+    // دالة لتحميل وعرض المطاعم
+    async function loadRestaurants() {
+      try {
+        // إضافة timestamp لمنع الكاش
+        const response = await fetch('restaurants.json?v=' + Date.now());
+        const data = await response.json();
+        displayRestaurants(data.restaurants);
+      } catch (error) {
+        console.log('خطأ في تحميل المطاعم:', error);
+        document.getElementById('restaurants-container').innerHTML = 
+          '<div class="loading"><p>⚠️ حدث خطأ في تحميل المطاعم</p></div>';
+      }
+    }
+
+    // دالة لعرض المطاعم
+    function displayRestaurants(restaurants) {
+      const container = document.getElementById('restaurants-container');
+      
+      if (restaurants.length === 0) {
+        container.innerHTML = '<div class="loading"><p>لا توجد مطاعم متاحة</p></div>';
+        return;
+      }
+      
+      container.innerHTML = restaurants.map(restaurant => `
+        <a href="${restaurant.id}.html" class="restaurant-card">
+          <div class="card-header">
+            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="${restaurant.logo}" alt="${restaurant.name}">
+              </div>
+            </div>
+            ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
+          </div>
+          <div class="card-content">
+            <h3 class="restaurant-name">${restaurant.name}</h3>
+            <div class="restaurant-info">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                ${restaurant.rating}
+              </div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // تحميل المطاعم عند فتح الصفحة
+    document.addEventListener('DOMContentLoaded', loadRestaurants);
+
+    // تحديث وظيفة البحث
     function searchRestaurants() {
       const query = document.querySelector('.search-input').value.toLowerCase();
       const cards = document.querySelectorAll('.restaurant-card');
       
       cards.forEach(card => {
         const name = card.querySelector('.restaurant-name').textContent.toLowerCase();
-        
-        if (name.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = name.includes(query) ? 'block' : 'none';
       });
     }
 
+    // إضافة event listeners للبحث
     document.querySelector('.search-button').addEventListener('click', searchRestaurants);
     document.querySelector('.search-input').addEventListener('keyup', searchRestaurants);
   </script>
