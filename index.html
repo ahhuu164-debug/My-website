@@ -345,21 +345,67 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .platform-offer-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+
+    .platform-offer-card:hover::before {
+      transform: translateX(100%);
     }
 
     .platform-offer-card:hover {
       transform: translateY(-5px);
       background: rgba(255,255,255,0.2);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
 
     .platform-offer-discount {
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 8px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .platform-offer-description {
       font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+
+    .platform-offer-code {
+      background: rgba(255,255,255,0.3);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 8px;
+      display: inline-block;
+      backdrop-filter: blur(10px);
+    }
+
+    .offer-expiry {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+
+    .no-offers-message {
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      padding: 40px 20px;
       opacity: 0.9;
     }
 
@@ -826,13 +872,14 @@
       </div>
     </section>
 
+    <!-- قسم عروض فود الحصرية - يتم ملؤه تلقائياً من offers.json -->
     <section class="platform-offers">
       <h2 class="section-title" style="color: white;">عروض فود الحصرية</h2>
       <div class="offers-container">
-        <div class="offers-grid">
-          <div class="platform-offer-card">
-            <div class="platform-offer-discount">قريباً...</div>
-            <div class="platform-offer-description">عروض حصرية قادمة قريباً</div>
+        <div class="offers-grid" id="platform-offers-grid">
+          <div class="no-offers-message">
+            <i class="fas fa-spinner fa-spin"></i>
+            جاري تحميل العروض...
           </div>
         </div>
       </div>
@@ -1129,6 +1176,46 @@
                 }
             });
         });
+
+        // تحميل وعرض العروض من offers.json
+        async function loadPlatformOffers() {
+            try {
+                const response = await fetch('offers.json?v=' + Date.now());
+                const data = await response.json();
+                
+                // تصفية العروض: النشطة والتي تظهر في الصفحة الرئيسية
+                const platformOffers = data.offers.filter(offer => 
+                    offer.show_in_index && offer.active
+                );
+                
+                displayPlatformOffers(platformOffers);
+            } catch (error) {
+                console.log('خطأ في تحميل العروض:', error);
+                document.getElementById('platform-offers-grid').innerHTML = 
+                    '<div class="no-offers-message">⚠️ حدث خطأ في تحميل العروض</div>';
+            }
+        }
+
+        function displayPlatformOffers(offers) {
+            const container = document.getElementById('platform-offers-grid');
+            
+            if (offers.length === 0) {
+                container.innerHTML = '<div class="no-offers-message">لا توجد عروض حالية</div>';
+                return;
+            }
+            
+            container.innerHTML = offers.map(offer => `
+                <div class="platform-offer-card">
+                    <div class="platform-offer-discount">${offer.discount > 0 ? offer.discount + '%' : 'مجاني'}</div>
+                    <div class="platform-offer-description">${offer.title}</div>
+                    <div class="platform-offer-code">${offer.code}</div>
+                    <div class="offer-expiry">صالحة حتى: ${offer.expiry_date}</div>
+                </div>
+            `).join('');
+        }
+
+        // تحميل العروض عند فتح الصفحة
+        loadPlatformOffers();
     });
   </script>
 </body>
