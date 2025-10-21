@@ -1,0 +1,30 @@
+{
+  "offers": [
+    {
+      "id": "offer1",
+      "title": "خصم ترحيبي 20%",
+      "description": "احصل على خصم 20% على أول طلب من أي مطعم",
+      "code": "WELCOME20",
+      "discount": 20,
+      "type": "percentage",
+      "restaurant_id": "all",
+      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "expiry_date": "2024-12-31",
+      "show_in_index": true,
+      "active": true
+    },
+    {
+      "id": "offer2",
+      "title": "توصيل مجاني من بيتزا سلمية",
+      "description": "توصيل مجاني لجميع الطلبات فوق 50,000 ل.س",
+      "code": "FREEPIZZA",
+      "discount": 0,
+      "type": "free_delivery",
+      "restaurant_id": "pizza-salamia",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "expiry_date": "2024-11-30",
+      "show_in_index": true,
+      "active": true
+    }
+  ]
+}
