@@ -2,8 +2,8 @@
   "restaurants": [
     {
       "id": "pizza-salamia",
-      "name": "بيتزا حماه",
-      "category": "بيتزا • وجبات هندية • لحوم",
+      "name": "بيتزا سلمية",
+      "category": "بيتزا • وجبات إيطالية • معجنات",
       "phone": "963947275347",
       "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
@@ -23,62 +23,24 @@
         {
           "id": 2,
           "name": "بيتزا الخضار",
-          "price": 60000,
+          "price": 40000,
           "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "بيتزا بالخضار الطازجة وجبنة موزاريلا"
-        }
-      ]
-    },
-    {
-      "id": "mashawi-alaila",
-      "name": "مشاوي العائلة",
-      "category": "مشاوي • وجبات سورية • وجبات سريعة",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.9,
-      "reviews": 156,
-      "deliveryTime": "30-45 دقيقة",
-      "hours": "١١:٠٠ ص - ١١:٠٠ م",
-      "address": "سلمية، سوق الهال",
-      "menu": [
+        },
         {
-          "id": 1,
-          "name": "شاورما دجاج",
-          "price": 30000,
-          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "شاورما دجاج مع الخضار والصلصة"
-        }
-      ]
-    },
-    {
-      "id": "burger-house",
-      "name": "برغر هاوس", 
-      "category": "برغر • وجبات سريعة • بطاطا",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.7,
-      "reviews": 189,
-      "deliveryTime": "20-35 دقيقة",
-      "hours": "١٢:٠٠ ص - ١٢:٠٠ ص",
-      "address": "سلمية، المنطقة الحديثة",
-      "menu": [
-        {
-          "id": 1,
-          "name": "برغر لحم",
+          "id": 3,
+          "name": "بيتزا مارجريتا",
           "price": 35000,
-          "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "برغر لحم مع الخضار والصلصة"
+          "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "بيتزا كلاسيكية بجبنة موزاريلا وريحان طازج"
         }
       ]
-    }
-  ]
-}{
+    },
+    {
       "id": "mashawi-alaila",
       "name": "مشاوي العائلة",
-      "category": "مشاوي • وجبات سورية • وجبات سريعة",
-      "phone": "963947275347",
+      "category": "مشاوي • وجبات سورية • لحوم",
+      "phone": "963947275348",
       "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       "rating": 4.9,
@@ -93,68 +55,29 @@
           "price": 30000,
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "شاورما دجاج مع الخضار والصلصة"
-        }
-      ]
-    },
-    {{
-  "restaurants": [
-    {
-      "id": "pizza-salamia",
-      "name": "بيتزا حماه",
-      "category": "بيتزا • وجبات هندية • لحوم",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.8,
-      "reviews": 243,
-      "deliveryTime": "25-40 دقيقة",
-      "hours": "١٠:٠٠ ص - ١٢:٠٠ ص",
-      "address": "سلمية، الشارع الرئيسي",
-      "menu": [
-        {
-          "id": 1,
-          "name": "بيتزا بيبروني",
-          "price": 45000,
-          "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "بيتزا ببيبروني مع جبنة موزاريلا وصوص الطماطم"
         },
         {
           "id": 2,
-          "name": "بيتزا الخضار",
-          "price": 60000,
-          "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "بيتزا بالخضار الطازجة وجبنة موزاريلا"
-        }
-      ]
-    },
-    {
-      "id": "mashawi-alaila",
-      "name": "مشاوي العائلة",
-      "category": "مشاوي • وجبات سورية • وجبات سريعة",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.9,
-      "reviews": 156,
-      "deliveryTime": "30-45 دقيقة",
-      "hours": "١١:٠٠ ص - ١١:٠٠ م",
-      "address": "سلمية، سوق الهال",
-      "menu": [
+          "name": "كبة مقلية",
+          "price": 35000,
+          "image": "https://images.unsplash.com/photo-1598214886806-c87d84c3cf75?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "كبة مقلية مع لحم ومكسرات"
+        },
         {
-          "id": 1,
-          "name": "شاورما دجاج",
-          "price": 30000,
-          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "description": "شاورما دجاج مع الخضار والصلصة"
+          "id": 3,
+          "name": "مشكل مشاوي",
+          "price": 55000,
+          "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "مشكل من مختلف أنواع المشاوي"
         }
       ]
     },
     {
       "id": "burger-house",
-      "name": "برغر هاوس", 
+      "name": "برغر هاوس",
       "category": "برغر • وجبات سريعة • بطاطا",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "phone": "963947275349",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       "logo": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       "rating": 4.7,
       "reviews": 189,
@@ -168,6 +91,128 @@
           "price": 35000,
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "description": "برغر لحم مع الخضار والصلصة"
+        },
+        {
+          "id": 2,
+          "name": "برغر دجاج",
+          "price": 32000,
+          "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "برغر دجاج مقرمش مع المايونيز"
+        },
+        {
+          "id": 3,
+          "name": "بطاطا مقلية",
+          "price": 12000,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "بطاطا مقلية طازجة"
+        }
+      ]
+    },
+    {
+      "id": "shawarma-express",
+      "name": "شاورما اكسبرس",
+      "category": "شاورما • وجبات سريعة • ساندويش",
+      "phone": "963947275350",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 4.6,
+      "reviews": 134,
+      "deliveryTime": "15-30 دقيقة",
+      "hours": "١٠:٠٠ ص - ٢:٠٠ ص",
+      "address": "سلمية، دوار المدينة",
+      "menu": [
+        {
+          "id": 1,
+          "name": "شاورما دجاج",
+          "price": 25000,
+          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "شاورما دجاج طازجة مع الخضار"
+        },
+        {
+          "id": 2,
+          "name": "شاورما لحم",
+          "price": 28000,
+          "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "شاورما لحم مع الصلصة الخاصة"
+        },
+        {
+          "id": 3,
+          "name": "ساندويش مكسيكي",
+          "price": 30000,
+          "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "ساندويش بالطعم المكسيكي الحار"
+        }
+      ]
+    },
+    {
+      "id": "al-nawras",
+      "name": "مطعم النورس",
+      "category": "مأكولات بحرية • وجبات عربية • أسماك",
+      "phone": "963947275351",
+      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 4.9,
+      "reviews": 278,
+      "deliveryTime": "40-55 دقيقة",
+      "hours": "١٢:٠٠ ص - ١١:٠٠ م",
+      "address": "سلمية، شارع الكورنيش",
+      "menu": [
+        {
+          "id": 1,
+          "name": "سمك مشوي",
+          "price": 65000,
+          "image": "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "سمك طازج مشوي مع الأعشاب"
+        },
+        {
+          "id": 2,
+          "name": "أرز بالسمك",
+          "price": 55000,
+          "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "أرز مع قطع سمك وخضار"
+        },
+        {
+          "id": 3,
+          "name": "كباب سمك",
+          "price": 48000,
+          "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "كباب سمك مع التتبيلة الخاصة"
+        }
+      ]
+    },
+    {
+      "id": "sweet-corner",
+      "name": "زاوية الحلويات",
+      "category": "حلويات • كيك • معجنات حلوة",
+      "phone": "963947275352",
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "rating": 4.8,
+      "reviews": 167,
+      "deliveryTime": "25-40 دقيقة",
+      "hours": "٨:٠٠ ص - ١٢:٠٠ ص",
+      "address": "سلمية، السوق القديم",
+      "menu": [
+        {
+          "id": 1,
+          "name": "كنافة بالنوتيلا",
+          "price": 22000,
+          "image": "https://images.unsplash.com/photo-1636331326985-d6f6dba0a5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "كنافة محشية بالنوتيلا والجبن"
+        },
+        {
+          "id": 2,
+          "name": "تشيز كيك",
+          "price": 18000,
+          "image": "https://images.unsplash.com/photo-1535920527002-b35e96722206?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "تشيز كيك كريمي مع طبقة فراولة"
+        },
+        {
+          "id": 3,
+          "name": "بسبوسة",
+          "price": 15000,
+          "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "بسبوسة بالقشطة والجوز"
         }
       ]
     }
