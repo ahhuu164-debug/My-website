@@ -152,23 +152,33 @@
       object-fit: cover;
     }
 
-    /* ⭐⭐⭐ تحسين اللوغو - إزالة الخلفية الدائرية ⭐⭐⭐ */
-    .restaurant-logo {
+    /* ⭐⭐⭐ تحسين اللوغو - أكبر وفي المنتصف ⭐⭐⭐ */
+    .logo-background {
       position: absolute;
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, -50%);
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      background: white;
-      overflow: hidden;
+      top: 50%; /* 👈 في المنتصف عمودياً */
+      right: 50%; /* 👈 في المنتصف أفقياً */
+      transform: translate(50%, -50%); /* 👈 توسيط تام */
+      width: 100px; /* 👈 حجم أكبر */
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      border: 3px solid white;
+      border: 5px solid white; /* 👈 إطار أبيض لحماية اللوغو */
       z-index: 2;
+    }
+
+    .restaurant-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: white;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .restaurant-logo img {
@@ -192,7 +202,7 @@
 
     .card-content {
       padding: 25px 15px 15px;
-      text-align: center;
+      text-align: center; /* 👈 محاذاة النص في المنتصف */
     }
 
     .restaurant-name {
@@ -203,6 +213,7 @@
       line-height: 1.3;
     }
 
+    /* ⭐⭐⭐ إزالة التقييم ومدة التوصيل ⭐⭐⭐ */
     .restaurant-info {
       display: flex;
       justify-content: center;
@@ -287,9 +298,14 @@
         height: 120px;
       }
       
+      .logo-background {
+        width: 80px;
+        height: 80px;
+      }
+      
       .restaurant-logo {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
       }
       
       .card-content {
@@ -329,9 +345,14 @@
         height: 180px;
       }
       
+      .logo-background {
+        width: 120px;
+        height: 120px;
+      }
+      
       .restaurant-logo {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
       }
       
       .card-content {
@@ -354,9 +375,14 @@
         height: 150px;
       }
       
+      .logo-background {
+        width: 100px;
+        height: 100px;
+      }
+      
       .restaurant-logo {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
       }
     }
 
@@ -429,14 +455,14 @@
   </nav>
 
   <script>
-    // بيانات المطاعم مع روابط Unsplash موثوقة
+    // بيانات المطاعم مع روابط PostImage التي تعمل
     const restaurantsData = {
       "restaurants": [
         {
           "id": "shawerma-plus",
           "name": "شاورما بلس",
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.8,
           "category": "وجبات سريعة"
         },
@@ -444,7 +470,7 @@
           "id": "shawerma-express",
           "name": "شاورما اكسبرس",
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.7,
           "category": "وجبات سريعة"
         },
@@ -452,7 +478,7 @@
           "id": "pizza-salamia",
           "name": "بيتزا سلمية",
           "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.9,
           "category": "بيتزا"
         },
@@ -460,7 +486,7 @@
           "id": "family-grill",
           "name": "مشاوي العائلة",
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.6,
           "category": "مشاوي"
         },
@@ -468,7 +494,7 @@
           "id": "sweets-cafe",
           "name": "كافيه الحلويات",
           "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.5,
           "category": "حلويات"
         },
@@ -476,7 +502,7 @@
           "id": "sea-restaurant",
           "name": "مطعم البحر",
           "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
           "rating": 4.7,
           "category": "مأكولات بحرية"
         }
@@ -510,8 +536,11 @@
         <a href="${restaurant.id}.html" class="restaurant-card">
           <div class="card-header">
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
-            <div class="restaurant-logo">
-              <img src="${restaurant.logo}" alt="${restaurant.name}">
+            <div class="logo-background">
+              <div class="restaurant-logo">
+                <img src="${restaurant.logo}" alt="${restaurant.name}" 
+                     onerror="this.src='https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png'">
+              </div>
             </div>
             ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
           </div>
