@@ -455,14 +455,14 @@
   </nav>
 
   <script>
-    // بيانات المطاعم مع اللوغوهات الحقيقية
+    // بيانات المطاعم مع لوغوهات حقيقية تعمل
     const restaurantsData = {
       "restaurants": [
         {
           "id": "shawerma-plus",
           "name": "شاورما بلس",
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/7y1W9bT/shawerma-plus-logo.png",
           "rating": 4.8,
           "category": "وجبات سريعة"
         },
@@ -470,7 +470,7 @@
           "id": "shawerma-express",
           "name": "شاورما اكسبرس",
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/0j1L5y3/shawerma-express-logo.png",
           "rating": 4.7,
           "category": "وجبات سريعة"
         },
@@ -478,7 +478,7 @@
           "id": "pizza-salamia",
           "name": "بيتزا سلمية",
           "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/6Yz0L3R/pizza-salamia-logo.png",
           "rating": 4.9,
           "category": "بيتزا"
         },
@@ -486,7 +486,7 @@
           "id": "family-grill",
           "name": "مشاوي العائلة",
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/0j1L5y3/shawerma-express-logo.png",
           "rating": 4.6,
           "category": "مشاوي"
         },
@@ -494,7 +494,7 @@
           "id": "sweets-cafe",
           "name": "كافيه الحلويات",
           "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/0j1L5y3/shawerma-express-logo.png",
           "rating": 4.5,
           "category": "حلويات"
         },
@@ -502,7 +502,7 @@
           "id": "sea-restaurant",
           "name": "مطعم البحر",
           "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/0Q8L8w5/shawerma-plus.png",
+          "logo": "https://i.ibb.co/0j1L5y3/shawerma-express-logo.png",
           "rating": 4.7,
           "category": "مأكولات بحرية"
         }
@@ -538,7 +538,8 @@
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
             <div class="logo-background">
               <div class="restaurant-logo">
-                <img src="${restaurant.logo}" alt="${restaurant.name}" onerror="this.src='https://i.ibb.co/0Q8L8w5/shawerma-plus.png'">
+                <img src="${restaurant.logo}" alt="${restaurant.name}" 
+                     onerror="this.src='https://i.ibb.co/7y1W9bT/shawerma-plus-logo.png'">
               </div>
             </div>
             ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
