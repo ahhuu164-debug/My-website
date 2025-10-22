@@ -455,7 +455,7 @@
   </nav>
 
   <script>
-    // بيانات المطاعم مع روابط PostImage التي تعمل
+    // بيانات المطاعم مع روابط موثوقة تعمل 100%
     const restaurantsData = {
       "restaurants": [
         {
@@ -535,7 +535,8 @@
       container.innerHTML = restaurants.map(restaurant => `
         <a href="${restaurant.id}.html" class="restaurant-card">
           <div class="card-header">
-            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image" 
+                 onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
             <div class="logo-background">
               <div class="restaurant-logo">
                 <img src="${restaurant.logo}" alt="${restaurant.name}" 
