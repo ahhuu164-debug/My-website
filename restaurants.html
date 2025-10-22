@@ -237,16 +237,16 @@
       left: 0;
       right: 0;
       background: white;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
       z-index: 1000;
-      padding: 10px 0;
+      padding: 12px 0 8px;
+      backdrop-filter: blur(10px);
     }
 
     .nav-items {
       display: flex;
       justify-content: space-around;
-      max-width: 500px;
-      margin: 0 auto;
+      padding: 0 5px;
     }
 
     .nav-item {
@@ -255,17 +255,36 @@
       align-items: center;
       text-decoration: none;
       color: #BDC3C7;
-      font-size: 0.7rem;
-      padding: 5px 10px;
+      font-size: 0.75rem;
+      flex: 1;
+      min-width: 0;
+      padding: 5px;
+      transition: all 0.2s ease;
+      position: relative;
     }
 
     .nav-item.active {
       color: #F15A29;
     }
 
-    .nav-item i {
-      font-size: 1.1rem;
-      margin-bottom: 3px;
+    .nav-item.active::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 6px;
+      height: 6px;
+      background: #F15A29;
+      border-radius: 50%;
+    }
+
+    .nav-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item.active .nav-icon {
+      transform: translateY(-2px);
     }
 
     /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
@@ -304,6 +323,14 @@
       
       .restaurants-section {
         padding: 10px;
+      }
+      
+      .nav-icon {
+        font-size: 1.3rem;
+      }
+      
+      .nav-item {
+        font-size: 0.7rem;
       }
     }
 
@@ -413,32 +440,86 @@
   <nav class="bottom-nav">
     <div class="nav-items">
       <a href="index.html" class="nav-item">
-        <i class="fas fa-home"></i>
+        <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
       </a>
       <a href="#" class="nav-item active">
-        <i class="fas fa-utensils"></i>
+        <i class="fas fa-utensils nav-icon"></i>
         <span>المطاعم</span>
       </a>
-      <a href="#" class="nav-item">
-        <i class="fas fa-shopping-cart"></i>
-        <span>السلة</span>
+      <a href="offers.html" class="nav-item">
+        <i class="fas fa-percentage nav-icon"></i>
+        <span>العروض</span>
       </a>
     </div>
   </nav>
 
   <script>
+    // بيانات المطاعم مع اللوغوهات المطلوبة
+    const restaurantsData = {
+      "restaurants": [
+        {
+          "id": "shawerma-plus",
+          "name": "شاورما بلس",
+          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.8,
+          "category": "وجبات سريعة"
+        },
+        {
+          "id": "shawerma-express",
+          "name": "شاورما اكسبرس",
+          "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.7,
+          "category": "وجبات سريعة"
+        },
+        {
+          "id": "pizza-salamia",
+          "name": "بيتزا سلمية",
+          "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.9,
+          "category": "بيتزا"
+        },
+        {
+          "id": "family-grill",
+          "name": "مشاوي العائلة",
+          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.6,
+          "category": "مشاوي"
+        },
+        {
+          "id": "sweets-cafe",
+          "name": "كافيه الحلويات",
+          "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.5,
+          "category": "حلويات"
+        },
+        {
+          "id": "sea-restaurant",
+          "name": "مطعم البحر",
+          "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "rating": 4.7,
+          "category": "مأكولات بحرية"
+        }
+      ]
+    };
+
     // دالة لتحميل وعرض المطاعم
     async function loadRestaurants() {
       try {
-        // إضافة timestamp لمنع الكاش
+        // محاولة تحميل البيانات من ملف JSON أولاً
         const response = await fetch('restaurants.json?v=' + Date.now());
         const data = await response.json();
         displayRestaurants(data.restaurants);
       } catch (error) {
-        console.log('خطأ في تحميل المطاعم:', error);
-        document.getElementById('restaurants-container').innerHTML = 
-          '<div class="loading"><p>⚠️ حدث خطأ في تحميل المطاعم</p></div>';
+        console.log('خطأ في تحميل المطاعم من JSON، استخدام البيانات المحلية:', error);
+        // استخدام البيانات المحلية كبديل
+        displayRestaurants(restaurantsData.restaurants);
       }
     }
 
@@ -457,7 +538,7 @@
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
             <div class="logo-background">
               <div class="restaurant-logo">
-                <img src="${restaurant.logo}" alt="${restaurant.name}">
+                <img src="${restaurant.logo}" alt="${restaurant.name}" onerror="this.src='https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png'">
               </div>
             </div>
             ${restaurant.rating >= 4.8 ? '<div class="card-badge">مميز</div>' : ''}
