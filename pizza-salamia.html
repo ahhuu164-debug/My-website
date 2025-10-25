@@ -1627,7 +1627,7 @@
         barcodeModal.classList.remove('active');
       });
       
-      // إرسال الطلب عبر واتساب
+      // إرسال الطلب عبر واتساب - التعديل هنا: تم إزالة سطر طريقة الدفع من الرسالة
       whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
         
@@ -1635,12 +1635,11 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // بناء رسالة الطلب
+        // بناء رسالة الطلب - تم إزالة سطر طريقة الدفع من الرسالة
         let message = `طلب جديد من بيتزا سلمية%0A%0A`;
         message += `الاسم: ${name}%0A`;
         message += `العنوان: ${address}%0A`;
-        message += `الهاتف: ${phone}%0A`;
-        message += `طريقة الدفع: ${getPaymentMethodName(selectedPayment)}%0A%0A`;
+        message += `الهاتف: ${phone}%0A%0A`; // تم إزالة سطر طريقة الدفع هنا
         message += `الطلبات:%0A`;
         
         cart.forEach(item => {
