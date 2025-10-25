@@ -6,6 +6,7 @@
       "category": "بيتزا • وجبات إيطالية • معجنات",
       "phone": "963947275347",
       "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       "rating": 4.8,
       "reviews": 243,
       "deliveryTime": "25-40 دقيقة",
@@ -113,7 +114,7 @@
       "category": "شاورما • وجبات سريعة • ساندويش",
       "phone": "963947275350",
       "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+      "logo": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       "rating": 4.6,
       "reviews": 134,
       "deliveryTime": "15-30 دقيقة",
@@ -214,8 +215,7 @@
           "description": "بسبوسة بالقشطة والجوز"
         }
       ]
-    }
- ,
+    },
     {
       "id": "shawarma-plus",
       "name": "شاورما بلس",
@@ -224,7 +224,7 @@
       "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       "logo": "https://images.unsplash.com/photo-1565299585323-38174c13fae8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
       "rating": 4.5,
-      "reviews": 0,
+      "reviews": 98,
       "deliveryTime": "20-35 دقيقة",
       "hours": "١٠:٠٠ ص - ٢:٠٠ ص",
       "address": "سلمية، شارع الجامعة",
@@ -252,5 +252,5 @@
         }
       ]
     }
- ]
+  ]
 }
