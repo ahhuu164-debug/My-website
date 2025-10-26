@@ -211,6 +211,7 @@
 
     .overall-rating {
       text-align: center;
+      direction: ltr;
     }
 
     .rating-score {
@@ -1627,44 +1628,67 @@
         barcodeModal.classList.remove('active');
       });
       
-      // إرسال الطلب عبر واتساب
-      whatsappOrderBtn.addEventListener('click', function() {
+      // 🛡️ إرسال الطلب عبر الخادم الآمن - الكود الجديد
+      whatsappOrderBtn.addEventListener('click', async function() {
         if (this.disabled) return;
         
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // بناء رسالة الطلب
-        let message = `طلب جديد من مشاوي العائلة%0A%0A`;
-        message += `الاسم: ${name}%0A`;
-        message += `العنوان: ${address}%0A`;
-        message += `الهاتف: ${phone}%0A`;
-        message += `طريقة الدفع: ${getPaymentMethodName(selectedPayment)}%0A%0A`;
-        message += `الطلبات:%0A`;
+        // تجميع بيانات الطلب
+        const orderData = {
+          customer: {
+            name: name,
+            phone: phone,
+            address: address
+          },
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+          })),
+          total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+          payment: selectedPayment
+        };
         
-        cart.forEach(item => {
-          message += `- ${item.name} (${item.quantity}x) - ${formatPrice(item.price * item.quantity)}%0A`;
-        });
-        
-        message += `%0Aالمجموع: ${cartTotalPrice.textContent}%0A%0A`;
-        message += `شكراً لطلبكم من مشاوي العائلة!`;
-        
-        // رقم واتساب افتراضي (يمكن تغييره)
-        const whatsappNumber = '0957275347';
-        
-        // فتح واتساب مع رسالة الطلب
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-        
-        // إغلاق السلة وإعادة تعيين البيانات
-        setTimeout(() => {
-          cart = [];
-          updateCartUI();
-          customerName.value = '';
-          customerAddress.value = '';
-          customerPhone.value = '';
-          closeCart();
-        }, 1000);
+        try {
+          // إظهار تحميل
+          whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+          whatsappOrderBtn.disabled = true;
+          
+          // ✅ إرسال للخادم الآمن
+          const response = await fetch('/.netlify/functions/send-order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // فتح الواتساب بعد التحقق الآمن
+            window.open(result.whatsappUrl, '_blank');
+            showNotification('✅ تم إرسال طلبك بنجاح!');
+            
+            // تنظيف السلة
+            cart = [];
+            updateCartUI();
+            closeCart();
+          } else {
+            showNotification('❌ ' + result.error);
+          }
+          
+        } catch (error) {
+          showNotification('❌ خطأ في الاتصال بالخادم');
+        } finally {
+          // إعادة زر الواتساب لحالته الأصلية
+          whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
+          whatsappOrderBtn.disabled = false;
+        }
       });
       
       // الحصول على اسم طريقة الدفع
