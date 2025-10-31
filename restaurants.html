@@ -213,6 +213,12 @@
       line-height: 1.3;
     }
 
+    .restaurant-category {
+      color: #7F8C8D;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
     /* ⭐⭐⭐ إزالة التقييم ومدة التوصيل ⭐⭐⭐ */
     .restaurant-info {
       display: none; /* 👈 إخفاء قسم المعلومات */
@@ -447,9 +453,23 @@
   </nav>
 
   <script>
-    // بيانات المطاعم مع روابط موثوقة تعمل 100%
+    // بيانات المطاعم المحدثة مع إضافة كرّوش
     const restaurantsData = {
       "restaurants": [
+        {
+          "id": "krosh",
+          "name": "كرّوش",
+          "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "category": "شاورما • برغر • وجبات سريعة"
+        },
+        {
+          "id": "herfy",
+          "name": "هيرفي",
+          "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://i.ibb.co/yBpjJ4CF/image.jpg",
+          "category": "برجر • وجبات سريعة • مشروبات"
+        },
         {
           "id": "shawerma-plus",
           "name": "شاورما بلس",
@@ -468,35 +488,29 @@
           "id": "pizza-salamia",
           "name": "بيتزا سلمية",
           "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
           "category": "بيتزا"
         },
         {
           "id": "family-grill",
           "name": "مشاوي العائلة",
           "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
           "category": "مشاوي"
         },
         {
           "id": "sweets-cafe",
           "name": "كافيه الحلويات",
           "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "logo": "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
           "category": "حلويات"
         },
         {
           "id": "sea-restaurant",
           "name": "مطعم البحر",
           "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png",
+          "logo": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
           "category": "مأكولات بحرية"
-        },
-        {
-          "id": "herfy",
-          "name": "هيرفي",
-          "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/yBpjJ4CF/image.jpg",
-          "category": "برجر"
         }
       ]
     };
@@ -532,12 +546,13 @@
             <div class="logo-background">
               <div class="restaurant-logo">
                 <img src="${restaurant.logo}" alt="${restaurant.name}" 
-                     onerror="this.src='https://i.postimg.cc/3wZ7Qz8L/shawerma-plus-logo.png'">
+                     onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
               </div>
             </div>
           </div>
           <div class="card-content">
             <h3 class="restaurant-name">${restaurant.name}</h3>
+            <div class="restaurant-category">${restaurant.category}</div>
           </div>
         </a>
       `).join('');
@@ -553,7 +568,9 @@
       
       cards.forEach(card => {
         const name = card.querySelector('.restaurant-name').textContent.toLowerCase();
-        card.style.display = name.includes(query) ? 'block' : 'none';
+        const category = card.querySelector('.restaurant-category').textContent.toLowerCase();
+        const searchText = name + ' ' + category;
+        card.style.display = searchText.includes(query) ? 'block' : 'none';
       });
     }
 
