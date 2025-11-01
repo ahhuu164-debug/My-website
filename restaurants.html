@@ -152,39 +152,9 @@
       object-fit: cover;
     }
 
-    /* ⭐⭐⭐ تحسين اللوغو - أكبر وفي المنتصف ⭐⭐⭐ */
+    /* ⭐⭐⭐ إزالة اللوغو الدائري ⭐⭐⭐ */
     .logo-background {
-      position: absolute;
-      top: 50%; /* 👈 في المنتصف عمودياً */
-      right: 50%; /* 👈 في المنتصف أفقياً */
-      transform: translate(50%, -50%); /* 👈 توسيط تام */
-      width: 100px; /* 👈 حجم أكبر */
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #F15A29, #FFD27F);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      border: 5px solid white; /* 👈 إطار أبيض لحماية اللوغو */
-      z-index: 2;
-    }
-
-    .restaurant-logo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background-color: white;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .restaurant-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: none;
     }
 
     .card-badge {
@@ -201,8 +171,8 @@
     }
 
     .card-content {
-      padding: 25px 15px 15px;
-      text-align: center; /* 👈 محاذاة النص في المنتصف */
+      padding: 15px;
+      text-align: center;
     }
 
     .restaurant-name {
@@ -221,11 +191,11 @@
 
     /* ⭐⭐⭐ إزالة التقييم ومدة التوصيل ⭐⭐⭐ */
     .restaurant-info {
-      display: none; /* 👈 إخفاء قسم المعلومات */
+      display: none;
     }
 
     .rating {
-      display: none; /* 👈 إخفاء التقييم */
+      display: none;
     }
 
     /* ===== الشريط السفلي ===== */
@@ -296,18 +266,8 @@
         height: 120px;
       }
       
-      .logo-background {
-        width: 80px;
-        height: 80px;
-      }
-      
-      .restaurant-logo {
-        width: 70px;
-        height: 70px;
-      }
-      
       .card-content {
-        padding: 20px 12px 12px;
+        padding: 12px;
       }
       
       .restaurant-name {
@@ -343,18 +303,8 @@
         height: 180px;
       }
       
-      .logo-background {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .restaurant-logo {
-        width: 110px;
-        height: 110px;
-      }
-      
       .card-content {
-        padding: 30px 20px 20px;
+        padding: 20px;
       }
       
       .restaurant-name {
@@ -371,16 +321,6 @@
       
       .card-header {
         height: 150px;
-      }
-      
-      .logo-background {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .restaurant-logo {
-        width: 90px;
-        height: 90px;
       }
     }
 
@@ -460,70 +400,60 @@
           "id": "dibs-roman",
           "name": "دبس رمان",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مأكولات شرقية • مقبلات • سلطات"
         },
         {
           "id": "krosh",
           "name": "كرّوش",
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "شاورما • برغر • وجبات سريعة"
         },
         {
           "id": "herfy",
           "name": "هيرفي",
-          "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://i.ibb.co/yBpjJ4CF/image.jpg",
+          "image": "https://i.ibb.co/yBpjJ4CF/image.jpg",
           "category": "برجر • وجبات سريعة • مشروبات"
         },
         {
           "id": "alassi",
           "name": "العاصي",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مأكولات سورية • مشاوي • مقبلات"
         },
         {
           "id": "shawerma-plus",
           "name": "شاورما بلس",
-          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://cdn.pixabay.com/photo/2017/09/16/17/42/kebab-2756465_1280.jpg",
+          "image": "https://cdn.pixabay.com/photo/2017/09/16/17/42/kebab-2756465_1280.jpg",
           "category": "وجبات سريعة"
         },
         {
           "id": "shawerma-express",
           "name": "شاورما اكسبرس",
-          "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+          "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات سريعة"
         },
         {
           "id": "pizza-salamia",
           "name": "بيتزا سلمية",
-          "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
         {
           "id": "family-grill",
           "name": "مشاوي العائلة",
-          "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مشاوي"
         },
         {
           "id": "sweets-cafe",
           "name": "كافيه الحلويات",
-          "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "image": "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "حلويات"
         },
         {
           "id": "sea-restaurant",
           "name": "مطعم البحر",
-          "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "logo": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مأكولات بحرية"
         }
       ]
@@ -557,12 +487,6 @@
           <div class="card-header">
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image" 
                  onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
-            <div class="logo-background">
-              <div class="restaurant-logo">
-                <img src="${restaurant.logo}" alt="${restaurant.name}" 
-                     onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
-              </div>
-            </div>
           </div>
           <div class="card-content">
             <h3 class="restaurant-name">${restaurant.name}</h3>
