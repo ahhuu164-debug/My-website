@@ -1,6 +1,20 @@
 {
   "restaurants": [
     {
+      "id": "dibs-roman",
+      "name": "دبس رمان",
+      "category": "مأكولات شرقية • مقبلات • سلطات",
+      "phone": "963947275357",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "rating": 4.9,
+      "reviews": 178,
+      "deliveryTime": "25-40 دقيقة",
+      "hours": "١٠:٠٠ ص - ١١:٠٠ م",
+      "address": "سلمية، شارع المرجة",
+      "tags": ["مقبلات", "سلطات", "مأكولات شرقية", "دبس رمان"]
+    },
+    {
       "id": "krosh",
       "name": "كرّوش",
       "category": "شاورما • برغر • وجبات سريعة",
