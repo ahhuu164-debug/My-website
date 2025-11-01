@@ -4,113 +4,49 @@
       "id": "dibs-roman",
       "name": "دبس رمان",
       "category": "مأكولات شرقية • مقبلات • سلطات",
-      "phone": "963947275357",
-      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "rating": 4.9,
-      "reviews": 178,
-      "deliveryTime": "25-40 دقيقة",
-      "hours": "١٠:٠٠ ص - ١١:٠٠ م",
-      "address": "سلمية، شارع المرجة",
-      "tags": ["مقبلات", "سلطات", "مأكولات شرقية", "دبس رمان"]
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "krosh",
       "name": "كرّوش",
       "category": "شاورما • برغر • وجبات سريعة",
-      "phone": "963947275355",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "rating": 4.6,
-      "reviews": 89,
-      "deliveryTime": "25-40 دقيقة",
-      "hours": "١٠:٠٠ ص - ١٢:٣٠ ص",
-      "address": "سلمية، شارع حماه",
-      "tags": ["شاورما", "برغر", "بروستد"]
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "herfy",
       "name": "هيرفي",
       "category": "برجر • وجبات سريعة • مشروبات",
-      "phone": "963947275354",
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://i.ibb.co/yBpjJ4CF/image.jpg",
-      "rating": 4.7,
-      "reviews": 145,
-      "deliveryTime": "20-35 دقيقة",
-      "hours": "١٠:٠٠ ص - ١٢:٠٠ ص",
-      "address": "سلمية، المنطقة التجارية",
-      "tags": ["برجر", "وجبات سريعة", "مشروبات"]
+      "image": "https://i.ibb.co/yBpjJ4CF/image.jpg"
     },
     {
       "id": "alassi",
       "name": "العاصي",
       "category": "مأكولات سورية • مشاوي • مقبلات",
-      "phone": "963947275356",
-      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "rating": 4.8,
-      "reviews": 167,
-      "deliveryTime": "30-45 دقيقة",
-      "hours": "١١:٠٠ ص - ١١:٠٠ م",
-      "address": "سلمية، شارع العاصي",
-      "tags": ["مشاوي", "سورية", "مقبلات", "لحوم"]
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "pizza-salamia",
       "name": "بيتزا سلمية",
       "category": "بيتزا • وجبات إيطالية • معجنات",
-      "phone": "963947275347",
-      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.8,
-      "reviews": 243,
-      "deliveryTime": "25-40 دقيقة",
-      "hours": "١٠:٠٠ ص - ١٢:٠٠ ص",
-      "address": "سلمية، الشارع الرئيسي",
-      "tags": ["بيتزا", "إيطالية", "معجنات"]
+      "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "mashawi-alaila",
       "name": "مشاوي العائلة",
       "category": "مشاوي • وجبات سورية • لحوم",
-      "phone": "963947275348",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.9,
-      "reviews": 156,
-      "deliveryTime": "30-45 دقيقة",
-      "hours": "١١:٠٠ ص - ١١:٠٠ م",
-      "address": "سلمية، سوق الهال",
-      "tags": ["مشاوي", "سورية", "لحوم"]
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "burger-house",
       "name": "برغر هاوس",
       "category": "برغر • وجبات سريعة • بطاطا",
-      "phone": "963947275349",
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.7,
-      "reviews": 189,
-      "deliveryTime": "20-35 دقيقة",
-      "hours": "١٢:٠٠ ص - ١٢:٠٠ ص",
-      "address": "سلمية، المنطقة الحديثة",
-      "tags": ["برغر", "وجبات سريعة", "بطاطا"]
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
       "id": "shawarma-express",
       "name": "شاورما اكسبرس",
       "category": "شاورما • وجبات سريعة • ساندويش",
-      "phone": "963947275350",
-      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "logo": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      "rating": 4.6,
-      "reviews": 134,
-      "deliveryTime": "15-30 دقيقة",
-      "hours": "١٠:٠٠ ص - ٢:٠٠ ص",
-      "address": "سلمية، دوار المدينة",
-      "tags": ["شاورما", "وجبات سريعة", "ساندويش"]
+      "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     }
   ]
 }
