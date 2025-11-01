@@ -29,6 +29,20 @@
       "tags": ["برجر", "وجبات سريعة", "مشروبات"]
     },
     {
+      "id": "alassi",
+      "name": "العاصي",
+      "category": "مأكولات سورية • مشاوي • مقبلات",
+      "phone": "963947275356",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "rating": 4.8,
+      "reviews": 167,
+      "deliveryTime": "30-45 دقيقة",
+      "hours": "١١:٠٠ ص - ١١:٠٠ م",
+      "address": "سلمية، شارع العاصي",
+      "tags": ["مشاوي", "سورية", "مقبلات", "لحوم"]
+    },
+    {
       "id": "pizza-salamia",
       "name": "بيتزا سلمية",
       "category": "بيتزا • وجبات إيطالية • معجنات",
