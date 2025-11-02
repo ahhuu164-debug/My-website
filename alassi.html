@@ -29,7 +29,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #1E88E5, #0D47A1);
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       padding: 12px 0;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
@@ -46,6 +46,7 @@
     .logo-container img {
       height: 45px;
       width: auto;
+      border-radius: 50%; /* جعل اللوغو دائرياً */
     }
 
     .back-btn {
@@ -119,7 +120,7 @@
     .restaurant-logo-large {
       width: 100px;
       height: 100px;
-      border-radius: 50%;
+      border-radius: 50%; /* جعل اللوغو دائرياً */
       border: 4px solid white;
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       overflow: hidden;
@@ -164,7 +165,7 @@
     }
 
     .info-item i {
-      color: #1E88E5;
+      color: #F15A29;
       font-size: 1.1rem;
       margin-left: 12px;
       width: 20px;
@@ -205,7 +206,7 @@
     .section-icon {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, #1E88E5, #0D47A1);
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -229,10 +230,10 @@
     .sub-section-title {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #1E88E5;
+      color: #F15A29;
       margin-bottom: 15px;
       padding-right: 10px;
-      border-right: 3px solid #1E88E5;
+      border-right: 3px solid #F15A29;
     }
 
     /* ⭐⭐⭐ نظام البطاقات ⭐⭐⭐ */
@@ -258,7 +259,7 @@
     .menu-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      border-color: #1E88E5;
+      border-color: #F15A29;
     }
 
     .menu-item-image {
@@ -326,7 +327,7 @@
     }
 
     .quantity-btn:hover {
-      background: #1E88E5;
+      background: #F15A29;
       color: white;
     }
 
@@ -351,12 +352,12 @@
 
     .menu-item-price {
       font-weight: 800;
-      color: #1E88E5;
+      color: #F15A29;
       font-size: 0.95rem;
     }
 
     .add-to-cart {
-      background: #1E88E5;
+      background: #F15A29;
       color: white;
       border: none;
       border-radius: 15px;
@@ -372,7 +373,7 @@
     }
 
     .add-to-cart:hover {
-      background: #1565C0;
+      background: #E83F3F;
     }
 
     /* ===== سلة التسوق المنبثقة ===== */
@@ -422,7 +423,7 @@
     }
 
     .close-cart:hover {
-      color: #1E88E5;
+      color: #F15A29;
     }
 
     .cart-items {
@@ -452,7 +453,7 @@
     }
 
     .cart-item-price {
-      color: #1E88E5;
+      color: #F15A29;
       font-weight: 700;
       font-size: 0.9rem;
     }
@@ -477,7 +478,7 @@
     }
 
     .cart-quantity-btn:hover {
-      background: #1E88E5;
+      background: #F15A29;
       color: white;
     }
 
@@ -531,8 +532,8 @@
 
     .customer-input:focus {
       outline: none;
-      border-color: #1E88E5;
-      box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+      border-color: #F15A29;
+      box-shadow: 0 0 0 2px rgba(241, 90, 41, 0.2);
     }
 
     .customer-input::placeholder {
@@ -569,18 +570,18 @@
     }
 
     .payment-option:hover {
-      border-color: #1E88E5;
+      border-color: #F15A29;
     }
 
     .payment-option.selected {
-      border-color: #1E88E5;
-      background-color: rgba(30, 136, 229, 0.05);
+      border-color: #F15A29;
+      background-color: rgba(241, 90, 41, 0.05);
     }
 
     .payment-icon {
       margin-left: 10px;
       font-size: 1.2rem;
-      color: #1E88E5;
+      color: #F15A29;
     }
 
     .payment-label {
@@ -599,7 +600,7 @@
     }
 
     .cash {
-      background: linear-gradient(135deg, #1E88E5, #1565C0);
+      background: linear-gradient(135deg, #F15A29, #E83F3F);
       color: white;
     }
 
@@ -691,7 +692,7 @@
     }
 
     .close-barcode {
-      background: #1E88E5;
+      background: #F15A29;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -703,7 +704,7 @@
     }
 
     .close-barcode:hover {
-      background: #1565C0;
+      background: #E83F3F;
     }
 
     .overlay {
@@ -782,7 +783,7 @@
     }
 
     .nav-item.active, .nav-item:hover {
-      color: #1E88E5;
+      color: #F15A29;
     }
 
     .nav-item i {
@@ -878,6 +879,11 @@
       .header-content {
         padding: 0 20px;
       }
+    }
+
+    /* ===== عنصر الفروج المشوي - عرض خانتين ===== */
+    .full-width-item {
+      grid-column: 1 / span 2;
     }
   </style>
 </head>
@@ -1065,8 +1071,8 @@
       </div>
 
       <div class="menu-grid">
-        <!-- صنف 5 -->
-        <div class="menu-item" data-id="5" data-name="فروج مشوي" data-price="70000">
+        <!-- صنف 5 - عرض خانتين -->
+        <div class="menu-item full-width-item" data-id="5" data-name="فروج مشوي" data-price="70000">
           <div class="menu-item-image">
             <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                  alt="فروج مشوي">
