@@ -3,8 +3,9 @@
     {
       "id": "pizza-hat",
       "name": "بيتزا هات",
-      "category": "بيتزا • وجبات إيطالية • معجنات",
+      "category": "بيتزا • وجبات إيطالية • مشروبات",
       "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://i.ibb.co/0j3J6b3/pizza-hut-logo.png",
       "menu": [
         {
           "id": "1",
@@ -12,15 +13,120 @@
           "price": 40000,
           "description": "مرتديلا، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "2",
+          "name": "بيتزا عادية كبير",
+          "price": 50000,
+          "description": "مرتديلا، فطر، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "3",
+          "name": "بيتزا سبسيال وسط",
+          "price": 45000,
+          "description": "مرتديلا، فطر، زيتون، جبنة، فليفلة، بندورة",
+          "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "4",
+          "name": "بيتزا سبسيال كبير",
+          "price": 55000,
+          "description": "مرتديلا، فطر، زيتون، جبنة، فليفلة، بندورة",
+          "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "5",
+          "name": "بيتزا مرغريتا وسط",
+          "price": 35000,
+          "description": "صلصة البيتزا، طبقتين من الجبنة",
+          "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "6",
+          "name": "بيتزا مرغريتا كبير",
+          "price": 50000,
+          "description": "صلصة البيتزا، طبقتين من الجبنة",
+          "image": "https://images.unsplash.com/photo-1627626775846-7eec8a6d72a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "7",
+          "name": "بيتزا الخضار وسط",
+          "price": 35000,
+          "description": "فليفلة، بندورة، فطر، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "8",
+          "name": "بيتزا الخضار كبير",
+          "price": 50000,
+          "description": "فليفلة، بندورة، فطر، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "9",
+          "name": "بيتزا ببروني وسط",
+          "price": 50000,
+          "description": "طبقات من الببروني البقري والجبن",
+          "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "10",
+          "name": "بيتزا ببروني كبير",
+          "price": 65000,
+          "description": "طبقات من الببروني البقري والجبن",
+          "image": "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "11",
+          "name": "بيتزا السجق وسط",
+          "price": 45000,
+          "description": "لحم السجق البقري والجبن",
+          "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "12",
+          "name": "بيتزا السجق كبير",
+          "price": 60000,
+          "description": "لحم السجق البقري والجبن",
+          "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "13",
+          "name": "بيتزا سوبريم وسط",
+          "price": 50000,
+          "description": "ببروني بقري، فليفلة، بندورة، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "14",
+          "name": "بيتزا سوبريم كبير",
+          "price": 65000,
+          "description": "ببروني بقري، فليفلة، بندورة، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "15",
+          "name": "بيتزا فارمرز وسط",
+          "price": 45000,
+          "description": "دجاج مشوي، فطر، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "16",
+          "name": "بيتزا فارمرز كبير",
+          "price": 60000,
+          "description": "دجاج مشوي، فطر، زيتون، جبنة",
+          "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
         }
-        // ... باقي بيتزا هات
       ]
     },
     {
       "id": "al-wasouf",
       "name": "الوسوف",
       "category": "مقبلات ساخنة • مقبلات باردة • سلطات شرقية وغربية",
-      "image": "https://ibb.co/dJfsxMXV/image.jpg",
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "logo": "https://ibb.co/dJfsxMXV/image.jpg",
       "menu": [
         {
           "id": "101",
@@ -154,8 +260,65 @@
       "id": "dibs-roman",
       "name": "دبس رمان",
       "category": "مأكولات شرقية • مقبلات • سلطات",
-      "image": "https://i.ibb.co/Xr7z7Xn7/image.jpg"
+      "image": "https://i.ibb.co/Xr7z7Xn7/image.jpg",
+      "logo": "https://i.ibb.co/Xr7z7Xn7/image.jpg",
+      "menu": []
+    },
+    {
+      "id": "krosh",
+      "name": "كرّوش",
+      "category": "شاورما • برغر • وجبات سريعة",
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "menu": []
+    },
+    {
+      "id": "herfy",
+      "name": "هيرفي",
+      "category": "برجر • وجبات سريعة • مشروبات",
+      "image": "https://i.ibb.co/yBpjJ4CF/image.jpg",
+      "logo": "https://i.ibb.co/yBpjJ4CF/image.jpg",
+      "menu": []
+    },
+    {
+      "id": "alassi",
+      "name": "العاصي",
+      "category": "مأكولات سورية • مشاوي • مقبلات",
+      "image": "https://i.ibb.co/23JR3W1Y/image.jpg",
+      "logo": "https://i.ibb.co/23JR3W1Y/image.jpg",
+      "menu": []
+    },
+    {
+      "id": "pizza-salamia",
+      "name": "بيتزا سلمية",
+      "category": "بيتزا • وجبات إيطالية • معجنات",
+      "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "menu": []
+    },
+    {
+      "id": "mashawi-alaila",
+      "name": "مشاوي العائلة",
+      "category": "مشاوي • وجبات سورية • لحوم",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "menu": []
+    },
+    {
+      "id": "burger-house",
+      "name": "برغر هاوس",
+      "category": "برغر • وجبات سريعة • بطاطا",
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "menu": []
+    },
+    {
+      "id": "shawarma-express",
+      "name": "شاورما اكسبرس",
+      "category": "شاورما • وجبات سريعة • ساندويش",
+      "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "logo": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "menu": []
     }
-    // ... باقي المطاعم
   ]
 }
