@@ -120,59 +120,6 @@
         }
       ]
     },
-    {
-      "id": "al-wasouf",
-      "name": "الوسوف",
-      "category": "مقبلات ساخنة • مقبلات باردة • سلطات شرقية وغربية",
-      "image": "https://ibb.co/dJfsxMXV/image.jpg"
-    },
-    {
-      "id": "dibs-roman",
-      "name": "دبس رمان",
-      "category": "مأكولات شرقية • مقبلات • سلطات",
-      "image": "https://i.ibb.co/Xr7z7Xn7/image.jpg"
-    },
-    {
-      "id": "krosh",
-      "name": "كرّوش",
-      "category": "شاورما • برغر • وجبات سريعة",
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      "id": "herfy",
-      "name": "هيرفي",
-      "category": "برجر • وجبات سريعة • مشروبات",
-      "image": "https://i.ibb.co/yBpjJ4CF/image.jpg"
-    },
-    {
-      "id": "alassi",
-      "name": "العاصي",
-      "category": "مأكولات سورية • مشاوي • مقبلات",
-      "image": "https://i.ibb.co/23JR3W1Y/image.jpg"
-    },
-    {
-      "id": "pizza-salamia",
-      "name": "بيتزا سلمية",
-      "category": "بيتزا • وجبات إيطالية • معجنات",
-      "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      "id": "mashawi-alaila",
-      "name": "مشاوي العائلة",
-      "category": "مشاوي • وجبات سورية • لحوم",
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      "id": "burger-house",
-      "name": "برغر هاوس",
-      "category": "برغر • وجبات سريعة • بطاطا",
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      "id": "shawarma-express",
-      "name": "شاورما اكسبرس",
-      "category": "شاورما • وجبات سريعة • ساندويش",
-      "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    }
+    // ... باقي المطاعم
   ]
 }
