@@ -116,11 +116,10 @@
       margin-bottom: 15px;
     }
 
-    /* ⭐⭐⭐ التصحيح: جعل اللوغو دائرياً ⭐⭐⭐ */
     .restaurant-logo-large {
       width: 100px;
       height: 100px;
-      border-radius: 50%; /* ⭐⭐ هذا هو التصحيح ⭐⭐ */
+      border-radius: 50%;
       border: 4px solid white;
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       overflow: hidden;
@@ -236,7 +235,7 @@
       border-right: 3px solid #F15A29;
     }
 
-    /* ⭐⭐⭐ نظام البطاقات ⭐⭐⭐ */
+    /* نظام البطاقات */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -958,7 +957,7 @@
         <h3 class="sub-section-title">سلطات شرقية</h3>
         <div class="menu-grid">
           <!-- فتوش -->
-          <div class="menu-item" data-id="1" data-name="فتوش" data-price="12000">
+          <div class="menu-item" data-id="101" data-name="فتوش" data-price="12000">
             <div class="menu-item-image">
               <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                    alt="فتوش">
@@ -979,7 +978,7 @@
           </div>
 
           <!-- تبولة -->
-          <div class="menu-item" data-id="2" data-name="تبولة" data-price="12000">
+          <div class="menu-item" data-id="102" data-name="تبولة" data-price="12000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/NnTCBBC2/image.jpg" 
                    alt="تبولة">
@@ -1000,7 +999,7 @@
           </div>
 
           <!-- جرجير -->
-          <div class="menu-item" data-id="3" data-name="جرجير" data-price="12000">
+          <div class="menu-item" data-id="103" data-name="جرجير" data-price="12000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/V08qQfmS/image.jpg" 
                    alt="جرجير">
@@ -1021,7 +1020,7 @@
           </div>
 
           <!-- ملفوف بطحينة -->
-          <div class="menu-item" data-id="4" data-name="ملفوف بطحينة" data-price="13000">
+          <div class="menu-item" data-id="104" data-name="ملفوف بطحينة" data-price="13000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/LzbMykb7/image.jpg" 
                    alt="ملفوف بطحينة">
@@ -1042,7 +1041,7 @@
           </div>
 
           <!-- سلطة خشنة -->
-          <div class="menu-item" data-id="5" data-name="سلطة خشنة" data-price="13000">
+          <div class="menu-item" data-id="105" data-name="سلطة خشنة" data-price="13000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/PvK3RhDQ/image.jpg" 
                    alt="سلطة خشنة">
@@ -1069,7 +1068,7 @@
         <h3 class="sub-section-title">سلطات غربية</h3>
         <div class="menu-grid">
           <!-- سيزر -->
-          <div class="menu-item" data-id="6" data-name="سيزر" data-price="24000">
+          <div class="menu-item" data-id="106" data-name="سيزر" data-price="24000">
             <div class="menu-item-image">
               <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                    alt="سيزر">
@@ -1090,7 +1089,7 @@
           </div>
 
           <!-- ارمنية حرة -->
-          <div class="menu-item" data-id="7" data-name="ارمنية حرة" data-price="14000">
+          <div class="menu-item" data-id="107" data-name="ارمنية حرة" data-price="14000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/WW8yChyb/image.jpg" 
                    alt="ارمنية حرة">
@@ -1111,7 +1110,7 @@
           </div>
 
           <!-- يونانية -->
-          <div class="menu-item" data-id="8" data-name="يونانية" data-price="14000">
+          <div class="menu-item" data-id="108" data-name="يونانية" data-price="14000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/pjcLd8ZL/image.jpg" 
                    alt="يونانية">
@@ -1126,27 +1125,6 @@
               </div>
               <div class="menu-item-footer">
                 <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-                <button class="add-to-cart">إضافة</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- سلطة زيتون -->
-          <div class="menu-item" data-id="9" data-name="سلطة زيتون" data-price="12000">
-            <div class="menu-item-image">
-              <img src="https://i.ibb.co/Z6N724LG/image.jpg" 
-                   alt="سلطة زيتون">
-            </div>
-            <div class="menu-item-content">
-              <h3 class="menu-item-title">سلطة زيتون</h3>
-              <p class="menu-item-desc">سلطة زيتون متنوعة مع الأعشاب</p>
-              <div class="quantity-controls">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1" max="99">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <div class="menu-item-footer">
-                <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
               </div>
             </div>
@@ -1166,7 +1144,7 @@
 
       <div class="menu-grid">
         <!-- حمص -->
-        <div class="menu-item" data-id="10" data-name="حمص" data-price="12000">
+        <div class="menu-item" data-id="109" data-name="حمص" data-price="12000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/B2hvHyw2/image.jpg" 
                  alt="حمص">
@@ -1187,7 +1165,7 @@
         </div>
 
         <!-- حمص بيروتي -->
-        <div class="menu-item" data-id="11" data-name="حمص بيروتي" data-price="14000">
+        <div class="menu-item" data-id="110" data-name="حمص بيروتي" data-price="14000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/zWJBxpQX/image.jpg" 
                  alt="حمص بيروتي">
@@ -1208,7 +1186,7 @@
         </div>
 
         <!-- دقة -->
-        <div class="menu-item" data-id="12" data-name="دقة" data-price="14000">
+        <div class="menu-item" data-id="111" data-name="دقة" data-price="14000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/R4HM2YkH/image.jpg" 
                  alt="دقة">
@@ -1229,7 +1207,7 @@
         </div>
 
         <!-- سوركي -->
-        <div class="menu-item" data-id="13" data-name="سوركي" data-price="12000">
+        <div class="menu-item" data-id="112" data-name="سوركي" data-price="12000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/xtkSWZDv/image.jpg" 
                  alt="سوركي">
@@ -1250,7 +1228,7 @@
         </div>
 
         <!-- متبل -->
-        <div class="menu-item" data-id="14" data-name="متبل" data-price="14000">
+        <div class="menu-item" data-id="113" data-name="متبل" data-price="14000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/kgs2nbBN/image.jpg" 
                  alt="متبل">
@@ -1271,7 +1249,7 @@
         </div>
 
         <!-- لبنة -->
-        <div class="menu-item" data-id="15" data-name="لبنة" data-price="14000">
+        <div class="menu-item" data-id="114" data-name="لبنة" data-price="14000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/TBhCzTXR/image.jpg" 
                  alt="لبنة">
@@ -1292,7 +1270,7 @@
         </div>
 
         <!-- لبنة متومة -->
-        <div class="menu-item" data-id="16" data-name="لبنة متومة" data-price="14000">
+        <div class="menu-item" data-id="115" data-name="لبنة متومة" data-price="14000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/qFdCs3pP/image.jpg" 
                  alt="لبنة متومة">
@@ -1300,132 +1278,6 @@
           <div class="menu-item-content">
             <h3 class="menu-item-title">لبنة متومة</h3>
             <p class="menu-item-desc">لبنة بالثوم وزيت الزيتون</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- لبنة مغربية -->
-        <div class="menu-item" data-id="17" data-name="لبنة مغربية" data-price="14000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="لبنة مغربية">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">لبنة مغربية</h3>
-            <p class="menu-item-desc">لبنة بالطريقة المغربية مع التوابل</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- سوزما -->
-        <div class="menu-item" data-id="18" data-name="سوزما" data-price="14000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="سوزما">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">سوزما</h3>
-            <p class="menu-item-desc">سوزما مع الزيتون والتوابل</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- كشكة -->
-        <div class="menu-item" data-id="19" data-name="كشكة" data-price="14000">
-          <div class="menu-item-image">
-            <img src="https://i.ibb.co/j9m84K9s/image.jpg" 
-                 alt="كشكة">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">كشكة</h3>
-            <p class="menu-item-desc">كشكة مع البهارات الخاصة</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- نجومية -->
-        <div class="menu-item" data-id="20" data-name="نجومية" data-price="14000">
-          <div class="menu-item-image">
-            <img src="https://i.ibb.co/1fS5NtWp/image.jpg" 
-                 alt="نجومية">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">نجومية</h3>
-            <p class="menu-item-desc">نجومية مع المكسرات والتوابل</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- لبنة محشية -->
-        <div class="menu-item" data-id="21" data-name="لبنة محشية" data-price="15000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="لبنة محشية">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">لبنة محشية</h3>
-            <p class="menu-item-desc">لبنة محشية بالمكسرات والبهارات</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٥,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- طرطور خبز -->
-        <div class="menu-item" data-id="22" data-name="طرطور خبز" data-price="14000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="طرطور خبز">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">طرطور خبز</h3>
-            <p class="menu-item-desc">طرطور خبز مع الزعتر والزيت</p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1451,7 +1303,7 @@
 
       <div class="menu-grid">
         <!-- بطاطا مقلية -->
-        <div class="menu-item" data-id="23" data-name="بطاطا مقلية" data-price="17000">
+        <div class="menu-item" data-id="116" data-name="بطاطا مقلية" data-price="17000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/4ndtGxPj/image.jpg" 
                  alt="بطاطا مقلية">
@@ -1472,7 +1324,7 @@
         </div>
 
         <!-- بطاطا حرة -->
-        <div class="menu-item" data-id="24" data-name="بطاطا حرة" data-price="17000">
+        <div class="menu-item" data-id="117" data-name="بطاطا حرة" data-price="17000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/MxjF1Qqv/image.jpg" 
                  alt="بطاطا حرة">
@@ -1493,7 +1345,7 @@
         </div>
 
         <!-- زيتون مشوي -->
-        <div class="menu-item" data-id="25" data-name="زيتون مشوي" data-price="12000">
+        <div class="menu-item" data-id="118" data-name="زيتون مشوي" data-price="12000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/Gv4Xc3pb/image.jpg" 
                  alt="زيتون مشوي">
@@ -1508,27 +1360,6 @@
             </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- باذنجانة بالفخارة -->
-        <div class="menu-item" data-id="26" data-name="باذنجانة بالفخارة" data-price="13000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="باذنجانة بالفخارة">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">باذنجانة بالفخارة</h3>
-            <p class="menu-item-desc">باذنجانة مشوية بالفخارة مع الطماطم</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٣,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
@@ -1623,9 +1454,20 @@
   </nav>
 
   <script>
-    // كود JavaScript لإدارة سلة التسوق
     document.addEventListener('DOMContentLoaded', function() {
-      // عناصر DOM
+      // === الدالة الجديدة لمعالجة الأسعار بشكل آمن ===
+      function parsePrice(price) {
+        if (typeof price === 'number') return price;
+        if (typeof price === 'string') {
+          // إزالة أي أحرف غير رقمية بما في ذلك الفواصل
+          const cleanPrice = price.replace(/[^\d]/g, '');
+          const parsed = parseInt(cleanPrice, 10);
+          return isNaN(parsed) ? 0 : parsed;
+        }
+        return 0;
+      }
+
+      // === العناصر والبيانات ===
       const cartSidebar = document.getElementById('cart-sidebar');
       const cartOverlay = document.getElementById('cart-overlay');
       const openCartBtn = document.getElementById('open-cart');
@@ -1642,65 +1484,50 @@
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
       const barcodeModal = document.getElementById('barcode-modal');
-      const barcodeTitle = document.getElementById('barcode-title');
-      const barcodeImage = document.getElementById('barcode-image');
       const closeBarcode = document.getElementById('close-barcode');
       
-      // سلة التسوق
       let cart = [];
       let selectedPayment = 'cash';
-      
-      // فتح وإغلاق سلة التسوق
+
+      // === فتح وإغلاق السلة ===
       openCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
         openCart();
       });
       
-      closeCartBtn.addEventListener('click', function() {
-        closeCart();
-      });
-      
-      cartOverlay.addEventListener('click', function() {
-        closeCart();
-      });
-      
-      // وظيفة فتح السلة
+      closeCartBtn.addEventListener('click', closeCart);
+      cartOverlay.addEventListener('click', closeCart);
+
       function openCart() {
         cartSidebar.classList.add('open');
         cartOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
       
-      // وظيفة إغلاق السلة
       function closeCart() {
         cartSidebar.classList.remove('open');
         cartOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
-      
-      // إضافة عناصر إلى السلة
+
+      // === إضافة العناصر إلى السلة ===
       document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', function() {
           const menuItem = this.closest('.menu-item');
           const itemId = menuItem.dataset.id;
           const itemName = menuItem.dataset.name;
-          const itemPrice = parseInt(menuItem.dataset.price);
+          const itemPrice = parsePrice(menuItem.dataset.price); // استخدام الدالة الجديدة
           const quantityInput = menuItem.querySelector('.quantity-input');
           const quantity = parseInt(quantityInput.value);
           
           addToCart(itemId, itemName, itemPrice, quantity);
-          
-          // فتح السلة تلقائياً
           openCart();
-          
-          // إظهار رسالة تأكيد
           showNotification(`تم إضافة ${itemName} إلى السلة`);
         });
       });
-      
-      // وظيفة إضافة عنصر إلى السلة
+
+      // === وظيفة إضافة إلى السلة ===
       function addToCart(id, name, price, quantity) {
-        // التحقق مما إذا كان العنصر موجودًا بالفعل في السلة
         const existingItem = cart.find(item => item.id === id);
         
         if (existingItem) {
@@ -1716,8 +1543,8 @@
         
         updateCartUI();
       }
-      
-      // تحديث واجهة سلة التسوق
+
+      // === تحديث واجهة سلة التسوق ===
       function updateCartUI() {
         // تحديث عدد العناصر في الشارة
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
@@ -1746,8 +1573,8 @@
           validateCustomerInfo();
         }
       }
-      
-      // إنشاء عنصر سلة تسوق
+
+      // === إنشاء عنصر سلة تسوق ===
       function createCartItemElement(item) {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
@@ -1808,13 +1635,13 @@
         
         return cartItem;
       }
-      
-      // تنسيق السعر
+
+      // === تنسيق السعر ===
       function formatPrice(price) {
         return new Intl.NumberFormat('ar-SY').format(price) + ' ل.س';
       }
-      
-      // التحقق من صحة معلومات العميل
+
+      // === التحقق من صحة معلومات العميل ===
       function validateCustomerInfo() {
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
@@ -1828,13 +1655,13 @@
           whatsappOrderBtn.disabled = true;
         }
       }
-      
-      // إضافة مستمعي الأحداث لحقول معلومات العميل
+
+      // === إضافة مستمعي الأحداث لحقول معلومات العميل ===
       customerName.addEventListener('input', validateCustomerInfo);
       customerAddress.addEventListener('input', validateCustomerInfo);
       customerPhone.addEventListener('input', validateCustomerInfo);
-      
-      // اختيار طريقة الدفع
+
+      // === اختيار طريقة الدفع ===
       paymentCash.addEventListener('click', function() {
         selectedPayment = 'cash';
         updatePaymentSelection();
@@ -1851,8 +1678,8 @@
         updatePaymentSelection();
         showBarcode('USDT');
       });
-      
-      // تحديث اختيار طريقة الدفع
+
+      // === تحديث اختيار طريقة الدفع ===
       function updatePaymentSelection() {
         // إزالة التحديد من جميع الخيارات
         paymentCash.classList.remove('selected');
@@ -1868,82 +1695,65 @@
           paymentUsdt.classList.add('selected');
         }
       }
-      
-      // عرض الباركود
+
+      // === عرض الباركود ===
       function showBarcode(paymentMethod) {
+        const barcodeTitle = document.getElementById('barcode-title');
         barcodeTitle.textContent = `باركود ${paymentMethod}`;
         barcodeModal.classList.add('active');
       }
-      
-      // إغلاق نافذة الباركود
+
+      // === إغلاق نافذة الباركود ===
       closeBarcode.addEventListener('click', function() {
         barcodeModal.classList.remove('active');
       });
-      
-      // 🛡️ إرسال الطلب عبر الخادم الآمن - الكود الجديد
-      whatsappOrderBtn.addEventListener('click', async function() {
+
+      // === إرسال الطلب عبر واتساب (نسخة مبسطة) ===
+      whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
         
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // تجميع بيانات الطلب
-        const orderData = {
-          customer: {
-            name: name,
-            phone: phone,
-            address: address
-          },
-          items: cart.map(item => ({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity
-          })),
-          total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-          payment: selectedPayment
-        };
+        // إنشاء رسالة الطلب
+        let message = `🎯 طلب جديد من مطعم الوسوف\n\n`;
+        message += `👤 العميل: ${name}\n`;
+        message += `📞 الهاتف: ${phone}\n`;
+        message += `📍 العنوان: ${address}\n\n`;
+        message += `🛒 الطلبات:\n`;
         
-        try {
-          // إظهار تحميل
-          whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
-          whatsappOrderBtn.disabled = true;
-          
-          // ✅ إرسال للخادم الآمن
-          const response = await fetch('/.netlify/functions/send-order', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(orderData)
-          });
-          
-          const result = await response.json();
-          
-          if (result.success) {
-            // فتح الواتساب بعد التحقق الآمن
-            window.open(result.whatsappUrl, '_blank');
-            showNotification('✅ تم إرسال طلبك بنجاح!');
-            
-            // تنظيف السلة
-            cart = [];
-            updateCartUI();
-            closeCart();
-          } else {
-            showNotification('❌ ' + result.error);
-          }
-          
-        } catch (error) {
-          showNotification('❌ خطأ في الاتصال بالخادم');
-        } finally {
-          // إعادة زر الواتساب لحالته الأصلية
-          whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
-          whatsappOrderBtn.disabled = false;
-        }
+        cart.forEach((item, index) => {
+          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
+        });
+        
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
+        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
+        message += `شكراً لطلبكم من الوسوف! 🎉`;
+        
+        // ترميز الرسالة للرابط
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/963992000000?text=${encodedMessage}`; // استبدل برقمك
+        
+        // فتح واتساب
+        window.open(whatsappUrl, '_blank');
+        
+        // إظهار رسالة نجاح
+        showNotification('✅ تم إرسال طلبك بنجاح!');
+        
+        // تنظيف السلة
+        cart = [];
+        updateCartUI();
+        closeCart();
+        
+        // تنظيف الحقول
+        customerName.value = '';
+        customerAddress.value = '';
+        customerPhone.value = '';
       });
-      
-      // الحصول على اسم طريقة الدفع
+
+      // === الحصول على اسم طريقة الدفع ===
       function getPaymentMethodName(method) {
         switch(method) {
           case 'cash': return 'نقداً عند الاستلام';
@@ -1952,10 +1762,9 @@
           default: return 'غير محدد';
         }
       }
-      
-      // إظهار إشعار
+
+      // === إظهار إشعار ===
       function showNotification(message) {
-        // إنشاء عنصر الإشعار
         const notification = document.createElement('div');
         notification.style.cssText = `
           position: fixed;
@@ -1991,8 +1800,8 @@
           }, 300);
         }, 3000);
       }
-      
-      // التحكم في الكمية في قائمة الطعام
+
+      // === التحكم في الكمية في قائمة الطعام ===
       document.querySelectorAll('.quantity-controls').forEach(control => {
         const minusBtn = control.querySelector('.minus');
         const plusBtn = control.querySelector('.plus');
@@ -2018,8 +1827,8 @@
           if (value > 99) this.value = 99;
         });
       });
-      
-      // تهيئة اختيار طريقة الدفع الافتراضية
+
+      // === تهيئة اختيار طريقة الدفع الافتراضية ===
       updatePaymentSelection();
     });
   </script>
