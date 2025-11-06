@@ -29,7 +29,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       padding: 12px 0;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
@@ -164,7 +164,7 @@
     }
 
     .info-item i {
-      color: #b21f1f;
+      color: #F15A29;
       font-size: 1.1rem;
       margin-left: 12px;
       width: 20px;
@@ -205,7 +205,7 @@
     .section-icon {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -229,10 +229,10 @@
     .sub-section-title {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #b21f1f;
+      color: #F15A29;
       margin-bottom: 15px;
       padding-right: 10px;
-      border-right: 3px solid #b21f1f;
+      border-right: 3px solid #F15A29;
     }
 
     /* نظام البطاقات */
@@ -258,7 +258,7 @@
     .menu-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      border-color: #b21f1f;
+      border-color: #F15A29;
     }
 
     .menu-item-image {
@@ -326,7 +326,7 @@
     }
 
     .quantity-btn:hover {
-      background: #b21f1f;
+      background: #F15A29;
       color: white;
     }
 
@@ -351,12 +351,12 @@
 
     .menu-item-price {
       font-weight: 800;
-      color: #b21f1f;
+      color: #F15A29;
       font-size: 0.95rem;
     }
 
     .add-to-cart {
-      background: #b21f1f;
+      background: #F15A29;
       color: white;
       border: none;
       border-radius: 15px;
@@ -372,7 +372,7 @@
     }
 
     .add-to-cart:hover {
-      background: #8B0000;
+      background: #E83F3F;
     }
 
     /* ===== سلة التسوق المنبثقة ===== */
@@ -422,7 +422,7 @@
     }
 
     .close-cart:hover {
-      color: #b21f1f;
+      color: #F15A29;
     }
 
     .cart-items {
@@ -452,7 +452,7 @@
     }
 
     .cart-item-price {
-      color: #b21f1f;
+      color: #F15A29;
       font-weight: 700;
       font-size: 0.9rem;
     }
@@ -477,7 +477,7 @@
     }
 
     .cart-quantity-btn:hover {
-      background: #b21f1f;
+      background: #F15A29;
       color: white;
     }
 
@@ -531,8 +531,8 @@
 
     .customer-input:focus {
       outline: none;
-      border-color: #b21f1f;
-      box-shadow: 0 0 0 2px rgba(178, 31, 31, 0.2);
+      border-color: #F15A29;
+      box-shadow: 0 0 0 2px rgba(241, 90, 41, 0.2);
     }
 
     .customer-input::placeholder {
@@ -569,18 +569,18 @@
     }
 
     .payment-option:hover {
-      border-color: #b21f1f;
+      border-color: #F15A29;
     }
 
     .payment-option.selected {
-      border-color: #b21f1f;
-      background-color: rgba(178, 31, 31, 0.05);
+      border-color: #F15A29;
+      background-color: rgba(241, 90, 41, 0.05);
     }
 
     .payment-icon {
       margin-left: 10px;
       font-size: 1.2rem;
-      color: #b21f1f;
+      color: #F15A29;
     }
 
     .payment-label {
@@ -599,7 +599,7 @@
     }
 
     .cash {
-      background: linear-gradient(135deg, #b21f1f, #8B0000);
+      background: linear-gradient(135deg, #F15A29, #E83F3F);
       color: white;
     }
 
@@ -691,7 +691,7 @@
     }
 
     .close-barcode {
-      background: #b21f1f;
+      background: #F15A29;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -703,7 +703,7 @@
     }
 
     .close-barcode:hover {
-      background: #8B0000;
+      background: #E83F3F;
     }
 
     .overlay {
@@ -782,7 +782,7 @@
     }
 
     .nav-item.active, .nav-item:hover {
-      color: #b21f1f;
+      color: #F15A29;
     }
 
     .nav-item i {
@@ -2184,7 +2184,7 @@
         barcodeModal.classList.remove('active');
       });
 
-      // === إرسال الطلب عبر واتساب (نسخة مبسطة) ===
+      // === إرسال الطلب عبر واتساب ===
       whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
         
@@ -2210,7 +2210,7 @@
         
         // ترميز الرسالة للرابط
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`; // استبدل برقمك
+        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`; // الرقم المحدث
         
         // فتح واتساب
         window.open(whatsappUrl, '_blank');
