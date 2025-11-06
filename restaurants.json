@@ -1,6 +1,295 @@
 {
   "restaurants": [
     {
+      "id": "royal",
+      "name": "رويال",
+      "category": "ساندويش • وجبات • بيتزا • برغر • مطبخ شرقي",
+      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "logo": "https://i.ibb.co/7YQ5q7h/royal-logo.jpg",
+      "menu": [
+        {
+          "id": "201",
+          "name": "رويال تشكن",
+          "price": 28000,
+          "description": "ساندويش دجاج رويال مع الخضار والصلصة الخاصة",
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "202",
+          "name": "شاورما",
+          "price": 15000,
+          "description": "شاورما لحم مع الخضار والثوم",
+          "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "203",
+          "name": "شاورما شيز",
+          "price": 20000,
+          "description": "شاورما مع الجبنة الذائبة",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "204",
+          "name": "شاورما سبايسي",
+          "price": 15000,
+          "description": "شاورما حارة مع التوابل الخاصة",
+          "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "205",
+          "name": "شاورما بانيه",
+          "price": 35000,
+          "description": "شاورما بانيه دجاج مع الخضار",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "206",
+          "name": "فاهيتا",
+          "price": 28000,
+          "description": "فاهيتا دجاج مع الفلفل والبصل",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "207",
+          "name": "مكسيكانو",
+          "price": 26000,
+          "description": "ساندويش مكسيكي حار",
+          "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "208",
+          "name": "شيش",
+          "price": 20000,
+          "description": "شيش طاووق مع الخضار",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "209",
+          "name": "كروكيت",
+          "price": 28000,
+          "description": "كروكيت دجاج مع الجبنة",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "210",
+          "name": "سوبريم",
+          "price": 35000,
+          "description": "ساندويش سوبريم مع جميع الإضافات",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "211",
+          "name": "زنجر",
+          "price": 28000,
+          "description": "زنجر دجاج مقرمش",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "212",
+          "name": "بطاطا",
+          "price": 10000,
+          "description": "بطاطا مقلية مقرمشة",
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "213",
+          "name": "شاورما بأنواعها",
+          "price": 35000,
+          "description": "وجبة شاورما مع الأرز والسلطة",
+          "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "214",
+          "name": "بروستد",
+          "price": 100000,
+          "description": "وجبة بروستد دجاج كاملة",
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "215",
+          "name": "دبوس بروستد",
+          "price": 50000,
+          "description": "دبوس بروستد مع الأرز والسلطة",
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "216",
+          "name": "جناح بروستد",
+          "price": 50000,
+          "description": "جناح بروستد مع الأرز والسلطة",
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "217",
+          "name": "اسكالوب كلاسيك",
+          "price": 50000,
+          "description": "اسكالوب دجاج كلاسيك مع الأرز",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "218",
+          "name": "اسكالوب ميلانيز",
+          "price": 54000,
+          "description": "اسكالوب دجاج ميلانيز مع الأرز",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "219",
+          "name": "كريسبي",
+          "price": 50000,
+          "description": "وجبة كريسبي دجاج مع الأرز",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "220",
+          "name": "سبايسي",
+          "price": 50000,
+          "description": "وجبة دجاج حارة مع الأرز",
+          "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "221",
+          "name": "سوبريم",
+          "price": 70000,
+          "description": "وجبة سوبريم مع جميع الإضافات",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "222",
+          "name": "زنجر",
+          "price": 54000,
+          "description": "وجبة زنجر دجاج مع الأرز",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "223",
+          "name": "مرغريتا",
+          "price": 30000,
+          "description": "بيتزا مرغريتا كلاسيكية",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "224",
+          "name": "خضار",
+          "price": 35000,
+          "description": "بيتزا خضار طازجة",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "225",
+          "name": "لحوم المانية",
+          "price": 40000,
+          "description": "بيتزا لحوم ألمانية",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "226",
+          "name": "بيتزا رويال",
+          "price": 45000,
+          "description": "بيتزا رويال مع جميع الإضافات",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "227",
+          "name": "بيتزا شاورما",
+          "price": 45000,
+          "description": "بيتزا شاورما لحم",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "228",
+          "name": "بيتزا فصول",
+          "price": 40000,
+          "description": "بيتزا فصول مع جميع الإضافات",
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "229",
+          "name": "كلاسيك برغر",
+          "price": 28000,
+          "description": "برغر كلاسيكي مع الخضار",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "230",
+          "name": "تشيز برغر",
+          "price": 23000,
+          "description": "برغر مع الجبنة الذائبة",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "231",
+          "name": "eggs برغر",
+          "price": 23000,
+          "description": "برغر مع البيض",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "232",
+          "name": "تشكن برغر",
+          "price": 20000,
+          "description": "برغر دجاج",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "233",
+          "name": "كريس برغر",
+          "price": 25000,
+          "description": "برغر كريس",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "234",
+          "name": "X برغر",
+          "price": 25000,
+          "description": "برغر X مع الإضافات الخاصة",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "235",
+          "name": "مندي",
+          "price": 50000,
+          "description": "مندي لحم مع الأرز",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "236",
+          "name": "مناسف",
+          "price": 50000,
+          "description": "منسف لحم مع الأرز واللبن",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "237",
+          "name": "فريكة",
+          "price": 50000,
+          "description": "فريكة مع اللحم",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "238",
+          "name": "كبسة",
+          "price": 50000,
+          "description": "كبسة لحم مع الأرز",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "239",
+          "name": "رز ابيض خليجي",
+          "price": 50000,
+          "description": "رز أبيض خليجي مع اللحم",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        {
+          "id": "240",
+          "name": "برغل بحمص",
+          "price": 50000,
+          "description": "برغل مع الحمص",
+          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        }
+      ]
+    },
+    {
       "id": "pizza-hat",
       "name": "بيتزا هات",
       "category": "بيتزا • وجبات إيطالية • مشروبات",
