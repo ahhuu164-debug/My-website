@@ -68,10 +68,8 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       padding: 30px 0;
       box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      perspective: 1000;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
     }
 
     .sticky-header.scrolled {
@@ -90,7 +88,7 @@
     .logo-container img {
       height: 80px;
       width: auto;
-      transition: height 0.3s ease;
+      transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .sticky-header.scrolled .logo-container img {
@@ -863,23 +861,31 @@
       ]
     };
 
-    // التحكم في الهيدر المتقلص بدون ارتجاف
+    // التحكم في الهيدر المتقلص بدون ارتجاف - الحل النهائي
     function initHeaderScroll() {
       const header = document.getElementById('stickyHeader');
-      let ticking = false;
+      let lastScrollY = window.scrollY;
       
       function updateHeader() {
-        if (window.scrollY > 100) {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');
         }
-        ticking = false;
+        
+        lastScrollY = currentScrollY;
       }
       
+      // استخدام throttle بسيط لمنع التكرار السريع
+      let ticking = false;
       window.addEventListener('scroll', function() {
         if (!ticking) {
-          requestAnimationFrame(updateHeader);
+          window.requestAnimationFrame(function() {
+            updateHeader();
+            ticking = false;
+          });
           ticking = true;
         }
       });
