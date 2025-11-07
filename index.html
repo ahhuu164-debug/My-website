@@ -60,13 +60,19 @@
       pointer-events: none;
     }
 
+    /* الهيدر المعدل */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 20px 0;
+      padding: 30px 0;
       box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .sticky-header.scrolled {
+      padding: 15px 0;
     }
 
     .header-content {
@@ -79,44 +85,64 @@
     }
 
     .logo-container img {
-      height: 60px;
+      height: 80px;
       width: auto;
+      transition: height 0.3s ease;
     }
 
-    /* قسم العروض المتحركة */
-    .platform-offers {
+    .sticky-header.scrolled .logo-container img {
+      height: 50px;
+    }
+
+    /* قسم العروض المعدل */
+    .offers-section {
       padding: 20px;
+      background: var(--white);
+    }
+
+    .offers-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 20px;
+    }
+
+    .offers-title span {
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .platform-offers {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
+      border-radius: var(--border-radius);
+      padding: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 140px;
     }
 
     .offers-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 20px;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
     }
 
     .offers-slider {
       position: relative;
+      height: 100%;
       overflow: hidden;
-      border-radius: var(--border-radius);
     }
 
     .offers-track {
       display: flex;
+      height: 100%;
       transition: transform 0.5s ease-in-out;
-      gap: 15px;
     }
 
     .platform-offer-card {
-      flex: 0 0 auto;
-      width: 300px;
+      flex: 0 0 100%;
       background: rgba(255,255,255,0.15);
       padding: 20px;
       border-radius: var(--border-radius);
@@ -124,7 +150,7 @@
       text-align: center;
       border: 1px solid rgba(255,255,255,0.2);
       color: white;
-      min-height: 120px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -159,32 +185,29 @@
       margin-top: 5px;
     }
 
-    .slider-controls {
+    .slider-dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    .slider-btn {
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: rgba(255,255,255,0.3);
       border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: white;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       transition: all 0.3s ease;
     }
 
-    .slider-btn:hover {
-      background: rgba(255,255,255,0.5);
+    .slider-dot.active {
+      background: white;
+      transform: scale(1.2);
     }
 
-    /* قسم المطاعم */
+    /* قسم المطاعم المعدل */
     .restaurants-section {
       padding: 40px 20px;
       background: var(--white);
@@ -194,6 +217,7 @@
       color: var(--dark-blue);
       font-size: 2.2rem;
       margin-bottom: 30px;
+      text-align: center;
     }
 
     .restaurants-section .section-title::after {
@@ -208,8 +232,8 @@
 
     .restaurants-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -226,13 +250,13 @@
     }
 
     .restaurant-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
     }
 
     .card-header {
       position: relative;
-      height: 160px;
+      height: 140px;
       overflow: hidden;
     }
 
@@ -248,12 +272,12 @@
     }
 
     .card-content {
-      padding: 20px;
+      padding: 15px;
       text-align: center;
     }
 
     .restaurant-name {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--dark-blue);
       margin-bottom: 8px;
@@ -262,7 +286,7 @@
 
     .restaurant-category {
       color: var(--medium-gray);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     /* قسم كيفية الطلب */
@@ -275,6 +299,7 @@
       color: var(--dark-blue);
       font-size: 2.2rem;
       margin-bottom: 40px;
+      text-align: center;
     }
 
     .how-it-works .section-title::after {
@@ -443,22 +468,37 @@
     }
 
     @media (max-width: 768px) {
+      .sticky-header {
+        padding: 25px 0;
+      }
+      
+      .sticky-header.scrolled {
+        padding: 12px 0;
+      }
+      
+      .logo-container img {
+        height: 70px;
+      }
+      
+      .sticky-header.scrolled .logo-container img {
+        height: 45px;
+      }
+      
       .restaurants-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 12px;
       }
       
-      .platform-offer-card {
-        width: 250px;
+      .card-header {
+        height: 120px;
       }
       
-      .section-title {
-        font-size: 1.6rem;
+      .platform-offers {
+        height: 120px;
       }
       
-      .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      .offers-title {
+        font-size: 1.7rem;
       }
     }
 
@@ -467,16 +507,25 @@
         grid-template-columns: 1fr;
       }
       
-      .platform-offer-card {
-        width: 220px;
-      }
-      
       .sticky-header {
-        padding: 15px 0;
+        padding: 20px 0;
       }
       
       .logo-container img {
-        height: 50px;
+        height: 60px;
+      }
+      
+      .platform-offers {
+        height: 110px;
+        padding: 12px;
+      }
+      
+      .platform-offer-card {
+        padding: 15px;
+      }
+      
+      .platform-offer-discount {
+        font-size: 1.7rem;
       }
     }
   </style>
@@ -484,8 +533,8 @@
 <body>
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر -->
-  <header class="sticky-header">
+  <!-- الهيدر المعدل -->
+  <header class="sticky-header" id="stickyHeader">
     <div class="header-content">
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="فود">
@@ -493,27 +542,24 @@
     </div>
   </header>
 
-  <!-- قسم العروض المتحركة -->
-  <section class="platform-offers">
-    <div class="offers-container">
-      <h2 class="section-title">عروض فود الحصرية</h2>
-      <div class="offers-slider">
-        <div class="offers-track" id="offersTrack">
-          <!-- سيتم ملؤه بالعروض من JavaScript -->
+  <!-- قسم العروض المعدل -->
+  <section class="offers-section">
+    <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
+    <div class="platform-offers">
+      <div class="offers-container">
+        <div class="offers-slider">
+          <div class="offers-track" id="offersTrack">
+            <!-- سيتم ملؤه بالعروض من JavaScript -->
+          </div>
         </div>
-      </div>
-      <div class="slider-controls">
-        <button class="slider-btn" id="prevOffer">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-        <button class="slider-btn" id="nextOffer">
-          <i class="fas fa-chevron-left"></i>
-        </button>
+        <div class="slider-dots" id="sliderDots">
+          <!-- سيتم ملؤه بالنقاط من JavaScript -->
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم المطاعم -->
+  <!-- قسم المطاعم المعدل -->
   <section class="restaurants-section">
     <h2 class="section-title">مطاعم سلمية</h2>
     <div class="restaurants-grid" id="restaurantsContainer">
@@ -608,9 +654,11 @@
       }
     ];
 
-    // دالة لعرض العروض المتحركة
+    // دالة لعرض العروض المتحركة ذاتياً
     function initOffersSlider() {
       const track = document.getElementById('offersTrack');
+      const dotsContainer = document.getElementById('sliderDots');
+      
       const offersHTML = platformOffers.map(offer => `
         <div class="platform-offer-card">
           <div class="platform-offer-discount">${offer.discount}</div>
@@ -622,41 +670,68 @@
       
       track.innerHTML = offersHTML;
 
-      // التحكم بالسلايدر
-      let currentPosition = 0;
-      const cardWidth = 320; // عرض البطاقة + الـ gap
-      const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
-      const totalCards = platformOffers.length;
+      // إنشاء نقاط التبديل
+      const dotsHTML = platformOffers.map((_, index) => `
+        <button class="slider-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
+      `).join('');
+      
+      dotsContainer.innerHTML = dotsHTML;
 
-      document.getElementById('nextOffer').addEventListener('click', () => {
-        if (currentPosition < totalCards - visibleCards) {
-          currentPosition++;
-          updateSliderPosition();
-        }
-      });
+      // التحكم التلقائي بالسلايدر
+      let currentSlide = 0;
+      const totalSlides = platformOffers.length;
+      let autoSlideInterval;
 
-      document.getElementById('prevOffer').addEventListener('click', () => {
-        if (currentPosition > 0) {
-          currentPosition--;
-          updateSliderPosition();
-        }
-      });
-
-      function updateSliderPosition() {
-        track.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+      function goToSlide(index) {
+        currentSlide = index;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // تحديث النقاط النشطة
+        document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
       }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }
+
+      // بدء التبديل التلقائي
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000); // يتغير كل 3 ثواني
+      }
+
+      // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+
+      // إضافة event listeners للنقاط
+      document.querySelectorAll('.slider-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          goToSlide(index);
+          stopAutoSlide();
+          startAutoSlide();
+        });
+      });
+
+      // بدء التبديل التلقائي
+      startAutoSlide();
+
+      // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
+      track.addEventListener('mouseenter', stopAutoSlide);
+      track.addEventListener('mouseleave', startAutoSlide);
     }
 
     // دالة لترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
     function shuffleRestaurants(restaurants) {
-      // فصل مطعم رويال
       const royal = restaurants.find(r => r.id === 'royal');
       const otherRestaurants = restaurants.filter(r => r.id !== 'royal');
       
-      // ترتيب عشوائي للمطاعم الأخرى
       const shuffled = [...otherRestaurants].sort(() => Math.random() - 0.5);
       
-      // إعادة رويال كأول مطعم + المطاعم العشوائية
       return royal ? [royal, ...shuffled] : shuffled;
     }
 
@@ -669,7 +744,6 @@
         return;
       }
       
-      // ترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
       const shuffledRestaurants = shuffleRestaurants(restaurants);
       
       container.innerHTML = shuffledRestaurants.map(restaurant => `
@@ -689,7 +763,6 @@
     // دالة لتحميل المطاعم
     async function loadRestaurants() {
       try {
-        // استخدام البيانات المحلية من المتغير restaurantsData
         displayRestaurants(restaurantsData.restaurants);
       } catch (error) {
         console.log('خطأ في تحميل المطاعم:', error);
@@ -770,8 +843,22 @@
       ]
     };
 
+    // التحكم في الهيدر المتقلص
+    function initHeaderScroll() {
+      const header = document.getElementById('stickyHeader');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+
     // تهيئة الصفحة عند التحميل
     document.addEventListener('DOMContentLoaded', function() {
+      initHeaderScroll();
       initOffersSlider();
       loadRestaurants();
     });
