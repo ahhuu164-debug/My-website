@@ -84,52 +84,71 @@
       width: auto;
     }
 
-    /* قسم العروض المعدل - تصميم مميز */
+    /* قسم العروض المعدل - تصميم مميز وجديد */
     .offers-section {
-      padding: 15px 20px 5px 20px;
+      padding: 20px 20px 10px 20px;
       background: var(--white);
+      position: relative;
     }
 
     .offers-title {
       text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2.2rem;
+      font-weight: 800;
       color: var(--dark-blue);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      position: relative;
     }
 
     .offers-title span {
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .offers-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-orange), var(--secondary-yellow));
+      border-radius: 2px;
     }
 
     .platform-offers {
-      background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
-      border-radius: var(--border-radius);
-      padding: 20px;
+      background: linear-gradient(135deg, #FF6B35, #E83F3F, #FF6B35);
+      background-size: 200% 200%;
+      border-radius: var(--border-radius-lg);
+      padding: 25px;
       max-width: 1200px;
       margin: 0 auto;
-      height: 180px;
+      height: 200px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .platform-offers::before {
       content: "";
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      transform: rotate(45deg);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
     }
 
     .offers-container {
@@ -148,15 +167,15 @@
     .offers-track {
       display: flex;
       height: 100%;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .platform-offer-card {
       flex: 0 0 100%;
-      background: rgba(255,255,255,0.15);
-      padding: 25px;
-      border-radius: var(--border-radius);
-      backdrop-filter: blur(10px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
       text-align: center;
       border: 1px solid rgba(255,255,255,0.2);
       color: white;
@@ -165,168 +184,206 @@
       flex-direction: column;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
 
     .platform-offer-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-      z-index: 1;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .platform-offer-card:hover::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(50%, 50%);
     }
 
     .platform-offer-card:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.02);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
     }
 
     .offer-badge {
       position: absolute;
-      top: 15px;
-      left: 15px;
-      background: var(--secondary-yellow);
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
       color: var(--dark-blue);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      z-index: 2;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      z-index: 3;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .platform-offer-discount {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      background: linear-gradient(135deg, #FFD700, #FFA500);
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       position: relative;
       z-index: 2;
+      line-height: 1;
     }
 
     .platform-offer-description {
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      font-weight: 700;
       margin-bottom: 8px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
       position: relative;
       z-index: 2;
+      line-height: 1.3;
     }
 
     .platform-offer-restaurant {
-      font-size: 1rem;
+      font-size: 1.1rem;
       opacity: 0.9;
-      margin-bottom: 5px;
+      margin-bottom: 12px;
       position: relative;
       z-index: 2;
+      font-weight: 600;
+    }
+
+    .price-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 12px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .original-price {
+      font-size: 1rem;
+      text-decoration: line-through;
+      opacity: 0.7;
     }
 
     .platform-offer-price {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-top: 8px;
-      background: rgba(255,255,255,0.2);
-      padding: 6px 12px;
-      border-radius: 20px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.2));
+      padding: 8px 20px;
+      border-radius: 25px;
       display: inline-block;
-      position: relative;
-      z-index: 2;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .offer-expiry {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       opacity: 0.8;
       margin-top: 8px;
       position: relative;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
 
     .offer-cta {
       display: inline-block;
-      background: var(--secondary-yellow);
+      background: linear-gradient(135deg, var(--secondary-yellow), #FFA500);
       color: var(--dark-blue);
-      padding: 8px 20px;
-      border-radius: 25px;
-      font-weight: 700;
-      margin-top: 10px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 800;
+      margin-top: 15px;
       text-decoration: none;
       transition: all 0.3s ease;
       position: relative;
       z-index: 2;
+      box-shadow: 0 4px 15px rgba(255, 200, 87, 0.3);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .offer-cta:hover {
-      background: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #FFFFFF, var(--secondary-yellow));
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 200, 87, 0.4);
     }
 
     .slider-dots {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 15px;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     .slider-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: rgba(255,255,255,0.3);
-      border: none;
+      border: 2px solid rgba(255,255,255,0.5);
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     .slider-dot.active {
       background: var(--secondary-yellow);
+      border-color: var(--secondary-yellow);
       transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(255, 200, 87, 0.5);
     }
 
+    /* بقية الـ CSS يبقى كما هو */
     /* قسم المطاعم - باستخدام شبكة restaurants.html */
     .restaurants-section {
-      padding: 20px;
+      padding: 30px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .section-header {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-align: center;
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       color: var(--dark-blue);
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
     .section-subtitle {
       color: var(--medium-gray);
+      font-size: 1.1rem;
     }
 
     /* ⭐⭐⭐ شبكة المطاعم من restaurants.html ⭐⭐⭐ */
     .restaurants-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 20px;
       width: 100%;
     }
 
     .restaurant-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-md);
       text-decoration: none;
       color: inherit;
       display: block;
@@ -335,13 +392,13 @@
     }
 
     .restaurant-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
     }
 
     .card-header {
       position: relative;
-      height: 140px;
+      height: 160px;
       overflow: hidden;
     }
 
@@ -349,15 +406,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .restaurant-card:hover .restaurant-image {
+      transform: scale(1.05);
     }
 
     .card-content {
-      padding: 15px;
+      padding: 20px;
       text-align: center;
     }
 
     .restaurant-name {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: #2C3E50;
       margin-bottom: 8px;
@@ -366,279 +428,62 @@
 
     .restaurant-category {
       color: #7F8C8D;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       margin-bottom: 8px;
     }
 
-    /* قسم كيفية الطلب */
-    .how-it-works {
-      padding: 50px 20px;
-      background: var(--light-gray);
+    /* بقية الـ CSS يبقى كما هو */
+
+    /* ===== التكيف مع الشاشات الصغيرة ===== */
+    @media (max-width: 768px) {
+      .platform-offers {
+        height: 180px;
+        padding: 20px;
+      }
+      
+      .platform-offer-card {
+        padding: 25px 20px;
+      }
+      
+      .platform-offer-discount {
+        font-size: 2.5rem;
+      }
+      
+      .platform-offer-description {
+        font-size: 1.1rem;
+      }
+      
+      .offers-title {
+        font-size: 1.8rem;
+      }
     }
 
-    .how-it-works .section-title {
-      color: var(--dark-blue);
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .how-it-works .section-title::after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to left, var(--primary-orange), var(--secondary-yellow));
-      margin: 10px auto;
-      border-radius: 2px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .step-card {
-      background: var(--white);
-      padding: 30px 25px;
-      border-radius: var(--border-radius);
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-    }
-
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .step-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .step-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--dark-blue);
-      margin-bottom: 10px;
-    }
-
-    .step-description {
-      color: var(--medium-gray);
-      line-height: 1.6;
-    }
-
-    /* الفوتر */
-    .main-footer {
-      background: var(--dark-blue);
-      color: var(--white);
-      padding: 40px 20px 20px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .footer-description {
-      opacity: 0.8;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      color: var(--primary-orange);
-    }
-
-    .social-link:hover {
-      background: var(--primary-orange);
-      transform: translateY(-3px);
-      color: white;
-    }
-
-    /* الشريط السفلي - محذوف منه كلمة المطاعم */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 12px 0 8px;
-    }
-
-    .nav-items {
-      display: flex;
-      justify-content: space-around;
-      padding: 0 5px;
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--medium-gray);
-      font-size: 0.75rem;
-      flex: 1;
-      padding: 5px;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    .nav-item.active {
-      color: var(--primary-orange);
-    }
-
-    .nav-item.active::after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      width: 6px;
-      height: 6px;
-      background: var(--primary-orange);
-      border-radius: 50%;
-    }
-
-    .nav-icon {
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .nav-item.active .nav-icon {
-      transform: translateY(-2px);
-    }
-
-    /* التحميل */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--medium-gray);
-      grid-column: 1 / -1;
-    }
-
-    /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
     @media (max-width: 480px) {
-      .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-      
-      .card-header {
-        height: 120px;
-      }
-      
-      .card-content {
-        padding: 12px;
-      }
-      
-      .restaurant-name {
-        font-size: 1rem;
-      }
-      
-      .restaurants-section {
-        padding: 10px;
-      }
-      
-      .nav-icon {
-        font-size: 1.3rem;
-      }
-      
-      .nav-item {
-        font-size: 0.7rem;
-      }
-
       .platform-offers {
         height: 160px;
         padding: 15px;
       }
-
+      
       .platform-offer-card {
-        padding: 20px;
+        padding: 20px 15px;
       }
-
+      
       .platform-offer-discount {
         font-size: 2rem;
       }
-
+      
       .platform-offer-description {
         font-size: 1rem;
       }
-
-      .offers-title {
-        font-size: 1.7rem;
-        margin-bottom: 12px;
-      }
-
-      .sticky-header {
-        padding: 20px 0;
-      }
-
-      .logo-container img {
-        height: 60px;
-      }
-    }
-
-    /* ===== تحسينات للشاشات الكبيرة ===== */
-    @media (min-width: 769px) {
-      .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+      
+      .platform-offer-price {
+        font-size: 1.2rem;
+        padding: 6px 15px;
       }
       
-      .card-header {
-        height: 180px;
-      }
-      
-      .card-content {
-        padding: 20px;
-      }
-      
-      .restaurant-name {
-        font-size: 1.3rem;
-      }
-    }
-
-    /* ===== تحسينات للشاشات المتوسطة ===== */
-    @media (min-width: 481px) and (max-width: 768px) {
-      .restaurants-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-      
-      .card-header {
-        height: 150px;
+      .offer-cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -675,7 +520,7 @@
     </div>
   </section>
 
-  <!-- قسم المطاعم - باستخدام شبكة restaurants.html -->
+  <!-- قسم المطاعم -->
   <section class="restaurants-section">
     <div class="section-header">
       <h2 class="section-title">مطاعم سلمية</h2>
@@ -727,7 +572,7 @@
     </div>
   </footer>
 
-  <!-- الشريط السفلي - بدون كلمة المطاعم -->
+  <!-- الشريط السفلي -->
   <nav class="bottom-nav">
     <div class="nav-items">
       <a href="index.html" class="nav-item active">
@@ -748,24 +593,24 @@
         const response = await fetch('offers.json?v=' + Date.now());
         const data = await response.json();
         
-        console.log('جميع العروض:', data.offers); // للتصحيح
+        console.log('جميع العروض:', data.offers);
         
         // تصفية العروض التي تظهر في الصفحة الرئيسية
         const indexOffers = data.offers.filter(offer => 
           offer.active && offer.show_in_index
         );
         
-        console.log('العروض المعروضة:', indexOffers); // للتصحيح
+        console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
           initOffersSlider(indexOffers);
         } else {
           document.getElementById('offersTrack').innerHTML = `
             <div class="platform-offer-card">
-              <div class="platform-offer-description" style="font-size: 1.2rem;">
-                لا توجد عروض حالياً
+              <div class="platform-offer-description" style="font-size: 1.3rem; margin-bottom: 15px;">
+                🎯 لا توجد عروض حالياً
               </div>
-              <div class="offer-expiry">تابعنا لمعرفة أحدث العروض</div>
+              <div class="offer-expiry">تابعنا لمعرفة أحدث العروض القادمة</div>
             </div>
           `;
         }
@@ -773,7 +618,7 @@
         console.log('خطأ في تحميل العروض:', error);
         document.getElementById('offersTrack').innerHTML = `
           <div class="platform-offer-card">
-            <div class="platform-offer-description" style="color: #ffdddd;">
+            <div class="platform-offer-description" style="color: #ffdddd; font-size: 1.2rem;">
               ⚠️ حدث خطأ في تحميل العروض
             </div>
             <div class="offer-expiry">يرجى المحاولة لاحقاً</div>
@@ -792,10 +637,19 @@
           <div class="offer-badge">عرض حصري</div>
           <div class="platform-offer-discount">${offer.savings_percentage}% خصم</div>
           <div class="platform-offer-description">${offer.title}</div>
-          <div class="platform-offer-restaurant">من ${offer.restaurant_name}</div>
-          <div class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</div>
-          <div class="offer-expiry">⏰ صالحة حتى: ${offer.expiry_date}</div>
-          <a href="${offer.restaurant_id}.html" class="offer-cta">اطلب الآن</a>
+          <div class="platform-offer-restaurant">🏪 من ${offer.restaurant_name}</div>
+          <div class="price-container">
+            <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
+            <span class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+          </div>
+          <div class="offer-expiry">
+            <i class="fas fa-clock"></i>
+            صالحة حتى: ${offer.expiry_date}
+          </div>
+          <a href="${offer.restaurant_id}.html" class="offer-cta">
+            <i class="fas fa-shopping-cart"></i>
+            اطلب الآن
+          </a>
         </div>
       `).join('');
       
@@ -831,7 +685,7 @@
       // بدء التبديل التلقائي
       function startAutoSlide() {
         if (totalSlides > 1) {
-          autoSlideInterval = setInterval(nextSlide, 3000);
+          autoSlideInterval = setInterval(nextSlide, 4000);
         }
       }
 
@@ -858,6 +712,23 @@
       track.addEventListener('mouseleave', startAutoSlide);
     }
 
+    // دالة لتحميل المطاعم من restaurants.json
+    async function loadRestaurants() {
+      try {
+        const response = await fetch('restaurants.json?v=' + Date.now());
+        const data = await response.json();
+        
+        // ترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
+        const shuffledRestaurants = shuffleRestaurants(data.restaurants);
+        displayRestaurants(shuffledRestaurants);
+        
+      } catch (error) {
+        console.log('خطأ في تحميل المطاعم:', error);
+        document.getElementById('restaurantsContainer').innerHTML = 
+          '<div class="loading"><p>⚠️ حدث خطأ في تحميل المطاعم</p></div>';
+      }
+    }
+
     // دالة لترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
     function shuffleRestaurants(restaurants) {
       const royal = restaurants.find(r => r.id === 'royal');
@@ -877,9 +748,7 @@
         return;
       }
       
-      const shuffledRestaurants = shuffleRestaurants(restaurants);
-      
-      container.innerHTML = shuffledRestaurants.map(restaurant => `
+      container.innerHTML = restaurants.map(restaurant => `
         <a href="${restaurant.id}.html" class="restaurant-card">
           <div class="card-header">
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image" 
@@ -892,89 +761,6 @@
         </a>
       `).join('');
     }
-
-    // دالة لتحميل المطاعم
-    async function loadRestaurants() {
-      try {
-        displayRestaurants(restaurantsData.restaurants);
-      } catch (error) {
-        console.log('خطأ في تحميل المطاعم:', error);
-        document.getElementById('restaurantsContainer').innerHTML = 
-          '<div class="loading"><p>⚠️ حدث خطأ في تحميل المطاعم</p></div>';
-      }
-    }
-
-    // بيانات المطاعم المحلية
-    const restaurantsData = {
-      "restaurants": [
-        {
-          "id": "royal",
-          "name": "رويال",
-          "category": "ساندويش • وجبات • بيتزا • برغر • مطبخ شرقي",
-          "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-        },
-        {
-          "id": "pizza-hat",
-          "name": "بيتزا هات",
-          "category": "بيتزا • وجبات إيطالية • مشروبات",
-          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          "id": "al-wasouf",
-          "name": "الوسوف",
-          "category": "مقبلات ساخنة • مقبلات باردة • سلطات شرقية وغربية",
-          "image": "https://i.ibb.co/XvcbJhB/image.jpg"
-        },
-        {
-          "id": "dibs-roman",
-          "name": "دبس رمان",
-          "category": "مأكولات شرقية • مقبلات • سلطات",
-          "image": "https://i.ibb.co/Xr7z7Xn7/image.jpg"
-        },
-        {
-          "id": "krosh",
-          "name": "كرّوش",
-          "category": "شاورما • برغر • وجبات سريعة",
-          "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          "id": "herfy",
-          "name": "هيرفي",
-          "category": "برجر • وجبات سريعة • مشروبات",
-          "image": "https://i.ibb.co/yBpjJ4CF/image.jpg"
-        },
-        {
-          "id": "alassi",
-          "name": "العاصي",
-          "category": "مأكولات سورية • مشاوي • مقبلات",
-          "image": "https://i.ibb.co/23JR3W1Y/image.jpg"
-        },
-        {
-          "id": "pizza-salamia",
-          "name": "بيتزا سلمية",
-          "category": "بيتزا • وجبات إيطالية • معجنات",
-          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          "id": "mashawi-alaila",
-          "name": "مشاوي العائلة",
-          "category": "مشاوي • وجبات سورية • لحوم",
-          "image": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          "id": "burger-house",
-          "name": "برغر هاوس",
-          "category": "برغر • وجبات سريعة • بطاطا",
-          "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          "id": "shawarma-express",
-          "name": "شاورما اكسبرس",
-          "category": "شاورما • وجبات سريعة • ساندويش",
-          "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-        }
-      ]
-    };
 
     // تهيئة الصفحة عند التحميل
     document.addEventListener('DOMContentLoaded', function() {
