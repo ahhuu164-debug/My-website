@@ -60,20 +60,14 @@
       pointer-events: none;
     }
 
-    /* الهيدر المعدل بدون ارتجاف */
+    /* الهيدر الثابت بدون تقلص */
     .sticky-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 30px 0;
+      padding: 25px 0;
       box-shadow: var(--shadow-md);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
-    }
-
-    .sticky-header.scrolled {
-      padding: 15px 0;
     }
 
     .header-content {
@@ -86,13 +80,8 @@
     }
 
     .logo-container img {
-      height: 80px;
+      height: 70px;
       width: auto;
-      transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .sticky-header.scrolled .logo-container img {
-      height: 50px;
     }
 
     /* قسم العروض المعدل */
@@ -513,6 +502,14 @@
         font-size: 1.7rem;
         margin-bottom: 12px;
       }
+
+      .sticky-header {
+        padding: 20px 0;
+      }
+
+      .logo-container img {
+        height: 60px;
+      }
     }
 
     /* ===== تحسينات للشاشات الكبيرة ===== */
@@ -551,8 +548,8 @@
 <body>
   <div class="watermark-bg"></div>
 
-  <!-- الهيدر المعدل -->
-  <header class="sticky-header" id="stickyHeader">
+  <!-- الهيدر الثابت -->
+  <header class="sticky-header">
     <div class="header-content">
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="فود">
@@ -861,39 +858,8 @@
       ]
     };
 
-    // التحكم في الهيدر المتقلص بدون ارتجاف - الحل النهائي
-    function initHeaderScroll() {
-      const header = document.getElementById('stickyHeader');
-      let lastScrollY = window.scrollY;
-      
-      function updateHeader() {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-        
-        lastScrollY = currentScrollY;
-      }
-      
-      // استخدام throttle بسيط لمنع التكرار السريع
-      let ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            updateHeader();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-    }
-
     // تهيئة الصفحة عند التحميل
     document.addEventListener('DOMContentLoaded', function() {
-      initHeaderScroll();
       initOffersSlider();
       loadRestaurants();
     });
