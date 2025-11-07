@@ -60,7 +60,7 @@
       pointer-events: none;
     }
 
-    /* الهيدر المعدل */
+    /* الهيدر المعدل بدون ارتجاف */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -69,6 +69,9 @@
       padding: 30px 0;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000;
     }
 
     .sticky-header.scrolled {
@@ -96,7 +99,7 @@
 
     /* قسم العروض المعدل */
     .offers-section {
-      padding: 20px;
+      padding: 15px 20px 5px 20px;
       background: var(--white);
     }
 
@@ -105,7 +108,7 @@
       font-size: 2rem;
       font-weight: 700;
       color: var(--dark-blue);
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .offers-title span {
@@ -117,10 +120,10 @@
     .platform-offers {
       background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
       border-radius: var(--border-radius);
-      padding: 15px;
+      padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
-      height: 140px;
+      height: 160px;
     }
 
     .offers-container {
@@ -144,7 +147,7 @@
     .platform-offer-card {
       flex: 0 0 100%;
       background: rgba(255,255,255,0.15);
-      padding: 20px;
+      padding: 25px;
       border-radius: var(--border-radius);
       backdrop-filter: blur(10px);
       text-align: center;
@@ -157,39 +160,39 @@
     }
 
     .platform-offer-discount {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .platform-offer-description {
-      font-size: 1rem;
+      font-size: 1.1rem;
       opacity: 0.9;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
     .platform-offer-code {
       background: rgba(255,255,255,0.3);
-      padding: 5px 15px;
+      padding: 6px 18px;
       border-radius: 20px;
       font-weight: bold;
-      font-size: 0.9rem;
-      margin-top: 8px;
+      font-size: 1rem;
+      margin-top: 10px;
       display: inline-block;
     }
 
     .offer-expiry {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       opacity: 0.8;
-      margin-top: 5px;
+      margin-top: 8px;
     }
 
     .slider-dots {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .slider-dot {
@@ -207,51 +210,52 @@
       transform: scale(1.2);
     }
 
-    /* قسم المطاعم المعدل */
+    /* قسم المطاعم - باستخدام شبكة restaurants.html */
     .restaurants-section {
-      padding: 40px 20px;
-      background: var(--white);
-    }
-
-    .restaurants-section .section-title {
-      color: var(--dark-blue);
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .restaurants-section .section-title::after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to left, var(--primary-orange), var(--secondary-yellow));
-      margin: 10px auto;
-      border-radius: 2px;
-    }
-
-    .restaurants-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
+    .section-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+    }
+
+    .section-subtitle {
+      color: var(--medium-gray);
+    }
+
+    /* ⭐⭐⭐ شبكة المطاعم من restaurants.html ⭐⭐⭐ */
+    .restaurants-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      width: 100%;
+    }
+
     .restaurant-card {
-      background: var(--white);
-      border-radius: var(--border-radius);
+      background: white;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       text-decoration: none;
       color: inherit;
       display: block;
+      transition: all 0.3s ease;
+      width: 100%;
     }
 
     .restaurant-card:hover {
       transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
     .card-header {
@@ -264,11 +268,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .restaurant-card:hover .restaurant-image {
-      transform: scale(1.05);
     }
 
     .card-content {
@@ -278,15 +277,16 @@
 
     .restaurant-name {
       font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--dark-blue);
+      font-weight: 800;
+      color: #2C3E50;
       margin-bottom: 8px;
       line-height: 1.3;
     }
 
     .restaurant-category {
-      color: var(--medium-gray);
+      color: #7F8C8D;
       font-size: 0.85rem;
+      margin-bottom: 8px;
     }
 
     /* قسم كيفية الطلب */
@@ -404,7 +404,7 @@
       color: white;
     }
 
-    /* الشريط السفلي */
+    /* الشريط السفلي - محذوف منه كلمة المطاعم */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -467,65 +467,85 @@
       grid-column: 1 / -1;
     }
 
-    @media (max-width: 768px) {
-      .sticky-header {
-        padding: 25px 0;
-      }
-      
-      .sticky-header.scrolled {
-        padding: 12px 0;
-      }
-      
-      .logo-container img {
-        height: 70px;
-      }
-      
-      .sticky-header.scrolled .logo-container img {
-        height: 45px;
-      }
-      
+    /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
+    @media (max-width: 480px) {
       .restaurants-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
       }
       
       .card-header {
         height: 120px;
       }
       
-      .platform-offers {
-        height: 120px;
-      }
-      
-      .offers-title {
-        font-size: 1.7rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .restaurants-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .sticky-header {
-        padding: 20px 0;
-      }
-      
-      .logo-container img {
-        height: 60px;
-      }
-      
-      .platform-offers {
-        height: 110px;
+      .card-content {
         padding: 12px;
       }
       
-      .platform-offer-card {
-        padding: 15px;
+      .restaurant-name {
+        font-size: 1rem;
       }
       
+      .restaurants-section {
+        padding: 10px;
+      }
+      
+      .nav-icon {
+        font-size: 1.3rem;
+      }
+      
+      .nav-item {
+        font-size: 0.7rem;
+      }
+
+      .platform-offers {
+        height: 140px;
+        padding: 15px;
+      }
+
+      .platform-offer-card {
+        padding: 20px;
+      }
+
       .platform-offer-discount {
+        font-size: 1.8rem;
+      }
+
+      .offers-title {
         font-size: 1.7rem;
+        margin-bottom: 12px;
+      }
+    }
+
+    /* ===== تحسينات للشاشات الكبيرة ===== */
+    @media (min-width: 769px) {
+      .restaurants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .card-header {
+        height: 180px;
+      }
+      
+      .card-content {
+        padding: 20px;
+      }
+      
+      .restaurant-name {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ===== تحسينات للشاشات المتوسطة ===== */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .restaurants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .card-header {
+        height: 150px;
       }
     }
   </style>
@@ -559,9 +579,13 @@
     </div>
   </section>
 
-  <!-- قسم المطاعم المعدل -->
+  <!-- قسم المطاعم - باستخدام شبكة restaurants.html -->
   <section class="restaurants-section">
-    <h2 class="section-title">مطاعم سلمية</h2>
+    <div class="section-header">
+      <h2 class="section-title">مطاعم سلمية</h2>
+      <p class="section-subtitle">اطلب من أفضل المطاعم في مدينتك</p>
+    </div>
+
     <div class="restaurants-grid" id="restaurantsContainer">
       <div class="loading">
         <i class="fas fa-spinner fa-spin"></i>
@@ -607,16 +631,12 @@
     </div>
   </footer>
 
-  <!-- الشريط السفلي -->
+  <!-- الشريط السفلي - بدون كلمة المطاعم -->
   <nav class="bottom-nav">
     <div class="nav-items">
       <a href="index.html" class="nav-item active">
         <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="fas fa-utensils nav-icon"></i>
-        <span>المطاعم</span>
       </a>
       <a href="offers.html" class="nav-item">
         <i class="fas fa-percentage nav-icon"></i>
@@ -699,7 +719,7 @@
 
       // بدء التبديل التلقائي
       function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 3000); // يتغير كل 3 ثواني
+        autoSlideInterval = setInterval(nextSlide, 3000);
       }
 
       // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
@@ -843,15 +863,24 @@
       ]
     };
 
-    // التحكم في الهيدر المتقلص
+    // التحكم في الهيدر المتقلص بدون ارتجاف
     function initHeaderScroll() {
       const header = document.getElementById('stickyHeader');
+      let ticking = false;
       
-      window.addEventListener('scroll', function() {
+      function updateHeader() {
         if (window.scrollY > 100) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');
+        }
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
         }
       });
     }
