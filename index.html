@@ -144,6 +144,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .platform-offer-card:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.02);
     }
 
     .platform-offer-discount {
@@ -159,14 +166,16 @@
       margin-bottom: 8px;
     }
 
-    .platform-offer-code {
-      background: rgba(255,255,255,0.3);
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-weight: bold;
+    .platform-offer-restaurant {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+
+    .platform-offer-price {
       font-size: 1rem;
-      margin-top: 10px;
-      display: inline-block;
+      font-weight: 600;
+      margin-top: 5px;
     }
 
     .offer-expiry {
@@ -564,7 +573,10 @@
       <div class="offers-container">
         <div class="offers-slider">
           <div class="offers-track" id="offersTrack">
-            <!-- سيتم ملؤه بالعروض من JavaScript -->
+            <div class="loading" style="color: white;">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>جاري تحميل العروض...</p>
+            </div>
           </div>
         </div>
         <div class="slider-dots" id="sliderDots">
@@ -641,44 +653,52 @@
   </nav>
 
   <script>
-    // بيانات العروض
-    const platformOffers = [
-      {
-        discount: "20%",
-        title: "خصم على أول طلب",
-        code: "WELCOME20",
-        expiry_date: "31/12/2024"
-      },
-      {
-        discount: "توصيل مجاني",
-        title: "توصيل مجاني للطلبات فوق 50,000",
-        code: "FREE50",
-        expiry_date: "31/12/2024"
-      },
-      {
-        discount: "30%",
-        title: "خصم خاص على المطاعم الجديدة",
-        code: "NEW30",
-        expiry_date: "15/01/2025"
-      },
-      {
-        discount: "وجبة مجانية",
-        title: "احصل على وجبة مجانية مع كل طلبين",
-        code: "BUY2GET1",
-        expiry_date: "28/02/2025"
+    // دالة لتحميل العروض من offers.json
+    async function loadOffers() {
+      try {
+        const response = await fetch('offers.json?v=' + Date.now());
+        const data = await response.json();
+        
+        // تصفية العروض التي تظهر في الصفحة الرئيسية
+        const indexOffers = data.offers.filter(offer => 
+          offer.active && offer.show_in_index
+        );
+        
+        if (indexOffers.length > 0) {
+          initOffersSlider(indexOffers);
+        } else {
+          document.getElementById('offersTrack').innerHTML = `
+            <div class="platform-offer-card">
+              <div class="platform-offer-description" style="font-size: 1.2rem;">
+                لا توجد عروض حالياً
+              </div>
+              <div class="offer-expiry">تابعنا لمعرفة أحدث العروض</div>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.log('خطأ في تحميل العروض:', error);
+        document.getElementById('offersTrack').innerHTML = `
+          <div class="platform-offer-card">
+            <div class="platform-offer-description" style="color: #ffdddd;">
+              ⚠️ حدث خطأ في تحميل العروض
+            </div>
+          </div>
+        `;
       }
-    ];
+    }
 
     // دالة لعرض العروض المتحركة ذاتياً
-    function initOffersSlider() {
+    function initOffersSlider(offers) {
       const track = document.getElementById('offersTrack');
       const dotsContainer = document.getElementById('sliderDots');
       
-      const offersHTML = platformOffers.map(offer => `
-        <div class="platform-offer-card">
-          <div class="platform-offer-discount">${offer.discount}</div>
+      const offersHTML = offers.map(offer => `
+        <div class="platform-offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
+          <div class="platform-offer-discount">${offer.savings_percentage}%</div>
           <div class="platform-offer-description">${offer.title}</div>
-          <div class="platform-offer-code">${offer.code}</div>
+          <div class="platform-offer-restaurant">من ${offer.restaurant_name}</div>
+          <div class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</div>
           <div class="offer-expiry">صالحة حتى: ${offer.expiry_date}</div>
         </div>
       `).join('');
@@ -686,7 +706,7 @@
       track.innerHTML = offersHTML;
 
       // إنشاء نقاط التبديل
-      const dotsHTML = platformOffers.map((_, index) => `
+      const dotsHTML = offers.map((_, index) => `
         <button class="slider-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
       `).join('');
       
@@ -694,7 +714,7 @@
 
       // التحكم التلقائي بالسلايدر
       let currentSlide = 0;
-      const totalSlides = platformOffers.length;
+      const totalSlides = offers.length;
       let autoSlideInterval;
 
       function goToSlide(index) {
@@ -714,7 +734,9 @@
 
       // بدء التبديل التلقائي
       function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 3000);
+        if (totalSlides > 1) {
+          autoSlideInterval = setInterval(nextSlide, 3000);
+        }
       }
 
       // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
@@ -860,7 +882,7 @@
 
     // تهيئة الصفحة عند التحميل
     document.addEventListener('DOMContentLoaded', function() {
-      initOffersSlider();
+      loadOffers();
       loadRestaurants();
     });
   </script>
