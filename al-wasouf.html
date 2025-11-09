@@ -37,7 +37,7 @@
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
@@ -48,55 +48,10 @@
       width: auto;
     }
 
-    .back-btn {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.2);
-      font-size: 0.9rem;
-    }
-
-    .back-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .search-icon-header {
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: all 0.3s ease;
-    }
-
-    /* ===== صورة الغلاف ===== */
-    .cover-image {
-      height: 200px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cover-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
-    }
-
     /* ===== معلومات المطعم ===== */
     .restaurant-info {
       max-width: 1200px;
-      margin: -60px auto 0;
+      margin: 20px auto 0;
       padding: 0 15px;
       position: relative;
       z-index: 2;
@@ -808,10 +763,6 @@
       .info-card {
         padding: 15px;
       }
-      
-      .cover-image {
-        height: 180px;
-      }
 
       .menu-item-image {
         height: 100px;
@@ -841,14 +792,6 @@
       .menu-item-image {
         height: 140px;
       }
-      
-      .cover-image {
-        height: 220px;
-      }
-      
-      .restaurant-info {
-        margin: -70px auto 0;
-      }
     }
 
     /* ===== تحسينات للشاشات الكبيرة ===== */
@@ -862,12 +805,7 @@
         height: 160px;
       }
       
-      .cover-image {
-        height: 250px;
-      }
-      
       .restaurant-info {
-        margin: -80px auto 0;
         padding: 0 20px;
       }
       
@@ -885,31 +823,18 @@
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
-      <a href="restaurants.html" class="back-btn">
-        <i class="fas fa-arrow-right"></i> العودة
-      </a>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
       </div>
-      <div class="search-icon-header">
-        <i class="fas fa-search"></i>
-      </div>
     </div>
   </header>
-
-  <!-- صورة الغلاف -->
-  <div class="cover-image">
-    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-         alt="الوسوف">
-    <div class="overlay"></div>
-  </div>
 
   <!-- معلومات المطعم -->
   <section class="restaurant-info">
     <div class="info-card">
       <div class="info-header">
         <div class="restaurant-logo-large">
-          <img src="https://ibb.co/dJfsxMXV/image.jpg" 
+          <img src="https://i.ibb.co/XvcbJhB/image.jpg" 
                alt="الوسوف">
         </div>
         <div class="title-section">
@@ -1129,6 +1054,27 @@
               </div>
             </div>
           </div>
+
+          <!-- سلطة زيتون -->
+          <div class="menu-item" data-id="119" data-name="سلطة زيتون" data-price="12000">
+            <div class="menu-item-image">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                   alt="سلطة زيتون">
+            </div>
+            <div class="menu-item-content">
+              <h3 class="menu-item-title">سلطة زيتون</h3>
+              <p class="menu-item-desc">سلطة زيتون طازجة مع الأعشاب</p>
+              <div class="quantity-controls">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="99">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <div class="menu-item-footer">
+                <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
+                <button class="add-to-cart">إضافة</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1289,6 +1235,111 @@
             </div>
           </div>
         </div>
+
+        <!-- طرطور خبز -->
+        <div class="menu-item" data-id="120" data-name="طرطور خبز" data-price="14000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="طرطور خبز">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">طرطور خبز</h3>
+            <p class="menu-item-desc">طرطور خبز طازج مع التوابل</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- سوزما -->
+        <div class="menu-item" data-id="121" data-name="سوزما" data-price="14000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="سوزما">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">سوزما</h3>
+            <p class="menu-item-desc">سوزما طازجة مع الخضار</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- كشكة -->
+        <div class="menu-item" data-id="122" data-name="كشكة" data-price="14000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="كشكة">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كشكة</h3>
+            <p class="menu-item-desc">كشكة طازجة مع المكونات الخاصة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- نجومية -->
+        <div class="menu-item" data-id="123" data-name="نجومية" data-price="14000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="نجومية">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">نجومية</h3>
+            <p class="menu-item-desc">نجومية طازجة مع المكونات الخاصة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٤,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- لبنة محشية -->
+        <div class="menu-item" data-id="124" data-name="لبنة محشية" data-price="15000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="لبنة محشية">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">لبنة محشية</h3>
+            <p class="menu-item-desc">لبنة محشية بالمكسرات والتوابل</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1360,6 +1411,27 @@
             </div>
             <div class="menu-item-footer">
               <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- باذنجانة بالفخارة -->
+        <div class="menu-item" data-id="125" data-name="باذنجانة بالفخارة" data-price="15000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="باذنجانة بالفخارة">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">باذنجانة بالفخارة</h3>
+            <p class="menu-item-desc">باذنجانة مشوية بالفخارة مع الطماطم</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
@@ -1440,10 +1512,6 @@
       <a href="index.html" class="nav-item">
         <i class="fas fa-home"></i>
         <span>الرئيسية</span>
-      </a>
-      <a href="restaurants.html" class="nav-item">
-        <i class="fas fa-utensils"></i>
-        <span>المطاعم</span>
       </a>
       <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
         <i class="fas fa-shopping-cart"></i>
