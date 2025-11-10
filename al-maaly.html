@@ -18,11 +18,10 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      background-color: #f8f9fa;
       color: #2D3436;
       line-height: 1.6;
       padding-bottom: 80px;
-      min-height: 100vh;
     }
 
     /* ===== الهيدر العام ===== */
@@ -30,9 +29,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(135deg, #8B4513, #D2691E);
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       padding: 12px 0;
-      box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
 
     .header-content {
@@ -59,44 +58,29 @@
     }
 
     .info-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: white;
       border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
-      margin-bottom: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #8B4513, #D2691E, #FFD27F);
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
     }
 
     .info-header {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .restaurant-logo-large {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+      border: 4px solid white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       overflow: hidden;
-      margin-left: 20px;
+      margin-left: 15px;
       position: relative;
       z-index: 2;
-      background: white;
     }
 
     .restaurant-logo-large img {
@@ -110,49 +94,35 @@
     }
 
     .restaurant-title {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: #8B4513;
-      margin-bottom: 8px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      color: #2C3E50;
+      margin-bottom: 5px;
     }
 
     .restaurant-category {
-      color: #D2691E;
-      margin-bottom: 12px;
-      font-size: 1rem;
-      font-weight: 500;
+      color: #BDC3C7;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
     }
 
     .info-details {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 18px;
-      margin-top: 20px;
+      gap: 15px;
+      margin-top: 15px;
     }
 
     .info-item {
       display: flex;
       align-items: center;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      border: 1px solid rgba(210, 105, 30, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .info-item:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
     }
 
     .info-item i {
-      color: #D2691E;
-      font-size: 1.2rem;
-      margin-left: 15px;
-      width: 25px;
-      text-align: center;
+      color: #F15A29;
+      font-size: 1.1rem;
+      margin-left: 12px;
+      width: 20px;
     }
 
     .info-text {
@@ -160,131 +130,94 @@
     }
 
     .info-label {
-      font-size: 0.85rem;
-      color: #8B4513;
-      font-weight: 600;
+      font-size: 0.8rem;
+      color: #BDC3C7;
     }
 
     .info-value {
-      font-weight: 700;
-      margin-top: 4px;
-      font-size: 0.95rem;
-      color: #2C3E50;
+      font-weight: 600;
+      margin-top: 2px;
+      font-size: 0.9rem;
     }
 
     /* ===== أقسام المنيو ===== */
     .menu-section {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: white;
       border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
-      margin-bottom: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .menu-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #8B4513, #D2691E);
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
     }
 
     .section-header {
       display: flex;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 18px;
-      border-bottom: 2px solid rgba(210, 105, 30, 0.2);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #ECF0F1;
     }
 
     .section-icon {
-      width: 45px;
-      height: 45px;
-      background: linear-gradient(135deg, #8B4513, #D2691E);
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F15A29, #FFD27F);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 18px;
+      margin-left: 15px;
       color: white;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+      font-size: 1.2rem;
     }
 
     .section-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #8B4513;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2C3E50;
       flex-grow: 1;
     }
 
     .sub-section {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .sub-section-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: #D2691E;
-      margin-bottom: 18px;
-      padding-right: 15px;
-      border-right: 4px solid #D2691E;
-      background: linear-gradient(90deg, rgba(210, 105, 30, 0.1), transparent);
-      padding: 10px 15px;
-      border-radius: 0 12px 12px 0;
+      color: #F15A29;
+      margin-bottom: 15px;
+      padding-right: 10px;
+      border-right: 3px solid #F15A29;
     }
 
     /* نظام البطاقات */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 12px;
       width: 100%;
     }
 
     .menu-item {
       background: white;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       width: 100%;
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(210, 105, 30, 0.1);
-      position: relative;
-    }
-
-    .menu-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #8B4513, #D2691E);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .menu-item:hover::before {
-      transform: scaleX(1);
+      border: 1px solid #ECF0F1;
     }
 
     .menu-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
-      border-color: #D2691E;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      border-color: #F15A29;
     }
 
     .menu-item-image {
-      height: 130px;
+      height: 120px;
       width: 100%;
       overflow: hidden;
       position: relative;
@@ -299,28 +232,28 @@
     }
 
     .menu-item:hover .menu-item-image img {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .menu-item-content {
-      padding: 15px;
+      padding: 12px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
 
     .menu-item-title {
-      font-weight: 800;
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: #8B4513;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: #2C3E50;
       line-height: 1.3;
     }
 
     .menu-item-desc {
-      color: #666;
-      font-size: 0.82rem;
-      margin-bottom: 12px;
+      color: #BDC3C7;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
       line-height: 1.4;
       flex-grow: 1;
     }
@@ -329,14 +262,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px 0;
+      margin: 8px 0;
     }
 
     .quantity-btn {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      background: rgba(210, 105, 30, 0.1);
+      background: #ECF0F1;
       border: none;
       display: flex;
       align-items: center;
@@ -344,24 +277,22 @@
       cursor: pointer;
       font-weight: bold;
       transition: all 0.2s ease;
-      font-size: 0.9rem;
-      color: #8B4513;
+      font-size: 0.85rem;
     }
 
     .quantity-btn:hover {
-      background: #D2691E;
+      background: #F15A29;
       color: white;
     }
 
     .quantity-input {
-      width: 35px;
+      width: 32px;
       text-align: center;
-      margin: 0 8px;
-      border: 1px solid rgba(210, 105, 30, 0.3);
-      border-radius: 6px;
-      padding: 5px;
-      font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.8);
+      margin: 0 6px;
+      border: 1px solid #BDC3C7;
+      border-radius: 5px;
+      padding: 4px;
+      font-size: 0.85rem;
     }
 
     .menu-item-footer {
@@ -370,39 +301,33 @@
       align-items: center;
       margin-top: auto;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .menu-item-price {
       font-weight: 800;
-      color: #8B4513;
-      font-size: 1rem;
-      background: rgba(210, 105, 30, 0.1);
-      padding: 6px 12px;
-      border-radius: 20px;
+      color: #F15A29;
+      font-size: 0.95rem;
     }
 
     .add-to-cart {
-      background: linear-gradient(135deg, #8B4513, #D2691E);
+      background: #F15A29;
       color: white;
       border: none;
-      border-radius: 20px;
-      padding: 8px 16px;
+      border-radius: 15px;
+      padding: 6px 12px;
       font-family: 'Cairo', sans-serif;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       white-space: nowrap;
       flex: 1;
-      max-width: 80px;
-      box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+      max-width: 70px;
     }
 
     .add-to-cart:hover {
-      background: linear-gradient(135deg, #D2691E, #8B4513);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+      background: #E83F3F;
     }
 
     /* ===== سلة التسوق المنبثقة ===== */
@@ -812,7 +737,7 @@
     }
 
     .nav-item.active, .nav-item:hover {
-      color: #8B4513;
+      color: #F15A29;
     }
 
     .nav-item i {
@@ -840,16 +765,16 @@
       }
 
       .menu-item-image {
-        height: 110px;
+        height: 100px;
       }
 
       .restaurant-logo-large {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
       }
 
       .restaurant-title {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
       
       .cart-summary {
@@ -877,7 +802,7 @@
       }
       
       .menu-item-image {
-        height: 150px;
+        height: 160px;
       }
       
       .restaurant-info {
@@ -1356,12 +1281,11 @@
   </nav>
 
   <script>
+    // نفس كود JavaScript السابق بالضبط
     document.addEventListener('DOMContentLoaded', function() {
-      // === الدالة الجديدة لمعالجة الأسعار بشكل آمن ===
       function parsePrice(price) {
         if (typeof price === 'number') return price;
         if (typeof price === 'string') {
-          // إزالة أي أحرف غير رقمية بما في ذلك الفواصل
           const cleanPrice = price.replace(/[^\d]/g, '');
           const parsed = parseInt(cleanPrice, 10);
           return isNaN(parsed) ? 0 : parsed;
@@ -1369,7 +1293,6 @@
         return 0;
       }
 
-      // === العناصر والبيانات ===
       const cartSidebar = document.getElementById('cart-sidebar');
       const cartOverlay = document.getElementById('cart-overlay');
       const openCartBtn = document.getElementById('open-cart');
@@ -1391,7 +1314,6 @@
       let cart = [];
       let selectedPayment = 'cash';
 
-      // === فتح وإغلاق السلة ===
       openCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
         openCart();
@@ -1412,13 +1334,12 @@
         document.body.style.overflow = 'auto';
       }
 
-      // === إضافة العناصر إلى السلة ===
       document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', function() {
           const menuItem = this.closest('.menu-item');
           const itemId = menuItem.dataset.id;
           const itemName = menuItem.dataset.name;
-          const itemPrice = parsePrice(menuItem.dataset.price); // استخدام الدالة الجديدة
+          const itemPrice = parsePrice(menuItem.dataset.price);
           const quantityInput = menuItem.querySelector('.quantity-input');
           const quantity = parseInt(quantityInput.value);
           
@@ -1428,7 +1349,6 @@
         });
       });
 
-      // === وظيفة إضافة إلى السلة ===
       function addToCart(id, name, price, quantity) {
         const existingItem = cart.find(item => item.id === id);
         
@@ -1446,17 +1366,13 @@
         updateCartUI();
       }
 
-      // === تحديث واجهة سلة التسوق ===
       function updateCartUI() {
-        // تحديث عدد العناصر في الشارة
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartBadge.textContent = totalItems;
         
-        // تحديث إجمالي السعر
         const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
         cartTotalPrice.textContent = formatPrice(totalPrice);
         
-        // تحديث قائمة العناصر في السلة
         cartItemsContainer.innerHTML = '';
         
         if (cart.length === 0) {
@@ -1471,12 +1387,10 @@
             cartItemsContainer.appendChild(cartItemElement);
           });
           
-          // تفعيل زر الطلب
           validateCustomerInfo();
         }
       }
 
-      // === إنشاء عنصر سلة تسوق ===
       function createCartItemElement(item) {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
@@ -1497,7 +1411,6 @@
           </div>
         `;
         
-        // إضافة مستمعي الأحداث للأزرار
         const minusBtn = cartItem.querySelector('.minus');
         const plusBtn = cartItem.querySelector('.plus');
         const quantityInput = cartItem.querySelector('.cart-quantity-input');
@@ -1538,12 +1451,10 @@
         return cartItem;
       }
 
-      // === تنسيق السعر ===
       function formatPrice(price) {
         return new Intl.NumberFormat('ar-SY').format(price) + ' ل.س';
       }
 
-      // === التحقق من صحة معلومات العميل ===
       function validateCustomerInfo() {
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
@@ -1558,12 +1469,10 @@
         }
       }
 
-      // === إضافة مستمعي الأحداث لحقول معلومات العميل ===
       customerName.addEventListener('input', validateCustomerInfo);
       customerAddress.addEventListener('input', validateCustomerInfo);
       customerPhone.addEventListener('input', validateCustomerInfo);
 
-      // === اختيار طريقة الدفع ===
       paymentCash.addEventListener('click', function() {
         selectedPayment = 'cash';
         updatePaymentSelection();
@@ -1581,14 +1490,11 @@
         showBarcode('USDT');
       });
 
-      // === تحديث اختيار طريقة الدفع ===
       function updatePaymentSelection() {
-        // إزالة التحديد من جميع الخيارات
         paymentCash.classList.remove('selected');
         paymentShamcash.classList.remove('selected');
         paymentUsdt.classList.remove('selected');
         
-        // إضافة التحديد للخيار المختار
         if (selectedPayment === 'cash') {
           paymentCash.classList.add('selected');
         } else if (selectedPayment === 'shamcash') {
@@ -1598,19 +1504,16 @@
         }
       }
 
-      // === عرض الباركود ===
       function showBarcode(paymentMethod) {
         const barcodeTitle = document.getElementById('barcode-title');
         barcodeTitle.textContent = `باركود ${paymentMethod}`;
         barcodeModal.classList.add('active');
       }
 
-      // === إغلاق نافذة الباركود ===
       closeBarcode.addEventListener('click', function() {
         barcodeModal.classList.remove('active');
       });
 
-      // === إرسال الطلب عبر واتساب (نسخة مبسطة) ===
       whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
         
@@ -1618,7 +1521,6 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // إنشاء رسالة الطلب
         let message = `🎯 طلب جديد من مطعم المعالي\n\n`;
         message += `👤 العميل: ${name}\n`;
         message += `📞 الهاتف: ${phone}\n`;
@@ -1634,28 +1536,22 @@
         message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
         message += `شكراً لطلبكم من المعالي! 🎉`;
         
-        // ترميز الرسالة للرابط
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`; // استبدل برقمك
+        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
         
-        // فتح واتساب
         window.open(whatsappUrl, '_blank');
         
-        // إظهار رسالة نجاح
         showNotification('✅ تم إرسال طلبك بنجاح!');
         
-        // تنظيف السلة
         cart = [];
         updateCartUI();
         closeCart();
         
-        // تنظيف الحقول
         customerName.value = '';
         customerAddress.value = '';
         customerPhone.value = '';
       });
 
-      // === الحصول على اسم طريقة الدفع ===
       function getPaymentMethodName(method) {
         switch(method) {
           case 'cash': return 'نقداً عند الاستلام';
@@ -1665,7 +1561,6 @@
         }
       }
 
-      // === إظهار إشعار ===
       function showNotification(message) {
         const notification = document.createElement('div');
         notification.style.cssText = `
@@ -1687,13 +1582,11 @@
         
         document.body.appendChild(notification);
         
-        // إظهار الإشعار
         setTimeout(() => {
           notification.style.opacity = '1';
           notification.style.transform = 'translateY(0)';
         }, 10);
         
-        // إخفاء الإشعار بعد 3 ثوانٍ
         setTimeout(() => {
           notification.style.opacity = '0';
           notification.style.transform = 'translateY(-20px)';
@@ -1703,7 +1596,6 @@
         }, 3000);
       }
 
-      // === التحكم في الكمية في قائمة الطعام ===
       document.querySelectorAll('.quantity-controls').forEach(control => {
         const minusBtn = control.querySelector('.minus');
         const plusBtn = control.querySelector('.plus');
@@ -1730,7 +1622,6 @@
         });
       });
 
-      // === تهيئة اختيار طريقة الدفع الافتراضية ===
       updatePaymentSelection();
     });
   </script>
