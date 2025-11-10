@@ -48,33 +48,10 @@
       width: auto;
     }
 
-    /* ===== صورة الغلاف ===== */
-    .cover-image {
-      height: 200px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cover-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
-    }
-
     /* ===== معلومات المطعم ===== */
     .restaurant-info {
       max-width: 1200px;
-      margin: -60px auto 0;
+      margin: 20px auto 0;
       padding: 0 15px;
       position: relative;
       z-index: 2;
@@ -86,6 +63,29 @@
       padding: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* الزخرفة الذهبية */
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #FFD700, #D4AF37, #FFD700);
+    }
+
+    .info-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #FFD700, #D4AF37, #FFD700);
     }
 
     .info-header {
@@ -170,6 +170,17 @@
       padding: 20px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
       margin-bottom: 20px;
+      position: relative;
+    }
+
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #FFD700, #D4AF37);
     }
 
     .section-header {
@@ -786,10 +797,6 @@
       .info-card {
         padding: 15px;
       }
-      
-      .cover-image {
-        height: 180px;
-      }
 
       .menu-item-image {
         height: 100px;
@@ -819,14 +826,6 @@
       .menu-item-image {
         height: 140px;
       }
-      
-      .cover-image {
-        height: 220px;
-      }
-      
-      .restaurant-info {
-        margin: -70px auto 0;
-      }
     }
 
     /* ===== تحسينات للشاشات الكبيرة ===== */
@@ -840,12 +839,7 @@
         height: 160px;
       }
       
-      .cover-image {
-        height: 250px;
-      }
-      
       .restaurant-info {
-        margin: -80px auto 0;
         padding: 0 20px;
       }
       
@@ -868,13 +862,6 @@
       </div>
     </div>
   </header>
-
-  <!-- صورة الغلاف -->
-  <div class="cover-image">
-    <img src="https://images.unsplash.com/photo-1559305289-0f7e0d1e5e7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-         alt="أشبيلية">
-    <div class="overlay"></div>
-  </div>
 
   <!-- معلومات المطعم -->
   <section class="restaurant-info">
@@ -1274,81 +1261,6 @@
       </div>
     </div>
 
-    <!-- قسم الوجبات -->
-    <div class="menu-section">
-      <div class="section-header">
-        <div class="section-icon">
-          <i class="fas fa-utensils"></i>
-        </div>
-        <h2 class="section-title">وجبات</h2>
-      </div>
-
-      <div class="menu-grid">
-        <!-- صحن صغير -->
-        <div class="menu-item" data-id="309" data-name="صحن صغير" data-price="20000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="صحن صغير">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">صحن صغير</h3>
-            <p class="menu-item-desc">وجبة مشويات صغيرة مع الأرز والسلطة</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">٢٠,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- صحن وسط -->
-        <div class="menu-item" data-id="310" data-name="صحن وسط" data-price="35000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="صحن وسط">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">صحن وسط</h3>
-            <p class="menu-item-desc">وجبة مشويات وسط مع الأرز والسلطة</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">٣٥,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- صحن كبير -->
-        <div class="menu-item" data-id="311" data-name="صحن كبير" data-price="50000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="صحن كبير">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">صحن كبير</h3>
-            <p class="menu-item-desc">وجبة مشويات كبيرة مع الأرز والسلطة</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">٥٠,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- قسم فتات وفلافل -->
     <div class="menu-section">
       <div class="section-header">
@@ -1504,27 +1416,6 @@
             </div>
           </div>
         </div>
-
-        <!-- سرفيس -->
-        <div class="menu-item" data-id="318" data-name="سرفيس" data-price="18000">
-          <div class="menu-item-image">
-            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                 alt="سرفيس">
-          </div>
-          <div class="menu-item-content">
-            <h3 class="menu-item-title">سرفيس</h3>
-            <p class="menu-item-desc">سلطة سرفيس شرقية مع البندورة والخيار</p>
-            <div class="quantity-controls">
-              <button class="quantity-btn minus">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="99">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٨,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1611,12 +1502,11 @@
   </nav>
 
   <script>
+    // كود JavaScript الموجود سابقاً
     document.addEventListener('DOMContentLoaded', function() {
-      // === الدالة الجديدة لمعالجة الأسعار بشكل آمن ===
       function parsePrice(price) {
         if (typeof price === 'number') return price;
         if (typeof price === 'string') {
-          // إزالة أي أحرف غير رقمية بما في ذلك الفواصل
           const cleanPrice = price.replace(/[^\d]/g, '');
           const parsed = parseInt(cleanPrice, 10);
           return isNaN(parsed) ? 0 : parsed;
@@ -1624,7 +1514,6 @@
         return 0;
       }
 
-      // === العناصر والبيانات ===
       const cartSidebar = document.getElementById('cart-sidebar');
       const cartOverlay = document.getElementById('cart-overlay');
       const openCartBtn = document.getElementById('open-cart');
@@ -1646,7 +1535,6 @@
       let cart = [];
       let selectedPayment = 'cash';
 
-      // === فتح وإغلاق السلة ===
       openCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
         openCart();
@@ -1667,13 +1555,12 @@
         document.body.style.overflow = 'auto';
       }
 
-      // === إضافة العناصر إلى السلة ===
       document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', function() {
           const menuItem = this.closest('.menu-item');
           const itemId = menuItem.dataset.id;
           const itemName = menuItem.dataset.name;
-          const itemPrice = parsePrice(menuItem.dataset.price); // استخدام الدالة الجديدة
+          const itemPrice = parsePrice(menuItem.dataset.price);
           const quantityInput = menuItem.querySelector('.quantity-input');
           const quantity = parseInt(quantityInput.value);
           
@@ -1683,7 +1570,6 @@
         });
       });
 
-      // === وظيفة إضافة إلى السلة ===
       function addToCart(id, name, price, quantity) {
         const existingItem = cart.find(item => item.id === id);
         
@@ -1701,17 +1587,13 @@
         updateCartUI();
       }
 
-      // === تحديث واجهة سلة التسوق ===
       function updateCartUI() {
-        // تحديث عدد العناصر في الشارة
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartBadge.textContent = totalItems;
         
-        // تحديث إجمالي السعر
         const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
         cartTotalPrice.textContent = formatPrice(totalPrice);
         
-        // تحديث قائمة العناصر في السلة
         cartItemsContainer.innerHTML = '';
         
         if (cart.length === 0) {
@@ -1726,12 +1608,10 @@
             cartItemsContainer.appendChild(cartItemElement);
           });
           
-          // تفعيل زر الطلب
           validateCustomerInfo();
         }
       }
 
-      // === إنشاء عنصر سلة تسوق ===
       function createCartItemElement(item) {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
@@ -1752,7 +1632,6 @@
           </div>
         `;
         
-        // إضافة مستمعي الأحداث للأزرار
         const minusBtn = cartItem.querySelector('.minus');
         const plusBtn = cartItem.querySelector('.plus');
         const quantityInput = cartItem.querySelector('.cart-quantity-input');
@@ -1793,12 +1672,10 @@
         return cartItem;
       }
 
-      // === تنسيق السعر ===
       function formatPrice(price) {
         return new Intl.NumberFormat('ar-SY').format(price) + ' ل.س';
       }
 
-      // === التحقق من صحة معلومات العميل ===
       function validateCustomerInfo() {
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
@@ -1813,12 +1690,10 @@
         }
       }
 
-      // === إضافة مستمعي الأحداث لحقول معلومات العميل ===
       customerName.addEventListener('input', validateCustomerInfo);
       customerAddress.addEventListener('input', validateCustomerInfo);
       customerPhone.addEventListener('input', validateCustomerInfo);
 
-      // === اختيار طريقة الدفع ===
       paymentCash.addEventListener('click', function() {
         selectedPayment = 'cash';
         updatePaymentSelection();
@@ -1836,14 +1711,11 @@
         showBarcode('USDT');
       });
 
-      // === تحديث اختيار طريقة الدفع ===
       function updatePaymentSelection() {
-        // إزالة التحديد من جميع الخيارات
         paymentCash.classList.remove('selected');
         paymentShamcash.classList.remove('selected');
         paymentUsdt.classList.remove('selected');
         
-        // إضافة التحديد للخيار المختار
         if (selectedPayment === 'cash') {
           paymentCash.classList.add('selected');
         } else if (selectedPayment === 'shamcash') {
@@ -1853,19 +1725,16 @@
         }
       }
 
-      // === عرض الباركود ===
       function showBarcode(paymentMethod) {
         const barcodeTitle = document.getElementById('barcode-title');
         barcodeTitle.textContent = `باركود ${paymentMethod}`;
         barcodeModal.classList.add('active');
       }
 
-      // === إغلاق نافذة الباركود ===
       closeBarcode.addEventListener('click', function() {
         barcodeModal.classList.remove('active');
       });
 
-      // === إرسال الطلب عبر واتساب ===
       whatsappOrderBtn.addEventListener('click', function() {
         if (this.disabled) return;
         
@@ -1873,7 +1742,6 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // إنشاء رسالة الطلب
         let message = `🎯 طلب جديد من مطعم أشبيلية\n\n`;
         message += `👤 العميل: ${name}\n`;
         message += `📞 الهاتف: ${phone}\n`;
@@ -1889,28 +1757,22 @@
         message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
         message += `شكراً لطلبكم من أشبيلية! 🎉`;
         
-        // ترميز الرسالة للرابط
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`; // الرقم المحدث
+        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
         
-        // فتح واتساب
         window.open(whatsappUrl, '_blank');
         
-        // إظهار رسالة نجاح
         showNotification('✅ تم إرسال طلبك بنجاح!');
         
-        // تنظيف السلة
         cart = [];
         updateCartUI();
         closeCart();
         
-        // تنظيف الحقول
         customerName.value = '';
         customerAddress.value = '';
         customerPhone.value = '';
       });
 
-      // === الحصول على اسم طريقة الدفع ===
       function getPaymentMethodName(method) {
         switch(method) {
           case 'cash': return 'نقداً عند الاستلام';
@@ -1920,7 +1782,6 @@
         }
       }
 
-      // === إظهار إشعار ===
       function showNotification(message) {
         const notification = document.createElement('div');
         notification.style.cssText = `
@@ -1942,13 +1803,11 @@
         
         document.body.appendChild(notification);
         
-        // إظهار الإشعار
         setTimeout(() => {
           notification.style.opacity = '1';
           notification.style.transform = 'translateY(0)';
         }, 10);
         
-        // إخفاء الإشعار بعد 3 ثوانٍ
         setTimeout(() => {
           notification.style.opacity = '0';
           notification.style.transform = 'translateY(-20px)';
@@ -1958,7 +1817,6 @@
         }, 3000);
       }
 
-      // === التحكم في الكمية في قائمة الطعام ===
       document.querySelectorAll('.quantity-controls').forEach(control => {
         const minusBtn = control.querySelector('.minus');
         const plusBtn = control.querySelector('.plus');
@@ -1985,7 +1843,6 @@
         });
       });
 
-      // === تهيئة اختيار طريقة الدفع الافتراضية ===
       updatePaymentSelection();
     });
   </script>
