@@ -65,27 +65,31 @@
       margin-bottom: 20px;
       position: relative;
       overflow: hidden;
+      border: 3px solid transparent;
+      background-clip: padding-box;
     }
 
-    /* الزخرفة الذهبية */
+    /* الإطار الذهبي للكرت فقط */
     .info-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #FFD700, #D4AF37, #FFD700);
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #FFD700, #D4AF37, #FFD700, #D4AF37);
+      border-radius: 27px;
+      z-index: -1;
+      animation: goldenGlow 3s ease-in-out infinite alternate;
     }
 
-    .info-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #FFD700, #D4AF37, #FFD700);
+    @keyframes goldenGlow {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     .info-header {
@@ -170,17 +174,6 @@
       padding: 20px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
       margin-bottom: 20px;
-      position: relative;
-    }
-
-    .menu-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #FFD700, #D4AF37);
     }
 
     .section-header {
@@ -902,6 +895,7 @@
       </div>
     </div>
 
+    <!-- باقي الأقسام تبقى كما هي بدون إطار ذهبي -->
     <!-- قسم المشويات -->
     <div class="menu-section">
       <div class="section-header">
@@ -1420,6 +1414,7 @@
     </div>
   </section>
 
+  <!-- باقي الكود (السلة والشريط السفلي) يبقى كما هو -->
   <!-- سلة التسوق المنبثقة -->
   <div class="overlay" id="cart-overlay"></div>
   <div class="cart-sidebar" id="cart-sidebar">
