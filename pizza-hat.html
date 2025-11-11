@@ -37,7 +37,7 @@
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
@@ -46,28 +46,6 @@
     .logo-container img {
       height: 45px;
       width: auto;
-    }
-
-    .back-btn {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.2);
-      font-size: 0.9rem;
-    }
-
-    .back-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .search-icon-header {
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: all 0.3s ease;
     }
 
     /* ===== صورة الغلاف ===== */
@@ -82,15 +60,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
     }
 
     /* ===== معلومات المطعم ===== */
@@ -885,14 +854,8 @@
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
-      <a href="restaurants.html" class="back-btn">
-        <i class="fas fa-arrow-right"></i> العودة
-      </a>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
-      </div>
-      <div class="search-icon-header">
-        <i class="fas fa-search"></i>
       </div>
     </div>
   </header>
@@ -901,7 +864,6 @@
   <div class="cover-image">
     <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
          alt="بيتزا هات">
-    <div class="overlay"></div>
   </div>
 
   <!-- معلومات المطعم -->
@@ -1364,10 +1326,6 @@
       <a href="index.html" class="nav-item">
         <i class="fas fa-home"></i>
         <span>الرئيسية</span>
-      </a>
-      <a href="restaurants.html" class="nav-item">
-        <i class="fas fa-utensils"></i>
-        <span>المطاعم</span>
       </a>
       <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
         <i class="fas fa-shopping-cart"></i>
