@@ -67,37 +67,43 @@
       overflow: hidden;
     }
 
-    /* زخرفة ذهبية في الزاوية اليسرى السفلية - مشابهة للصورة */
+    /* زخرفة خطية ذهبية في الزاوية اليسرى السفلية */
     .info-card::before {
       content: "";
       position: absolute;
-      bottom: -25px;
-      left: -25px;
+      bottom: -10px;
+      left: -10px;
       width: 120px;
       height: 120px;
       background: 
-        radial-gradient(circle at 30% 30%, #D4AF37 0%, #FFD700 30%, transparent 70%),
-        radial-gradient(circle at 70% 70%, #FFD700 0%, #D4AF37 40%, transparent 80%);
-      opacity: 0.8;
+        /* خطوط ذهبية متداخلة */
+        radial-gradient(circle at 30% 30%, transparent 20px, #D4AF37 20px, #D4AF37 25px, transparent 25px),
+        radial-gradient(circle at 70% 70%, transparent 15px, #FFD700 15px, #FFD700 20px, transparent 20px),
+        /* خطوط متعرجة */
+        linear-gradient(45deg, transparent 45%, #D4AF37 45%, #D4AF37 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #FFD700 45%, #FFD700 55%, transparent 55%);
+      opacity: 0.6;
       z-index: 1;
-      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
       transform: rotate(-15deg);
-      filter: blur(1px);
     }
 
-    /* زخرفة إضافية أصغر */
+    /* زخرفة خطية إضافية */
     .info-card::after {
       content: "";
       position: absolute;
-      bottom: 15px;
-      left: 15px;
-      width: 60px;
-      height: 60px;
+      bottom: 5px;
+      left: 5px;
+      width: 80px;
+      height: 80px;
       background: 
-        radial-gradient(circle at 40% 40%, #FFD700 0%, #D4AF37 50%, transparent 80%);
-      opacity: 0.6;
+        /* دوائر وخطوط ذهبية */
+        radial-gradient(circle at 60% 40%, transparent 8px, #FFD700 8px, #FFD700 12px, transparent 12px),
+        radial-gradient(circle at 40% 60%, transparent 6px, #D4AF37 6px, #D4AF37 10px, transparent 10px),
+        /* خطوط متموجة */
+        linear-gradient(90deg, transparent 40%, #D4AF37 40%, #D4AF37 60%, transparent 60%),
+        linear-gradient(0deg, transparent 40%, #FFD700 40%, #FFD700 60%, transparent 60%);
+      opacity: 0.4;
       z-index: 1;
-      border-radius: 50% 30% 60% 40% / 60% 40% 60% 40%;
       transform: rotate(25deg);
     }
 
@@ -119,41 +125,47 @@
       margin-left: 15px;
       position: relative;
       z-index: 2;
-      /* إطار دائري ذهبي مع زخارف مشابهة للصورة */
+      /* إطار دائري ذهبي مع زخارف خطية */
       padding: 3px;
       background: 
-        radial-gradient(circle at 30% 30%, #D4AF37 0%, #FFD700 40%, transparent 70%),
-        radial-gradient(circle at 70% 70%, #FFD700 0%, #D4AF37 50%, transparent 80%);
+        /* خطوط دائرية ذهبية */
+        conic-gradient(from 0deg, #D4AF37, #FFD700, #D4AF37, #FFD700, #D4AF37);
       background-size: cover;
       position: relative;
       overflow: visible;
     }
 
-    /* زخارف إضافية حول اللوغو */
+    /* زخارف خطية حول اللوغو */
     .restaurant-logo-large::before {
       content: "";
       position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 25px;
-      height: 25px;
-      background: radial-gradient(circle, #FFD700 0%, #D4AF37 70%, transparent 100%);
+      top: -12px;
+      right: -12px;
+      width: 30px;
+      height: 30px;
+      background: 
+        linear-gradient(45deg, transparent 45%, #FFD700 45%, #FFD700 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #D4AF37 45%, #D4AF37 55%, transparent 55%);
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.8;
       z-index: 3;
+      transform: rotate(45deg);
     }
 
     .restaurant-logo-large::after {
       content: "";
       position: absolute;
-      bottom: -5px;
-      left: -5px;
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle, #D4AF37 0%, #FFD700 60%, transparent 100%);
+      bottom: -8px;
+      left: -8px;
+      width: 25px;
+      height: 25px;
+      background: 
+        radial-gradient(circle, transparent 5px, #D4AF37 5px, #D4AF37 8px, transparent 8px),
+        linear-gradient(90deg, transparent 40%, #FFD700 40%, #FFD700 60%, transparent 60%);
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.8;
       z-index: 3;
+      transform: rotate(-30deg);
     }
 
     .restaurant-logo-large img {
