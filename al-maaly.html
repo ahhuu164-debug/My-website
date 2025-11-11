@@ -18,7 +18,7 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #faf5f0; /* لون كريمي دافئ */
+      background-color: #f8f9fa;
       color: #2D3436;
       line-height: 1.6;
       padding-bottom: 80px;
@@ -61,10 +61,8 @@
       background: white;
       border-radius: 24px;
       padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
     }
 
     .info-header {
@@ -81,13 +79,14 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       overflow: hidden;
       margin-left: 15px;
+      position: relative;
+      z-index: 2;
     }
 
     .restaurant-logo-large img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
     }
 
     .title-section {
@@ -146,7 +145,7 @@
       background: white;
       border-radius: 24px;
       padding: 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
       margin-bottom: 20px;
     }
 
@@ -203,7 +202,7 @@
       background: white;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       width: 100%;
       display: flex;
@@ -213,7 +212,7 @@
 
     .menu-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       border-color: #F15A29;
     }
 
@@ -869,7 +868,6 @@
       </div>
     </div>
 
-    <!-- باقي الأقسام تبقى كما هي -->
     <!-- قسم المعجنات -->
     <div class="menu-section">
       <div class="section-header">
@@ -901,11 +899,733 @@
           </div>
         </div>
 
-        <!-- باقي العناصر تبقى كما هي -->
+        <!-- معاجيق دجاج -->
+        <div class="menu-item" data-id="302" data-name="معاجيق دجاج" data-price="70000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/2Y5n6wGx/image.png" 
+                 alt="معاجيق دجاج">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">معاجيق دجاج</h3>
+            <p class="menu-item-desc">معجنات دجاج لذيذة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٧٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صفيحة لحم -->
+        <div class="menu-item" data-id="303" data-name="صفيحة لحم" data-price="150000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/LhBd7yD8/image.png" 
+                 alt="صفيحة لحم">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">صفيحة لحم</h3>
+            <p class="menu-item-desc">صفيحة لحم شهية</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- صفيحة دجاج -->
+        <div class="menu-item" data-id="304" data-name="صفيحة دجاج" data-price="70000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/0jdgwZ5f/image.png" 
+                 alt="صفيحة دجاج">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">صفيحة دجاج</h3>
+            <p class="menu-item-desc">صفيحة دجاج طازجة</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٧٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم المشويات -->
+    <div class="menu-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-fire"></i>
+        </div>
+        <h2 class="section-title">المشويات</h2>
+      </div>
+
+      <div class="menu-grid">
+        <!-- كباب لحم -->
+        <div class="menu-item" data-id="305" data-name="كباب لحم" data-price="150000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/JWFdw2rS/image.png" 
+                 alt="كباب لحم">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب لحم</h3>
+            <p class="menu-item-desc">كباب لحم مشوي طازج</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- كباب دجاج -->
+        <div class="menu-item" data-id="306" data-name="كباب دجاج" data-price="70000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/5zPSnVz/image.png" 
+                 alt="كباب دجاج">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب دجاج</h3>
+            <p class="menu-item-desc">كباب دجاج مشوي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٧٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- شقف لحم -->
+        <div class="menu-item" data-id="307" data-name="شقف لحم" data-price="150000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/7JJrdt2z/image.png" 
+                 alt="شقف لحم">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">شقف لحم</h3>
+            <p class="menu-item-desc">شقف لحم مشوي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- شيش -->
+        <div class="menu-item" data-id="308" data-name="شيش" data-price="90000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/1f6Xg8kR/image.png" 
+                 alt="شيش">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">شيش</h3>
+            <p class="menu-item-desc">شيش طاووق مشوي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٩٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- مارينا لحم -->
+        <div class="menu-item" data-id="309" data-name="مارينا لحم" data-price="150000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="مارينا لحم">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">مارينا لحم</h3>
+            <p class="menu-item-desc">مارينا لحم مشوي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- مارينا دجاج -->
+        <div class="menu-item" data-id="310" data-name="مارينا دجاج" data-price="70000">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                 alt="مارينا دجاج">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">مارينا دجاج</h3>
+            <p class="menu-item-desc">مارينا دجاج مشوي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٧٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم الساندويش -->
+    <div class="menu-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-hamburger"></i>
+        </div>
+        <h2 class="section-title">ساندويش</h2>
+      </div>
+
+      <div class="menu-grid">
+        <!-- كباب لحم عادي -->
+        <div class="menu-item" data-id="311" data-name="كباب لحم عادي" data-price="16000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/mFykRJGJ/image.png" 
+                 alt="كباب لحم عادي">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب لحم عادي</h3>
+            <p class="menu-item-desc">ساندويش كباب لحم عادي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٦,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- كباب لحم دبل -->
+        <div class="menu-item" data-id="312" data-name="كباب لحم دبل" data-price="30000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/JNmLJjx/image.png" 
+                 alt="كباب لحم دبل">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب لحم دبل</h3>
+            <p class="menu-item-desc">ساندويش كباب لحم دبل</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٣٠,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- كباب دجاج عادي -->
+        <div class="menu-item" data-id="313" data-name="كباب دجاج عادي" data-price="9000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/HTbK7XYv/image.png" 
+                 alt="كباب دجاج عادي">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب دجاج عادي</h3>
+            <p class="menu-item-desc">ساندويش كباب دجاج عادي</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">٩,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- كباب دجاج دبل -->
+        <div class="menu-item" data-id="314" data-name="كباب دجاج دبل" data-price="15000">
+          <div class="menu-item-image">
+            <img src="https://i.ibb.co/spCXFp16/image.png" 
+                 alt="كباب دجاج دبل">
+          </div>
+          <div class="menu-item-content">
+            <h3 class="menu-item-title">كباب دجاج دبل</h3>
+            <p class="menu-item-desc">ساندويش كباب دجاج دبل</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="99">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="menu-item-footer">
+              <span class="menu-item-price">١٥,٠٠٠ ل.س</span>
+              <button class="add-to-cart">إضافة</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- باقي الكود يبقى كما هو -->
+  <!-- سلة التسوق المنبثقة -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="cart-title">سلة الطلبات</h2>
+      <button class="close-cart" id="close-cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
+      <div class="empty-cart-message" id="empty-cart-message">
+        <i class="fas fa-shopping-cart"></i>
+        <p>سلة التسوق فارغة</p>
+      </div>
+    </div>
+    
+    <!-- خانات معلومات العميل -->
+    <div class="customer-info">
+      <div class="customer-info-title">معلومات التوصيل</div>
+      <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
+      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required>
+      <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
+    </div>
+    
+    <!-- طرق الدفع -->
+    <div class="payment-methods">
+      <div class="payment-methods-title">طريقة الدفع</div>
+      <div class="payment-options">
+        <div class="payment-option cash selected" id="payment-cash">
+          <i class="fas fa-money-bill-wave payment-icon"></i>
+          <span class="payment-label">الدفع نقداً عند الاستلام</span>
+        </div>
+        <div class="payment-option sham-cash" id="payment-shamcash">
+          <i class="fas fa-wallet payment-icon"></i>
+          <span class="payment-label">شام كاش</span>
+        </div>
+        <div class="payment-option usdt" id="payment-usdt">
+          <i class="fas fa-dollar-sign payment-icon"></i>
+          <span class="payment-label">USDT</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span id="cart-total-price">٠ ل.س</span>
+      </div>
+      <button class="whatsapp-order-btn" id="whatsapp-order">
+        <i class="fab fa-whatsapp"></i>
+        اطلب عبر واتساب
+      </button>
+    </div>
+  </div>
+
+  <!-- نافذة الباركود -->
+  <div class="barcode-modal" id="barcode-modal">
+    <div class="barcode-content">
+      <h3 class="barcode-title" id="barcode-title">باركود الدفع</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SalamiaDeliveo" 
+           alt="باركود الدفع" class="barcode-image" id="barcode-image">
+      <button class="close-barcode" id="close-barcode">إغلاق</button>
+    </div>
+  </div>
+
+  <!-- الشريط السفلي -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span>السلة</span>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // نفس كود JavaScript السابق بالضبط
+    document.addEventListener('DOMContentLoaded', function() {
+      function parsePrice(price) {
+        if (typeof price === 'number') return price;
+        if (typeof price === 'string') {
+          const cleanPrice = price.replace(/[^\d]/g, '');
+          const parsed = parseInt(cleanPrice, 10);
+          return isNaN(parsed) ? 0 : parsed;
+        }
+        return 0;
+      }
+
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const cartOverlay = document.getElementById('cart-overlay');
+      const openCartBtn = document.getElementById('open-cart');
+      const closeCartBtn = document.getElementById('close-cart');
+      const cartItemsContainer = document.getElementById('cart-items');
+      const emptyCartMessage = document.getElementById('empty-cart-message');
+      const cartBadge = document.getElementById('cart-badge');
+      const cartTotalPrice = document.getElementById('cart-total-price');
+      const whatsappOrderBtn = document.getElementById('whatsapp-order');
+      const customerName = document.getElementById('customer-name');
+      const customerAddress = document.getElementById('customer-address');
+      const customerPhone = document.getElementById('customer-phone');
+      const paymentCash = document.getElementById('payment-cash');
+      const paymentShamcash = document.getElementById('payment-shamcash');
+      const paymentUsdt = document.getElementById('payment-usdt');
+      const barcodeModal = document.getElementById('barcode-modal');
+      const closeBarcode = document.getElementById('close-barcode');
+      
+      let cart = [];
+      let selectedPayment = 'cash';
+
+      openCartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openCart();
+      });
+      
+      closeCartBtn.addEventListener('click', closeCart);
+      cartOverlay.addEventListener('click', closeCart);
+
+      function openCart() {
+        cartSidebar.classList.add('open');
+        cartOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeCart() {
+        cartSidebar.classList.remove('open');
+        cartOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const menuItem = this.closest('.menu-item');
+          const itemId = menuItem.dataset.id;
+          const itemName = menuItem.dataset.name;
+          const itemPrice = parsePrice(menuItem.dataset.price);
+          const quantityInput = menuItem.querySelector('.quantity-input');
+          const quantity = parseInt(quantityInput.value);
+          
+          addToCart(itemId, itemName, itemPrice, quantity);
+          openCart();
+          showNotification(`تم إضافة ${itemName} إلى السلة`);
+        });
+      });
+
+      function addToCart(id, name, price, quantity) {
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity
+          });
+        }
+        
+        updateCartUI();
+      }
+
+      function updateCartUI() {
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        cartBadge.textContent = totalItems;
+        
+        const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        cartTotalPrice.textContent = formatPrice(totalPrice);
+        
+        cartItemsContainer.innerHTML = '';
+        
+        if (cart.length === 0) {
+          cartItemsContainer.appendChild(emptyCartMessage);
+          emptyCartMessage.style.display = 'block';
+          whatsappOrderBtn.classList.remove('active');
+        } else {
+          emptyCartMessage.style.display = 'none';
+          
+          cart.forEach(item => {
+            const cartItemElement = createCartItemElement(item);
+            cartItemsContainer.appendChild(cartItemElement);
+          });
+          
+          validateCustomerInfo();
+        }
+      }
+
+      function createCartItemElement(item) {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.dataset.id = item.id;
+        
+        cartItem.innerHTML = `
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${formatPrice(item.price)}</div>
+          </div>
+          <div class="cart-item-quantity">
+            <button class="remove-item" title="إزالة">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button class="cart-quantity-btn minus">-</button>
+            <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" max="99">
+            <button class="cart-quantity-btn plus">+</button>
+          </div>
+        `;
+        
+        const minusBtn = cartItem.querySelector('.minus');
+        const plusBtn = cartItem.querySelector('.plus');
+        const quantityInput = cartItem.querySelector('.cart-quantity-input');
+        const removeBtn = cartItem.querySelector('.remove-item');
+        
+        minusBtn.addEventListener('click', function() {
+          if (item.quantity > 1) {
+            item.quantity--;
+            quantityInput.value = item.quantity;
+            updateCartUI();
+          }
+        });
+        
+        plusBtn.addEventListener('click', function() {
+          if (item.quantity < 99) {
+            item.quantity++;
+            quantityInput.value = item.quantity;
+            updateCartUI();
+          }
+        });
+        
+        quantityInput.addEventListener('change', function() {
+          const newQuantity = parseInt(this.value);
+          if (newQuantity >= 1 && newQuantity <= 99) {
+            item.quantity = newQuantity;
+            updateCartUI();
+          } else {
+            this.value = item.quantity;
+          }
+        });
+        
+        removeBtn.addEventListener('click', function() {
+          cart = cart.filter(cartItem => cartItem.id !== item.id);
+          updateCartUI();
+          showNotification(`تم إزالة ${item.name} من السلة`);
+        });
+        
+        return cartItem;
+      }
+
+      function formatPrice(price) {
+        return new Intl.NumberFormat('ar-SY').format(price) + ' ل.س';
+      }
+
+      function validateCustomerInfo() {
+        const name = customerName.value.trim();
+        const address = customerAddress.value.trim();
+        const phone = customerPhone.value.trim();
+        
+        if (name && address && phone && cart.length > 0) {
+          whatsappOrderBtn.classList.add('active');
+          whatsappOrderBtn.disabled = false;
+        } else {
+          whatsappOrderBtn.classList.remove('active');
+          whatsappOrderBtn.disabled = true;
+        }
+      }
+
+      customerName.addEventListener('input', validateCustomerInfo);
+      customerAddress.addEventListener('input', validateCustomerInfo);
+      customerPhone.addEventListener('input', validateCustomerInfo);
+
+      paymentCash.addEventListener('click', function() {
+        selectedPayment = 'cash';
+        updatePaymentSelection();
+      });
+      
+      paymentShamcash.addEventListener('click', function() {
+        selectedPayment = 'shamcash';
+        updatePaymentSelection();
+        showBarcode('شام كاش');
+      });
+      
+      paymentUsdt.addEventListener('click', function() {
+        selectedPayment = 'usdt';
+        updatePaymentSelection();
+        showBarcode('USDT');
+      });
+
+      function updatePaymentSelection() {
+        paymentCash.classList.remove('selected');
+        paymentShamcash.classList.remove('selected');
+        paymentUsdt.classList.remove('selected');
+        
+        if (selectedPayment === 'cash') {
+          paymentCash.classList.add('selected');
+        } else if (selectedPayment === 'shamcash') {
+          paymentShamcash.classList.add('selected');
+        } else if (selectedPayment === 'usdt') {
+          paymentUsdt.classList.add('selected');
+        }
+      }
+
+      function showBarcode(paymentMethod) {
+        const barcodeTitle = document.getElementById('barcode-title');
+        barcodeTitle.textContent = `باركود ${paymentMethod}`;
+        barcodeModal.classList.add('active');
+      }
+
+      closeBarcode.addEventListener('click', function() {
+        barcodeModal.classList.remove('active');
+      });
+
+      whatsappOrderBtn.addEventListener('click', function() {
+        if (this.disabled) return;
+        
+        const name = customerName.value.trim();
+        const address = customerAddress.value.trim();
+        const phone = customerPhone.value.trim();
+        
+        let message = `🎯 طلب جديد من مطعم المعالي\n\n`;
+        message += `👤 العميل: ${name}\n`;
+        message += `📞 الهاتف: ${phone}\n`;
+        message += `📍 العنوان: ${address}\n\n`;
+        message += `🛒 الطلبات:\n`;
+        
+        cart.forEach((item, index) => {
+          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
+        });
+        
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
+        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
+        message += `شكراً لطلبكم من المعالي! 🎉`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+        
+        showNotification('✅ تم إرسال طلبك بنجاح!');
+        
+        cart = [];
+        updateCartUI();
+        closeCart();
+        
+        customerName.value = '';
+        customerAddress.value = '';
+        customerPhone.value = '';
+      });
+
+      function getPaymentMethodName(method) {
+        switch(method) {
+          case 'cash': return 'نقداً عند الاستلام';
+          case 'shamcash': return 'شام كاش';
+          case 'usdt': return 'USDT';
+          default: return 'غير محدد';
+        }
+      }
+
+      function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+          position: fixed;
+          top: 80px;
+          right: 20px;
+          background: #25D366;
+          color: white;
+          padding: 12px 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 2000;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          opacity: 0;
+          transform: translateY(-20px);
+        `;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.opacity = '1';
+          notification.style.transform = 'translateY(0)';
+        }, 10);
+        
+        setTimeout(() => {
+          notification.style.opacity = '0';
+          notification.style.transform = 'translateY(-20px)';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      document.querySelectorAll('.quantity-controls').forEach(control => {
+        const minusBtn = control.querySelector('.minus');
+        const plusBtn = control.querySelector('.plus');
+        const quantityInput = control.querySelector('.quantity-input');
+        
+        minusBtn.addEventListener('click', function() {
+          let value = parseInt(quantityInput.value);
+          if (value > 1) {
+            quantityInput.value = value - 1;
+          }
+        });
+        
+        plusBtn.addEventListener('click', function() {
+          let value = parseInt(quantityInput.value);
+          if (value < 99) {
+            quantityInput.value = value + 1;
+          }
+        });
+        
+        quantityInput.addEventListener('change', function() {
+          let value = parseInt(this.value);
+          if (value < 1) this.value = 1;
+          if (value > 99) this.value = 99;
+        });
+      });
+
+      updatePaymentSelection();
+    });
+  </script>
 </body>
 </html>
+ضع اطار ذهبي رفيع مزخرف لكرت المطعم الذي في اول الصفحة 
+وضع اطار دائري على لوغو المطعم ايضا زخارف ذهبية
