@@ -67,32 +67,38 @@
       overflow: hidden;
     }
 
-    /* زخرفة ذهبية في الزاوية اليسرى السفلية */
+    /* زخرفة ذهبية في الزاوية اليسرى السفلية - مشابهة للصورة */
     .info-card::before {
       content: "";
       position: absolute;
-      bottom: -15px;
-      left: -15px;
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B);
-      border-radius: 50%;
-      opacity: 0.7;
+      bottom: -25px;
+      left: -25px;
+      width: 120px;
+      height: 120px;
+      background: 
+        radial-gradient(circle at 30% 30%, #D4AF37 0%, #FFD700 30%, transparent 70%),
+        radial-gradient(circle at 70% 70%, #FFD700 0%, #D4AF37 40%, transparent 80%);
+      opacity: 0.8;
       z-index: 1;
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      transform: rotate(-15deg);
+      filter: blur(1px);
     }
 
     /* زخرفة إضافية أصغر */
     .info-card::after {
       content: "";
       position: absolute;
-      bottom: 5px;
-      left: 5px;
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700);
-      border-radius: 50%;
-      opacity: 0.5;
+      bottom: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      background: 
+        radial-gradient(circle at 40% 40%, #FFD700 0%, #D4AF37 50%, transparent 80%);
+      opacity: 0.6;
       z-index: 1;
+      border-radius: 50% 30% 60% 40% / 60% 40% 60% 40%;
+      transform: rotate(25deg);
     }
 
     .info-header {
@@ -113,23 +119,41 @@
       margin-left: 15px;
       position: relative;
       z-index: 2;
-      /* إطار دائري ذهبي مبسط للوغو */
+      /* إطار دائري ذهبي مع زخارف مشابهة للصورة */
       padding: 3px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B);
-      background-size: 200% 200%;
-      animation: gradientShift 4s ease infinite;
+      background: 
+        radial-gradient(circle at 30% 30%, #D4AF37 0%, #FFD700 40%, transparent 70%),
+        radial-gradient(circle at 70% 70%, #FFD700 0%, #D4AF37 50%, transparent 80%);
+      background-size: cover;
+      position: relative;
+      overflow: visible;
     }
 
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    /* زخارف إضافية حول اللوغو */
+    .restaurant-logo-large::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle, #FFD700 0%, #D4AF37 70%, transparent 100%);
+      border-radius: 50%;
+      opacity: 0.7;
+      z-index: 3;
+    }
+
+    .restaurant-logo-large::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: -5px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #D4AF37 0%, #FFD700 60%, transparent 100%);
+      border-radius: 50%;
+      opacity: 0.7;
+      z-index: 3;
     }
 
     .restaurant-logo-large img {
@@ -137,6 +161,8 @@
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
+      position: relative;
+      z-index: 2;
     }
 
     .title-section {
