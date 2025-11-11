@@ -63,6 +63,39 @@
       padding: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       margin-bottom: 20px;
+      position: relative;
+      /* إطار ذهبي مزخرف */
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      background-image: linear-gradient(white, white), 
+                        linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* تأثيرات زخرفية إضافية */
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
+      border-radius: 26px;
+      z-index: -1;
+      animation: shimmer 3s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
     }
 
     .info-header {
@@ -81,12 +114,30 @@
       margin-left: 15px;
       position: relative;
       z-index: 2;
+      /* إطار دائري ذهبي مزخرف للوغو */
+      padding: 4px;
+      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .restaurant-logo-large img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 50%;
     }
 
     .title-section {
@@ -868,6 +919,7 @@
       </div>
     </div>
 
+    <!-- باقي الأقسام تبقى كما هي بدون تغيير -->
     <!-- قسم المعجنات -->
     <div class="menu-section">
       <div class="section-header">
@@ -1281,7 +1333,7 @@
   </nav>
 
   <script>
-    // نفس كود JavaScript السابق بالضبط
+    // كود JavaScript يبقى كما هو
     document.addEventListener('DOMContentLoaded', function() {
       function parsePrice(price) {
         if (typeof price === 'number') return price;
