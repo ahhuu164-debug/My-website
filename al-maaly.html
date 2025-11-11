@@ -64,44 +64,43 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       margin-bottom: 20px;
       position: relative;
-      /* إطار ذهبي مزخرف */
-      border: 2px solid transparent;
-      background-clip: padding-box;
-      background-image: linear-gradient(white, white), 
-                        linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      position: relative;
       overflow: hidden;
     }
 
-    /* تأثيرات زخرفية إضافية */
+    /* زخرفة ذهبية في الزاوية اليسرى السفلية */
     .info-card::before {
       content: "";
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
-      border-radius: 26px;
-      z-index: -1;
-      animation: shimmer 3s infinite linear;
+      bottom: -15px;
+      left: -15px;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B);
+      border-radius: 50%;
+      opacity: 0.7;
+      z-index: 1;
     }
 
-    @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
-      }
-      100% {
-        background-position: 200% 0;
-      }
+    /* زخرفة إضافية أصغر */
+    .info-card::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      border-radius: 50%;
+      opacity: 0.5;
+      z-index: 1;
     }
 
     .info-header {
       display: flex;
       align-items: center;
       margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
     }
 
     .restaurant-logo-large {
@@ -114,9 +113,9 @@
       margin-left: 15px;
       position: relative;
       z-index: 2;
-      /* إطار دائري ذهبي مزخرف للوغو */
-      padding: 4px;
-      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B, #D4AF37);
+      /* إطار دائري ذهبي مبسط للوغو */
+      padding: 3px;
+      background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEC8B);
       background-size: 200% 200%;
       animation: gradientShift 4s ease infinite;
     }
@@ -162,6 +161,8 @@
       grid-template-columns: 1fr;
       gap: 15px;
       margin-top: 15px;
+      position: relative;
+      z-index: 2;
     }
 
     .info-item {
