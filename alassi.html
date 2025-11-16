@@ -37,7 +37,7 @@
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
@@ -48,55 +48,10 @@
       width: auto;
     }
 
-    .back-btn {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.2);
-      font-size: 0.9rem;
-    }
-
-    .back-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .search-icon-header {
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: all 0.3s ease;
-    }
-
-    /* ===== صورة الغلاف ===== */
-    .cover-image {
-      height: 200px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cover-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
-    }
-
     /* ===== معلومات المطعم ===== */
     .restaurant-info {
       max-width: 1200px;
-      margin: -60px auto 0;
+      margin: 20px auto 0;
       padding: 0 15px;
       position: relative;
       z-index: 2;
@@ -235,7 +190,7 @@
       border-right: 3px solid #F15A29;
     }
 
-    /* ⭐⭐⭐ نظام البطاقات ⭐⭐⭐ */
+    /* نظام البطاقات */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -808,10 +763,6 @@
       .info-card {
         padding: 15px;
       }
-      
-      .cover-image {
-        height: 180px;
-      }
 
       .menu-item-image {
         height: 100px;
@@ -841,14 +792,6 @@
       .menu-item-image {
         height: 140px;
       }
-      
-      .cover-image {
-        height: 220px;
-      }
-      
-      .restaurant-info {
-        margin: -70px auto 0;
-      }
     }
 
     /* ===== تحسينات للشاشات الكبيرة ===== */
@@ -862,12 +805,7 @@
         height: 160px;
       }
       
-      .cover-image {
-        height: 250px;
-      }
-      
       .restaurant-info {
-        margin: -80px auto 0;
         padding: 0 20px;
       }
       
@@ -890,24 +828,11 @@
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
-      <a href="restaurants.html" class="back-btn">
-        <i class="fas fa-arrow-right"></i> العودة
-      </a>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
       </div>
-      <div class="search-icon-header">
-        <i class="fas fa-search"></i>
-      </div>
     </div>
   </header>
-
-  <!-- صورة الغلاف -->
-  <div class="cover-image">
-    <img src="https://i.ibb.co/4ZNbqDLs/image.jpg" 
-         alt="العاصي">
-    <div class="overlay"></div>
-  </div>
 
   <!-- معلومات المطعم -->
   <section class="restaurant-info">
