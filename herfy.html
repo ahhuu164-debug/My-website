@@ -70,33 +70,10 @@
       transition: all 0.3s ease;
     }
 
-    /* ===== صورة الغلاف ===== */
-    .cover-image {
-      height: 200px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cover-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.1) 60%, transparent 100%);
-    }
-
     /* ===== معلومات المطعم ===== */
     .restaurant-info {
       max-width: 1200px;
-      margin: -60px auto 0;
+      margin: 20px auto 0;
       padding: 0 15px;
       position: relative;
       z-index: 2;
@@ -808,10 +785,6 @@
       .info-card {
         padding: 15px;
       }
-      
-      .cover-image {
-        height: 180px;
-      }
 
       .menu-item-image {
         height: 100px;
@@ -842,12 +815,8 @@
         height: 140px;
       }
       
-      .cover-image {
-        height: 220px;
-      }
-      
       .restaurant-info {
-        margin: -70px auto 0;
+        margin: 20px auto 0;
       }
     }
 
@@ -862,12 +831,8 @@
         height: 160px;
       }
       
-      .cover-image {
-        height: 250px;
-      }
-      
       .restaurant-info {
-        margin: -80px auto 0;
+        margin: 20px auto 0;
         padding: 0 20px;
       }
       
@@ -896,13 +861,6 @@
       </div>
     </div>
   </header>
-
-  <!-- صورة الغلاف -->
-  <div class="cover-image">
-    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-         alt="هيرفي">
-    <div class="overlay"></div>
-  </div>
 
   <!-- معلومات المطعم -->
   <section class="restaurant-info">
@@ -998,7 +956,7 @@
         <!-- صنف 34 -->
         <div class="menu-item" data-id="34" data-name="برغر هيرفي" data-price="25000">
           <div class="menu-item-image">
-            <img src="https://i.ibb.co/KpjX4JGH/image.png 
+            <img src="https://i.ibb.co/KpjX4JGH/image.png" 
                  alt="برغر هيرفي">
           </div>
           <div class="menu-item-content">
@@ -1471,7 +1429,7 @@
           </div>
 
           <!-- صنف 18 -->
-          <div class="menu-item" data-id="18" data-name="كاسة بطاطا" data-price="80000">
+          <div class="menu-item" data-id="18" data-name="كاسة بطاطا" data-price="8000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/5hvpYK6S/image.png" 
                    alt="كاسة بطاطا">
@@ -1485,15 +1443,14 @@
                 <button class="quantity-btn plus">+</button>
               </div>
               <div class="menu-item-footer">
-                <span class="menu-item-price">٨,٠٠٠
-ل.س</span>
+                <span class="menu-item-price">٨,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
               </div>
             </div>
           </div>
 
           <!-- صنف 19 -->
-          <div class="menu-item" data-id="19" data-name="كاسة بطاطا قشقوان" data-price="120000">
+          <div class="menu-item" data-id="19" data-name="كاسة بطاطا قشقوان" data-price="12000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/3558VwKm/image.png" 
                    alt="كاسة بطاطا قشقوان">
@@ -1507,14 +1464,14 @@
                 <button class="quantity-btn plus">+</button>
               </div>
               <div class="menu-item-footer">
-                <span class="menu-item-price">١٢٠,٠٠٠ ل.س</span>
+                <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
               </div>
             </div>
           </div>
 
           <!-- صنف 20 -->
-          <div class="menu-item" data-id="20" data-name="كاسة بطاطا شيدر" data-price="120000">
+          <div class="menu-item" data-id="20" data-name="كاسة بطاطا شيدر" data-price="12000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/FpVT5cv/image.png" 
                    alt="كاسة بطاطا شيدر">
@@ -1528,7 +1485,7 @@
                 <button class="quantity-btn plus">+</button>
               </div>
               <div class="menu-item-footer">
-                <span class="menu-item-price">١٢٠,٠٠٠ ل.س</span>
+                <span class="menu-item-price">١٢,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
               </div>
             </div>
@@ -1634,7 +1591,7 @@
         <!-- صنف 25 -->
         <div class="menu-item" data-id="25" data-name="زنجر سبايسي" data-price="25000">
           <div class="menu-item-image">
-            <img src=https://i.ibb.co/RTvq1J8r/image.png" 
+            <img src="https://i.ibb.co/RTvq1J8r/image.png" 
                  alt="زنجر سبايسي">
           </div>
           <div class="menu-item-content">
@@ -1853,10 +1810,6 @@
       <a href="index.html" class="nav-item">
         <i class="fas fa-home"></i>
         <span>الرئيسية</span>
-      </a>
-      <a href="restaurants.html" class="nav-item">
-        <i class="fas fa-utensils"></i>
-        <span>المطاعم</span>
       </a>
       <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
         <i class="fas fa-shopping-cart"></i>
