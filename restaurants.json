@@ -2245,10 +2245,187 @@
     {
       "id": "alassi",
       "name": "العاصي",
-      "category": "مأكولات سورية • مشاوي • مقبلات",
-      "image": "https://i.ibb.co/23JR3W1Y/image.jpg",
+      "category": "شاورما • فروج مشوي • فلافل • وجبات سريعة",
+      "image": "https://i.ibb.co/4ZNbqDLs/image.jpg",
       "logo": "https://i.ibb.co/23JR3W1Y/image.jpg",
-      "menu": []
+      "menu": [
+        {
+          "id": "1",
+          "name": "شاورما عادي",
+          "price": 14000,
+          "description": "ساندويش شاورما طازج مع الخضار والصلصة",
+          "image": "https://i.ibb.co/xS1SxYdF/image.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "2",
+          "name": "شاورما دبل",
+          "price": 18000,
+          "description": "ساندويش شاورما بكمية مضاعفة من اللحم",
+          "image": "https://i.ibb.co/Lz58N5Y0/image.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "3",
+          "name": "بطاطا عادي",
+          "price": 7000,
+          "description": "بطاطا مقلية طازجة",
+          "image": "https://i.ibb.co/yxYVrqL/image.jpg",
+          "category": "بطاطا"
+        },
+        {
+          "id": "4",
+          "name": "بطاطا دبل",
+          "price": 10000,
+          "description": "بطاطا مقلية بكمية مضاعفة",
+          "image": "https://i.ibb.co/YBgzVzj3/image.jpg",
+          "category": "بطاطا"
+        },
+        {
+          "id": "5",
+          "name": "فروج مشوي",
+          "price": 70000,
+          "description": "فروج مشوي + رز نوعين + بطاطا مقلية + خبزة حرة + توم + مخلل",
+          "image": "https://i.ibb.co/nM34rr7W/image.png",
+          "category": "فروج مشوي"
+        },
+        {
+          "id": "6",
+          "name": "كريسبي ساندويش",
+          "price": 20000,
+          "description": "ساندويش كريسبي لذيذ",
+          "image": "https://i.ibb.co/qLd2pK15/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "7",
+          "name": "كريسبي وجبة",
+          "price": 25000,
+          "description": "وجبة كريسبي كاملة",
+          "image": "https://i.ibb.co/8nDr7M76/image.png",
+          "category": "سناك"
+        },
+        {
+          "id": "8",
+          "name": "فاهيتا ساندويش",
+          "price": 20000,
+          "description": "ساندويش فاهيتا شهي",
+          "image": "https://i.ibb.co/7Jv5052X/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "9",
+          "name": "فاهيتا وجبة",
+          "price": 25000,
+          "description": "وجبة فاهيتا كاملة",
+          "image": "https://i.ibb.co/spcGzx71/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "10",
+          "name": "زنجر ساندويش",
+          "price": 20000,
+          "description": "ساندويش زنجر لذيذ",
+          "image": "https://i.ibb.co/bj5KKCrC/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "11",
+          "name": "زنجر وجبة",
+          "price": 25000,
+          "description": "وجبة زنجر كاملة",
+          "image": "https://i.ibb.co/ppW6cmV/image.png",
+          "category": "سناك"
+        },
+        {
+          "id": "12",
+          "name": "شيش ساندويش",
+          "price": 20000,
+          "description": "ساندويش شيش لذيذ",
+          "image": "https://i.ibb.co/Kx25NJnR/image.png",
+          "category": "سناك"
+        },
+        {
+          "id": "13",
+          "name": "شيش وجبة",
+          "price": 25000,
+          "description": "وجبة شيش كاملة",
+          "image": "https://i.ibb.co/M58bV7Gt/image.png",
+          "category": "سناك"
+        },
+        {
+          "id": "14",
+          "name": "سودة ساندويش",
+          "price": 20000,
+          "description": "ساندويش سودة لذيذ",
+          "image": "https://i.ibb.co/Kpmdm1ns/image.png",
+          "category": "سناك"
+        },
+        {
+          "id": "15",
+          "name": "طبق رز",
+          "price": 15000,
+          "description": "طبق رز طازج",
+          "image": "https://i.ibb.co/YFLpSZ1W/image.png",
+          "category": "أطباق"
+        },
+        {
+          "id": "16",
+          "name": "طبق رز مع شاورما",
+          "price": 25000,
+          "description": "طبق رز مع شاورما لذيذ",
+          "image": "https://i.ibb.co/99gMyXbn/image.png",
+          "category": "أطباق"
+        },
+        {
+          "id": "17",
+          "name": "فلافل عادي",
+          "price": 5000,
+          "description": "ساندويش فلافل طازج",
+          "image": "https://i.ibb.co/xqXKQvdz/image.png",
+          "category": "فلافل وفتات"
+        },
+        {
+          "id": "18",
+          "name": "فلافل دبل",
+          "price": 8000,
+          "description": "ساندويش فلافل بكمية مضاعفة",
+          "image": "https://i.ibb.co/7xtW2g1J/image.jpg",
+          "category": "فلافل وفتات"
+        },
+        {
+          "id": "19",
+          "name": "طبق حمص ناعم",
+          "price": 10000,
+          "description": "طبق حمص ناعم طازج",
+          "image": "https://i.ibb.co/MxRp5Wyh/image.jpg",
+          "category": "فلافل وفتات"
+        },
+        {
+          "id": "20",
+          "name": "طبق حمص حب",
+          "price": 15000,
+          "description": "طبق حمص حب طازج",
+          "image": "https://i.ibb.co/TBwhGYQr/image.jpg",
+          "category": "فلافل وفتات"
+        },
+        {
+          "id": "21",
+          "name": "طبق فول",
+          "price": 15000,
+          "description": "طبق فول طازج",
+          "image": "https://i.ibb.co/sv8cXtPF/image.png",
+          "category": "فلافل وفتات"
+        },
+        {
+          "id": "22",
+          "name": "طبق فتة",
+          "price": 15000,
+          "description": "طبق فتة لذيذ",
+          "image": "https://i.ibb.co/3yshbwks/image.png",
+          "category": "فلافل وفتات"
+        }
+      ]
     }
   ]
 }
