@@ -603,7 +603,8 @@
       background: #128C7E;
     }
 
-    .barcode-modal {
+    /* نافذة عرض عنوان USDT */
+    .usdt-modal {
       display: none;
       position: fixed;
       top: 0;
@@ -616,36 +617,51 @@
       align-items: center;
     }
 
-    .barcode-modal.active {
+    .usdt-modal.active {
       display: flex;
     }
 
-    .barcode-content {
+    .usdt-content {
       background: white;
       padding: 20px;
       border-radius: 16px;
       text-align: center;
-      max-width: 300px;
+      max-width: 350px;
       width: 90%;
     }
 
-    .barcode-title {
+    .usdt-title {
       font-weight: 700;
       margin-bottom: 15px;
       color: #2C3E50;
       font-size: 1.2rem;
     }
 
-    .barcode-image {
-      width: 100%;
-      max-width: 250px;
-      height: auto;
-      margin-bottom: 15px;
+    .wallet-address {
+      background: #f8f9fa;
       border: 1px solid #ECF0F1;
       border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      text-align: right;
+      direction: ltr;
+      word-break: break-all;
     }
 
-    .close-barcode {
+    .wallet-type {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #F15A29;
+      font-size: 1rem;
+    }
+
+    .wallet-code {
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #2C3E50;
+    }
+
+    .close-usdt {
       background: #F15A29;
       color: white;
       border: none;
@@ -657,7 +673,7 @@
       transition: all 0.3s ease;
     }
 
-    .close-barcode:hover {
+    .close-usdt:hover {
       background: #E83F3F;
     }
 
@@ -944,7 +960,7 @@
         <!-- صفيحة دجاج -->
         <div class="menu-item" data-id="504" data-name="صفيحة دجاج" data-price="75000">
           <div class="menu-item-image">
-            <img src="https://i.ibb.co/8nBFmRfL/image.jpg 
+            <img src="https://i.ibb.co/8nBFmRfL/image.jpg" 
                  alt="صفيحة دجاج">
           </div>
           <div class="menu-item-content">
@@ -1267,13 +1283,22 @@
     </div>
   </div>
 
-  <!-- نافذة الباركود -->
-  <div class="barcode-modal" id="barcode-modal">
-    <div class="barcode-content">
-      <h3 class="barcode-title" id="barcode-title">باركود الدفع</h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SalamiaDeliveo" 
-           alt="باركود الدفع" class="barcode-image" id="barcode-image">
-      <button class="close-barcode" id="close-barcode">إغلاق</button>
+  <!-- نافذة عرض عنوان USDT -->
+  <div class="usdt-modal" id="usdt-modal">
+    <div class="usdt-content">
+      <h3 class="usdt-title">عنوان محفظة USDT</h3>
+      
+      <div class="wallet-address">
+        <div class="wallet-type">TRC20</div>
+        <div class="wallet-code">TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw</div>
+      </div>
+      
+      <div class="wallet-address">
+        <div class="wallet-type">BEP20</div>
+        <div class="wallet-code">0x15a1da3d6638a0d0516cbde202347f03e70c3b3f</div>
+      </div>
+      
+      <button class="close-usdt" id="close-usdt">إغلاق</button>
     </div>
   </div>
 
@@ -1319,8 +1344,8 @@
       const paymentCash = document.getElementById('payment-cash');
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
-      const barcodeModal = document.getElementById('barcode-modal');
-      const closeBarcode = document.getElementById('close-barcode');
+      const usdtModal = document.getElementById('usdt-modal');
+      const closeUsdt = document.getElementById('close-usdt');
       
       let cart = [];
       let selectedPayment = 'cash';
@@ -1492,13 +1517,12 @@
       paymentShamcash.addEventListener('click', function() {
         selectedPayment = 'shamcash';
         updatePaymentSelection();
-        showBarcode('شام كاش');
       });
       
       paymentUsdt.addEventListener('click', function() {
         selectedPayment = 'usdt';
         updatePaymentSelection();
-        showBarcode('USDT');
+        showUsdtAddress();
       });
 
       function updatePaymentSelection() {
@@ -1515,14 +1539,12 @@
         }
       }
 
-      function showBarcode(paymentMethod) {
-        const barcodeTitle = document.getElementById('barcode-title');
-        barcodeTitle.textContent = `باركود ${paymentMethod}`;
-        barcodeModal.classList.add('active');
+      function showUsdtAddress() {
+        usdtModal.classList.add('active');
       }
 
-      closeBarcode.addEventListener('click', function() {
-        barcodeModal.classList.remove('active');
+      closeUsdt.addEventListener('click', function() {
+        usdtModal.classList.remove('active');
       });
 
       whatsappOrderBtn.addEventListener('click', function() {
