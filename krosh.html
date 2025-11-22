@@ -625,7 +625,8 @@
       background: #128C7E;
     }
 
-    .barcode-modal {
+    /* نافذة عرض عنوان USDT */
+    .usdt-modal {
       display: none;
       position: fixed;
       top: 0;
@@ -638,36 +639,78 @@
       align-items: center;
     }
 
-    .barcode-modal.active {
+    .usdt-modal.active {
       display: flex;
     }
 
-    .barcode-content {
+    .usdt-content {
       background: white;
       padding: 20px;
       border-radius: 16px;
       text-align: center;
-      max-width: 300px;
+      max-width: 350px;
       width: 90%;
     }
 
-    .barcode-title {
+    .usdt-title {
       font-weight: 700;
       margin-bottom: 15px;
       color: #2C3E50;
       font-size: 1.2rem;
     }
 
-    .barcode-image {
-      width: 100%;
-      max-width: 250px;
-      height: auto;
-      margin-bottom: 15px;
+    .wallet-address {
+      background: #f8f9fa;
       border: 1px solid #ECF0F1;
       border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      text-align: right;
+      direction: ltr;
+      word-break: break-all;
+      position: relative;
     }
 
-    .close-barcode {
+    .wallet-type {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #F15A29;
+      font-size: 1rem;
+    }
+
+    .wallet-code {
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #2C3E50;
+      margin-bottom: 10px;
+    }
+
+    .copy-btn {
+      background: #F15A29;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 100%;
+    }
+
+    .copy-btn:hover {
+      background: #E83F3F;
+    }
+
+    .copy-btn.copied {
+      background: #25D366;
+    }
+
+    .close-usdt {
       background: #F15A29;
       color: white;
       border: none;
@@ -677,9 +720,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
     }
 
-    .close-barcode:hover {
+    .close-usdt:hover {
       background: #E83F3F;
     }
 
@@ -1689,13 +1734,30 @@
     </div>
   </div>
 
-  <!-- نافذة الباركود -->
-  <div class="barcode-modal" id="barcode-modal">
-    <div class="barcode-content">
-      <h3 class="barcode-title" id="barcode-title">باركود الدفع</h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SalamiaDeliveo" 
-           alt="باركود الدفع" class="barcode-image" id="barcode-image">
-      <button class="close-barcode" id="close-barcode">إغلاق</button>
+  <!-- نافذة عرض عنوان USDT -->
+  <div class="usdt-modal" id="usdt-modal">
+    <div class="usdt-content">
+      <h3 class="usdt-title">عنوان محفظة USDT</h3>
+      
+      <div class="wallet-address">
+        <div class="wallet-type">TRC20</div>
+        <div class="wallet-code">TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw</div>
+        <button class="copy-btn" data-address="TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw">
+          <i class="far fa-copy"></i>
+          نسخ العنوان
+        </button>
+      </div>
+      
+      <div class="wallet-address">
+        <div class="wallet-type">BEP20</div>
+        <div class="wallet-code">0x15a1da3d6638a0d0516cbde202347f03e70c3b3f</div>
+        <button class="copy-btn" data-address="0x15a1da3d6638a0d0516cbde202347f03e70c3b3f">
+          <i class="far fa-copy"></i>
+          نسخ العنوان
+        </button>
+      </div>
+      
+      <button class="close-usdt" id="close-usdt">إغلاق</button>
     </div>
   </div>
 
@@ -1733,10 +1795,9 @@
       const paymentCash = document.getElementById('payment-cash');
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
-      const barcodeModal = document.getElementById('barcode-modal');
-      const barcodeTitle = document.getElementById('barcode-title');
-      const barcodeImage = document.getElementById('barcode-image');
-      const closeBarcode = document.getElementById('close-barcode');
+      const usdtModal = document.getElementById('usdt-modal');
+      const closeUsdt = document.getElementById('close-usdt');
+      const copyButtons = document.querySelectorAll('.copy-btn');
       
       // سلة التسوق
       let cart = [];
@@ -1935,13 +1996,12 @@
       paymentShamcash.addEventListener('click', function() {
         selectedPayment = 'shamcash';
         updatePaymentSelection();
-        showBarcode('شام كاش');
       });
       
       paymentUsdt.addEventListener('click', function() {
         selectedPayment = 'usdt';
         updatePaymentSelection();
-        showBarcode('USDT');
+        showUsdtAddress();
       });
       
       // تحديث اختيار طريقة الدفع
@@ -1961,16 +2021,46 @@
         }
       }
       
-      // عرض الباركود
-      function showBarcode(paymentMethod) {
-        barcodeTitle.textContent = `باركود ${paymentMethod}`;
-        barcodeModal.classList.add('active');
+      // عرض نافذة USDT
+      function showUsdtAddress() {
+        usdtModal.classList.add('active');
       }
       
-      // إغلاق نافذة الباركود
-      closeBarcode.addEventListener('click', function() {
-        barcodeModal.classList.remove('active');
+      // إغلاق نافذة USDT
+      closeUsdt.addEventListener('click', function() {
+        usdtModal.classList.remove('active');
       });
+      
+      // وظيفة نسخ عنوان المحفظة
+      copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const address = this.getAttribute('data-address');
+          copyToClipboard(address);
+          
+          // تغيير النص والمظهر مؤقتاً
+          const originalText = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+          this.classList.add('copied');
+          
+          setTimeout(() => {
+            this.innerHTML = originalText;
+            this.classList.remove('copied');
+          }, 2000);
+        });
+      });
+
+      function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        
+        showNotification('تم نسخ العنوان إلى الحافظة');
+      }
       
       // إرسال الطلب عبر واتساب
       whatsappOrderBtn.addEventListener('click', function() {
@@ -1980,33 +2070,37 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // تجميع رسالة الطلب
-        let orderMessage = `طلب جديد من مطعم كرّوش\n\n`;
-        orderMessage += `الاسم: ${name}\n`;
-        orderMessage += `العنوان: ${address}\n`;
-        orderMessage += `رقم الهاتف: ${phone}\n\n`;
-        orderMessage += `طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
-        orderMessage += `الطلبات:\n`;
+        let message = `🎯 طلب جديد من مطعم كرّوش\n\n`;
+        message += `👤 العميل: ${name}\n`;
+        message += `📞 الهاتف: ${phone}\n`;
+        message += `📍 العنوان: ${address}\n\n`;
+        message += `🛒 الطلبات:\n`;
         
-        cart.forEach(item => {
-          orderMessage += `- ${item.name} (${item.quantity}x) - ${formatPrice(item.price * item.quantity)}\n`;
+        cart.forEach((item, index) => {
+          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
         });
         
-        orderMessage += `\nالمجموع: ${cartTotalPrice.textContent}`;
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
+        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
+        message += `شكراً لطلبكم من كرّوش! 🎉`;
         
-        // تشفير الرسالة للرابط
-        const encodedMessage = encodeURIComponent(orderMessage);
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
         
-        // فتح واتساب مع الرسالة
-        window.open(`https://wa.me/963123456789?text=${encodedMessage}`, '_blank');
+        window.open(whatsappUrl, '_blank');
         
-        // إظهار رسالة تأكيد
-        showNotification('تم إرسال طلبك بنجاح!');
+        showNotification('✅ تم إرسال طلبك بنجاح!');
         
         // تنظيف السلة
         cart = [];
         updateCartUI();
         closeCart();
+        
+        // تنظيف حقول العميل
+        customerName.value = '';
+        customerAddress.value = '';
+        customerPhone.value = '';
       });
       
       // الحصول على اسم طريقة الدفع
