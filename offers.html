@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>العروض - Salamia Deliveo</title>
+  <!-- سياسة أمان المحتوى -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+              img-src 'self' https: data:; 
+              style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+              font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+              script-src 'self' 'unsafe-inline'">
   <!-- خطوط Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +93,7 @@
     .logo-container img {
       height: 100px;
       width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
     /* عنوان الصفحة */
@@ -94,6 +101,19 @@
       text-align: center;
       padding: 40px 20px;
       background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,200,87,0.1));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="%23FF6B35" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+      opacity: 0.3;
     }
 
     .page-title {
@@ -104,6 +124,8 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .page-subtitle {
@@ -112,6 +134,7 @@
       opacity: 0.9;
       max-width: 600px;
       margin: 0 auto;
+      position: relative;
     }
 
     /* قسم العروض */
@@ -134,6 +157,7 @@
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
       position: relative;
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .offer-card:hover {
@@ -152,12 +176,25 @@
       font-size: 0.9rem;
       font-weight: 700;
       z-index: 2;
+      box-shadow: 0 2px 8px rgba(232, 63, 63, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     .offer-image {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .offer-card:hover .offer-image {
+      transform: scale(1.05);
     }
 
     .offer-content {
@@ -190,9 +227,22 @@
       font-size: 1.1rem;
     }
 
+    .original-price {
+      text-decoration: line-through;
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+
     .offer-expiry {
       font-size: 0.9rem;
       color: var(--medium-gray);
+      display: flex;
+      align-items: center;
+    }
+
+    .offer-expiry i {
+      margin-left: 5px;
     }
 
     .offer-cta {
@@ -205,6 +255,19 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offer-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
     }
 
     .offer-cta:hover {
@@ -212,11 +275,16 @@
       box-shadow: var(--shadow-sm);
     }
 
+    .offer-cta:hover::before {
+      left: 100%;
+    }
+
     /* التذييل */
     .main-footer {
       background: var(--dark-blue);
       color: var(--white);
       padding: 60px 20px 30px;
+      margin-top: 40px;
     }
 
     .footer-content {
@@ -273,6 +341,7 @@
       box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
       z-index: 1000;
       padding: 12px 0 8px;
+      backdrop-filter: blur(10px);
     }
 
     .nav-items {
@@ -292,6 +361,7 @@
       min-width: 0;
       padding: 5px;
       transition: all 0.2s ease;
+      border-radius: 10px;
     }
 
     .nav-item.active {
@@ -314,6 +384,41 @@
       padding: 40px;
       color: var(--medium-gray);
       grid-column: 1 / -1;
+    }
+
+    .loading i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--primary-orange);
+    }
+
+    /* شريط التقدم */
+    .progress-bar {
+      height: 4px;
+      width: 100%;
+      background: var(--light-gray);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1001;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* رسالة الخطأ */
+    .error-message {
+      background: rgba(232, 63, 63, 0.1);
+      border: 1px solid var(--accent-red);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      text-align: center;
+      color: var(--accent-red);
+      margin: 20px 0;
     }
 
     /* Responsive Design */
@@ -382,6 +487,11 @@
 </head>
 <body>
 
+  <!-- شريط التقدم -->
+  <div class="progress-bar">
+    <div class="progress" id="pageProgress"></div>
+  </div>
+
   <!-- الخلفية المائية -->
   <div class="watermark-bg"></div>
 
@@ -389,7 +499,7 @@
   <header class="sticky-header">
     <div class="header-content">
       <div class="logo-container">
-        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo" onerror="this.style.display='none'">
       </div>
     </div>
   </header>
@@ -419,9 +529,9 @@
           الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك
         </p>
         <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -442,20 +552,103 @@
   </nav>
 
   <script>
+    // دالة لتعقيم النصوص لمنع هجمات XSS
+    function sanitizeHTML(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // دالة للتحقق من صحة بيانات العرض
+    function validateOffer(offer) {
+      if (!offer || typeof offer !== 'object') return false;
+      
+      const requiredFields = ['id', 'title', 'description', 'image', 'offer_price', 'original_price', 'savings_percentage', 'expiry_date', 'restaurant_name', 'restaurant_id', 'active'];
+      
+      for (const field of requiredFields) {
+        if (!(field in offer)) return false;
+      }
+      
+      // التحقق من أنواع البيانات
+      if (typeof offer.title !== 'string' || 
+          typeof offer.description !== 'string' ||
+          typeof offer.image !== 'string' ||
+          typeof offer.restaurant_name !== 'string' ||
+          typeof offer.restaurant_id !== 'string' ||
+          typeof offer.expiry_date !== 'string' ||
+          typeof offer.savings_percentage !== 'number' ||
+          typeof offer.offer_price !== 'number' ||
+          typeof offer.original_price !== 'number' ||
+          typeof offer.active !== 'boolean') {
+        return false;
+      }
+      
+      // التحقق من القيم المنطقية
+      if (offer.offer_price <= 0 || 
+          offer.original_price <= 0 || 
+          offer.savings_percentage < 0 || 
+          offer.savings_percentage > 100) {
+        return false;
+      }
+      
+      return true;
+    }
+
     // دالة لتحميل وعرض العروض من offers.json
     async function loadOffers() {
       try {
+        // تحديث شريط التقدم
+        updateProgress(30);
+        
         const response = await fetch('offers.json?v=' + Date.now());
+        
+        if (!response.ok) {
+          throw new Error(`خطأ في تحميل البيانات: ${response.status}`);
+        }
+        
+        updateProgress(60);
+        
         const data = await response.json();
         
-        // تصفية العروض النشطة فقط
-        const activeOffers = data.offers.filter(offer => offer.active);
+        // التحقق من هيكل البيانات
+        if (!data || !data.offers || !Array.isArray(data.offers)) {
+          throw new Error('بيانات غير صالحة: هيكل JSON غير متوقع');
+        }
+        
+        updateProgress(80);
+        
+        // تصفية العروض النشطة والتحقق من صحتها
+        const activeOffers = data.offers.filter(offer => {
+          const isValid = validateOffer(offer);
+          if (!isValid) {
+            console.warn('عرض غير صالح تم تجاهله:', offer);
+          }
+          return isValid && offer.active;
+        });
+        
+        updateProgress(100);
         
         displayOffers(activeOffers);
+        
+        // إخفاء شريط التقدم بعد ثانية
+        setTimeout(() => {
+          document.getElementById('pageProgress').style.width = '0%';
+        }, 1000);
+        
       } catch (error) {
-        console.log('خطأ في تحميل العروض:', error);
+        console.error('خطأ في تحميل العروض:', error);
         document.getElementById('offersContainer').innerHTML = 
-          '<div class="loading"><p>⚠️ حدث خطأ في تحميل العروض</p></div>';
+          `<div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>حدث خطأ في تحميل العروض</h3>
+            <p>${sanitizeHTML(error.message)}</p>
+            <button onclick="loadOffers()" class="offer-cta" style="margin-top: 15px; display: inline-block; width: auto; padding: 8px 20px;">
+              إعادة المحاولة
+            </button>
+          </div>`;
+          
+        // إخفاء شريط التقدم في حالة الخطأ
+        document.getElementById('pageProgress').style.width = '0%';
       }
     }
 
@@ -464,25 +657,51 @@
       const container = document.getElementById('offersContainer');
       
       if (offers.length === 0) {
-        container.innerHTML = '<div class="loading"><p>لا توجد عروض متاحة حالياً</p></div>';
+        container.innerHTML = `
+          <div class="loading">
+            <i class="far fa-frown"></i>
+            <h3>لا توجد عروض متاحة حالياً</h3>
+            <p>يرجى التحقق مرة أخرى لاحقاً للاستفادة من عروضنا الحصرية</p>
+          </div>`;
         return;
       }
       
-      container.innerHTML = offers.map(offer => `
-        <div class="offer-card">
-          <div class="offer-badge">${offer.savings_percentage}% خصم</div>
-          <img src="${offer.image}" alt="${offer.title}" class="offer-image">
-          <div class="offer-content">
-            <h3 class="offer-title">${offer.title}</h3>
-            <p class="offer-description">${offer.description}</p>
-            <div class="offer-details">
-              <span class="offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
-              <span class="offer-expiry">صالح حتى: ${offer.expiry_date}</span>
+      // إنشاء عناصر العرض بشكل آمن
+      container.innerHTML = offers.map(offer => {
+        const sanitizedTitle = sanitizeHTML(offer.title);
+        const sanitizedDescription = sanitizeHTML(offer.description);
+        const sanitizedRestaurantName = sanitizeHTML(offer.restaurant_name);
+        const sanitizedExpiryDate = sanitizeHTML(offer.expiry_date);
+        
+        // حساب السعر بعد الخصم للتأكد من صحة البيانات
+        const calculatedSavings = Math.round(((offer.original_price - offer.offer_price) / offer.original_price) * 100);
+        const displaySavings = Math.abs(calculatedSavings - offer.savings_percentage) <= 5 ? 
+                              offer.savings_percentage : calculatedSavings;
+        
+        return `
+          <div class="offer-card">
+            <div class="offer-badge">${displaySavings}% خصم</div>
+            <img src="${sanitizeHTML(offer.image)}" alt="${sanitizedTitle}" class="offer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjVGNUY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0jQ0RDRENEIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7Yp9mE2LnYsdio2YrYqTwvdGV4dD48L3N2Zz4='">
+            <div class="offer-content">
+              <h3 class="offer-title">${sanitizedTitle}</h3>
+              <p class="offer-description">${sanitizedDescription}</p>
+              <div class="offer-details">
+                <div>
+                  <span class="offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+                  <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
+                </div>
+                <span class="offer-expiry">
+                  <i class="far fa-clock"></i>
+                  ${sanitizedExpiryDate}
+                </span>
+              </div>
+              <a href="${sanitizeHTML(offer.restaurant_id)}.html" class="offer-cta" aria-label="طلب من ${sanitizedRestaurantName}">
+                اطلب من ${sanitizedRestaurantName}
+              </a>
             </div>
-            <a href="${offer.restaurant_id}.html" class="offer-cta">اطلب من ${offer.restaurant_name}</a>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
       
       // إضافة تأثيرات التمرير للبطاقات
       const offerCards = document.querySelectorAll('.offer-card');
@@ -504,17 +723,51 @@
       });
     }
 
+    // دالة لتحديث شريط التقدم
+    function updateProgress(percent) {
+      document.getElementById('pageProgress').style.width = percent + '%';
+    }
+
     // تفعيل أزرار التنقل في الشريط السفلي
     document.querySelectorAll('.nav-item').forEach(item => {
       item.addEventListener('click', function(e) {
         if (this.getAttribute('href') === '#') {
           e.preventDefault();
         }
+        
+        // إضافة تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
       });
     });
 
+    // إضافة تأثير التمرير للرأس
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.sticky-header');
+      if (window.scrollY > 50) {
+        header.style.padding = '20px 0';
+        header.style.boxShadow = 'var(--shadow-lg)';
+      } else {
+        header.style.padding = '40px 0';
+        header.style.boxShadow = 'var(--shadow-md)';
+      }
+    });
+
     // تحميل العروض عند فتح الصفحة
-    document.addEventListener('DOMContentLoaded', loadOffers);
+    document.addEventListener('DOMContentLoaded', function() {
+      // بدء شريط التقدم
+      updateProgress(10);
+      
+      // تحميل العروض بعد تأخير بسيط لمحاكاة التحميل
+      setTimeout(loadOffers, 500);
+    });
+
+    // منع السلوك الافتراضي للنماذج (للأمان)
+    document.addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
   </script>
 </body>
 </html>
