@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- رأسيات الأمان المحسنة -->
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; 
+                 img-src 'self' https://i.postimg.cc https://images.unsplash.com data:;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                 font-src 'self' https://fonts.gstatic.com;
+                 script-src 'self';
+                 connect-src 'self'">
+        
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  
   <title>فود - اطلب من مطاعم سلمية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -764,44 +778,74 @@
   </nav>
 
   <script>
-    // دالة لتحميل العروض من offers.json
+    // دالة لمنع هجمات XSS
+    function escapeHtml(unsafe) {
+      if (!unsafe) return '';
+      return unsafe
+        .toString()
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // دالة محسنة لتحميل العروض
     async function loadOffers() {
       try {
         const response = await fetch('offers.json?v=' + Date.now());
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
         
-        console.log('جميع العروض:', data.offers);
+        // التحقق من صحة البيانات
+        if (!data.offers || !Array.isArray(data.offers)) {
+          throw new Error('Invalid data format');
+        }
         
-        // التصحيح هنا - استخدام show_in_index بدلاً من show_in_index
         const indexOffers = data.offers.filter(offer => 
           offer.active && offer.show_in_index
-        );
+        ).slice(0, 10); // تحديد عدد العروض
         
         console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
           initOffersSlider(indexOffers);
         } else {
-          document.getElementById('offersTrack').innerHTML = `
-            <div class="platform-offer-card">
-              <div class="platform-offer-description" style="font-size: 1.3rem; margin-bottom: 15px;">
-                🎯 لا توجد عروض حالياً
-              </div>
-              <div class="offer-expiry">تابعنا لمعرفة أحدث العروض القادمة</div>
-            </div>
-          `;
+          showNoOffersMessage();
         }
       } catch (error) {
-        console.log('خطأ في تحميل العروض:', error);
-        document.getElementById('offersTrack').innerHTML = `
-          <div class="platform-offer-card">
-            <div class="platform-offer-description" style="color: #ffdddd; font-size: 1.2rem;">
-              ⚠️ حدث خطأ في تحميل العروض
-            </div>
-            <div class="offer-expiry">يرجى المحاولة لاحقاً</div>
-          </div>
-        `;
+        console.error('Error loading offers:', error);
+        showErrorMessage();
       }
+    }
+
+    // دالة لعرض رسالة عدم وجود عروض
+    function showNoOffersMessage() {
+      const safeMessage = `🎯 لا توجد عروض حالياً`;
+      document.getElementById('offersTrack').innerHTML = `
+        <div class="platform-offer-card">
+          <div class="platform-offer-description" style="font-size: 1.3rem; margin-bottom: 15px;">
+            ${safeMessage}
+          </div>
+          <div class="offer-expiry">تابعنا لمعرفة أحدث العروض القادمة</div>
+        </div>
+      `;
+    }
+
+    // دالة لعرض رسالة الخطأ
+    function showErrorMessage() {
+      document.getElementById('offersTrack').innerHTML = `
+        <div class="platform-offer-card">
+          <div class="platform-offer-description" style="color: #ffdddd; font-size: 1.2rem;">
+            ⚠️ حدث خطأ في تحميل العروض
+          </div>
+          <div class="offer-expiry">يرجى المحاولة لاحقاً</div>
+        </div>
+      `;
     }
 
     // دالة لعرض العروض المتحركة ذاتياً
@@ -809,26 +853,33 @@
       const track = document.getElementById('offersTrack');
       const dotsContainer = document.getElementById('sliderDots');
       
-      const offersHTML = offers.map(offer => `
-        <div class="platform-offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
-          <div class="offer-badge">عرض حصري</div>
-          <div class="platform-offer-discount">${offer.savings_percentage}% خصم</div>
-          <div class="platform-offer-description">${offer.title}</div>
-          <div class="platform-offer-restaurant">🏪 من ${offer.restaurant_name}</div>
-          <div class="price-container">
-            <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
-            <span class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+      const offersHTML = offers.map(offer => {
+        // تنظيف البيانات
+        const safeTitle = escapeHtml(offer.title);
+        const safeRestaurantName = escapeHtml(offer.restaurant_name);
+        const safeExpiryDate = escapeHtml(offer.expiry_date);
+        
+        return `
+          <div class="platform-offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
+            <div class="offer-badge">عرض حصري</div>
+            <div class="platform-offer-discount">${offer.savings_percentage}% خصم</div>
+            <div class="platform-offer-description">${safeTitle}</div>
+            <div class="platform-offer-restaurant">🏪 من ${safeRestaurantName}</div>
+            <div class="price-container">
+              <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
+              <span class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+            </div>
+            <div class="offer-expiry">
+              <i class="fas fa-clock"></i>
+              صالحة حتى: ${safeExpiryDate}
+            </div>
+            <a href="${offer.restaurant_id}.html" class="offer-cta">
+              <i class="fas fa-shopping-cart"></i>
+              اطلب الآن
+            </a>
           </div>
-          <div class="offer-expiry">
-            <i class="fas fa-clock"></i>
-            صالحة حتى: ${offer.expiry_date}
-          </div>
-          <a href="${offer.restaurant_id}.html" class="offer-cta">
-            <i class="fas fa-shopping-cart"></i>
-            اطلب الآن
-          </a>
-        </div>
-      `).join('');
+        `;
+      }).join('');
       
       track.innerHTML = offersHTML;
 
@@ -893,14 +944,24 @@
     async function loadRestaurants() {
       try {
         const response = await fetch('restaurants.json?v=' + Date.now());
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        
+        // التحقق من صحة البيانات
+        if (!data.restaurants || !Array.isArray(data.restaurants)) {
+          throw new Error('Invalid data format');
+        }
         
         // ترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
         const shuffledRestaurants = shuffleRestaurants(data.restaurants);
         displayRestaurants(shuffledRestaurants);
         
       } catch (error) {
-        console.log('خطأ في تحميل المطاعم:', error);
+        console.error('Error loading restaurants:', error);
         document.getElementById('restaurantsContainer').innerHTML = 
           '<div class="loading"><p>⚠️ حدث خطأ في تحميل المطاعم</p></div>';
       }
@@ -916,28 +977,41 @@
       return royal ? [royal, ...shuffled] : shuffled;
     }
 
-    // دالة لعرض المطاعم
+    // دالة محسنة لعرض المطاعم
     function displayRestaurants(restaurants) {
       const container = document.getElementById('restaurantsContainer');
       
-      if (restaurants.length === 0) {
+      if (!restaurants || !Array.isArray(restaurants) || restaurants.length === 0) {
         container.innerHTML = '<div class="loading"><p>لا توجد مطاعم متاحة</p></div>';
         return;
       }
       
-      container.innerHTML = restaurants.map(restaurant => `
-        <a href="${restaurant.id}.html" class="restaurant-card">
-          <div class="card-header">
-            <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image" 
-                 onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
-          </div>
-          <div class="card-content">
-            <h3 class="restaurant-name">${restaurant.name}</h3>
-            <div class="restaurant-category">${restaurant.category}</div>
-          </div>
-        </a>
-      `).join('');
+      container.innerHTML = restaurants.map(restaurant => {
+        // تنظيف المدخلات
+        const safeName = escapeHtml(restaurant.name);
+        const safeCategory = escapeHtml(restaurant.category);
+        const safeId = escapeHtml(restaurant.id);
+        
+        return `
+          <a href="${safeId}.html" class="restaurant-card">
+            <div class="card-header">
+              <img src="${restaurant.image}" alt="${safeName}" class="restaurant-image" 
+                   loading="lazy"
+                   onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+            </div>
+            <div class="card-content">
+              <h3 class="restaurant-name">${safeName}</h3>
+              <div class="restaurant-category">${safeCategory}</div>
+            </div>
+          </a>
+        `;
+      }).join('');
     }
+
+    // معالجة الأخطاء العالمية
+    window.addEventListener('error', function(e) {
+      console.error('Global error:', e.error);
+    });
 
     // تهيئة الصفحة عند التحميل
     document.addEventListener('DOMContentLoaded', function() {
