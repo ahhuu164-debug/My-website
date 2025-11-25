@@ -135,7 +135,7 @@
     }
 
     .offer-card {
-      flex: 0 0 280px;
+      flex: 0 0 100%; /* كل بطاقة تأخذ عرض الشاشة بالكامل */
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
@@ -144,6 +144,7 @@
       position: relative;
       height: 190px;
       cursor: pointer;
+      margin: 0 10px;
     }
 
     .offer-card:hover {
@@ -225,31 +226,9 @@
       margin-top: 8px;
     }
 
+    /* إخفاء الأسهم */
     .slider-controls {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .slider-btn {
-      background: var(--primary-orange);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .slider-btn:hover {
-      background: var(--accent-red);
-      transform: scale(1.1);
+      display: none;
     }
 
     .slider-dots {
@@ -534,7 +513,6 @@
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
       .offer-card {
-        flex: 0 0 220px;
         height: 160px;
       }
       
@@ -545,17 +523,11 @@
 
     @media (max-width: 480px) {
       .offer-card {
-        flex: 0 0 180px;
         height: 140px;
       }
       
       .offers-title {
         font-size: 1.5rem;
-      }
-      
-      .slider-btn {
-        width: 35px;
-        height: 35px;
       }
     }
   </style>
@@ -583,7 +555,8 @@
         </div>
       </div>
       
-      <div class="slider-controls">
+      <!-- إخفاء الأسهم -->
+      <div class="slider-controls" style="display: none;">
         <button class="slider-btn" id="prevBtn">
           <i class="fas fa-chevron-right"></i>
         </button>
@@ -726,76 +699,50 @@
     // دالة لإعداد عناصر التحكم بالسلايدر
     function setupSliderControls(totalOffers) {
       const track = document.getElementById('offersTrack');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
       const dotsContainer = document.getElementById('sliderDots');
       
-      let currentPosition = 0;
-      const cardWidth = 280 + 15; // عرض البطاقة + الهامش
-      const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+      let currentSlide = 0;
+      const slideWidth = 100; // 100% من عرض الشاشة
       
       // إنشاء نقاط التبديل
-      const totalDots = Math.ceil(totalOffers / visibleCards);
-      const dotsHTML = Array.from({length: totalDots}, (_, i) => 
+      const dotsHTML = Array.from({length: totalOffers}, (_, i) => 
         `<button class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`
       ).join('');
       
       dotsContainer.innerHTML = dotsHTML;
       
-      // وظيفة التمرير
-      function scrollToPosition(position) {
-        currentPosition = position;
-        track.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+      // وظيفة التمرير إلى شريحة محددة
+      function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
         
         // تحديث النقاط النشطة
         document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-          dot.classList.toggle('active', i === Math.abs(currentPosition));
+          dot.classList.toggle('active', i === currentSlide);
         });
       }
-      
-      // أحداث الأزرار
-      nextBtn.addEventListener('click', () => {
-        const maxPosition = Math.max(0, totalDots - 1);
-        if (Math.abs(currentPosition) < maxPosition) {
-          scrollToPosition(currentPosition - 1);
-        }
-      });
-      
-      prevBtn.addEventListener('click', () => {
-        if (currentPosition < 0) {
-          scrollToPosition(currentPosition + 1);
-        }
-      });
       
       // أحداث النقاط
       document.querySelectorAll('.slider-dot').forEach(dot => {
         dot.addEventListener('click', () => {
           const index = parseInt(dot.getAttribute('data-index'));
-          scrollToPosition(-index);
+          goToSlide(index);
         });
       });
       
       // التمرير التلقائي
       let autoScroll = setInterval(() => {
-        const maxPosition = Math.max(0, totalDots - 1);
-        if (Math.abs(currentPosition) < maxPosition) {
-          scrollToPosition(currentPosition - 1);
-        } else {
-          scrollToPosition(0);
-        }
-      }, 4000);
+        const nextSlide = (currentSlide + 1) % totalOffers;
+        goToSlide(nextSlide);
+      }, 3000);
       
       // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
       track.addEventListener('mouseenter', () => clearInterval(autoScroll));
       track.addEventListener('mouseleave', () => {
         autoScroll = setInterval(() => {
-          const maxPosition = Math.max(0, totalDots - 1);
-          if (Math.abs(currentPosition) < maxPosition) {
-            scrollToPosition(currentPosition - 1);
-          } else {
-            scrollToPosition(0);
-          }
-        }, 4000);
+          const nextSlide = (currentSlide + 1) % totalOffers;
+          goToSlide(nextSlide);
+        }, 3000);
       });
     }
 
