@@ -84,19 +84,19 @@
       width: auto;
     }
 
-    /* قسم العروض الجديد - تصميم متطور مع البطاقات المصورة */
+    /* قسم العروض الجديد - تصميم أفقي متحرك */
     .offers-section {
-      padding: 20px 20px 10px 20px;
+      padding: 15px 10px 5px 10px;
       background: var(--white);
       position: relative;
     }
 
     .offers-title {
       text-align: center;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
       color: var(--dark-blue);
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       position: relative;
     }
 
@@ -123,35 +123,37 @@
       max-width: 1200px;
       margin: 0 auto;
       position: relative;
+      overflow: hidden;
+      padding: 0 10px;
     }
 
-    .offers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 10px;
+    .offers-track {
+      display: flex;
+      gap: 15px;
+      transition: transform 0.5s ease;
+      padding: 10px 0;
     }
 
     .offer-card {
+      flex: 0 0 280px;
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.3s ease;
       position: relative;
-      height: 380px;
-      display: flex;
-      flex-direction: column;
+      height: 190px;
+      cursor: pointer;
     }
 
     .offer-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px) scale(1.03);
       box-shadow: var(--shadow-lg);
     }
 
     .offer-image-container {
       position: relative;
-      height: 200px;
+      height: 100%;
       overflow: hidden;
     }
 
@@ -163,121 +165,113 @@
     }
 
     .offer-card:hover .offer-image {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .offer-badge {
       position: absolute;
-      top: 15px;
-      left: 15px;
+      top: 10px;
+      left: 10px;
       background: linear-gradient(135deg, var(--accent-red), #FF4757);
       color: white;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 800;
       z-index: 3;
       box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
     }
 
-    .offer-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
+    .offer-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 15px;
+      color: white;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
     }
 
-    .offer-title {
+    .offer-card:hover .offer-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .offer-price {
       font-size: 1.3rem;
       font-weight: 800;
-      color: var(--dark-blue);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .offer-restaurant {
-      color: var(--primary-orange);
-      font-weight: 700;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .offer-description {
-      color: var(--medium-gray);
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-
-    .offer-pricing {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .price-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin-bottom: 5px;
     }
 
     .original-price {
       font-size: 0.9rem;
       text-decoration: line-through;
-      color: var(--medium-gray);
-    }
-
-    .offer-price {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--accent-red);
-    }
-
-    .discount-percentage {
-      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .offer-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-    }
-
-    .offer-expiry {
-      font-size: 0.8rem;
-      color: var(--medium-gray);
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      opacity: 0.8;
+      margin-left: 8px;
     }
 
     .offer-cta {
-      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
+      display: inline-block;
+      background: var(--secondary-yellow);
+      color: var(--dark-blue);
+      padding: 6px 15px;
+      border-radius: 20px;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 0.85rem;
+      margin-top: 8px;
     }
 
-    .offer-cta:hover {
-      background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .slider-btn {
+      background: var(--primary-orange);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slider-btn:hover {
+      background: var(--accent-red);
+      transform: scale(1.1);
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--medium-gray);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--primary-orange);
+      transform: scale(1.2);
     }
 
     /* قسم المطاعم - مطعمين في كل صف */
@@ -539,50 +533,29 @@
 
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
-      .offers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      
       .offer-card {
-        height: 360px;
-      }
-      
-      .offer-image-container {
-        height: 180px;
+        flex: 0 0 220px;
+        height: 160px;
       }
       
       .offers-title {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
     }
 
     @media (max-width: 480px) {
-      .offers-grid {
-        grid-template-columns: 1fr;
-      }
-      
       .offer-card {
-        height: 340px;
+        flex: 0 0 180px;
+        height: 140px;
       }
       
-      .offer-image-container {
-        height: 160px;
+      .offers-title {
+        font-size: 1.5rem;
       }
       
-      .offer-title {
-        font-size: 1.2rem;
-      }
-      
-      .offer-price {
-        font-size: 1.2rem;
-      }
-      
-      .nav-icon {
-        font-size: 1.3rem;
-      }
-      
-      .nav-item {
-        font-size: 0.7rem;
+      .slider-btn {
+        width: 35px;
+        height: 35px;
       }
     }
   </style>
@@ -599,15 +572,28 @@
     </div>
   </header>
 
-  <!-- قسم العروض الجديد مع البطاقات المصورة -->
+  <!-- قسم العروض الجديد - أفقي متحرك -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-container">
-      <div class="offers-grid" id="offersGrid">
+      <div class="offers-track" id="offersTrack">
         <div class="loading">
           <i class="fas fa-spinner fa-spin"></i>
           <p>جاري تحميل العروض...</p>
         </div>
+      </div>
+      
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="slider-btn" id="nextBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      
+      <div class="slider-dots" id="sliderDots">
+        <!-- سيتم إضافة النقاط ديناميكياً -->
       </div>
     </div>
   </section>
@@ -679,75 +665,15 @@
   </nav>
 
   <script>
-    // بيانات العروض الافتراضية (يمكن استبدالها بالبيانات من ملف JSON)
-    const defaultOffers = [
-      {
-        id: 1,
-        title: "بيتزا كبيرة مع مشروب مجاني",
-        restaurant_name: "مطعم رويال",
-        restaurant_id: "royal",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        description: "بيتزا كبيرة مع اختيارك من الإضافات + مشروب غازي مجاني",
-        original_price: 12500,
-        offer_price: 9500,
-        savings_percentage: 24,
-        expiry_date: "2023-12-31",
-        active: true,
-        show_in_index: true
-      },
-      {
-        id: 2,
-        title: "برغر دبل مع بطاطا ومشروب",
-        restaurant_name: "برغر ستايشن",
-        restaurant_id: "burger-station",
-        image: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        description: "برغر دبل لحم مع جبنة + بطاطا كبيرة + مشروب",
-        original_price: 8500,
-        offer_price: 6500,
-        savings_percentage: 23,
-        expiry_date: "2023-12-25",
-        active: true,
-        show_in_index: true
-      },
-      {
-        id: 3,
-        title: "وجبة دجاج كاملة مع أرز",
-        restaurant_name: "مطعم الشام",
-        restaurant_id: "sham",
-        image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        description: "دجاج مشوي كامل مع أرص وصوص خاص + سلطة",
-        original_price: 15000,
-        offer_price: 11500,
-        savings_percentage: 23,
-        expiry_date: "2023-12-28",
-        active: true,
-        show_in_index: true
-      },
-      {
-        id: 4,
-        title: "سوشي بوكس عائلي",
-        restaurant_name: "مطعم اليابان",
-        restaurant_id: "japan",
-        image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        description: "علبة سوشي عائلية تحتوي على 32 قطعة متنوعة",
-        original_price: 22000,
-        offer_price: 17500,
-        savings_percentage: 20,
-        expiry_date: "2023-12-30",
-        active: true,
-        show_in_index: true
-      }
-    ];
-
-    // دالة لتحميل العروض من offers.json أو استخدام البيانات الافتراضية
+    // دالة لتحميل العروض من ملف JSON
     async function loadOffers() {
       try {
         const response = await fetch('offers.json?v=' + Date.now());
         const data = await response.json();
         
-        console.log('جميع العروض:', data.offers);
+        console.log('بيانات العروض من JSON:', data);
         
-        // التصحيح هنا - استخدام show_in_index بدلاً من show_in_index
+        // فلترة العروض النشطة والمعروضة في الصفحة الرئيسية
         const indexOffers = data.offers.filter(offer => 
           offer.active && offer.show_in_index
         );
@@ -755,57 +681,32 @@
         console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
-          displayOffers(indexOffers);
+          initOffersSlider(indexOffers);
         } else {
-          // استخدام العروض الافتراضية إذا لم توجد عروض في ملف JSON
-          displayOffers(defaultOffers);
+          showNoOffersMessage();
         }
       } catch (error) {
         console.log('خطأ في تحميل العروض:', error);
-        // استخدام العروض الافتراضية في حالة الخطأ
-        displayOffers(defaultOffers);
+        showErrorLoadingOffers();
       }
     }
 
-    // دالة لعرض العروض في الشبكة الجديدة
-    function displayOffers(offers) {
-      const grid = document.getElementById('offersGrid');
+    // دالة لتهيئة السلايدر الأفقي
+    function initOffersSlider(offers) {
+      const track = document.getElementById('offersTrack');
+      const dotsContainer = document.getElementById('sliderDots');
       
-      if (offers.length === 0) {
-        grid.innerHTML = `
-          <div class="loading" style="grid-column: 1 / -1;">
-            <i class="fas fa-gift" style="font-size: 3rem; margin-bottom: 15px; color: var(--medium-gray);"></i>
-            <p>لا توجد عروض حالياً</p>
-            <p style="font-size: 0.9rem; margin-top: 10px;">تابعنا لمعرفة أحدث العروض القادمة</p>
-          </div>
-        `;
-        return;
-      }
-      
-      grid.innerHTML = offers.map(offer => `
+      // إنشاء بطاقات العروض من بيانات JSON
+      const offersHTML = offers.map(offer => `
         <div class="offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
           <div class="offer-image-container">
-            <img src="${offer.image}" alt="${offer.title}" class="offer-image">
-            <div class="offer-badge">خصم ${offer.savings_percentage}%</div>
-          </div>
-          <div class="offer-content">
-            <h3 class="offer-title">${offer.title}</h3>
-            <div class="offer-restaurant">
-              <i class="fas fa-store"></i>
-              ${offer.restaurant_name}
-            </div>
-            <p class="offer-description">${offer.description}</p>
-            <div class="offer-pricing">
-              <div class="price-container">
+            <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
+                 onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+            <div class="offer-badge">${offer.savings_percentage}%</div>
+            <div class="offer-overlay">
+              <div class="offer-price">
+                ${offer.offer_price.toLocaleString()} ل.س
                 <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
-                <span class="offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
-              </div>
-              <div class="discount-percentage">وفر ${offer.savings_percentage}%</div>
-            </div>
-            <div class="offer-footer">
-              <div class="offer-expiry">
-                <i class="fas fa-clock"></i>
-                ${offer.expiry_date}
               </div>
               <a href="${offer.restaurant_id}.html" class="offer-cta">
                 <i class="fas fa-shopping-cart"></i>
@@ -815,6 +716,109 @@
           </div>
         </div>
       `).join('');
+      
+      track.innerHTML = offersHTML;
+
+      // إعداد التحكم بالسلايدر
+      setupSliderControls(offers.length);
+    }
+
+    // دالة لإعداد عناصر التحكم بالسلايدر
+    function setupSliderControls(totalOffers) {
+      const track = document.getElementById('offersTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsContainer = document.getElementById('sliderDots');
+      
+      let currentPosition = 0;
+      const cardWidth = 280 + 15; // عرض البطاقة + الهامش
+      const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+      
+      // إنشاء نقاط التبديل
+      const totalDots = Math.ceil(totalOffers / visibleCards);
+      const dotsHTML = Array.from({length: totalDots}, (_, i) => 
+        `<button class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`
+      ).join('');
+      
+      dotsContainer.innerHTML = dotsHTML;
+      
+      // وظيفة التمرير
+      function scrollToPosition(position) {
+        currentPosition = position;
+        track.style.transform = `translateX(${currentPosition * cardWidth}px)`;
+        
+        // تحديث النقاط النشطة
+        document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === Math.abs(currentPosition));
+        });
+      }
+      
+      // أحداث الأزرار
+      nextBtn.addEventListener('click', () => {
+        const maxPosition = Math.max(0, totalDots - 1);
+        if (Math.abs(currentPosition) < maxPosition) {
+          scrollToPosition(currentPosition - 1);
+        }
+      });
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentPosition < 0) {
+          scrollToPosition(currentPosition + 1);
+        }
+      });
+      
+      // أحداث النقاط
+      document.querySelectorAll('.slider-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          scrollToPosition(-index);
+        });
+      });
+      
+      // التمرير التلقائي
+      let autoScroll = setInterval(() => {
+        const maxPosition = Math.max(0, totalDots - 1);
+        if (Math.abs(currentPosition) < maxPosition) {
+          scrollToPosition(currentPosition - 1);
+        } else {
+          scrollToPosition(0);
+        }
+      }, 4000);
+      
+      // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
+      track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+      track.addEventListener('mouseleave', () => {
+        autoScroll = setInterval(() => {
+          const maxPosition = Math.max(0, totalDots - 1);
+          if (Math.abs(currentPosition) < maxPosition) {
+            scrollToPosition(currentPosition - 1);
+          } else {
+            scrollToPosition(0);
+          }
+        }, 4000);
+      });
+    }
+
+    // رسالة عدم وجود عروض
+    function showNoOffersMessage() {
+      document.getElementById('offersTrack').innerHTML = `
+        <div class="loading" style="width: 100%;">
+          <i class="fas fa-gift" style="font-size: 2rem; margin-bottom: 10px; color: var(--medium-gray);"></i>
+          <p>لا توجد عروض حالياً</p>
+          <p style="font-size: 0.9rem; margin-top: 10px;">تابعنا لمعرفة أحدث العروض القادمة</p>
+        </div>
+      `;
+    }
+
+    // رسالة خطأ في التحميل
+    function showErrorLoadingOffers() {
+      document.getElementById('offersTrack').innerHTML = `
+        <div class="loading" style="width: 100%;">
+          <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px; color: var(--accent-red);"></i>
+          <p>حدث خطأ في تحميل العروض</p>
+          <p style="font-size: 0.9rem; margin-top: 10px;">يرجى المحاولة لاحقاً</p>
+        </div>
+      `;
     }
 
     // دالة لتحميل المطاعم من restaurants.json
