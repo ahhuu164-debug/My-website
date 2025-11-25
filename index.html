@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض الجديد - تصميم أفقي متحرك */
+    /* قسم العروض الجديد - تصميم Grid */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -130,20 +130,21 @@
     }
 
     .offers-track {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 100%);
       transition: transform 0.5s ease;
       height: 100%;
+      width: 100%;
     }
 
     .offer-card {
-      flex-shrink: 0;
       width: 100%;
+      height: 100%;
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       position: relative;
-      height: 100%;
       cursor: pointer;
     }
 
@@ -523,7 +524,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض الجديد - أفقي متحرك -->
+  <!-- قسم العروض الجديد - Grid -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-container">
@@ -705,6 +706,9 @@
       
       track.innerHTML = offersHTML;
 
+      // تحديث grid-template-columns بناءً على عدد العروض
+      track.style.gridTemplateColumns = `repeat(${offers.length}, 100%)`;
+
       // إعداد السلايدر
       initSlider(offers.length);
     }
@@ -727,10 +731,10 @@
       function goToSlide(slideIndex) {
         if (slideIndex >= 0 && slideIndex < totalSlides) {
           currentSlide = slideIndex;
-          const translateX = -currentSlide * 100;
-          track.style.transform = `translateX(${translateX}%)`;
+          const translateX = currentSlide * 100;
+          track.style.transform = `translateX(-${translateX}%)`;
           
-          console.log('الانتقال إلى الشريحة:', currentSlide, 'translateX:', translateX + '%');
+          console.log('الانتقال إلى الشريحة:', currentSlide, 'translateX:', -translateX + '%');
           
           // تحديث النقاط النشطة
           document.querySelectorAll('.slider-dot').forEach((dot, i) => {
