@@ -716,8 +716,10 @@
     function initSlider(totalSlides) {
       const slides = document.querySelectorAll('.offer-slide');
       const dots = document.querySelectorAll('.slider-dot');
+      const container = document.getElementById('offersContainer');
       
       let currentSlide = 0;
+      let autoScrollInterval;
       
       // وظيفة التمرير إلى شريحة محددة
       function goToSlide(slideIndex) {
@@ -735,33 +737,29 @@
         }
       }
       
+      // وظيفة التمرير التلقائي
+      function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+          const nextSlide = (currentSlide + 1) % totalSlides;
+          goToSlide(nextSlide);
+        }, 3000); // التبديل كل 3 ثواني
+      }
+      
+      // إيقاف التمرير التلقائي
+      function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+      }
+      
       // أحداث النقاط
       dots.forEach(dot => {
         dot.addEventListener('click', () => {
           const index = parseInt(dot.getAttribute('data-index'));
           goToSlide(index);
+          stopAutoScroll();
+          startAutoScroll(); // إعادة التشغيل بعد النقر
         });
       });
       
-      // التمرير التلقائي
-      let autoScroll = setInterval(() => {
-        const nextSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(nextSlide);
-      }, 3000);
-      
-      // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
-      const container = document.getElementById('offersContainer');
-      container.addEventListener('mouseenter', () => {
-        clearInterval(autoScroll);
-      });
-      
-      container.addEventListener('mouseleave', () => {
-        autoScroll = setInterval(() => {
-          const nextSlide = (currentSlide + 1) % totalSlides;
-          goToSlide(nextSlide);
-        }, 3000);
-      });
-
       // التمرير بالسحب على الجوال
       let startX = 0;
       let isDragging = false;
@@ -769,7 +767,7 @@
       container.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
-        clearInterval(autoScroll);
+        stopAutoScroll();
       });
 
       container.addEventListener('touchend', (e) => {
@@ -786,12 +784,15 @@
         }
         
         isDragging = false;
-        
-        autoScroll = setInterval(() => {
-          const nextSlide = (currentSlide + 1) % totalSlides;
-          goToSlide(nextSlide);
-        }, 3000);
+        startAutoScroll(); // إعادة التشغيل بعد السحب
       });
+
+      // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
+      container.addEventListener('mouseenter', stopAutoScroll);
+      container.addEventListener('mouseleave', startAutoScroll);
+
+      // بدء التمرير التلقائي
+      startAutoScroll();
     }
 
     // رسالة عدم وجود عروض
