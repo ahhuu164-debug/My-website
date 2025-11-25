@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض المعدل - تصميم مميز وجديد */
+    /* قسم العروض الجديد - تصميم متطور مع البطاقات المصورة */
     .offers-section {
       padding: 20px 20px 10px 20px;
       background: var(--white);
@@ -119,231 +119,165 @@
       border-radius: 2px;
     }
 
-    .platform-offers {
-      background: linear-gradient(135deg, #FF6B35, #E83F3F, #FF6B35);
-      background-size: 200% 200%;
-      border-radius: var(--border-radius-lg);
-      padding: 25px;
+    .offers-container {
       max-width: 1200px;
       margin: 0 auto;
-      height: 200px;
       position: relative;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .offer-card {
+      background: white;
+      border-radius: var(--border-radius);
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
-      border: 1px solid rgba(255,255,255,0.1);
-      animation: gradientShift 6s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .platform-offers::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-      background-size: cover;
-    }
-
-    .offers-container {
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
       position: relative;
-      height: 100%;
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    .offers-slider {
-      position: relative;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .offers-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .platform-offer-card {
-      flex: 0 0 100%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(20px);
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      height: 100%;
+      height: 380px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .offer-image-container {
       position: relative;
+      height: 200px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
 
-    .platform-offer-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s ease;
-      opacity: 0;
+    .offer-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .platform-offer-card:hover::before {
-      opacity: 1;
-      transform: rotate(45deg) translate(50%, 50%);
-    }
-
-    .platform-offer-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    .offer-card:hover .offer-image {
+      transform: scale(1.05);
     }
 
     .offer-badge {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      background: linear-gradient(135deg, #FFD700, #FFA500);
-      color: var(--dark-blue);
+      top: 15px;
+      left: 15px;
+      background: linear-gradient(135deg, var(--accent-red), #FF4757);
+      color: white;
       padding: 8px 16px;
       border-radius: 25px;
       font-size: 0.85rem;
       font-weight: 800;
       z-index: 3;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
     }
 
-    .platform-offer-discount {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 10px;
-      background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 2;
-      line-height: 1;
+    .offer-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .platform-offer-description {
+    .offer-title {
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 800;
+      color: var(--dark-blue);
       margin-bottom: 8px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 2;
       line-height: 1.3;
     }
 
-    .platform-offer-restaurant {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 2;
-      font-weight: 600;
+    .offer-restaurant {
+      color: var(--primary-orange);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .offer-description {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .offer-pricing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
     }
 
     .price-container {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin: 12px 0;
-      position: relative;
-      z-index: 2;
+      gap: 10px;
     }
 
     .original-price {
-      font-size: 1rem;
+      font-size: 0.9rem;
       text-decoration: line-through;
-      opacity: 0.7;
+      color: var(--medium-gray);
     }
 
-    .platform-offer-price {
+    .offer-price {
       font-size: 1.4rem;
       font-weight: 800;
-      background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.2));
-      padding: 8px 20px;
-      border-radius: 25px;
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.3);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      color: var(--accent-red);
+    }
+
+    .discount-percentage {
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .offer-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
     }
 
     .offer-expiry {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-top: 8px;
-      position: relative;
-      z-index: 2;
+      font-size: 0.8rem;
+      color: var(--medium-gray);
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 5px;
     }
 
     .offer-cta {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--secondary-yellow), #FFA500);
-      color: var(--dark-blue);
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-weight: 800;
-      margin-top: 15px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 700;
       text-decoration: none;
       transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 15px rgba(255, 200, 87, 0.3);
-      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .offer-cta:hover {
-      background: linear-gradient(135deg, #FFFFFF, var(--secondary-yellow));
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 200, 87, 0.4);
-    }
-
-    .slider-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .slider-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      border: 2px solid rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .slider-dot.active {
-      background: var(--secondary-yellow);
-      border-color: var(--secondary-yellow);
-      transform: scale(1.2);
-      box-shadow: 0 0 10px rgba(255, 200, 87, 0.5);
+      background: linear-gradient(135deg, var(--accent-red), var(--primary-orange));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
     }
 
     /* قسم المطاعم - مطعمين في كل صف */
@@ -369,7 +303,7 @@
       color: var(--medium-gray);
     }
 
-    /* ⭐⭐⭐ شبكة المطاعم - مطعمين في كل صف ⭐⭐⭐ */
+    /* شبكة المطاعم - مطعمين في كل صف */
     .restaurants-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -605,21 +539,16 @@
 
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
-      .platform-offers {
+      .offers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      
+      .offer-card {
+        height: 360px;
+      }
+      
+      .offer-image-container {
         height: 180px;
-        padding: 20px;
-      }
-      
-      .platform-offer-card {
-        padding: 25px 20px;
-      }
-      
-      .platform-offer-discount {
-        font-size: 2.5rem;
-      }
-      
-      .platform-offer-description {
-        font-size: 1.1rem;
       }
       
       .offers-title {
@@ -628,31 +557,24 @@
     }
 
     @media (max-width: 480px) {
-      .platform-offers {
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .offer-card {
+        height: 340px;
+      }
+      
+      .offer-image-container {
         height: 160px;
-        padding: 15px;
       }
       
-      .platform-offer-card {
-        padding: 20px 15px;
-      }
-      
-      .platform-offer-discount {
-        font-size: 2rem;
-      }
-      
-      .platform-offer-description {
-        font-size: 1rem;
-      }
-      
-      .platform-offer-price {
+      .offer-title {
         font-size: 1.2rem;
-        padding: 6px 15px;
       }
       
-      .offer-cta {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+      .offer-price {
+        font-size: 1.2rem;
       }
       
       .nav-icon {
@@ -677,21 +599,14 @@
     </div>
   </header>
 
-  <!-- قسم العروض المعدل -->
+  <!-- قسم العروض الجديد مع البطاقات المصورة -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
-    <div class="platform-offers">
-      <div class="offers-container">
-        <div class="offers-slider">
-          <div class="offers-track" id="offersTrack">
-            <div class="loading" style="color: white;">
-              <i class="fas fa-spinner fa-spin"></i>
-              <p>جاري تحميل العروض...</p>
-            </div>
-          </div>
-        </div>
-        <div class="slider-dots" id="sliderDots">
-          <!-- سيتم ملؤه بالنقاط من JavaScript -->
+    <div class="offers-container">
+      <div class="offers-grid" id="offersGrid">
+        <div class="loading">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>جاري تحميل العروض...</p>
         </div>
       </div>
     </div>
@@ -764,7 +679,67 @@
   </nav>
 
   <script>
-    // دالة لتحميل العروض من offers.json
+    // بيانات العروض الافتراضية (يمكن استبدالها بالبيانات من ملف JSON)
+    const defaultOffers = [
+      {
+        id: 1,
+        title: "بيتزا كبيرة مع مشروب مجاني",
+        restaurant_name: "مطعم رويال",
+        restaurant_id: "royal",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+        description: "بيتزا كبيرة مع اختيارك من الإضافات + مشروب غازي مجاني",
+        original_price: 12500,
+        offer_price: 9500,
+        savings_percentage: 24,
+        expiry_date: "2023-12-31",
+        active: true,
+        show_in_index: true
+      },
+      {
+        id: 2,
+        title: "برغر دبل مع بطاطا ومشروب",
+        restaurant_name: "برغر ستايشن",
+        restaurant_id: "burger-station",
+        image: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+        description: "برغر دبل لحم مع جبنة + بطاطا كبيرة + مشروب",
+        original_price: 8500,
+        offer_price: 6500,
+        savings_percentage: 23,
+        expiry_date: "2023-12-25",
+        active: true,
+        show_in_index: true
+      },
+      {
+        id: 3,
+        title: "وجبة دجاج كاملة مع أرز",
+        restaurant_name: "مطعم الشام",
+        restaurant_id: "sham",
+        image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+        description: "دجاج مشوي كامل مع أرص وصوص خاص + سلطة",
+        original_price: 15000,
+        offer_price: 11500,
+        savings_percentage: 23,
+        expiry_date: "2023-12-28",
+        active: true,
+        show_in_index: true
+      },
+      {
+        id: 4,
+        title: "سوشي بوكس عائلي",
+        restaurant_name: "مطعم اليابان",
+        restaurant_id: "japan",
+        image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+        description: "علبة سوشي عائلية تحتوي على 32 قطعة متنوعة",
+        original_price: 22000,
+        offer_price: 17500,
+        savings_percentage: 20,
+        expiry_date: "2023-12-30",
+        active: true,
+        show_in_index: true
+      }
+    ];
+
+    // دالة لتحميل العروض من offers.json أو استخدام البيانات الافتراضية
     async function loadOffers() {
       try {
         const response = await fetch('offers.json?v=' + Date.now());
@@ -780,113 +755,66 @@
         console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
-          initOffersSlider(indexOffers);
+          displayOffers(indexOffers);
         } else {
-          document.getElementById('offersTrack').innerHTML = `
-            <div class="platform-offer-card">
-              <div class="platform-offer-description" style="font-size: 1.3rem; margin-bottom: 15px;">
-                🎯 لا توجد عروض حالياً
-              </div>
-              <div class="offer-expiry">تابعنا لمعرفة أحدث العروض القادمة</div>
-            </div>
-          `;
+          // استخدام العروض الافتراضية إذا لم توجد عروض في ملف JSON
+          displayOffers(defaultOffers);
         }
       } catch (error) {
         console.log('خطأ في تحميل العروض:', error);
-        document.getElementById('offersTrack').innerHTML = `
-          <div class="platform-offer-card">
-            <div class="platform-offer-description" style="color: #ffdddd; font-size: 1.2rem;">
-              ⚠️ حدث خطأ في تحميل العروض
-            </div>
-            <div class="offer-expiry">يرجى المحاولة لاحقاً</div>
-          </div>
-        `;
+        // استخدام العروض الافتراضية في حالة الخطأ
+        displayOffers(defaultOffers);
       }
     }
 
-    // دالة لعرض العروض المتحركة ذاتياً
-    function initOffersSlider(offers) {
-      const track = document.getElementById('offersTrack');
-      const dotsContainer = document.getElementById('sliderDots');
+    // دالة لعرض العروض في الشبكة الجديدة
+    function displayOffers(offers) {
+      const grid = document.getElementById('offersGrid');
       
-      const offersHTML = offers.map(offer => `
-        <div class="platform-offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
-          <div class="offer-badge">عرض حصري</div>
-          <div class="platform-offer-discount">${offer.savings_percentage}% خصم</div>
-          <div class="platform-offer-description">${offer.title}</div>
-          <div class="platform-offer-restaurant">🏪 من ${offer.restaurant_name}</div>
-          <div class="price-container">
-            <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
-            <span class="platform-offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+      if (offers.length === 0) {
+        grid.innerHTML = `
+          <div class="loading" style="grid-column: 1 / -1;">
+            <i class="fas fa-gift" style="font-size: 3rem; margin-bottom: 15px; color: var(--medium-gray);"></i>
+            <p>لا توجد عروض حالياً</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">تابعنا لمعرفة أحدث العروض القادمة</p>
           </div>
-          <div class="offer-expiry">
-            <i class="fas fa-clock"></i>
-            صالحة حتى: ${offer.expiry_date}
+        `;
+        return;
+      }
+      
+      grid.innerHTML = offers.map(offer => `
+        <div class="offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
+          <div class="offer-image-container">
+            <img src="${offer.image}" alt="${offer.title}" class="offer-image">
+            <div class="offer-badge">خصم ${offer.savings_percentage}%</div>
           </div>
-          <a href="${offer.restaurant_id}.html" class="offer-cta">
-            <i class="fas fa-shopping-cart"></i>
-            اطلب الآن
-          </a>
+          <div class="offer-content">
+            <h3 class="offer-title">${offer.title}</h3>
+            <div class="offer-restaurant">
+              <i class="fas fa-store"></i>
+              ${offer.restaurant_name}
+            </div>
+            <p class="offer-description">${offer.description}</p>
+            <div class="offer-pricing">
+              <div class="price-container">
+                <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
+                <span class="offer-price">${offer.offer_price.toLocaleString()} ل.س</span>
+              </div>
+              <div class="discount-percentage">وفر ${offer.savings_percentage}%</div>
+            </div>
+            <div class="offer-footer">
+              <div class="offer-expiry">
+                <i class="fas fa-clock"></i>
+                ${offer.expiry_date}
+              </div>
+              <a href="${offer.restaurant_id}.html" class="offer-cta">
+                <i class="fas fa-shopping-cart"></i>
+                اطلب الآن
+              </a>
+            </div>
+          </div>
         </div>
       `).join('');
-      
-      track.innerHTML = offersHTML;
-
-      // إنشاء نقاط التبديل
-      const dotsHTML = offers.map((_, index) => `
-        <button class="slider-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
-      `).join('');
-      
-      dotsContainer.innerHTML = dotsHTML;
-
-      // التحكم التلقائي بالسلايدر
-      let currentSlide = 0;
-      const totalSlides = offers.length;
-      let autoSlideInterval;
-
-      function goToSlide(index) {
-        currentSlide = index;
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        
-        // تحديث النقاط النشطة
-        document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-      }
-
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(currentSlide);
-      }
-
-      // بدء التبديل التلقائي
-      function startAutoSlide() {
-        if (totalSlides > 1) {
-          autoSlideInterval = setInterval(nextSlide, 4000);
-        }
-      }
-
-      // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
-      function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-      }
-
-      // إضافة event listeners للنقاط
-      document.querySelectorAll('.slider-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-          const index = parseInt(dot.getAttribute('data-index'));
-          goToSlide(index);
-          stopAutoSlide();
-          startAutoSlide();
-        });
-      });
-
-      // بدء التبديل التلقائي
-      startAutoSlide();
-
-      // إيقاف التبديل التلقائي عند التمرير فوق السلايدر
-      track.addEventListener('mouseenter', stopAutoSlide);
-      track.addEventListener('mouseleave', startAutoSlide);
     }
 
     // دالة لتحميل المطاعم من restaurants.json
