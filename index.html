@@ -124,30 +124,28 @@
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      height: 200px; /* ارتفاع ثابت للحاوية */
+      height: 200px;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
     }
 
     .offers-track {
       display: flex;
       transition: transform 0.5s ease;
       height: 100%;
+      width: 100%;
     }
 
     .offer-card {
-      flex: 0 0 100%; /* كل بطاقة تأخذ 100% من عرض الحاوية */
+      flex: 0 0 100%;
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
       position: relative;
       height: 100%;
       cursor: pointer;
-    }
-
-    .offer-card:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: var(--shadow-lg);
+      min-width: 100%;
     }
 
     .offer-image-container {
@@ -161,11 +159,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .offer-card:hover .offer-image {
-      transform: scale(1.1);
+      display: block;
     }
 
     .offer-badge {
@@ -190,14 +184,6 @@
       background: linear-gradient(transparent, rgba(0,0,0,0.7));
       padding: 15px;
       color: white;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .offer-card:hover .offer-overlay {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .offer-price {
@@ -638,6 +624,8 @@
         console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
+          // تحميل جميع الصور مسبقاً قبل العرض
+          await preloadImages(indexOffers);
           initOffersSlider(indexOffers);
         } else {
           showNoOffersMessage();
@@ -648,6 +636,22 @@
       }
     }
 
+    // دالة لتحميل الصور مسبقاً
+    function preloadImages(offers) {
+      const promises = offers.map(offer => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = offer.image;
+          img.onload = resolve;
+          img.onerror = () => {
+            console.log('خطأ في تحميل الصورة:', offer.image);
+            resolve(); // نستمر حتى لو فشلت صورة
+          };
+        });
+      });
+      return Promise.all(promises);
+    }
+
     // دالة لتهيئة السلايدر الأفقي
     function initOffersSlider(offers) {
       const track = document.getElementById('offersTrack');
@@ -655,7 +659,7 @@
       
       // إنشاء بطاقات العروض من بيانات JSON
       const offersHTML = offers.map(offer => `
-        <div class="offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
+        <div class="offer-card">
           <div class="offer-image-container">
             <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
                  onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
@@ -727,7 +731,6 @@
       // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
       track.addEventListener('mouseenter', () => {
         clearInterval(autoScroll);
-        console.log('توقف التمرير التلقائي');
       });
       
       track.addEventListener('mouseleave', () => {
@@ -735,7 +738,6 @@
           const nextSlide = (currentSlide + 1) % totalOffers;
           goToSlide(nextSlide);
         }, 3000);
-        console.log('استئناف التمرير التلقائي');
       });
 
       // التمرير بالسحب على الشاشات التي تدعم اللمس
@@ -761,16 +763,13 @@
         const threshold = 50;
         
         if (diff > threshold && currentSlide < totalOffers - 1) {
-          // سحب لليسار - التالي
           goToSlide(currentSlide + 1);
         } else if (diff < -threshold && currentSlide > 0) {
-          // سحب لليمين - السابق
           goToSlide(currentSlide - 1);
         }
         
         isDragging = false;
         
-        // إعادة تشغيل التمرير التلقائي
         autoScroll = setInterval(() => {
           const nextSlide = (currentSlide + 1) % totalOffers;
           goToSlide(nextSlide);
@@ -809,7 +808,6 @@
         const response = await fetch('restaurants.json?v=' + Date.now());
         const data = await response.json();
         
-        // ترتيب المطاعم عشوائياً مع تثبيت رويال أولاً
         const shuffledRestaurants = shuffleRestaurants(data.restaurants);
         displayRestaurants(shuffledRestaurants);
         
