@@ -41,7 +41,7 @@
       padding-bottom: 80px; /* مساحة للشريط السفلي */
     }
 
-    /* الهيدر الثابت */
+    /* الهيدر الثابت - تم تحسينه */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -49,6 +49,16 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
       padding: 15px 0;
       box-shadow: var(--shadow-md);
+      /* تحسينات للأداء */
+      will-change: transform;
+      /* تأثير blur للخلفية عند التمرير */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* تأثير شفافية عند التمرير */
+    .sticky-header.scrolled {
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.95), rgba(255, 200, 87, 0.95));
     }
 
     .header-content {
@@ -396,6 +406,51 @@
           </div>
         </div>
       </div>
+      
+      <!-- إضافة المزيد من المحتوى لاختبار التمرير -->
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-id">طلب #12348</div>
+          <div class="order-date">5 أكتوبر 2023</div>
+        </div>
+        <div class="order-details">
+          <div class="restaurant-info">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                 alt="مطعم إيطالي" class="restaurant-image">
+            <div class="restaurant-name">مطعم إيطالي</div>
+          </div>
+          <div class="order-items">باستا + سلطة</div>
+          <div class="order-price">55.000 ل.ل</div>
+        </div>
+        <div class="order-status">
+          <div class="status-badge status-delivered">تم التوصيل</div>
+          <div class="order-actions">
+            <button>إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-id">طلب #12349</div>
+          <div class="order-date">1 أكتوبر 2023</div>
+        </div>
+        <div class="order-details">
+          <div class="restaurant-info">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                 alt="ساندويشات" class="restaurant-image">
+            <div class="restaurant-name">ساندويشات لذيذة</div>
+          </div>
+          <div class="order-items">ساندويش دجاج + بطاطا</div>
+          <div class="order-price">25.000 ل.ل</div>
+        </div>
+        <div class="order-status">
+          <div class="status-badge status-delivered">تم التوصيل</div>
+          <div class="order-actions">
+            <button>إعادة الطلب</button>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -434,6 +489,16 @@
         alert('سيتم إعادة الطلب');
         // يمكن استبدال هذا بتنفيذ حقيقي لإعادة الطلب
       });
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.sticky-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
   </script>
 </body>
