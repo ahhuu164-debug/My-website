@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض - طريقة جديدة */
+    /* قسم العروض - تصميم مبسط */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -181,31 +181,26 @@
       background: linear-gradient(transparent, rgba(0,0,0,0.7));
       padding: 15px;
       color: white;
-    }
-
-    .offer-price {
-      font-size: 1.3rem;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    .original-price {
-      font-size: 0.9rem;
-      text-decoration: line-through;
-      opacity: 0.8;
-      margin-left: 8px;
+      text-align: center;
     }
 
     .offer-cta {
       display: inline-block;
       background: var(--secondary-yellow);
       color: var(--dark-blue);
-      padding: 6px 15px;
-      border-radius: 20px;
-      font-weight: 700;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 800;
       text-decoration: none;
-      font-size: 0.85rem;
-      margin-top: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 200, 87, 0.3);
+    }
+
+    .offer-cta:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 200, 87, 0.4);
     }
 
     .slider-dots {
@@ -521,7 +516,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض - طريقة جديدة -->
+  <!-- قسم العروض - تصميم مبسط -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-wrapper">
@@ -680,17 +675,13 @@
       const container = document.getElementById('offersContainer');
       const dotsContainer = document.getElementById('sliderDots');
       
-      // إنشاء الشرائح
+      // إنشاء الشرائح - فقط الصورة وزر اطلب الآن
       const offersHTML = offers.map((offer, index) => `
         <div class="offer-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
           <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
                onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
           <div class="offer-badge">${offer.savings_percentage}%</div>
           <div class="offer-overlay">
-            <div class="offer-price">
-              ${offer.offer_price.toLocaleString()} ل.س
-              <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
-            </div>
             <a href="${offer.restaurant_id}.html" class="offer-cta">
               <i class="fas fa-shopping-cart"></i>
               اطلب الآن
