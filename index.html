@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض الجديد - تصميم مبسط للجوال */
+    /* قسم العروض - طريقة جديدة */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -119,46 +119,44 @@
       border-radius: 2px;
     }
 
-    .offers-container {
-      max-width: 100%;
+    .offers-wrapper {
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
       overflow: hidden;
       height: 200px;
-      background: var(--light-gray);
       border-radius: var(--border-radius);
     }
 
-    .offers-track {
+    .offers-container {
       display: flex;
+      width: 100%;
       height: 100%;
-      transition: transform 0.5s ease;
+      position: relative;
     }
 
-    .offer-card {
-      flex: 0 0 100%;
-      min-width: 100%;
-      background: white;
+    .offer-slide {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
       border-radius: var(--border-radius);
       overflow: hidden;
+      background: white;
       box-shadow: var(--shadow-md);
-      position: relative;
-      height: 100%;
-      cursor: pointer;
     }
 
-    .offer-image-container {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
+    .offer-slide.active {
+      opacity: 1;
     }
 
     .offer-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .offer-badge {
@@ -491,7 +489,7 @@
 
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
-      .offers-container {
+      .offers-wrapper {
         height: 170px;
       }
       
@@ -501,7 +499,7 @@
     }
 
     @media (max-width: 480px) {
-      .offers-container {
+      .offers-wrapper {
         height: 150px;
       }
       
@@ -523,20 +521,20 @@
     </div>
   </header>
 
-  <!-- قسم العروض الجديد - مبسط للجوال -->
+  <!-- قسم العروض - طريقة جديدة -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
-    <div class="offers-container">
-      <div class="offers-track" id="offersTrack">
+    <div class="offers-wrapper">
+      <div class="offers-container" id="offersContainer">
         <div class="loading">
           <i class="fas fa-spinner fa-spin"></i>
           <p>جاري تحميل العروض...</p>
         </div>
       </div>
-      
-      <div class="slider-dots" id="sliderDots">
-        <!-- سيتم إضافة النقاط ديناميكياً -->
-      </div>
+    </div>
+    
+    <div class="slider-dots" id="sliderDots">
+      <!-- سيتم إضافة النقاط ديناميكياً -->
     </div>
   </section>
 
@@ -679,31 +677,36 @@
 
     // دالة لعرض العروض
     function displayOffers(offers) {
-      const track = document.getElementById('offersTrack');
+      const container = document.getElementById('offersContainer');
       const dotsContainer = document.getElementById('sliderDots');
       
-      // إنشاء بطاقات العروض
-      const offersHTML = offers.map(offer => `
-        <div class="offer-card" onclick="window.location.href='${offer.restaurant_id}.html'">
-          <div class="offer-image-container">
-            <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
-                 onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
-            <div class="offer-badge">${offer.savings_percentage}%</div>
-            <div class="offer-overlay">
-              <div class="offer-price">
-                ${offer.offer_price.toLocaleString()} ل.س
-                <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
-              </div>
-              <a href="${offer.restaurant_id}.html" class="offer-cta">
-                <i class="fas fa-shopping-cart"></i>
-                اطلب الآن
-              </a>
+      // إنشاء الشرائح
+      const offersHTML = offers.map((offer, index) => `
+        <div class="offer-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+          <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
+               onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+          <div class="offer-badge">${offer.savings_percentage}%</div>
+          <div class="offer-overlay">
+            <div class="offer-price">
+              ${offer.offer_price.toLocaleString()} ل.س
+              <span class="original-price">${offer.original_price.toLocaleString()} ل.س</span>
             </div>
+            <a href="${offer.restaurant_id}.html" class="offer-cta">
+              <i class="fas fa-shopping-cart"></i>
+              اطلب الآن
+            </a>
           </div>
         </div>
       `).join('');
       
-      track.innerHTML = offersHTML;
+      container.innerHTML = offersHTML;
+
+      // إعداد النقاط
+      const dotsHTML = offers.map((_, index) => 
+        `<button class="slider-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
+      ).join('');
+      
+      dotsContainer.innerHTML = dotsHTML;
 
       // إعداد السلايدر
       initSlider(offers.length);
@@ -711,36 +714,29 @@
 
     // دالة لتهيئة السلايدر
     function initSlider(totalSlides) {
-      const track = document.getElementById('offersTrack');
-      const dotsContainer = document.getElementById('sliderDots');
+      const slides = document.querySelectorAll('.offer-slide');
+      const dots = document.querySelectorAll('.slider-dot');
       
       let currentSlide = 0;
-      
-      // إنشاء نقاط التبديل
-      const dotsHTML = Array.from({length: totalSlides}, (_, i) => 
-        `<button class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`
-      ).join('');
-      
-      dotsContainer.innerHTML = dotsHTML;
       
       // وظيفة التمرير إلى شريحة محددة
       function goToSlide(slideIndex) {
         if (slideIndex >= 0 && slideIndex < totalSlides) {
+          // إخفاء جميع الشرائح
+          slides.forEach(slide => slide.classList.remove('active'));
+          dots.forEach(dot => dot.classList.remove('active'));
+          
+          // إظهار الشريحة المطلوبة
+          slides[slideIndex].classList.add('active');
+          dots[slideIndex].classList.add('active');
+          
           currentSlide = slideIndex;
-          const translateX = currentSlide * 100;
-          track.style.transform = `translateX(-${translateX}%)`;
-          
           console.log('الانتقال إلى الشريحة:', currentSlide);
-          
-          // تحديث النقاط النشطة
-          document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentSlide);
-          });
         }
       }
       
       // أحداث النقاط
-      document.querySelectorAll('.slider-dot').forEach(dot => {
+      dots.forEach(dot => {
         dot.addEventListener('click', () => {
           const index = parseInt(dot.getAttribute('data-index'));
           goToSlide(index);
@@ -754,11 +750,12 @@
       }, 3000);
       
       // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
-      track.addEventListener('mouseenter', () => {
+      const container = document.getElementById('offersContainer');
+      container.addEventListener('mouseenter', () => {
         clearInterval(autoScroll);
       });
       
-      track.addEventListener('mouseleave', () => {
+      container.addEventListener('mouseleave', () => {
         autoScroll = setInterval(() => {
           const nextSlide = (currentSlide + 1) % totalSlides;
           goToSlide(nextSlide);
@@ -769,18 +766,13 @@
       let startX = 0;
       let isDragging = false;
 
-      track.addEventListener('touchstart', (e) => {
+      container.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
         clearInterval(autoScroll);
       });
 
-      track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-      });
-
-      track.addEventListener('touchend', (e) => {
+      container.addEventListener('touchend', (e) => {
         if (!isDragging) return;
         
         const endX = e.changedTouches[0].clientX;
@@ -800,14 +792,11 @@
           goToSlide(nextSlide);
         }, 3000);
       });
-
-      // تهيئة أول شريحة
-      goToSlide(0);
     }
 
     // رسالة عدم وجود عروض
     function showNoOffersMessage() {
-      document.getElementById('offersTrack').innerHTML = `
+      document.getElementById('offersContainer').innerHTML = `
         <div class="loading" style="width: 100%;">
           <i class="fas fa-gift" style="font-size: 2rem; margin-bottom: 10px; color: var(--medium-gray);"></i>
           <p>لا توجد عروض حالياً</p>
