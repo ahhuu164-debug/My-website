@@ -133,12 +133,11 @@
       display: flex;
       transition: transform 0.5s ease;
       height: 100%;
-      width: 100%;
     }
 
     .offer-card {
-      flex: 0 0 100%;
-      min-width: 100%;
+      flex-shrink: 0;
+      width: 100%;
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
@@ -667,19 +666,19 @@
         console.log('العروض المعروضة:', indexOffers);
         
         if (indexOffers.length > 0) {
-          initOffersSlider(indexOffers);
+          displayOffers(indexOffers);
         } else {
           showNoOffersMessage();
         }
       } catch (error) {
         console.log('خطأ في تحميل العروض:', error);
         // استخدام البيانات التجريبية في حالة الخطأ
-        initOffersSlider(testOffers);
+        displayOffers(testOffers);
       }
     }
 
-    // دالة لتهيئة السلايدر الأفقي
-    function initOffersSlider(offers) {
+    // دالة لعرض العروض
+    function displayOffers(offers) {
       const track = document.getElementById('offersTrack');
       const dotsContainer = document.getElementById('sliderDots');
       
@@ -706,20 +705,16 @@
       
       track.innerHTML = offersHTML;
 
-      // إعداد التحكم بالسلايدر
-      setupSliderControls(offers.length);
+      // إعداد السلايدر
+      initSlider(offers.length);
     }
 
-    // دالة لإعداد عناصر التحكم بالسلايدر
-    function setupSliderControls(totalSlides) {
+    // دالة لتهيئة السلايدر
+    function initSlider(totalSlides) {
       const track = document.getElementById('offersTrack');
       const dotsContainer = document.getElementById('sliderDots');
       
       let currentSlide = 0;
-      const containerWidth = track.parentElement.offsetWidth;
-      
-      console.log('عرض الحاوية:', containerWidth);
-      console.log('عدد الشرائح:', totalSlides);
       
       // إنشاء نقاط التبديل
       const dotsHTML = Array.from({length: totalSlides}, (_, i) => 
@@ -761,7 +756,6 @@
       // إيقاف التمرير التلقائي عند التمرير فوق السلايدر
       track.addEventListener('mouseenter', () => {
         clearInterval(autoScroll);
-        console.log('توقف التمرير التلقائي');
       });
       
       track.addEventListener('mouseleave', () => {
@@ -769,7 +763,6 @@
           const nextSlide = (currentSlide + 1) % totalSlides;
           goToSlide(nextSlide);
         }, 3000);
-        console.log('استئناف التمرير التلقائي');
       });
 
       // التمرير بالسحب على الشاشات التي تدعم اللمس
