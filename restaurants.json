@@ -1,6 +1,95 @@
 {
   "restaurants": [
     {
+      "id": "abu-salah",
+      "name": "مشاوي أبو صلاح",
+      "category": "أسماك مشوية • مشاوي • وجبات • ساندويش",
+      "image": "https://i.ibb.co/2Fz1bYz/restaurant-logo.jpg",
+      "logo": "https://i.ibb.co/2Fz1bYz/restaurant-logo.jpg",
+      "menu": [
+        {
+          "id": "601",
+          "name": "فيليه مشوي",
+          "price": 85000,
+          "description": "فيليه سمك مشوي طازج مع البهارات الخاصة",
+          "image": "https://i.ibb.co/9Yh8FqH/grilled-fish.jpg",
+          "category": "أسماك مشوية"
+        },
+        {
+          "id": "602",
+          "name": "شيش",
+          "price": 85000,
+          "description": "وجبة شيش مشوي مع الأرز والسلطة",
+          "image": "https://i.ibb.co/8s0hQqN/shish.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "603",
+          "name": "كباب",
+          "price": 75000,
+          "description": "وجبة كباب مشوي مع الأرز والسلطة",
+          "image": "https://i.ibb.co/2Fz1bYz/kebab.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "604",
+          "name": "شيش فخاد",
+          "price": 75000,
+          "description": "وجبة شيش فخاد مشوي مع الأرز والسلطة",
+          "image": "https://i.ibb.co/2Fz1bYz/shish-thigh.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "605",
+          "name": "كباب صغير",
+          "price": 15000,
+          "description": "ساندويش كباب صغير مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/small-kebab.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "606",
+          "name": "شيش صغير",
+          "price": 15000,
+          "description": "ساندويش شيش صغير مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/small-shish.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "607",
+          "name": "كباب وسط",
+          "price": 20000,
+          "description": "ساندويش كباب وسط مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/medium-kebab.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "608",
+          "name": "شيش وسط",
+          "price": 20000,
+          "description": "ساندويش شيش وسط مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/medium-shish.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "609",
+          "name": "كباب كبير",
+          "price": 25000,
+          "description": "ساندويش كباب كبير مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/large-kebab.jpg",
+          "category": "سандويش"
+        },
+        {
+          "id": "610",
+          "name": "شيش كبير",
+          "price": 25000,
+          "description": "ساندويش شيش كبير مع الخضار",
+          "image": "https://i.ibb.co/2Fz1bYz/large-shish.jpg",
+          "category": "ساندويش"
+        }
+      ]
+    },
+    {
       "id": "seville",
       "name": "إشبيلية",
       "category": "مشويات • وجبات • ساندويش • فتات وفلافل • سلطات",
@@ -760,7 +849,7 @@
           "price": 12000,
           "description": "كاسة بطاطا مع جبنة الشيدر",
           "image": "https://i.ibb.co/FpVT5cv/image.png",
-          "category": "بطاطا"
+          "category": "بطاطa"
         },
         {
           "id": "626",
