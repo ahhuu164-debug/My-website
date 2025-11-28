@@ -1384,10 +1384,10 @@
         },
         {
           "id": "225",
-          "name": "لحوم المانية",
+          "name": "حبش",
           "price": 40000,
-          "description": "بيتزا لحوم ألمانية",
-          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+          "description": "بيتزاحبش",
+          "image": "https://i.ibb.co/mFNGdXHQ/image.png",
           "category": "بيتزا"
         },
         {
