@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض - تصميم عمودي بنسبة 9:16 */
+    /* قسم العروض - تصميم أفقي مع زيادة الارتفاع 20% */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -120,13 +120,12 @@
     }
 
     .offers-wrapper {
-      max-width: 270px; /* عرض مناسب للتصميم العمودي 9:16 */
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      height: 480px; /* نسبة 9:16 (270 * 16/9 = 480) */
+      height: 240px; /* زيادة الارتفاع 20% من 200px إلى 240px */
       border-radius: var(--border-radius);
-      box-shadow: var(--shadow-md);
     }
 
     .offers-container {
@@ -147,6 +146,7 @@
       border-radius: var(--border-radius);
       overflow: hidden;
       background: white;
+      box-shadow: var(--shadow-md);
     }
 
     .offer-slide.active {
@@ -485,8 +485,7 @@
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
       .offers-wrapper {
-        max-width: 270px;
-        height: 480px; /* نسبة 9:16 ثابتة */
+        height: 200px; /* زيادة 20% من 170px إلى 200px */
       }
       
       .offers-title {
@@ -496,8 +495,7 @@
 
     @media (max-width: 480px) {
       .offers-wrapper {
-        max-width: 270px;
-        height: 480px; /* نسبة 9:16 ثابتة */
+        height: 180px; /* زيادة 20% من 150px إلى 180px */
       }
       
       .offers-title {
@@ -518,7 +516,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض - تصميم عمودي بنسبة 9:16 -->
+  <!-- قسم العروض - تصميم أفقي مع زيادة الارتفاع 20% -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-wrapper">
