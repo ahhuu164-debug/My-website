@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض - تصميم مبسط */
+    /* قسم العروض - تصميم عمودي بنسبة 9:16 */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -120,12 +120,13 @@
     }
 
     .offers-wrapper {
-      max-width: 1200px;
+      max-width: 360px; /* زيادة العرض قليلاً */
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      height: 200px;
+      height: 640px; /* زيادة الارتفاع ليكون 360 * 16/9 = 640 */
       border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
     }
 
     .offers-container {
@@ -146,7 +147,6 @@
       border-radius: var(--border-radius);
       overflow: hidden;
       background: white;
-      box-shadow: var(--shadow-md);
     }
 
     .offer-slide.active {
@@ -161,13 +161,13 @@
 
     .offer-badge {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 15px;
+      left: 15px;
       background: linear-gradient(135deg, var(--accent-red), #FF4757);
       color: white;
-      padding: 6px 12px;
+      padding: 8px 15px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 800;
       z-index: 3;
       box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
@@ -179,7 +179,7 @@
       right: 0;
       left: 0;
       background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      padding: 15px;
+      padding: 20px;
       color: white;
       text-align: center;
     }
@@ -188,11 +188,11 @@
       display: inline-block;
       background: var(--secondary-yellow);
       color: var(--dark-blue);
-      padding: 10px 25px;
+      padding: 12px 30px;
       border-radius: 25px;
       font-weight: 800;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(255, 200, 87, 0.3);
     }
@@ -485,7 +485,8 @@
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
       .offers-wrapper {
-        height: 170px;
+        max-width: 320px;
+        height: 570px; /* 320 * 16/9 = 570 */
       }
       
       .offers-title {
@@ -495,7 +496,8 @@
 
     @media (max-width: 480px) {
       .offers-wrapper {
-        height: 150px;
+        max-width: 300px;
+        height: 535px; /* 300 * 16/9 = 535 */
       }
       
       .offers-title {
@@ -516,7 +518,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض - تصميم مبسط -->
+  <!-- قسم العروض - تصميم عمودي بنسبة 9:16 -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-wrapper">
