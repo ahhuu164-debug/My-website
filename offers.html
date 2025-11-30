@@ -60,7 +60,7 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت */
+    /* الهيدر الثابت بدون تقلص */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -271,10 +271,6 @@
 
     .add-to-cart-btn:active {
       transform: translateY(0);
-    }
-
-    .add-to-cart-btn.added {
-      background: var(--success);
     }
 
     /* إشعارات */
@@ -536,29 +532,50 @@
   </nav>
 
   <script>
-    // متغير عام لتخزين العروض
-    let allOffers = [];
-
     // دالة لتحميل العروض من ملف JSON
     async function loadOffers() {
       try {
         console.log('بدء تحميل العروض...');
         
-        const response = await fetch('data/offers.json?v=' + Date.now());
-        if (!response.ok) {
-          throw new Error('لم يتم العثور على ملف العروض');
+        // جرب هذه المسارات المختلفة:
+        const paths = [
+          'data/offers.json',
+          './data/offers.json',
+          '/data/offers.json',
+          'offers.json'
+        ];
+        
+        let data = null;
+        let successfulPath = '';
+        
+        for (const path of paths) {
+          try {
+            console.log('جرب المسار:', path);
+            const response = await fetch(path + '?v=' + Date.now());
+            if (response.ok) {
+              data = await response.json();
+              successfulPath = path;
+              console.log('✅ تم تحميل العروض من:', path);
+              break;
+            }
+          } catch (e) {
+            console.log('❌ فشل المسار:', path, e.message);
+          }
         }
         
-        const data = await response.json();
+        if (!data) {
+          throw new Error('لم يتم العثور على ملف العروض في أي مسار');
+        }
+        
         console.log('بيانات العروض من JSON:', data);
         
-        // حفظ العروض في المتغير العام
-        allOffers = data.offers ? data.offers.filter(offer => offer.active) : [];
+        // فلترة العروض النشطة
+        const activeOffers = data.offers ? data.offers.filter(offer => offer.active) : [];
         
-        console.log('العروض النشطة:', allOffers);
+        console.log('العروض النشطة:', activeOffers);
         
-        if (allOffers.length > 0) {
-          displayOffers(allOffers);
+        if (activeOffers.length > 0) {
+          displayOffers(activeOffers);
         } else {
           showNoOffersMessage();
         }
@@ -591,7 +608,7 @@
               <i class="fas fa-clock"></i>
               <span>ينتهي في ${formatDate(offer.expiry_date)}</span>
             </div>
-            <button class="add-to-cart-btn" onclick="addOfferToCart(${offer.id})" id="cart-btn-${offer.id}">
+            <button class="add-to-cart-btn" onclick="addOfferToCart(${offer.id})">
               <i class="fas fa-cart-plus"></i>
               أضف إلى السلة - ${offer.offer_price} ل.س
             </button>
@@ -602,74 +619,16 @@
       container.innerHTML = offersHTML;
     }
 
-    // دالة إضافة إلى السلة
-    function addOfferToCart(offerId) {
-      const offer = allOffers.find(o => o.id === offerId);
-      if (offer) {
-        // الحصول على السلة الحالية
-        let cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
-        
-        // التحقق إذا كان المنتج موجود بالفعل
-        const existingItemIndex = cart.findIndex(item => item.id === offer.id);
-        
-        if (existingItemIndex > -1) {
-          // زيادة الكمية إذا المنتج موجود
-          cart[existingItemIndex].quantity += 1;
-        } else {
-          // إضافة منتج جديد
-          cart.push({
-            id: offer.id,
-            title: offer.title,
-            price: offer.offer_price,
-            restaurant: offer.restaurant_name,
-            image: offer.image,
-            quantity: 1,
-            items_included: offer.items_included
-          });
-        }
-        
-        // حفظ السلة
-        localStorage.setItem('offers_cart', JSON.stringify(cart));
-        
-        // تحديث الزر
-        updateCartButton(offer.id);
-        
-        // إظهار الإشعار
-        showNotification(`تم إضافة "${offer.title}" إلى السلة`);
-        
-        console.log('السلة الحالية:', cart);
-      }
-    }
-
-    // تحديث زر السلة
-    function updateCartButton(offerId) {
-      const button = document.getElementById(`cart-btn-${offerId}`);
-      if (button) {
-        button.innerHTML = '<i class="fas fa-check"></i> تم الإضافة - إضافة أخرى';
-        button.classList.add('added');
-        
-        // إعادة الزر إلى وضعه الطبيعي بعد 3 ثواني
-        setTimeout(() => {
-          button.innerHTML = '<i class="fas fa-cart-plus"></i> أضف إلى السلة';
-          button.classList.remove('added');
-        }, 3000);
-      }
-    }
-
     // دالة لتنسيق التاريخ
     function formatDate(dateString) {
       if (dateString === "نهاية اليوم") return "نهاية اليوم";
       
-      try {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('ar-EG', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-      } catch (e) {
-        return dateString;
-      }
+      const date = new Date(dateString);
+      return date.toLocaleDateString('ar-EG', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
     }
 
     // رسالة عدم وجود عروض
@@ -681,6 +640,34 @@
           <p>تابعنا لمعرفة أحدث العروض القادمة</p>
         </div>
       `;
+    }
+
+    // دالة إضافة إلى السلة
+    function addOfferToCart(offerId) {
+      loadOffers().then(offers => {
+        const offer = offers.find(o => o.id === offerId);
+        if (offer) {
+          // نظام سلة مؤقت
+          let cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
+          
+          const existingItem = cart.find(item => item.id === offer.id);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              id: offer.id,
+              title: offer.title,
+              price: offer.offer_price,
+              restaurant: offer.restaurant_name,
+              image: offer.image,
+              quantity: 1
+            });
+          }
+          
+          localStorage.setItem('offers_cart', JSON.stringify(cart));
+          showNotification(`تم إضافة "${offer.title}" إلى السلة`);
+        }
+      });
     }
 
     // إظهار الإشعارات
