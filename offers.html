@@ -531,13 +531,41 @@
     </div>
   </nav>
 
-  <script src="js/offers.js"></script>
   <script>
     // دالة لتحميل العروض من ملف JSON
     async function loadOffers() {
       try {
-        const response = await fetch('data/offers.json?v=' + Date.now());
-        const data = await response.json();
+        console.log('بدء تحميل العروض...');
+        
+        // جرب هذه المسارات المختلفة:
+        const paths = [
+          'data/offers.json',
+          './data/offers.json',
+          '/data/offers.json',
+          'offers.json'
+        ];
+        
+        let data = null;
+        let successfulPath = '';
+        
+        for (const path of paths) {
+          try {
+            console.log('جرب المسار:', path);
+            const response = await fetch(path + '?v=' + Date.now());
+            if (response.ok) {
+              data = await response.json();
+              successfulPath = path;
+              console.log('✅ تم تحميل العروض من:', path);
+              break;
+            }
+          } catch (e) {
+            console.log('❌ فشل المسار:', path, e.message);
+          }
+        }
+        
+        if (!data) {
+          throw new Error('لم يتم العثور على ملف العروض في أي مسار');
+        }
         
         console.log('بيانات العروض من JSON:', data);
         
@@ -612,6 +640,59 @@
           <p>تابعنا لمعرفة أحدث العروض القادمة</p>
         </div>
       `;
+    }
+
+    // دالة إضافة إلى السلة
+    function addOfferToCart(offerId) {
+      loadOffers().then(offers => {
+        const offer = offers.find(o => o.id === offerId);
+        if (offer) {
+          // نظام سلة مؤقت
+          let cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
+          
+          const existingItem = cart.find(item => item.id === offer.id);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              id: offer.id,
+              title: offer.title,
+              price: offer.offer_price,
+              restaurant: offer.restaurant_name,
+              image: offer.image,
+              quantity: 1
+            });
+          }
+          
+          localStorage.setItem('offers_cart', JSON.stringify(cart));
+          showNotification(`تم إضافة "${offer.title}" إلى السلة`);
+        }
+      });
+    }
+
+    // إظهار الإشعارات
+    function showNotification(message, type = 'success') {
+      // إزالة أي إشعار موجود
+      const existingNotification = document.querySelector('.offer-notification');
+      if (existingNotification) {
+        existingNotification.remove();
+      }
+      
+      const notification = document.createElement('div');
+      notification.className = `offer-notification ${type}`;
+      notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">✕</button>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // إزالة تلقائية بعد 4 ثواني
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 4000);
     }
 
     // تهيئة الصفحة عند التحميل
