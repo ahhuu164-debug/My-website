@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>طلباتي - Salamia Deliveo</title>
+  <title>عروض فود - أفضل العروض من مطاعم سلمية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,222 +33,269 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--light-gray);
-      color: var(--black);
-      line-height: 1.6;
-      padding-top: 80px; /* مساحة للهيدر الثابت */
-      padding-bottom: 80px; /* مساحة للشريط السفلي */
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* الهيدر الثابت - تم إصلاحه */
-    .sticky-header {
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      padding-bottom: 70px;
+      overflow-x: hidden;
+    }
+
+    .watermark-bg {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 1000;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      padding: 15px 0;
-      box-shadow: var(--shadow-md);
-      /* تحسينات للأداء */
-      will-change: transform;
-      /* تأثير blur للخلفية عند التمرير */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      background-image: url("https://i.postimg.cc/SKYvRztj/Logo.png");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0.02;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    /* تأثير شفافية عند التمرير */
-    .sticky-header.scrolled {
-      background: linear-gradient(135deg, rgba(255, 107, 53, 0.95), rgba(255, 200, 87, 0.95));
+    /* الهيدر الثابت بدون تقلص */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      padding: 25px 0;
+      box-shadow: var(--shadow-md);
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .logo-container img {
-      height: 50px;
+      height: 70px;
       width: auto;
     }
 
-    .back-button {
-      color: var(--white);
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 10px;
-      transition: all 0.3s ease;
-    }
-
-    .back-button:hover {
-      transform: scale(1.1);
-    }
-
-    /* محتوى الصفحة */
-    .main-content {
-      padding: 20px;
+    /* قسم العروض */
+    .offers-page-section {
+      padding: 30px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .page-title {
-      font-size: 1.8rem;
+    .section-header {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-orange), var(--secondary-yellow));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: var(--medium-gray);
+      font-size: 1.1rem;
+    }
+
+    /* شبكة العروض */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      width: 100%;
+    }
+
+    .offer-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.3s ease;
+      width: 100%;
+      position: relative;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent-red);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .card-header {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .offer-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .offer-card:hover .offer-image {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .offer-title {
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--dark-blue);
-      margin-bottom: 20px;
-      padding-right: 10px;
-    }
-
-    .orders-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .order-card {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: 20px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .order-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--light-gray);
-    }
-
-    .order-id {
-      font-weight: 600;
-      color: var(--dark-blue);
-    }
-
-    .order-date {
-      color: var(--medium-gray);
-      font-size: 0.9rem;
-    }
-
-    .order-details {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .restaurant-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .restaurant-image {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      object-fit: cover;
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
 
     .restaurant-name {
-      font-weight: 600;
-      color: var(--dark-blue);
-    }
-
-    .order-items {
-      color: var(--medium-gray);
-    }
-
-    .order-price {
-      font-weight: 700;
       color: var(--primary-orange);
-      text-align: left;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
-    .order-status {
+    .price-section {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-
-    .status-badge {
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .status-delivered {
-      background-color: rgba(39, 174, 96, 0.2);
-      color: var(--success);
-    }
-
-    .status-processing {
-      background-color: rgba(243, 156, 18, 0.2);
-      color: var(--warning);
-    }
-
-    .status-cancelled {
-      background-color: rgba(231, 63, 63, 0.2);
-      color: var(--accent-red);
-    }
-
-    .order-actions button {
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .order-actions button:hover {
-      background: var(--accent-red);
-    }
-
-    .no-orders {
-      text-align: center;
-      padding: 40px 20px;
-      background: var(--white);
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .no-orders i {
-      font-size: 3rem;
-      color: var(--medium-gray);
+      gap: 10px;
       margin-bottom: 15px;
     }
 
-    .no-orders p {
+    .original-price {
       color: var(--medium-gray);
+      text-decoration: line-through;
+      font-size: 0.9rem;
+    }
+
+    .offer-price {
+      color: var(--accent-red);
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .savings {
+      background: var(--success);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .offer-expiry {
+      color: var(--medium-gray);
+      font-size: 0.85rem;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .offer-expiry i {
+      color: var(--warning);
+    }
+
+    /* الفوتر */
+    .main-footer {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 40px 20px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-description {
+      opacity: 0.8;
+      line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    .browse-btn {
-      background: var(--primary-orange);
-      color: var(--white);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
+    .social-links {
+      display: flex;
+      gap: 12px;
     }
 
-    .browse-btn:hover {
-      background: var(--accent-red);
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: var(--primary-orange);
+    }
+
+    .social-link:hover {
+      background: var(--primary-orange);
+      transform: translateY(-3px);
+      color: white;
     }
 
     /* الشريط السفلي */
@@ -258,16 +305,15 @@
       left: 0;
       right: 0;
       background: var(--white);
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
       z-index: 1000;
-      padding: 10px 0;
+      padding: 12px 0 8px;
     }
 
     .nav-items {
       display: flex;
       justify-content: space-around;
-      max-width: 500px;
-      margin: 0 auto;
+      padding: 0 5px;
     }
 
     .nav-item {
@@ -276,232 +322,224 @@
       align-items: center;
       text-decoration: none;
       color: var(--medium-gray);
-      font-size: 0.8rem;
-      transition: all 0.3s ease;
-      padding: 5px 15px;
+      font-size: 0.75rem;
+      flex: 1;
+      padding: 5px;
+      transition: all 0.2s ease;
       position: relative;
     }
 
-    .nav-item.active, .nav-item:hover {
+    .nav-item.active {
       color: var(--primary-orange);
     }
 
-    .nav-item i {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-item.active i {
-      transform: scale(1.15);
-    }
-
-    /* مؤشر الصفحة النشطة */
     .nav-item.active::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -8px;
       width: 6px;
       height: 6px;
-      background-color: var(--primary-orange);
+      background: var(--primary-orange);
       border-radius: 50%;
+    }
+
+    .nav-icon {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item.active .nav-icon {
+      transform: translateY(-2px);
+    }
+
+    /* التحميل */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--medium-gray);
+      grid-column: 1 / -1;
+    }
+
+    /* رسالة عدم وجود عروض */
+    .no-offers {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--medium-gray);
+      grid-column: 1 / -1;
+    }
+
+    .no-offers i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    .no-offers h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--dark-blue);
     }
 
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
-      .order-details {
-        grid-template-columns: 1fr;
-        gap: 10px;
+      .offers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
       }
       
-      .order-price {
-        text-align: right;
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .offers-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
+  <div class="watermark-bg"></div>
+
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
-      <a href="index.html" class="back-button">
-        <i class="fas fa-arrow-right"></i>
-      </a>
       <div class="logo-container">
-        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
-      </div>
-      <div class="back-button">
-        <i class="fas fa-search"></i>
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="فود">
       </div>
     </div>
   </header>
 
-  <!-- المحتوى الرئيسي -->
-  <main class="main-content">
-    <h1 class="page-title">طلباتي</h1>
-    
-    <div class="orders-container">
-      <!-- طلب 1 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-id">طلب #12345</div>
-          <div class="order-date">12 أكتوبر 2023</div>
-        </div>
-        <div class="order-details">
-          <div class="restaurant-info">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                 alt="بيتزا سلمية" class="restaurant-image">
-            <div class="restaurant-name">بيتزا سلمية</div>
-          </div>
-          <div class="order-items">بيتزا كبيرة + مشروب</div>
-          <div class="order-price">65.000 ل.ل</div>
-        </div>
-        <div class="order-status">
-          <div class="status-badge status-delivered">تم التوصيل</div>
-          <div class="order-actions">
-            <button>إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
+  <!-- قسم العروض -->
+  <section class="offers-page-section">
+    <div class="section-header">
+      <h2 class="section-title">عروض <span>فود</span> الحصرية</h2>
+      <p class="section-subtitle">استفد من أفضل العروض من مطاعم سلمية</p>
+    </div>
 
-      <!-- طلب 2 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-id">طلب #12346</div>
-          <div class="order-date">10 أكتوبر 2023</div>
-        </div>
-        <div class="order-details">
-          <div class="restaurant-info">
-            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                 alt="برغر هاوس" class="restaurant-image">
-            <div class="restaurant-name">برغر هاوس</div>
-          </div>
-          <div class="order-items">برغر دبل + بطاطا</div>
-          <div class="order-price">45.000 ل.ل</div>
-        </div>
-        <div class="order-status">
-          <div class="status-badge status-delivered">تم التوصيل</div>
-          <div class="order-actions">
-            <button>إعادة الطلب</button>
-          </div>
-        </div>
+    <div class="offers-grid" id="offersContainer">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>جاري تحميل العروض...</p>
       </div>
+    </div>
+  </section>
 
-      <!-- طلب 3 -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-id">طلب #12347</div>
-          <div class="order-date">8 أكتوبر 2023</div>
-        </div>
-        <div class="order-details">
-          <div class="restaurant-info">
-            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                 alt="مشاوي العائلة" class="restaurant-image">
-            <div class="restaurant-name">مشاوي العائلة</div>
-          </div>
-          <div class="order-items">شاورما دجاج + سلطة</div>
-          <div class="order-price">35.000 ل.ل</div>
-        </div>
-        <div class="order-status">
-          <div class="status-badge status-delivered">تم التوصيل</div>
-          <div class="order-actions">
-            <button>إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
-      
-      <!-- إضافة المزيد من المحتوى لاختبار التمرير -->
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-id">طلب #12348</div>
-          <div class="order-date">5 أكتوبر 2023</div>
-        </div>
-        <div class="order-details">
-          <div class="restaurant-info">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                 alt="مطعم إيطالي" class="restaurant-image">
-            <div class="restaurant-name">مطعم إيطالي</div>
-          </div>
-          <div class="order-items">باستا + سلطة</div>
-          <div class="order-price">55.000 ل.ل</div>
-        </div>
-        <div class="order-status">
-          <div class="status-badge status-delivered">تم التوصيل</div>
-          <div class="order-actions">
-            <button>إعادة الطلب</button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="order-card">
-        <div class="order-header">
-          <div class="order-id">طلب #12349</div>
-          <div class="order-date">1 أكتوبر 2023</div>
-        </div>
-        <div class="order-details">
-          <div class="restaurant-info">
-            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                 alt="ساندويشات" class="restaurant-image">
-            <div class="restaurant-name">ساندويشات لذيذة</div>
-          </div>
-          <div class="order-items">ساندويش دجاج + بطاطا</div>
-          <div class="order-price">25.000 ل.ل</div>
-        </div>
-        <div class="order-status">
-          <div class="status-badge status-delivered">تم التوصيل</div>
-          <div class="order-actions">
-            <button>إعادة الطلب</button>
-          </div>
+  <!-- الفوتر -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="footer-logo">فود - Food</div>
+        <p class="footer-description">الطريقة الأسهل لطلب الطعام من أفضل مطاعم سلمية إلى باب منزلك</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
-  </main>
+  </footer>
 
   <!-- الشريط السفلي -->
   <nav class="bottom-nav">
     <div class="nav-items">
       <a href="index.html" class="nav-item">
-        <i class="fas fa-home"></i>
+        <i class="fas fa-home nav-icon"></i>
         <span>الرئيسية</span>
       </a>
-      <a href="restaurants.html" class="nav-item">
-        <i class="fas fa-utensils"></i>
-        <span>المطاعم</span>
-      </a>
-      <a href="orders.html" class="nav-item active">
-        <i class="fas fa-shopping-bag"></i>
-        <span>طلباتي</span>
-      </a>
-      <a href="profile.html" class="nav-item">
-        <i class="fas fa-user"></i>
-        <span>حسابي</span>
+      <a href="offers.html" class="nav-item active">
+        <i class="fas fa-percentage nav-icon"></i>
+        <span>العروض</span>
       </a>
     </div>
   </nav>
 
   <script>
-    // تفعيل أزرار إعادة الطلب
-    document.querySelectorAll('.order-actions button').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // تأثير النقر
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = '';
-        }, 200);
+    // دالة لتحميل العروض من ملف JSON
+    async function loadOffers() {
+      try {
+        const response = await fetch('offers.json?v=' + Date.now());
+        const data = await response.json();
         
-        alert('سيتم إعادة الطلب');
-        // يمكن استبدال هذا بتنفيذ حقيقي لإعادة الطلب
-      });
-    });
-
-    // تأثير التمرير على الهيدر
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.sticky-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+        console.log('بيانات العروض من JSON:', data);
+        
+        // فلترة العروض النشطة
+        const activeOffers = data.offers ? data.offers.filter(offer => offer.active) : [];
+        
+        console.log('العروض النشطة:', activeOffers);
+        
+        if (activeOffers.length > 0) {
+          displayOffers(activeOffers);
+        } else {
+          showNoOffersMessage();
+        }
+      } catch (error) {
+        console.log('خطأ في تحميل العروض:', error);
+        showNoOffersMessage();
       }
+    }
+
+    // دالة لعرض العروض
+    function displayOffers(offers) {
+      const container = document.getElementById('offersContainer');
+      
+      const offersHTML = offers.map(offer => `
+        <a href="${offer.restaurant_id}.html" class="offer-card">
+          <div class="offer-badge">عرض حصري</div>
+          <div class="card-header">
+            <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
+                 onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+          </div>
+          <div class="card-content">
+            <h3 class="offer-title">${offer.title}</h3>
+            <div class="restaurant-name">${offer.restaurant_name}</div>
+            <div class="price-section">
+              <span class="original-price">${offer.original_price} ل.س</span>
+              <span class="offer-price">${offer.offer_price} ل.س</span>
+              <span class="savings">وفر ${offer.savings_percentage}%</span>
+            </div>
+            <div class="offer-expiry">
+              <i class="fas fa-clock"></i>
+              <span>ينتهي في ${formatDate(offer.expiry_date)}</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+      
+      container.innerHTML = offersHTML;
+    }
+
+    // دالة لتنسيق التاريخ
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('ar-EG', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // رسالة عدم وجود عروض
+    function showNoOffersMessage() {
+      document.getElementById('offersContainer').innerHTML = `
+        <div class="no-offers">
+          <i class="fas fa-gift"></i>
+          <h3>لا توجد عروض حالياً</h3>
+          <p>تابعنا لمعرفة أحدث العروض القادمة</p>
+        </div>
+      `;
+    }
+
+    // تهيئة الصفحة عند التحميل
+    document.addEventListener('DOMContentLoaded', function() {
+      loadOffers();
     });
   </script>
 </body>
