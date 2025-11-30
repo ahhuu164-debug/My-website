@@ -244,6 +244,76 @@
       color: var(--warning);
     }
 
+    /* أزرار إضافة إلى السلة */
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .add-to-cart-btn:active {
+      transform: translateY(0);
+    }
+
+    /* إشعارات */
+    .offer-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--success);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      animation: slideIn 0.3s ease;
+      max-width: 350px;
+    }
+
+    .offer-notification.error {
+      background: var(--accent-red);
+    }
+
+    .offer-notification button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
     /* الفوتر */
     .main-footer {
       background: var(--dark-blue);
@@ -461,11 +531,12 @@
     </div>
   </nav>
 
+  <script src="js/offers.js"></script>
   <script>
     // دالة لتحميل العروض من ملف JSON
     async function loadOffers() {
       try {
-        const response = await fetch('offers.json?v=' + Date.now());
+        const response = await fetch('data/offers.json?v=' + Date.now());
         const data = await response.json();
         
         console.log('بيانات العروض من JSON:', data);
@@ -491,8 +562,8 @@
       const container = document.getElementById('offersContainer');
       
       const offersHTML = offers.map(offer => `
-        <a href="${offer.restaurant_id}.html" class="offer-card">
-          <div class="offer-badge">عرض حصري</div>
+        <div class="offer-card">
+          <div class="offer-badge">وفر ${offer.savings_percentage}%</div>
           <div class="card-header">
             <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
                  onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
@@ -503,14 +574,18 @@
             <div class="price-section">
               <span class="original-price">${offer.original_price} ل.س</span>
               <span class="offer-price">${offer.offer_price} ل.س</span>
-              <span class="savings">وفر ${offer.savings_percentage}%</span>
+              <span class="savings">وفر ${offer.savings} ل.س</span>
             </div>
             <div class="offer-expiry">
               <i class="fas fa-clock"></i>
               <span>ينتهي في ${formatDate(offer.expiry_date)}</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addOfferToCart(${offer.id})">
+              <i class="fas fa-cart-plus"></i>
+              أضف إلى السلة - ${offer.offer_price} ل.س
+            </button>
           </div>
-        </a>
+        </div>
       `).join('');
       
       container.innerHTML = offersHTML;
@@ -518,6 +593,8 @@
 
     // دالة لتنسيق التاريخ
     function formatDate(dateString) {
+      if (dateString === "نهاية اليوم") return "نهاية اليوم";
+      
       const date = new Date(dateString);
       return date.toLocaleDateString('ar-EG', {
         year: 'numeric',
