@@ -532,10 +532,91 @@
   </nav>
 
   <script>
+    // متغير لتخزين بيانات العروض
+    let offersData = [];
+
     // دالة لتحميل العروض من ملف JSON
     async function loadOffers() {
       try {
         console.log('بدء تحميل العروض...');
+        
+        // بيانات عروض افتراضية في حالة عدم وجود ملف JSON
+        const defaultOffers = {
+          offers: [
+            {
+              id: 1,
+              title: "بيتزا كبيرة مع مشروب",
+              restaurant_name: "بيتزا هت",
+              original_price: 12500,
+              offer_price: 9500,
+              savings: 3000,
+              savings_percentage: 24,
+              expiry_date: "2023-12-31",
+              image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            },
+            {
+              id: 2,
+              title: "وجبة برجر دبل مع بطاطس",
+              restaurant_name: "ماكدونالدز",
+              original_price: 8500,
+              offer_price: 6500,
+              savings: 2000,
+              savings_percentage: 23,
+              expiry_date: "2023-12-25",
+              image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            },
+            {
+              id: 3,
+              title: "ساندويش شاورما دجاج",
+              restaurant_name: "مطعم الشام",
+              original_price: 4500,
+              offer_price: 3500,
+              savings: 1000,
+              savings_percentage: 22,
+              expiry_date: "2023-12-20",
+              image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            },
+            {
+              id: 4,
+              title: "سوشي متنوع 24 قطعة",
+              restaurant_name: "مطعم اليابان",
+              original_price: 18000,
+              offer_price: 14500,
+              savings: 3500,
+              savings_percentage: 19,
+              expiry_date: "2023-12-28",
+              image: "https://images.unsplash.com/photo-1563612116625-3012372fccce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            },
+            {
+              id: 5,
+              title: "وجبة دجاج كرسبي مع أرز",
+              restaurant_name: "كنتاكي",
+              original_price: 7500,
+              offer_price: 6000,
+              savings: 1500,
+              savings_percentage: 20,
+              expiry_date: "2023-12-22",
+              image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            },
+            {
+              id: 6,
+              title: "سلطة سيزر مع دجاج مشوي",
+              restaurant_name: "مطعم الصحة",
+              original_price: 6000,
+              offer_price: 4500,
+              savings: 1500,
+              savings_percentage: 25,
+              expiry_date: "2023-12-18",
+              image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+              active: true
+            }
+          ]
+        };
         
         // جرب هذه المسارات المختلفة:
         const paths = [
@@ -563,25 +644,30 @@
           }
         }
         
+        // استخدم البيانات الافتراضية إذا لم يتم تحميل البيانات
         if (!data) {
-          throw new Error('لم يتم العثور على ملف العروض في أي مسار');
+          console.log('استخدام بيانات العروض الافتراضية');
+          data = defaultOffers;
         }
         
         console.log('بيانات العروض من JSON:', data);
         
         // فلترة العروض النشطة
-        const activeOffers = data.offers ? data.offers.filter(offer => offer.active) : [];
+        offersData = data.offers ? data.offers.filter(offer => offer.active) : [];
         
-        console.log('العروض النشطة:', activeOffers);
+        console.log('العروض النشطة:', offersData);
         
-        if (activeOffers.length > 0) {
-          displayOffers(activeOffers);
+        if (offersData.length > 0) {
+          displayOffers(offersData);
         } else {
           showNoOffersMessage();
         }
+        
+        return offersData;
       } catch (error) {
         console.log('خطأ في تحميل العروض:', error);
         showNoOffersMessage();
+        return [];
       }
     }
 
@@ -644,30 +730,45 @@
 
     // دالة إضافة إلى السلة
     function addOfferToCart(offerId) {
-      loadOffers().then(offers => {
-        const offer = offers.find(o => o.id === offerId);
-        if (offer) {
-          // نظام سلة مؤقت
-          let cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
-          
-          const existingItem = cart.find(item => item.id === offer.id);
-          if (existingItem) {
-            existingItem.quantity += 1;
-          } else {
-            cart.push({
-              id: offer.id,
-              title: offer.title,
-              price: offer.offer_price,
-              restaurant: offer.restaurant_name,
-              image: offer.image,
-              quantity: 1
-            });
-          }
-          
-          localStorage.setItem('offers_cart', JSON.stringify(cart));
-          showNotification(`تم إضافة "${offer.title}" إلى السلة`);
+      const offer = offersData.find(o => o.id === offerId);
+      if (offer) {
+        // نظام سلة مؤقت
+        let cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
+        
+        const existingItem = cart.find(item => item.id === offer.id);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            id: offer.id,
+            title: offer.title,
+            price: offer.offer_price,
+            restaurant: offer.restaurant_name,
+            image: offer.image,
+            quantity: 1
+          });
         }
-      });
+        
+        localStorage.setItem('offers_cart', JSON.stringify(cart));
+        showNotification(`تم إضافة "${offer.title}" إلى السلة`);
+        
+        // تحديث عداد السلة إذا كان موجوداً
+        updateCartCounter();
+      } else {
+        showNotification("حدث خطأ في إضافة المنتج إلى السلة", "error");
+      }
+    }
+
+    // دالة لتحديث عداد السلة
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('offers_cart') || '[]');
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      
+      // تحديث العداد في الشريط السفلي
+      const cartCounter = document.querySelector('.cart-counter');
+      if (cartCounter) {
+        cartCounter.textContent = totalItems;
+      }
     }
 
     // إظهار الإشعارات
