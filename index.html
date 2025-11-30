@@ -159,72 +159,6 @@
       object-fit: cover;
     }
 
-    .offer-badge {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: linear-gradient(135deg, var(--accent-red), #FF4757);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 800;
-      z-index: 3;
-      box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
-    }
-
-    .offer-overlay {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      padding: 20px;
-      color: white;
-      text-align: center;
-    }
-
-    .offer-cta {
-      display: inline-block;
-      background: var(--secondary-yellow);
-      color: var(--dark-blue);
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-weight: 800;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 200, 87, 0.3);
-    }
-
-    .offer-cta:hover {
-      background: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 200, 87, 0.4);
-    }
-
-    .slider-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .slider-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--medium-gray);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .slider-dot.active {
-      background: var(--primary-orange);
-      transform: scale(1.2);
-    }
-
     /* قسم المطاعم - مطعمين في كل صف */
     .restaurants-section {
       padding: 20px;
@@ -675,18 +609,11 @@
       const container = document.getElementById('offersContainer');
       const dotsContainer = document.getElementById('sliderDots');
       
-      // إنشاء الشرائح - فقط الصورة وزر اطلب الآن
+      // إنشاء الشرائح - فقط الصورة بدون زر اطلب الآن أو نسبة التوفير
       const offersHTML = offers.map((offer, index) => `
         <div class="offer-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
           <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
                onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
-          <div class="offer-badge">${offer.savings_percentage}%</div>
-          <div class="offer-overlay">
-            <a href="${offer.restaurant_id}.html" class="offer-cta">
-              <i class="fas fa-shopping-cart"></i>
-              اطلب الآن
-            </a>
-          </div>
         </div>
       `).join('');
       
@@ -836,7 +763,7 @@
         <a href="${restaurant.id}.html" class="restaurant-card">
           <div class="card-header">
             <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image" 
-                 onerror="this.src='https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+                 onerror="this.src='https://images.unsplash.com-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
           </div>
           <div class="card-content">
             <h3 class="restaurant-name">${restaurant.name}</h3>
