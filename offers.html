@@ -60,7 +60,7 @@
       pointer-events: none;
     }
 
-    /* الهيدر الثابت بدون تقلص */
+    /* الهيدر الثابت */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -127,10 +127,38 @@
       font-size: 1.1rem;
     }
 
+    /* فلترة العروض */
+    .offers-filter {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: var(--white);
+      border: 2px solid var(--light-gray);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary-orange);
+      color: var(--white);
+      border-color: var(--primary-orange);
+    }
+
     /* شبكة العروض */
     .offers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 25px;
       width: 100%;
     }
@@ -169,7 +197,7 @@
 
     .card-header {
       position: relative;
-      height: 180px;
+      height: 200px;
       overflow: hidden;
     }
 
@@ -199,8 +227,54 @@
     .restaurant-name {
       color: var(--primary-orange);
       font-size: 0.95rem;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       font-weight: 600;
+    }
+
+    .offer-description {
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .offer-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+    }
+
+    .detail-item i {
+      color: var(--primary-orange);
+    }
+
+    .items-included {
+      background: var(--light-gray);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .items-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+      color: var(--dark-blue);
+    }
+
+    .items-list {
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+      line-height: 1.4;
     }
 
     .price-section {
@@ -314,74 +388,20 @@
       to { transform: translateX(0); opacity: 1; }
     }
 
-    /* الفوتر */
-    .main-footer {
-      background: var(--dark-blue);
-      color: var(--white);
-      padding: 40px 20px 20px;
-      margin-top: 50px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-yellow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .footer-description {
-      opacity: 0.8;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      color: var(--primary-orange);
-    }
-
-    .social-link:hover {
-      background: var(--primary-orange);
-      transform: translateY(-3px);
-      color: white;
-    }
-
     /* ===== سلة التسوق المنبثقة ===== */
     .cart-sidebar {
       position: fixed;
       top: 0;
       left: -100%;
       width: 85%;
-      max-width: 350px;
+      max-width: 400px;
       height: 100vh;
       background: white;
       box-shadow: 8px 0 24px rgba(0,0,0,0.15);
       z-index: 1100;
       transition: left 0.3s ease;
       overflow-y: auto;
-      padding: 15px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
     }
@@ -394,8 +414,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #ECF0F1;
     }
 
@@ -419,18 +439,18 @@
     }
 
     .cart-items {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       flex-grow: 1;
       overflow-y: auto;
-      max-height: calc(100vh - 450px);
+      max-height: calc(100vh - 400px);
       min-height: 150px;
     }
 
     .cart-item {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 12px;
-      padding-bottom: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #ECF0F1;
     }
 
@@ -441,7 +461,13 @@
     .cart-item-name {
       font-weight: 600;
       margin-bottom: 4px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .cart-item-restaurant {
+      color: var(--primary-orange);
+      font-size: 0.8rem;
+      margin-bottom: 5px;
     }
 
     .cart-item-price {
@@ -499,8 +525,8 @@
     }
 
     .customer-info {
-      margin-bottom: 15px;
-      padding-top: 12px;
+      margin-bottom: 20px;
+      padding-top: 15px;
       border-top: 1px solid #ECF0F1;
     }
 
@@ -513,8 +539,8 @@
 
     .customer-input {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
       border: 1px solid #BDC3C7;
       border-radius: 8px;
       font-family: 'Cairo', sans-serif;
@@ -533,8 +559,8 @@
     }
 
     .payment-methods {
-      margin-bottom: 15px;
-      padding-top: 12px;
+      margin-bottom: 20px;
+      padding-top: 15px;
       border-top: 1px solid #ECF0F1;
     }
 
@@ -554,7 +580,7 @@
     .payment-option {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
       border: 1px solid #ECF0F1;
       border-radius: 8px;
       cursor: pointer;
@@ -597,7 +623,7 @@
     }
 
     .cart-summary {
-      padding-top: 12px;
+      padding-top: 15px;
       border-top: 2px solid #BDC3C7;
       background: white;
       position: sticky;
@@ -641,109 +667,6 @@
       background: #128C7E;
     }
 
-    /* نافذة عرض عنوان USDT */
-    .usdt-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1200;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .usdt-modal.active {
-      display: flex;
-    }
-
-    .usdt-content {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 350px;
-      width: 90%;
-    }
-
-    .usdt-title {
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #2C3E50;
-      font-size: 1.2rem;
-    }
-
-    .wallet-address {
-      background: #f8f9fa;
-      border: 1px solid #ECF0F1;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 15px;
-      text-align: right;
-      direction: ltr;
-      word-break: break-all;
-      position: relative;
-    }
-
-    .wallet-type {
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--primary-orange);
-      font-size: 1rem;
-    }
-
-    .wallet-code {
-      font-family: monospace;
-      font-size: 0.9rem;
-      color: #2C3E50;
-      margin-bottom: 10px;
-    }
-
-    .copy-btn {
-      background: var(--primary-orange);
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      font-family: 'Cairo', sans-serif;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      width: 100%;
-    }
-
-    .copy-btn:hover {
-      background: var(--accent-red);
-    }
-
-    .copy-btn.copied {
-      background: #25D366;
-    }
-
-    .close-usdt {
-      background: var(--primary-orange);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 10px;
-      width: 100%;
-    }
-
-    .close-usdt:hover {
-      background: var(--accent-red);
-    }
-
     .overlay {
       position: fixed;
       top: 0;
@@ -780,13 +703,13 @@
 
     .empty-cart-message {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       color: #BDC3C7;
     }
 
     .empty-cart-message i {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 15px;
     }
 
     /* الشريط السفلي */
@@ -875,7 +798,7 @@
     /* التكيف مع الشاشات الصغيرة */
     @media (max-width: 768px) {
       .offers-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 20px;
       }
       
@@ -915,6 +838,15 @@
       <p class="section-subtitle">استفد من أفضل العروض من مطاعم سلمية</p>
     </div>
 
+    <!-- فلترة العروض -->
+    <div class="offers-filter" id="offersFilter">
+      <button class="filter-btn active" data-filter="all">جميع العروض</button>
+      <button class="filter-btn" data-filter="عروض كومبو">عروض كومبو</button>
+      <button class="filter-btn" data-filter="عروض عائلية">عروض عائلية</button>
+      <button class="filter-btn" data-filter="عروض مقبلات">مقبلات</button>
+      <button class="filter-btn" data-filter="عروض فردية">عروض فردية</button>
+    </div>
+
     <div class="offers-grid" id="offersContainer">
       <div class="loading">
         <i class="fas fa-spinner fa-spin"></i>
@@ -948,10 +880,10 @@
       </button>
     </div>
     <div class="cart-items" id="cart-items">
-      <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
       <div class="empty-cart-message" id="empty-cart-message">
         <i class="fas fa-shopping-cart"></i>
         <p>سلة التسوق فارغة</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">أضف بعض العروض الرائعة من فوق!</p>
       </div>
     </div>
     
@@ -959,7 +891,7 @@
     <div class="customer-info">
       <div class="customer-info-title">معلومات التوصيل</div>
       <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
-      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required>
+      <input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي في سلمية" required>
       <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
     </div>
     
@@ -994,33 +926,6 @@
     </div>
   </div>
 
-  <!-- نافذة عرض عنوان USDT -->
-  <div class="usdt-modal" id="usdt-modal">
-    <div class="usdt-content">
-      <h3 class="usdt-title">عنوان محفظة USDT</h3>
-      
-      <div class="wallet-address">
-        <div class="wallet-type">TRC20</div>
-        <div class="wallet-code">TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw</div>
-        <button class="copy-btn" data-address="TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw">
-          <i class="far fa-copy"></i>
-          نسخ العنوان
-        </button>
-      </div>
-      
-      <div class="wallet-address">
-        <div class="wallet-type">BEP20</div>
-        <div class="wallet-code">0x15a1da3d6638a0d0516cbde202347f03e70c3b3f</div>
-        <button class="copy-btn" data-address="0x15a1da3d6638a0d0516cbde202347f03e70c3b3f">
-          <i class="far fa-copy"></i>
-          نسخ العنوان
-        </button>
-      </div>
-      
-      <button class="close-usdt" id="close-usdt">إغلاق</button>
-    </div>
-  </div>
-
   <!-- الشريط السفلي -->
   <nav class="bottom-nav">
     <div class="nav-items">
@@ -1045,12 +950,100 @@
     let cart = [];
     let selectedPayment = 'cash';
     let offersData = [];
+    let currentFilter = 'all';
 
     // ===== تهيئة التطبيق =====
     document.addEventListener('DOMContentLoaded', function() {
       initializeCartSystem();
+      initializeFilterSystem();
       loadOffers();
     });
+
+    // ===== نظام تحميل العروض من JSON =====
+    async function loadOffers() {
+      try {
+        console.log('جاري تحميل العروض من ملف JSON...');
+        
+        const response = await fetch('offers.json');
+        
+        if (!response.ok) {
+          throw new Error('لم يتم العثور على ملف العروض');
+        }
+        
+        const data = await response.json();
+        
+        if (!data.offers || !Array.isArray(data.offers)) {
+          throw new Error('هيكل بيانات العروض غير صحيح');
+        }
+        
+        // فلترة العروض النشطة فقط
+        offersData = data.offers.filter(offer => 
+          offer.active === true && offer.show_in_offers === true
+        );
+        
+        console.log(`✅ تم تحميل ${offersData.length} عرض نشط`);
+        
+        if (offersData.length > 0) {
+          displayOffers(offersData);
+          updateFilterButtons();
+        } else {
+          showNoOffersMessage();
+        }
+        
+      } catch (error) {
+        console.error('❌ خطأ في تحميل العروض:', error);
+        showNoOffersMessage();
+        showNotification('حدث خطأ في تحميل العروض', 'error');
+      }
+    }
+
+    // ===== نظام الفلترة =====
+    function initializeFilterSystem() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // تحديث الأزرار النشطة
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          currentFilter = filter;
+          filterOffers(filter);
+        });
+      });
+    }
+
+    function filterOffers(filter) {
+      let filteredOffers = offersData;
+      
+      if (filter !== 'all') {
+        filteredOffers = offersData.filter(offer => offer.category === filter);
+      }
+      
+      displayOffers(filteredOffers);
+    }
+
+    function updateFilterButtons() {
+      // جمع جميع الفئات الفريدة من العروض
+      const categories = [...new Set(offersData.map(offer => offer.category))];
+      const filterContainer = document.getElementById('offersFilter');
+      
+      // إضافة أزرار الفلترة الديناميكية
+      categories.forEach(category => {
+        if (!document.querySelector(`[data-filter="${category}"]`)) {
+          const button = document.createElement('button');
+          button.className = 'filter-btn';
+          button.setAttribute('data-filter', category);
+          button.textContent = category;
+          filterContainer.appendChild(button);
+        }
+      });
+      
+      // إعادة تهيئة مستمعي الأحداث
+      initializeFilterSystem();
+    }
 
     // ===== نظام السلة =====
     function initializeCartSystem() {
@@ -1069,9 +1062,6 @@
       const paymentCash = document.getElementById('payment-cash');
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
-      const usdtModal = document.getElementById('usdt-modal');
-      const closeUsdt = document.getElementById('close-usdt');
-      const copyButtons = document.querySelectorAll('.copy-btn');
 
       // فتح وإغلاق السلة
       openCartBtn.addEventListener('click', function(e) {
@@ -1096,28 +1086,6 @@
       paymentUsdt.addEventListener('click', function() {
         selectedPayment = 'usdt';
         updatePaymentSelection();
-        showUsdtAddress();
-      });
-
-      // نسخ عنوان USDT
-      copyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const address = this.getAttribute('data-address');
-          copyToClipboard(address);
-          
-          const originalText = this.innerHTML;
-          this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
-          this.classList.add('copied');
-          
-          setTimeout(() => {
-            this.innerHTML = originalText;
-            this.classList.remove('copied');
-          }, 2000);
-        });
-      });
-
-      closeUsdt.addEventListener('click', function() {
-        usdtModal.classList.remove('active');
       });
 
       // الطلب عبر واتساب
@@ -1128,32 +1096,36 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        let message = `🎯 طلب جديد من عروض فود\n\n`;
-        message += `👤 العميل: ${name}\n`;
-        message += `📞 الهاتف: ${phone}\n`;
-        message += `📍 العنوان: ${address}\n\n`;
-        message += `🛒 الطلبات:\n`;
+        let message = `🎯 *طلب جديد من عروض فود - سلمية*\n\n`;
+        message += `👤 *العميل:* ${name}\n`;
+        message += `📞 *الهاتف:* ${phone}\n`;
+        message += `📍 *العنوان:* ${address}\n\n`;
+        message += `🛒 *الطلبات:*\n`;
         
         cart.forEach((item, index) => {
-          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
+          message += `${index + 1}. *${item.name}* - ${item.quantity} × ${formatPrice(item.price)}\n`;
+          message += `   🏪 ${item.restaurant}\n`;
         });
         
         const total = cart.reduce((sum, item) => sum + (parsePrice(item.price) * item.quantity), 0);
-        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
-        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
-        message += `شكراً لطلبكم من عروض فود! 🎉`;
+        message += `\n💰 *المجموع:* ${formatPrice(total)}\n`;
+        message += `💳 *طريقة الدفع:* ${getPaymentMethodName(selectedPayment)}\n\n`;
+        message += `⏰ *ملاحظة:* هذا الطلب من صفحة العروض الحصرية\n\n`;
+        message += `شكراً لطلبكم من فود سلمية! 🎉`;
         
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
         
         window.open(whatsappUrl, '_blank');
         
-        showNotification('✅ تم إرسال طلبك بنجاح!');
+        showNotification('✅ تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً.');
         
+        // تفريغ السلة بعد الطلب
         cart = [];
         updateCartUI();
         closeCart();
         
+        // مسح بيانات العميل
         customerName.value = '';
         customerAddress.value = '';
         customerPhone.value = '';
@@ -1219,6 +1191,7 @@
       cartItem.innerHTML = `
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-restaurant">${item.restaurant}</div>
           <div class="cart-item-price">${formatPrice(item.price)}</div>
         </div>
         <div class="cart-item-quantity">
@@ -1308,84 +1281,23 @@
       }
     }
 
-    function showUsdtAddress() {
-      document.getElementById('usdt-modal').classList.add('active');
-    }
-
-    function copyToClipboard(text) {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      
-      showNotification('تم نسخ العنوان إلى الحافظة');
-    }
-
-    // ===== نظام العروض =====
-    async function loadOffers() {
-      try {
-        console.log('بدء تحميل العروض...');
-        
-        // بيانات عروض افتراضية
-        const defaultOffers = {
-          offers: [
-            {
-              id: 1,
-              title: "بيتزا كبيرة مع مشروب",
-              restaurant_name: "بيتزا هت",
-              original_price: 12500,
-              offer_price: 9500,
-              savings: 3000,
-              savings_percentage: 24,
-              expiry_date: "2023-12-31",
-              image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-              active: true
-            },
-            {
-              id: 2,
-              title: "وجبة برجر دبل مع بطاطس",
-              restaurant_name: "ماكدونالدز",
-              original_price: 8500,
-              offer_price: 6500,
-              savings: 2000,
-              savings_percentage: 23,
-              expiry_date: "2023-12-25",
-              image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-              active: true
-            },
-            {
-              id: 3,
-              title: "ساندويش شاورما دجاج",
-              restaurant_name: "مطعم الشام",
-              original_price: 4500,
-              offer_price: 3500,
-              savings: 1000,
-              savings_percentage: 22,
-              expiry_date: "2023-12-20",
-              image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-              active: true
-            }
-          ]
-        };
-        
-        offersData = defaultOffers.offers;
-        displayOffers(offersData);
-        
-      } catch (error) {
-        console.log('خطأ في تحميل العروض:', error);
-        showNoOffersMessage();
-      }
-    }
-
+    // ===== وظائف العروض =====
     function displayOffers(offers) {
       const container = document.getElementById('offersContainer');
       
+      if (offers.length === 0) {
+        container.innerHTML = `
+          <div class="no-offers">
+            <i class="fas fa-search"></i>
+            <h3>لا توجد عروض في هذا القسم</h3>
+            <p>جرب تصفية أخرى أو اطلع على جميع العروض</p>
+          </div>
+        `;
+        return;
+      }
+      
       const offersHTML = offers.map(offer => `
-        <div class="offer-card">
+        <div class="offer-card" data-category="${offer.category}">
           <div class="offer-badge">وفر ${offer.savings_percentage}%</div>
           <div class="card-header">
             <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
@@ -1393,19 +1305,43 @@
           </div>
           <div class="card-content">
             <h3 class="offer-title">${offer.title}</h3>
-            <div class="restaurant-name">${offer.restaurant_name}</div>
-            <div class="price-section">
-              <span class="original-price">${offer.original_price} ل.س</span>
-              <span class="offer-price">${offer.offer_price} ل.س</span>
-              <span class="savings">وفر ${offer.savings} ل.س</span>
+            <div class="restaurant-name">
+              <i class="fas fa-store"></i> ${offer.restaurant_name}
             </div>
+            <p class="offer-description">${offer.description}</p>
+            
+            <div class="offer-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <span>${offer.delivery_time}</span>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-tag"></i>
+                <span>${offer.category}</span>
+              </div>
+            </div>
+            
+            ${offer.items_included && offer.items_included.length > 0 ? `
+            <div class="items-included">
+              <div class="items-title">المكونات:</div>
+              <div class="items-list">${offer.items_included.join('، ')}</div>
+            </div>
+            ` : ''}
+            
+            <div class="price-section">
+              <span class="original-price">${formatPrice(offer.original_price)}</span>
+              <span class="offer-price">${formatPrice(offer.offer_price)}</span>
+              <span class="savings">وفر ${formatPrice(offer.savings)}</span>
+            </div>
+            
             <div class="offer-expiry">
               <i class="fas fa-clock"></i>
               <span>ينتهي في ${formatDate(offer.expiry_date)}</span>
             </div>
+            
             <button class="add-to-cart-btn" onclick="addOfferToCart(${offer.id})">
               <i class="fas fa-cart-plus"></i>
-              أضف إلى السلة - ${offer.offer_price} ل.س
+              أضف إلى السلة - ${formatPrice(offer.offer_price)}
             </button>
           </div>
         </div>
@@ -1414,11 +1350,28 @@
       container.innerHTML = offersHTML;
     }
 
+    function showNoOffersMessage() {
+      document.getElementById('offersContainer').innerHTML = `
+        <div class="no-offers">
+          <i class="fas fa-gift"></i>
+          <h3>لا توجد عروض حالياً</h3>
+          <p>تابعنا لمعرفة أحدث العروض القادمة</p>
+        </div>
+      `;
+    }
+
     // ===== الدوال العامة =====
     function addOfferToCart(offerId) {
       const offer = offersData.find(o => o.id === offerId);
       if (offer) {
-        addToCart(offer.id, offer.title, offer.offer_price, 1, offer.restaurant_name, offer.image);
+        addToCart(
+          offer.id, 
+          offer.title, 
+          offer.offer_price, 
+          1, 
+          offer.restaurant_name, 
+          offer.image
+        );
         showNotification(`تم إضافة "${offer.title}" إلى السلة`);
       } else {
         showNotification("حدث خطأ في إضافة المنتج إلى السلة", "error");
@@ -1456,16 +1409,6 @@
       });
     }
 
-    function showNoOffersMessage() {
-      document.getElementById('offersContainer').innerHTML = `
-        <div class="no-offers">
-          <i class="fas fa-gift"></i>
-          <h3>لا توجد عروض حالياً</h3>
-          <p>تابعنا لمعرفة أحدث العروض القادمة</p>
-        </div>
-      `;
-    }
-
     function parsePrice(price) {
       if (typeof price === 'number') return price;
       if (typeof price === 'string') {
@@ -1491,41 +1434,24 @@
 
     function showNotification(message, type = 'success') {
       const notification = document.createElement('div');
-      notification.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: ${type === 'error' ? '#E83F3F' : '#25D366'};
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        z-index: 2000;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(-20px);
+      notification.className = `offer-notification ${type === 'error' ? 'error' : ''}`;
+      notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">✕</button>
       `;
-      notification.textContent = message;
       
       document.body.appendChild(notification);
       
       setTimeout(() => {
-        notification.style.opacity = '1';
-        notification.style.transform = 'translateY(0)';
-      }, 10);
-      
-      setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transform = 'translateY(-20px)';
-        setTimeout(() => {
-          document.body.removeChild(notification);
-        }, 300);
-      }, 3000);
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 4000);
     }
 
     // جعل الدوال متاحة عالمياً
     window.addOfferToCart = addOfferToCart;
+    window.openCart = openCart;
   </script>
 </body>
 </html>
