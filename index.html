@@ -120,7 +120,7 @@
     }
 
     .offers-wrapper {
-      max-width: 1200px;
+      max-width: 400px; /* نفس عرض صورتك */
       margin: 0 auto;
       position: relative;
       overflow: hidden;
@@ -157,12 +157,11 @@
       opacity: 1;
     }
 
-    /* التعديل المهم: عرض الصورة كاملة بنسبة 2:1 */
+    /* التعديل المهم: عرض الصورة كاملة بنفس القياس */
     .offer-image {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* سيقطع قليلاً للحفاظ على النسبة */
-      object-position: center;
+      object-fit: contain; /* عرض الصورة كاملة بدون قص */
     }
 
     /* نقاط السلايدر */
@@ -449,6 +448,7 @@
     @media (max-width: 768px) {
       .offers-wrapper {
         height: 180px;
+        max-width: 360px; /* نفس النسبة 2:1 */
       }
       
       .offers-title {
@@ -459,6 +459,7 @@
     @media (max-width: 480px) {
       .offers-wrapper {
         height: 160px;
+        max-width: 320px; /* نفس النسبة 2:1 */
       }
       
       .offers-title {
