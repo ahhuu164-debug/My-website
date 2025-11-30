@@ -84,7 +84,7 @@
       width: auto;
     }
 
-    /* قسم العروض - تصميم أفقي مع زيادة الارتفاع 20% */
+    /* قسم العروض - التعديلات الجديدة */
     .offers-section {
       padding: 15px 10px 5px 10px;
       background: var(--white);
@@ -124,8 +124,9 @@
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      height: 240px; /* زيادة الارتفاع 20% من 200px إلى 240px */
+      height: 200px; /* ارتفاع ثابت للحاوية */
       border-radius: var(--border-radius);
+      background: #f8f9fa; /* خلفية إذا كانت الصورة صغيرة */
     }
 
     .offers-container {
@@ -147,16 +148,44 @@
       overflow: hidden;
       background: white;
       box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .offer-slide.active {
       opacity: 1;
     }
 
+    /* التعديل المهم: عرض الصورة كاملة */
     .offer-image {
-      width: 100%;
+      width: auto;
       height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* نقاط السلايدر */
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--medium-gray);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--primary-orange);
+      transform: scale(1.2);
     }
 
     /* قسم المطاعم - مطعمين في كل صف */
@@ -419,7 +448,7 @@
     /* ===== التكيف مع الشاشات الصغيرة ===== */
     @media (max-width: 768px) {
       .offers-wrapper {
-        height: 200px; /* زيادة 20% من 170px إلى 200px */
+        height: 180px;
       }
       
       .offers-title {
@@ -429,7 +458,7 @@
 
     @media (max-width: 480px) {
       .offers-wrapper {
-        height: 180px; /* زيادة 20% من 150px إلى 180px */
+        height: 160px;
       }
       
       .offers-title {
@@ -450,7 +479,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض - تصميم أفقي مع زيادة الارتفاع 20% -->
+  <!-- قسم العروض - التعديلات الجديدة -->
   <section class="offers-section">
     <h2 class="offers-title">عروض <span>فود</span> الحصرية</h2>
     <div class="offers-wrapper">
