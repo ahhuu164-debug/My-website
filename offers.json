@@ -16,9 +16,17 @@
       "show_in_restaurant": true,
       "active": true,
       "start_date": "2024-01-01",
-      "expiry_date": "نهاية اليوم",
+      "expiry_date": "2024-12-31",
       "items_included": ["سندويش شاورما لحم", "سندويش شاورما دجاج"],
-      "category": "عروض كومبو"
+      "category": "عروض كومبو",
+      "delivery_time": "30-45 دقيقة",
+      "preparation_time": "15-20 دقيقة",
+      "tags": ["شاورما", "سندويش", "كومبو"],
+      "add_to_cart_data": {
+        "product_id": "royal-shawerma-combo",
+        "quantity": 1,
+        "variant": "combo"
+      }
     },
     {
       "id": 2,
@@ -38,7 +46,15 @@
       "start_date": "2024-01-01",
       "expiry_date": "2024-12-31",
       "items_included": ["بيتزا عائلية كبيرة", "مشروب 1.5 لتر"],
-      "category": "عروض عائلية"
+      "category": "عروض عائلية",
+      "delivery_time": "40-55 دقيقة",
+      "preparation_time": "25-30 دقيقة",
+      "tags": ["بيتزا", "عائلية", "مشروب"],
+      "add_to_cart_data": {
+        "product_id": "pizza-family-offer",
+        "quantity": 1,
+        "variant": "family"
+      }
     },
     {
       "id": 3,
@@ -58,7 +74,15 @@
       "start_date": "2024-01-01",
       "expiry_date": "2024-12-31",
       "items_included": ["حمص", "تبولة", "فتوش", "لبنة"],
-      "category": "عروض مقبلات"
+      "category": "عروض مقبلات",
+      "delivery_time": "25-35 دقيقة",
+      "preparation_time": "15-20 دقيقة",
+      "tags": ["مقبلات", "عربية", "متنوعة"],
+      "add_to_cart_data": {
+        "product_id": "alwasouf-appetizers-combo",
+        "quantity": 1,
+        "variant": "combo"
+      }
     },
     {
       "id": 4,
@@ -78,7 +102,15 @@
       "start_date": "2024-01-01",
       "expiry_date": "2024-12-31",
       "items_included": ["برغر كلاسيك × 3", "بطاطا كبيرة", "مشروبات × 3"],
-      "category": "عروض عائلية"
+      "category": "عروض عائلية",
+      "delivery_time": "35-50 دقيقة",
+      "preparation_time": "20-25 دقيقة",
+      "tags": ["برغر", "عائلي", "بطاطا"],
+      "add_to_cart_data": {
+        "product_id": "krosh-family-burger",
+        "quantity": 1,
+        "variant": "family"
+      }
     },
     {
       "id": 5,
@@ -98,7 +130,15 @@
       "start_date": "2024-01-01",
       "expiry_date": "2024-12-31",
       "items_included": ["برغر دجاج", "بطاطا متوسطة", "مشروب"],
-      "category": "عروض فردية"
+      "category": "عروض فردية",
+      "delivery_time": "25-40 دقيقة",
+      "preparation_time": "10-15 دقيقة",
+      "tags": ["برغر", "سريع", "وجبة"],
+      "add_to_cart_data": {
+        "product_id": "herfy-quick-meal",
+        "quantity": 1,
+        "variant": "individual"
+      }
     },
     {
       "id": 6,
@@ -118,7 +158,15 @@
       "start_date": "2024-01-01",
       "expiry_date": "2024-12-31",
       "items_included": ["شيش طاووق", "كبة", "أرز", "سلطة"],
-      "category": "عروض عائلية"
+      "category": "عروض عائلية",
+      "delivery_time": "45-60 دقيقة",
+      "preparation_time": "30-35 دقيقة",
+      "tags": ["مشاوي", "عربية", "أرز"],
+      "add_to_cart_data": {
+        "product_id": "mashawi-complete-meal",
+        "quantity": 1,
+        "variant": "family"
+      }
     }
   ]
 }
