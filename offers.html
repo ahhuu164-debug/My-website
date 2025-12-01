@@ -195,17 +195,17 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    /* ===== تصميم جديد للصور المربع ===== */
+    /* ===== تصميم جديد للصور المربع - بحجم أكبر ===== */
     .card-header {
       position: relative;
       width: 100%;
-      height: 280px; /* ارتفاع ثابت للمربع */
+      height: 320px; /* ارتفاع أكبر للصور */
       overflow: hidden;
       background: linear-gradient(135deg, #f8f9fa, #e9ecef);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
       border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 
@@ -218,24 +218,34 @@
       position: relative;
     }
 
-    /* تصميم الصور لتناسب المربع */
+    /* تصميم الصور لتناسب المربع بحجم أكبر */
     .offer-image {
       width: auto;
       height: auto;
-      max-width: 85%;
-      max-height: 85%;
+      max-width: 95%; /* زيادة حجم الصورة */
+      max-height: 95%; /* زيادة حجم الصورة */
       object-fit: contain; /* عرض الصورة كاملة بدون قص */
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      background-color: white; /* خلفية بيضاء للصور الشفافة */
-      padding: 5px;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      background-color: white;
+      padding: 8px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
     /* تأثير التكبير عند التمرير */
     .offer-card:hover .offer-image {
-      transform: scale(1.08);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      transform: scale(1.12);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+      max-width: 100%;
+      max-height: 100%;
     }
 
     /* مؤشر تحميل الصورة */
@@ -273,18 +283,18 @@
 
     /* تحسين دعم أنواع الصور المختلفة */
     .offer-image.portrait {
-      max-width: 70%;
-      max-height: 90%;
+      max-width: 75%;
+      max-height: 95%;
     }
 
     .offer-image.landscape {
-      max-width: 90%;
-      max-height: 70%;
+      max-width: 95%;
+      max-height: 75%;
     }
 
     .offer-image.square {
-      max-width: 80%;
-      max-height: 80%;
+      max-width: 85%;
+      max-height: 85%;
     }
     /* ===== نهاية التعديلات على الصور ===== */
 
@@ -293,17 +303,17 @@
     }
 
     .offer-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem; /* زيادة حجم النص قليلاً */
       font-weight: 700;
       color: var(--dark-blue);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
 
     .restaurant-name {
       color: var(--primary-orange);
-      font-size: 0.95rem;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      margin-bottom: 10px;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -312,7 +322,7 @@
 
     .offer-description {
       color: var(--medium-gray);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-bottom: 12px;
       line-height: 1.5;
     }
@@ -328,7 +338,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--medium-gray);
     }
 
@@ -338,20 +348,20 @@
 
     .items-included {
       background: var(--light-gray);
-      padding: 10px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 10px;
       margin-bottom: 15px;
     }
 
     .items-title {
       font-weight: 600;
       margin-bottom: 5px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--dark-blue);
     }
 
     .items-list {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--medium-gray);
       line-height: 1.4;
     }
@@ -367,27 +377,27 @@
     .original-price {
       color: var(--medium-gray);
       text-decoration: line-through;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .offer-price {
       color: var(--accent-red);
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 800;
     }
 
     .savings {
       background: var(--success);
       color: white;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 12px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
     .offer-expiry {
       color: var(--medium-gray);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       margin-top: 10px;
       display: flex;
       align-items: center;
@@ -403,11 +413,11 @@
       background: linear-gradient(135deg, var(--primary-orange), var(--accent-red));
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border-radius: 12px;
       font-family: 'Cairo', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       width: 100%;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -945,7 +955,7 @@
       }
       
       .card-header {
-        height: 250px;
+        height: 280px; /* تعديل الارتفاع للشاشات المتوسطة */
       }
       
       .offer-image {
@@ -965,13 +975,13 @@
       }
       
       .card-header {
-        height: 230px;
-        padding: 15px;
+        height: 250px; /* تعديل الارتفاع للشاشات الصغيرة */
+        padding: 10px;
       }
       
       .offer-image {
-        max-width: 95%;
-        max-height: 95%;
+        max-width: 85%;
+        max-height: 85%;
       }
     }
   </style>
@@ -1121,81 +1131,141 @@
       try {
         console.log('جاري تحميل العروض من ملف JSON...');
         
-        // مثال بيانات افتراضية للعروض لاستخدامها في حالة عدم وجود ملف JSON
-        const defaultOffers = {
-          offers: [
-            {
-              id: 1,
-              title: "وجبة برغر عائلية كاملة",
-              restaurant_name: "مطعم البرجر الذهبي",
-              description: "وجبة متكاملة لـ 4 أشخاص تشمل 4 برغر دجاج، بطاطس كبيرة، مشروبات غازية",
-              category: "عروض عائلية",
-              image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-              original_price: 25000,
-              offer_price: 19900,
-              savings: 5100,
-              savings_percentage: 20,
-              delivery_time: "30-45 دقيقة",
-              items_included: ["4 برغر دجاج", "بطاطس كبيرة", "4 مشروبات غازية", "صوصات متنوعة"],
-              expiry_date: "2024-12-31",
-              active: true,
-              show_in_offers: true
-            },
-            {
-              id: 2,
-              title: "كومبو شاورما دجاج",
-              restaurant_name: "مطعم الشاورما اللذيذة",
-              description: "كومبو شاورما دجاج مع بطاطس ومشروب وكولا",
-              category: "عروض كومبو",
-              image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-              original_price: 12000,
-              offer_price: 9900,
-              savings: 2100,
-              savings_percentage: 18,
-              delivery_time: "25-35 دقيقة",
-              items_included: ["شاورما دجاج", "بطاطس", "مشروب", "صوص ثوم"],
-              expiry_date: "2024-12-15",
-              active: true,
-              show_in_offers: true
-            },
-            {
-              id: 3,
-              title: "سناك مقبلات متنوعة",
-              restaurant_name: "مطعم الأصالة",
-              description: "طبق مقبلات متنوع يحتوي على حمص، بابا غنوج، تبولة، ورق عنب",
-              category: "عروض مقبلات",
-              image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-              original_price: 15000,
-              offer_price: 11900,
-              savings: 3100,
-              savings_percentage: 21,
-              delivery_time: "20-30 دقيقة",
-              items_included: ["حمص", "بابا غنوج", "تبولة", "ورق عنب"],
-              expiry_date: "2024-12-20",
-              active: true,
-              show_in_offers: true
-            }
-          ]
-        };
+        // محاولة تحميل من ملف JSON
+        const response = await fetch('offers.json');
         
-        // استخدام البيانات الافتراضية
-        offersData = defaultOffers.offers.filter(offer => 
+        if (!response.ok) {
+          throw new Error('لم يتم العثور على ملف العروض، سيتم استخدام بيانات تجريبية');
+        }
+        
+        const data = await response.json();
+        
+        if (!data.offers || !Array.isArray(data.offers)) {
+          throw new Error('هيكل بيانات العروض غير صحيح');
+        }
+        
+        // فلترة العروض النشطة فقط
+        offersData = data.offers.filter(offer => 
           offer.active === true && offer.show_in_offers === true
         );
         
-        console.log(`✅ تم تحميل ${offersData.length} عرض نشط`);
+        console.log(`✅ تم تحميل ${offersData.length} عرض نشط من ملف JSON`);
         
         if (offersData.length > 0) {
           displayOffers(offersData);
           updateFilterButtons();
         } else {
-          showNoOffersMessage();
+          // إذا لم توجد عروض، نستخدم بيانات تجريبية
+          loadDemoOffers();
         }
         
       } catch (error) {
         console.error('❌ خطأ في تحميل العروض:', error);
+        // استخدام بيانات تجريبية في حالة الخطأ
+        loadDemoOffers();
+      }
+    }
+
+    // ===== تحميل بيانات تجريبية عند الحاجة =====
+    function loadDemoOffers() {
+      console.log('جاري تحميل العروض التجريبية...');
+      
+      const demoOffers = [
+        {
+          id: 1,
+          title: "وجبة برغر عائلية كاملة",
+          restaurant_name: "مطعم البرجر الذهبي",
+          description: "وجبة متكاملة لـ 4 أشخاص تشمل 4 برغر دجاج، بطاطس كبيرة، مشروبات غازية",
+          category: "عروض عائلية",
+          image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          original_price: 25000,
+          offer_price: 19900,
+          savings: 5100,
+          savings_percentage: 20,
+          delivery_time: "30-45 دقيقة",
+          items_included: ["4 برغر دجاج", "بطاطس كبيرة", "4 مشروبات غازية", "صوصات متنوعة"],
+          expiry_date: "2024-12-31",
+          active: true,
+          show_in_offers: true
+        },
+        {
+          id: 2,
+          title: "كومبو شاورما دجاج",
+          restaurant_name: "مطعم الشاورما اللذيذة",
+          description: "كومبو شاورما دجاج مع بطاطس ومشروب وكولا",
+          category: "عروض كومبو",
+          image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          original_price: 12000,
+          offer_price: 9900,
+          savings: 2100,
+          savings_percentage: 18,
+          delivery_time: "25-35 دقيقة",
+          items_included: ["شاورما دجاج", "بطاطس", "مشروب", "صوص ثوم"],
+          expiry_date: "2024-12-15",
+          active: true,
+          show_in_offers: true
+        },
+        {
+          id: 3,
+          title: "سناك مقبلات متنوعة",
+          restaurant_name: "مطعم الأصالة",
+          description: "طبق مقبلات متنوع يحتوي على حمص، بابا غنوج، تبولة، ورق عنب",
+          category: "عروض مقبلات",
+          image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          original_price: 15000,
+          offer_price: 11900,
+          savings: 3100,
+          savings_percentage: 21,
+          delivery_time: "20-30 دقيقة",
+          items_included: ["حمص", "بابا غنوج", "تبولة", "ورق عنب"],
+          expiry_date: "2024-12-20",
+          active: true,
+          show_in_offers: true
+        },
+        {
+          id: 4,
+          title: "بيتزا عائلية كبيرة",
+          restaurant_name: "بيتزا هاوس",
+          description: "بيتزا عائلية كبيرة مع 4 إضافات اختيارية",
+          category: "عروض عائلية",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          original_price: 28000,
+          offer_price: 22900,
+          savings: 5100,
+          savings_percentage: 18,
+          delivery_time: "35-45 دقيقة",
+          items_included: ["بيتزا كبيرة", "4 إضافات اختيارية", "مشروب 1.5 لتر"],
+          expiry_date: "2024-12-25",
+          active: true,
+          show_in_offers: true
+        },
+        {
+          id: 5,
+          title: "وجبة دجاج مشوي فردية",
+          restaurant_name: "مطعم الدجاج المشوي",
+          description: "وجبة دجاج مشوي مع أرز وسلطة ومشروب",
+          category: "عروض فردية",
+          image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          original_price: 8500,
+          offer_price: 6900,
+          savings: 1600,
+          savings_percentage: 19,
+          delivery_time: "25-35 دقيقة",
+          items_included: ["ربع دجاج مشوي", "أرز", "سلطة", "مشروب"],
+          expiry_date: "2024-12-18",
+          active: true,
+          show_in_offers: true
+        }
+      ];
+      
+      offersData = demoOffers;
+      console.log(`✅ تم تحميل ${offersData.length} عرض تجريبي`);
+      
+      if (offersData.length > 0) {
+        displayOffers(offersData);
+        updateFilterButtons();
+      } else {
         showNoOffersMessage();
-        showNotification('حدث خطأ في تحميل العروض', 'error');
       }
     }
 
@@ -1608,7 +1678,7 @@
         container.innerHTML = '';
         container.appendChild(finalImg);
         
-        // تطبيق تأثير الظهور
+        // تطبيق تأثير الظهور بعد تأخير بسيط
         setTimeout(() => {
           finalImg.style.opacity = '1';
         }, 100);
@@ -1620,6 +1690,7 @@
           <div class="image-error">
             <i class="fas fa-image"></i>
             <p>لا يمكن تحميل الصورة</p>
+            <p style="font-size: 0.8rem;">${offer.title}</p>
           </div>
         `;
       };
