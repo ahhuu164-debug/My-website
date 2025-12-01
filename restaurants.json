@@ -11,7 +11,6 @@
           "id": "601",
           "name": "فيليه مشوي",
           "price": 85000,
-          "description": "فيليه سمك مشوي طازج مع البهارات الخاصة",
           "image": "https://i.ibb.co/9Yh8FqH/grilled-fish.jpg",
           "category": "أسماك مشوية"
         },
@@ -19,7 +18,6 @@
           "id": "602",
           "name": "شيش",
           "price": 85000,
-          "description": "وجبة شيش مشوي مع الأرز والسلطة",
           "image": "https://i.ibb.co/8s0hQqN/shish.jpg",
           "category": "وجبات"
         },
@@ -27,7 +25,6 @@
           "id": "603",
           "name": "كباب",
           "price": 75000,
-          "description": "وجبة كباب مشوي مع الأرز والسلطة",
           "image": "https://i.ibb.co/2Fz1bYz/kebab.jpg",
           "category": "وجبات"
         },
@@ -35,7 +32,6 @@
           "id": "604",
           "name": "شيش فخاد",
           "price": 75000,
-          "description": "وجبة شيش فخاد مشوي مع الأرز والسلطة",
           "image": "https://i.ibb.co/2Fz1bYz/shish-thigh.jpg",
           "category": "وجبات"
         },
@@ -43,7 +39,6 @@
           "id": "605",
           "name": "كباب صغير",
           "price": 15000,
-          "description": "ساندويش كباب صغير مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/small-kebab.jpg",
           "category": "ساندويش"
         },
@@ -51,7 +46,6 @@
           "id": "606",
           "name": "شيش صغير",
           "price": 15000,
-          "description": "ساندويش شيش صغير مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/small-shish.jpg",
           "category": "ساندويش"
         },
@@ -59,7 +53,6 @@
           "id": "607",
           "name": "كباب وسط",
           "price": 20000,
-          "description": "ساندويش كباب وسط مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/medium-kebab.jpg",
           "category": "ساندويش"
         },
@@ -67,7 +60,6 @@
           "id": "608",
           "name": "شيش وسط",
           "price": 20000,
-          "description": "ساندويش شيش وسط مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/medium-shish.jpg",
           "category": "ساندويش"
         },
@@ -75,15 +67,13 @@
           "id": "609",
           "name": "كباب كبير",
           "price": 25000,
-          "description": "ساندويش كباب كبير مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/large-kebab.jpg",
-          "category": "سандويش"
+          "category": "ساندويش"
         },
         {
           "id": "610",
           "name": "شيش كبير",
           "price": 25000,
-          "description": "ساندويش شيش كبير مع الخضار",
           "image": "https://i.ibb.co/2Fz1bYz/large-shish.jpg",
           "category": "ساندويش"
         }
@@ -100,7 +90,6 @@
           "id": "801",
           "name": "١ كغ كباب مشوي",
           "price": 60000,
-          "description": "كباب مشوي طازج مع الخبز والسلطة",
           "image": "https://i.ibb.co/rRG5sJYC/image.png",
           "category": "مشويات"
         },
@@ -108,7 +97,6 @@
           "id": "802",
           "name": "١ كغ شيش مشوي",
           "price": 70000,
-          "description": "شيش مشوي طازج مع الخبز والسلطة",
           "image": "https://i.ibb.co/QFYPtjMd/image.png",
           "category": "مشويات"
         },
@@ -116,7 +104,6 @@
           "id": "803",
           "name": "كباب",
           "price": 10000,
-          "description": "ساندويش كباب مشوي مع الخضار",
           "image": "https://i.ibb.co/GvntZycr/image.png",
           "category": "ساندويش مشويات"
         },
@@ -124,7 +111,6 @@
           "id": "804",
           "name": "كباب دبل",
           "price": 12000,
-          "description": "ساندويش كباب مشوي دبل مع الخضار",
           "image": "https://i.ibb.co/PzTHpzfg/image.png",
           "category": "ساندويش مشويات"
         },
@@ -132,7 +118,6 @@
           "id": "805",
           "name": "شيش",
           "price": 12000,
-          "description": "ساندويش شيش مشوي مع الخضار",
           "image": "https://i.ibb.co/Hp9Wy1Dp/image.png",
           "category": "ساندويش مشويات"
         },
@@ -140,7 +125,6 @@
           "id": "806",
           "name": "شيش دبل",
           "price": 14000,
-          "description": "ساندويش شيش مشوي دبل مع الخضار",
           "image": "https://i.ibb.co/XZVDDZwv/image.png",
           "category": "ساندويش مشويات"
         },
@@ -148,7 +132,6 @@
           "id": "807",
           "name": "بطاطا عادي",
           "price": 8000,
-          "description": "بطاطا مقلية مقرمشة",
           "image": "https://i.ibb.co/SXTptZvT/image.png",
           "category": "بطاطا"
         },
@@ -156,7 +139,6 @@
           "id": "808",
           "name": "بطاطا دبل",
           "price": 10000,
-          "description": "بطاطا مقلية دبل مقرمشة",
           "image": "https://i.ibb.co/5gsnx3vm/image.png",
           "category": "بطاطا"
         },
@@ -164,7 +146,6 @@
           "id": "809",
           "name": "فلافل عادي",
           "price": 6000,
-          "description": "ساندويش فلافل مع الخضار والطحينة",
           "image": "https://i.ibb.co/LX49Lf36/image.png",
           "category": "فتات وفلافل"
         },
@@ -172,7 +153,6 @@
           "id": "810",
           "name": "فلافل دبل",
           "price": 8000,
-          "description": "ساندويش فلافل دبل مع الخضار والطحينة",
           "image": "https://i.ibb.co/ZzbVy8Zr/image.png",
           "category": "فتات وفلافل"
         },
@@ -180,7 +160,6 @@
           "id": "811",
           "name": "١ كغ فتة (شخصين)",
           "price": 40000,
-          "description": "وجبة فتة طازجة تكفي لشخصين",
           "image": "https://i.ibb.co/JwvFhnMH/image.png",
           "category": "فتات وفلافل"
         },
@@ -188,7 +167,6 @@
           "id": "812",
           "name": "١ كغ حمص ناعم",
           "price": 20000,
-          "description": "حمص ناعم طازج مع الطحينة والليمون",
           "image": "https://i.ibb.co/ZRV6xvKR/image.png",
           "category": "فتات وفلافل"
         },
@@ -196,7 +174,6 @@
           "id": "813",
           "name": "تبولة",
           "price": 15000,
-          "description": "سلطة تبولة شرقية طازجة",
           "image": "https://i.ibb.co/r2tt7XPm/image.png",
           "category": "سلطات"
         },
@@ -204,7 +181,6 @@
           "id": "814",
           "name": "فتوش",
           "price": 15000,
-          "description": "سلطة فتوش شرقية مع الخبز المحمص",
           "image": "https://i.ibb.co/rKtN9JB0/image.png",
           "category": "سلطات"
         },
@@ -212,7 +188,6 @@
           "id": "815",
           "name": "مارينا",
           "price": 7000,
-          "description": "ساندويش مارينا مع الخضار",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش مشويات"
         },
@@ -220,7 +195,6 @@
           "id": "816",
           "name": "مارينا دبل",
           "price": 10000,
-          "description": "ساندويش مارينا دبل مع الخضار",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش مشويات"
         },
@@ -228,7 +202,6 @@
           "id": "817",
           "name": "مارينا جبنة",
           "price": 10000,
-          "description": "ساندويش مارينا مع الجبنة والخضار",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش مشويات"
         },
@@ -236,7 +209,6 @@
           "id": "818",
           "name": "مارينا جبنة دبل",
           "price": 15000,
-          "description": "ساندويش مارينا دبل مع الجبنة والخضار",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش مشويات"
         },
@@ -244,7 +216,6 @@
           "id": "819",
           "name": "صحن بطاطا صغير",
           "price": 10000,
-          "description": "وجبة بطاطا مقلية صغيرة",
           "image": "https://i.ibb.co/hxSZtpKx/image.png",
           "category": "بطاطا"
         },
@@ -252,7 +223,6 @@
           "id": "820",
           "name": "صحن بطاطا وسط",
           "price": 15000,
-          "description": "وجبة بطاطا مقلية وسط",
           "image": "https://i.ibb.co/XrC3S87N/image.png",
           "category": "بطاطا"
         },
@@ -260,7 +230,6 @@
           "id": "821",
           "name": "صحن بطاطا كبير",
           "price": 20000,
-          "description": "وجبة بطاطا مقلية كبيرة",
           "image": "https://i.ibb.co/mrPdjQvw/image.png",
           "category": "بطاطا"
         }
@@ -277,7 +246,6 @@
           "id": "701",
           "name": "شاورما عادي",
           "price": 15000,
-          "description": "ساندويش شاورما طازج مع الخضار والصلصة",
           "image": "https://i.ibb.co/r2f4hC4f/image.jpg",
           "category": "شاورما"
         },
@@ -285,7 +253,6 @@
           "id": "702",
           "name": "شاورما دبل",
           "price": 20000,
-          "description": "ساندويش شاورما بكمية مضاعفة من اللحم",
           "image": "https://i.ibb.co/9BZNmsz/image.jpg",
           "category": "شاورما"
         },
@@ -293,7 +260,6 @@
           "id": "703",
           "name": "شاورما جبنة",
           "price": 22000,
-          "description": "ساندويش شاورما مع الجبنة الذائبة",
           "image": "https://i.ibb.co/Fq0rBrss/image.jpg",
           "category": "شاورما"
         },
@@ -301,7 +267,6 @@
           "id": "704",
           "name": "شاورما عربي",
           "price": 25000,
-          "description": "وجبة شاورما عربية مع الأرز والسلطة",
           "image": "https://i.ibb.co/zVBfs3Bx/image.png",
           "category": "شاورما"
         },
@@ -309,7 +274,6 @@
           "id": "705",
           "name": "شاورما ماريا",
           "price": 40000,
-          "description": "وجبة شاورما ماريا الخاصة مع الإضافات",
           "image": "https://i.ibb.co/d4QX7730/image.jpg",
           "category": "شاورما"
         },
@@ -317,7 +281,6 @@
           "id": "706",
           "name": "برغر",
           "price": 20000,
-          "description": "برغر لحم طازج مع الخضار والصلصة",
           "image": "https://i.ibb.co/FjG6sS2/image.jpg",
           "category": "برغر"
         },
@@ -325,7 +288,6 @@
           "id": "707",
           "name": "اكس برغر",
           "price": 22000,
-          "description": "برغر بحجم كبير مع إضافات خاصة",
           "image": "https://i.ibb.co/FbqH6zxn/image.jpg",
           "category": "برغر"
         },
@@ -333,7 +295,6 @@
           "id": "708",
           "name": "تشيز برغر",
           "price": 25000,
-          "description": "برغر مع جبنة شيدر ذائبة",
           "image": "https://i.ibb.co/Y7t9Y1X6/image.jpg",
           "category": "برغر"
         },
@@ -341,7 +302,6 @@
           "id": "709",
           "name": "فروج بروستد",
           "price": 100000,
-          "description": "فروج كامل مقلي بطريقة البروستد الشهية",
           "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بروستد"
         },
@@ -349,7 +309,6 @@
           "id": "710",
           "name": "نص فروج بروستد",
           "price": 55000,
-          "description": "نصف فروج مقلي بطريقة البروستد",
           "image": "https://i.ibb.co/GfVf91Hb/image.jpg",
           "category": "بروستد"
         },
@@ -357,7 +316,6 @@
           "id": "711",
           "name": "دبوس بروستد",
           "price": 70000,
-          "description": "قطع دبوس دجاج مقرمشة بطريقة البروستد",
           "image": "https://i.ibb.co/5XZVNMD5/image.jpg",
           "category": "بروستد"
         },
@@ -365,7 +323,6 @@
           "id": "712",
           "name": "جوانح بروستد",
           "price": 55000,
-          "description": "جوانح دجاج مقرمشة بطريقة البروستد",
           "image": "https://i.ibb.co/gFhgzg5h/image.jpg",
           "category": "بروستد"
         },
@@ -373,7 +330,6 @@
           "id": "713",
           "name": "بطاطا عادي",
           "price": 10000,
-          "description": "بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/sJMv3mTn/image.jpg",
           "category": "بطاطا"
         },
@@ -381,7 +337,6 @@
           "id": "714",
           "name": "بطاطا دبل",
           "price": 12000,
-          "description": "بطاطا مقلية بكمية مضاعفة",
           "image": "https://i.ibb.co/TMKbwtYn/image.jpg",
           "category": "بطاطا"
         },
@@ -389,7 +344,6 @@
           "id": "715",
           "name": "بطاطا قشقوان",
           "price": 15000,
-          "description": "بطاطا مع جبنة القشقوان الذائبة",
           "image": "https://i.ibb.co/67Ghf3J0/image.jpg",
           "category": "بطاطا"
         },
@@ -397,7 +351,6 @@
           "id": "716",
           "name": "بطاطا شيدر",
           "price": 15000,
-          "description": "بطاطا مع جبنة الشيدر الذائبة",
           "image": "https://i.ibb.co/ynMwnzRy/image.jpg",
           "category": "بطاطا"
         },
@@ -405,7 +358,6 @@
           "id": "717",
           "name": "وجبة بطاطا",
           "price": 10000,
-          "description": "وجبة بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/5PrVY9y/image.jpg",
           "category": "بطاطا"
         },
@@ -413,7 +365,6 @@
           "id": "718",
           "name": "وجبة بطاطا X",
           "price": 15000,
-          "description": "وجبة بطاطا بحجم كبير",
           "image": "https://i.ibb.co/WpGvxzs9/image.jpg",
           "category": "بطاطا"
         },
@@ -421,7 +372,6 @@
           "id": "719",
           "name": "وجبة بطاطا XX",
           "price": 20000,
-          "description": "وجبة بطاطا بحجم كبير جداً",
           "image": "https://i.ibb.co/jvd6TDTS/image.jpg",
           "category": "بطاطا"
         },
@@ -429,7 +379,6 @@
           "id": "720",
           "name": "كاسة بطاطا",
           "price": 8000,
-          "description": "كاسة بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/Xr04D8XW/image.jpg",
           "category": "بطاطا"
         },
@@ -437,7 +386,6 @@
           "id": "721",
           "name": "كاسة بطاطا بالجبن",
           "price": 12000,
-          "description": "كاسة بطاطا مع جبنة ذائبة",
           "image": "https://i.ibb.co/Wvgt6pG7/image.jpg",
           "category": "بطاطا"
         },
@@ -445,7 +393,6 @@
           "id": "722",
           "name": "فرانشيسكو",
           "price": 28000,
-          "description": "سناك فرانشيسكو اللذيذ",
           "image": "https://i.ibb.co/JRJb0Rzz/image.jpg",
           "category": "سناك"
         },
@@ -453,7 +400,6 @@
           "id": "723",
           "name": "تشكن ساب",
           "price": 25000,
-          "description": "سناك تشكن ساب المقرمش",
           "image": "https://i.ibb.co/Ng4hRq85/image.jpg",
           "category": "سناك"
         },
@@ -461,7 +407,6 @@
           "id": "724",
           "name": "سكالوب",
           "price": 25000,
-          "description": "سناك سكالوب الشهي",
           "image": "https://i.ibb.co/S4vnJhgr/image.jpg",
           "category": "سناك"
         },
@@ -469,7 +414,6 @@
           "id": "725",
           "name": "سكالوب ميلانيز",
           "price": 30000,
-          "description": "سناك سكالوب ميلانيز الخاص",
           "image": "https://i.ibb.co/7MyP7w8/image.jpg",
           "category": "سناك"
         },
@@ -477,7 +421,6 @@
           "id": "726",
           "name": "مكسيكي",
           "price": 22000,
-          "description": "سناك مكسيكي حار",
           "image": "https://i.ibb.co/h5qbC95/image.jpg",
           "category": "سناك"
         },
@@ -485,7 +428,6 @@
           "id": "727",
           "name": "فاهيتا",
           "price": 28000,
-          "description": "سناك فاهيتا اللذيذ",
           "image": "https://i.ibb.co/0RKMCPc0/image.jpg",
           "category": "سناك"
         },
@@ -493,7 +435,6 @@
           "id": "728",
           "name": "زنجر",
           "price": 28000,
-          "description": "سناك زنجر المقرمش",
           "image": "https://i.ibb.co/7xgtgzgg/image.jpg",
           "category": "سناك"
         },
@@ -501,23 +442,34 @@
           "id": "729",
           "name": "كريسبي",
           "price": 20000,
-          "description": "سناك كريسبي المقرمش",
           "image": "https://i.ibb.co/CXD88Zs/image.jpg",
           "category": "سناك"
         },
         {
           "id": "730",
-          "name": "شيش",
-          "price": 20000,
-          "description": "سناك شيش اللذيذ",
-          "image": "https://i.ibb.co/4RnXqqw1/image.jpg",
+          "name": "كاسة كريسبي",
+          "price": 18000,
+          "image": "https://i.ibb.co/CXD88Zs/image.jpg",
           "category": "سناك"
         },
         {
           "id": "731",
+          "name": "كاسة زنجر",
+          "price": 22000,
+          "image": "https://i.ibb.co/7xgtgzgg/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "732",
+          "name": "شيش",
+          "price": 20000,
+          "image": "https://i.ibb.co/4RnXqqw1/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "733",
           "name": "سودة",
           "price": 20000,
-          "description": "سناك سودة الشهي",
           "image": "https://i.ibb.co/LDGtq2W4/image.jpg",
           "category": "سناك"
         }
@@ -534,7 +486,6 @@
           "id": "501",
           "name": "معاجيق لحم",
           "price": 150000,
-          "description": "معجنات لحم طازجة ومميزة",
           "image": "https://i.ibb.co/SwC9QXqv/image.png",
           "category": "معجنات"
         },
@@ -542,7 +493,6 @@
           "id": "502",
           "name": "معاجيق دجاج",
           "price": 75000,
-          "description": "معجنات دجاج لذيذة",
           "image": "https://i.ibb.co/2Y5n6wGx/image.png",
           "category": "معجنات"
         },
@@ -550,7 +500,6 @@
           "id": "503",
           "name": "صفيحة لحم",
           "price": 150000,
-          "description": "صفيحة لحم شهية",
           "image": "https://i.ibb.co/LhBd7yD8/image.png",
           "category": "معجنات"
         },
@@ -558,7 +507,6 @@
           "id": "504",
           "name": "صفيحة دجاج",
           "price": 75000,
-          "description": "صفيحة دجاج طازجة",
           "image": "https://i.ibb.co/0jdgwZ5f/image.png",
           "category": "معجنات"
         },
@@ -566,7 +514,6 @@
           "id": "505",
           "name": "مارينا لحم",
           "price": 150000,
-          "description": "مارينا لحم مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "معجنات"
         },
@@ -574,7 +521,6 @@
           "id": "506",
           "name": "مارينا دجاج",
           "price": 75000,
-          "description": "مارينا دجاج مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "معجنات"
         },
@@ -582,7 +528,6 @@
           "id": "507",
           "name": "كباب لحم",
           "price": 150000,
-          "description": "كباب لحم مشوي طازج",
           "image": "https://i.ibb.co/JWFdw2rS/image.png",
           "category": "مشويات"
         },
@@ -590,7 +535,6 @@
           "id": "508",
           "name": "كباب دجاج",
           "price": 75000,
-          "description": "كباب دجاج مشوي",
           "image": "https://i.ibb.co/5zPSnVz/image.png",
           "category": "مشويات"
         },
@@ -598,7 +542,6 @@
           "id": "509",
           "name": "شقف لحم",
           "price": 175000,
-          "description": "شقف لحم مشوي",
           "image": "https://i.ibb.co/7JJrdt2z/image.png",
           "category": "مشويات"
         },
@@ -606,7 +549,6 @@
           "id": "510",
           "name": "كباب لحم عادي",
           "price": 17000,
-          "description": "ساندويش كباب لحم عادي",
           "image": "https://i.ibb.co/mFykRJGJ/image.png",
           "category": "ساندويش"
         },
@@ -614,7 +556,6 @@
           "id": "511",
           "name": "كباب لحم دبل",
           "price": 34000,
-          "description": "ساندويش كباب لحم دبل",
           "image": "https://i.ibb.co/JNmLJjx/image.png",
           "category": "ساندويش"
         },
@@ -622,7 +563,6 @@
           "id": "512",
           "name": "كباب دجاج عادي",
           "price": 10000,
-          "description": "ساندويش كباب دجاج عادي",
           "image": "https://i.ibb.co/HTbK7XYv/image.png",
           "category": "ساندويش"
         },
@@ -630,7 +570,6 @@
           "id": "513",
           "name": "كباب دجاج دبل",
           "price": 20000,
-          "description": "ساندويش كباب دجاج دبل",
           "image": "https://i.ibb.co/spCXFp16/image.png",
           "category": "ساندويش"
         },
@@ -638,7 +577,6 @@
           "id": "514",
           "name": "كبة مشوية",
           "price": 10000,
-          "description": "كبة مشوية طازجة ومميزة",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "كبة"
         }
@@ -655,7 +593,6 @@
           "id": "601",
           "name": "برغر لحم عجل",
           "price": 30000,
-          "description": "برغر لحم عجل طازج مع الخضار والصلصة",
           "image": "https://i.ibb.co/PZHXM1Xx/image.jpg",
           "category": "برغر"
         },
@@ -663,7 +600,6 @@
           "id": "602",
           "name": "تشكن برغر",
           "price": 25000,
-          "description": "برغر دجاج مقرمش مع المايونيز",
           "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -671,7 +607,6 @@
           "id": "603",
           "name": "برغر هيرفي",
           "price": 25000,
-          "description": "البرغر الخاص بمطعم هيرفي",
           "image": "https://i.ibb.co/KpjX4JGH/image.png",
           "category": "برغر"
         },
@@ -679,7 +614,6 @@
           "id": "604",
           "name": "موزريلا برغر",
           "price": 25000,
-          "description": "برغر مع جبنة الموزريلا الذائبة",
           "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -687,7 +621,6 @@
           "id": "605",
           "name": "برغر عربي",
           "price": 25000,
-          "description": "برغر بالطعم العربي التقليدي",
           "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -695,7 +628,6 @@
           "id": "606",
           "name": "شاورما عادي",
           "price": 15000,
-          "description": "ساندويش شاورما طازج مع الخضار والصلصة",
           "image": "https://i.ibb.co/RTvq1J8r/image.png",
           "category": "شاورما"
         },
@@ -703,7 +635,6 @@
           "id": "607",
           "name": "شاورما دبل",
           "price": 20000,
-          "description": "ساندويش شاورما بكمية مضاعفة من اللحم",
           "image": "https://i.ibb.co/Q3K1Nrwy/image.png",
           "category": "شاورما"
         },
@@ -711,7 +642,6 @@
           "id": "608",
           "name": "شاورما اكسترا",
           "price": 25000,
-          "description": "شاورما مع إضافات خاصة وصلصة مميزة",
           "image": "https://i.ibb.co/VcsC9zSV/image.jpg",
           "category": "شاورما"
         },
@@ -719,7 +649,6 @@
           "id": "609",
           "name": "شاورما مع قشقوان",
           "price": 25000,
-          "description": "شاورما مع جبنة القشقوان الذائبة",
           "image": "https://i.ibb.co/Xk66pFSM/image.jpg",
           "category": "شاورما"
         },
@@ -727,7 +656,6 @@
           "id": "610",
           "name": "عربي",
           "price": 30000,
-          "description": "وجبة شاورما عربية مع الأرز والسلطة",
           "image": "https://i.ibb.co/zhgYKMfT/image.jpg",
           "category": "شاورما"
         },
@@ -735,7 +663,6 @@
           "id": "611",
           "name": "عربي قشقوان",
           "price": 40000,
-          "description": "وجبة عربية مع جبنة القشقوان والأرز",
           "image": "https://i.ibb.co/XrWM7rgY/image.png",
           "category": "شاورما"
         },
@@ -743,7 +670,6 @@
           "id": "612",
           "name": "شاورما رش",
           "price": 130000,
-          "description": "وجبة شاورما كبيرة للعائلة مع الأرز والسلطات",
           "image": "https://i.ibb.co/0RSkH9dg/image.png",
           "category": "شاورما"
         },
@@ -751,7 +677,6 @@
           "id": "613",
           "name": "فروج بروستد",
           "price": 100000,
-          "description": "فروج كامل مقلي بطريقة البروستد الشهية",
           "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بروستد"
         },
@@ -759,7 +684,6 @@
           "id": "614",
           "name": "نص فروج بروستد",
           "price": 55000,
-          "description": "نصف فروج مقلي بطريقة البروستد",
           "image": "https://i.ibb.co/wrg5FwN7/image.png",
           "category": "بروستد"
         },
@@ -767,7 +691,6 @@
           "id": "615",
           "name": "جوانح مع صوص البوفالو",
           "price": 65000,
-          "description": "جوانح دجاج مقرمشة مع صوص البوفالو الحار",
           "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بروستد"
         },
@@ -775,7 +698,6 @@
           "id": "616",
           "name": "فخاد بروستد",
           "price": 70000,
-          "description": "فخوذ دجاج مقرمشة بطريقة البروستد",
           "image": "https://i.ibb.co/FbWXbZd6/image.jpg",
           "category": "بروستد"
         },
@@ -783,7 +705,6 @@
           "id": "617",
           "name": "بطاطا عادي",
           "price": 10000,
-          "description": "ساندويش بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/JRKhXf4p/image.jpg",
           "category": "بطاطا"
         },
@@ -791,7 +712,6 @@
           "id": "618",
           "name": "بطاطا دبل",
           "price": 15000,
-          "description": "ساندويش بطاطا بكمية مضاعفة",
           "image": "https://i.ibb.co/tpfnQStK/image.jpg",
           "category": "بطاطا"
         },
@@ -799,7 +719,6 @@
           "id": "619",
           "name": "بطاطا قشقوان",
           "price": 15000,
-          "description": "ساندويش بطاطا مع جبنة القشقوان",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -807,7 +726,6 @@
           "id": "620",
           "name": "بطاطا شيدر",
           "price": 15000,
-          "description": "ساندويش بطاطا مع جبنة الشيدر",
           "image": "https://i.ibb.co/b5jrTks9/image.jpg",
           "category": "بطاطا"
         },
@@ -815,7 +733,6 @@
           "id": "621",
           "name": "بطاطا صحن",
           "price": 15000,
-          "description": "صحن بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/8gvHM5Xy/image.jpg",
           "category": "بطاطا"
         },
@@ -823,7 +740,6 @@
           "id": "622",
           "name": "بطاطا صحن مع قشقوان",
           "price": 25000,
-          "description": "صحن بطاطا مع جبنة القشقوان الذائبة",
           "image": "https://i.ibb.co/1fjBjv03/image.jpg",
           "category": "بطاطا"
         },
@@ -831,7 +747,6 @@
           "id": "623",
           "name": "كاسة بطاطا",
           "price": 8000,
-          "description": "كاسة كبيرة من البطاطا المقلية",
           "image": "https://i.ibb.co/5hvpYK6S/image.png",
           "category": "بطاطا"
         },
@@ -839,7 +754,6 @@
           "id": "624",
           "name": "كاسة بطاطا قشقوان",
           "price": 12000,
-          "description": "كاسة بطاطا مع جبنة القشقوان",
           "image": "https://i.ibb.co/3558VwKm/image.png",
           "category": "بطاطا"
         },
@@ -847,15 +761,13 @@
           "id": "625",
           "name": "كاسة بطاطا شيدر",
           "price": 12000,
-          "description": "كاسة بطاطا مع جبنة الشيدر",
           "image": "https://i.ibb.co/FpVT5cv/image.png",
-          "category": "بطاطa"
+          "category": "بطاطا"
         },
         {
           "id": "626",
           "name": "كريسبي",
           "price": 25000,
-          "description": "قطع دجاج مقرمشة",
           "image": "https://i.ibb.co/8g1WZWTb/image.jpg",
           "category": "سناك"
         },
@@ -863,7 +775,6 @@
           "id": "627",
           "name": "اسكالوب",
           "price": 25000,
-          "description": "قطع اسكالوب دجاج",
           "image": "https://i.ibb.co/rR62W9XF/image.png",
           "category": "سناك"
         },
@@ -871,7 +782,6 @@
           "id": "628",
           "name": "اسكالوب ميلانيز",
           "price": 30000,
-          "description": "اسكالوب دجاج بطريقة الميلانيز",
           "image": "https://i.ibb.co/tTLwYky0/image.jpg",
           "category": "سناك"
         },
@@ -879,7 +789,6 @@
           "id": "629",
           "name": "زنجر قشقوان",
           "price": 28000,
-          "description": "زنجر دجاج مع جبنة القشقوان",
           "image": "https://i.ibb.co/C3c5jSmH/image.png",
           "category": "سناك"
         },
@@ -887,7 +796,6 @@
           "id": "630",
           "name": "زنجر سبايسي",
           "price": 25000,
-          "description": "زنجر دجاج حار",
           "image": "https://i.ibb.co/RTvq1J8r/image.png",
           "category": "سناك"
         },
@@ -895,7 +803,6 @@
           "id": "631",
           "name": "فاهيتا",
           "price": 28000,
-          "description": "فاهيتا دجاج مع الخضار",
           "image": "https://i.ibb.co/VYychyYQ/image.jpg",
           "category": "سناك"
         },
@@ -903,7 +810,6 @@
           "id": "632",
           "name": "تشكن ساب",
           "price": 28000,
-          "description": "تشكن ساب دجاج",
           "image": "https://i.ibb.co/cXbhhsVt/image.jpg",
           "category": "سناك"
         },
@@ -911,7 +817,6 @@
           "id": "633",
           "name": "مكسيكانو",
           "price": 25000,
-          "description": "سناك مكسيكاني",
           "image": "https://i.ibb.co/spDLtYBB/image.jpg",
           "category": "سناك"
         },
@@ -919,23 +824,27 @@
           "id": "634",
           "name": "سوبر كرانشي",
           "price": 35000,
-          "description": "سناك مقرمش جداً",
           "image": "https://i.ibb.co/j1JsBvh/image.jpg",
           "category": "سناك"
         },
         {
           "id": "635",
-          "name": "شيش",
-          "price": 20000,
-          "description": "شيش دجاج",
-          "image": "https://i.ibb.co/N6FQrv8r/image.jpg",
+          "name": "كاسة كريسبي",
+          "price": 15000,
+          "image": "https://i.ibb.co/8g1WZWTb/image.jpg",
           "category": "سناك"
         },
         {
           "id": "636",
+          "name": "شيش",
+          "price": 20000,
+          "image": "https://i.ibb.co/N6FQrv8r/image.jpg",
+          "category": "سناك"
+        },
+        {
+          "id": "637",
           "name": "سودة",
           "price": 20000,
-          "description": "سودة دجاج",
           "image": "https://i.ibb.co/CsP6rbt1/image.jpg",
           "category": "سناك"
         }
@@ -952,7 +861,6 @@
           "id": "401",
           "name": "معاجيق لحم",
           "price": 170000,
-          "description": "معجنات لحم طازجة ومميزة",
           "image": "https://i.ibb.co/SwC9QXqv/image.png",
           "category": "معجنات"
         },
@@ -960,7 +868,6 @@
           "id": "402",
           "name": "معاجيق دجاج",
           "price": 80000,
-          "description": "معجنات دجاج لذيذة",
           "image": "https://i.ibb.co/2Y5n6wGx/image.png",
           "category": "معجنات"
         },
@@ -968,7 +875,6 @@
           "id": "403",
           "name": "صفيحة لحم",
           "price": 170000,
-          "description": "صفيحة لحم شهية",
           "image": "https://i.ibb.co/LhBd7yD8/image.png",
           "category": "معجنات"
         },
@@ -976,7 +882,6 @@
           "id": "404",
           "name": "صفيحة دجاج",
           "price": 80000,
-          "description": "صفيحة دجاج طازجة",
           "image": "https://i.ibb.co/0jdgwZ5f/image.png",
           "category": "معجنات"
         },
@@ -984,7 +889,6 @@
           "id": "405",
           "name": "مارينا لحم",
           "price": 200000,
-          "description": "مارينا لحم مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "معجنات"
         },
@@ -992,7 +896,6 @@
           "id": "406",
           "name": "مارينا دجاج",
           "price": 120000,
-          "description": "مارينا دجاج مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "معجنات"
         },
@@ -1000,7 +903,6 @@
           "id": "407",
           "name": "كباب لحم",
           "price": 170000,
-          "description": "كباب لحم مشوي طازج",
           "image": "https://i.ibb.co/JWFdw2rS/image.png",
           "category": "مشويات"
         },
@@ -1008,7 +910,6 @@
           "id": "408",
           "name": "كباب دجاج",
           "price": 80000,
-          "description": "كباب دجاج مشوي",
           "image": "https://i.ibb.co/5zPSnVz/image.png",
           "category": "مشويات"
         },
@@ -1016,7 +917,6 @@
           "id": "409",
           "name": "شقف لحم",
           "price": 175000,
-          "description": "شقف لحم مشوي",
           "image": "https://i.ibb.co/7JJrdt2z/image.png",
           "category": "مشويات"
         },
@@ -1024,7 +924,6 @@
           "id": "410",
           "name": "كباب لحم عادي",
           "price": 17000,
-          "description": "ساندويش كباب لحم عادي",
           "image": "https://i.ibb.co/mFykRJGJ/image.png",
           "category": "ساندويش"
         },
@@ -1032,7 +931,6 @@
           "id": "411",
           "name": "كباب لحم دبل",
           "price": 34000,
-          "description": "ساندويش كباب لحم دبل",
           "image": "https://i.ibb.co/JNmLJjx/image.png",
           "category": "ساندويش"
         },
@@ -1040,7 +938,6 @@
           "id": "412",
           "name": "كباب دجاج عادي",
           "price": 10000,
-          "description": "ساندويش كباب دجاج عادي",
           "image": "https://i.ibb.co/HTbK7XYv/image.png",
           "category": "ساندويش"
         },
@@ -1048,7 +945,6 @@
           "id": "413",
           "name": "كباب دجاج وسط",
           "price": 15000,
-          "description": "ساندويش كباب دجاج وسط",
           "image": "https://i.ibb.co/spCXFp16/image.png",
           "category": "ساندويش"
         },
@@ -1056,7 +952,6 @@
           "id": "414",
           "name": "كباب دجاج دبل",
           "price": 20000,
-          "description": "ساندويش كباب دجاج دبل",
           "image": "https://i.ibb.co/spCXFp16/image.png",
           "category": "ساندويش"
         }
@@ -1073,7 +968,6 @@
           "id": "301",
           "name": "معاجيق لحم",
           "price": 150000,
-          "description": "معجنات لحم طازجة ومميزة",
           "image": "https://i.ibb.co/SwC9QXqv/image.png",
           "category": "معجنات"
         },
@@ -1081,7 +975,6 @@
           "id": "302",
           "name": "معاجيق دجاج",
           "price": 70000,
-          "description": "معجنات دجاج لذيذة",
           "image": "https://i.ibb.co/2Y5n6wGx/image.png",
           "category": "معجنات"
         },
@@ -1089,7 +982,6 @@
           "id": "303",
           "name": "صفيحة لحم",
           "price": 150000,
-          "description": "صفيحة لحم شهية",
           "image": "https://i.ibb.co/LhBd7yD8/image.png",
           "category": "معجنات"
         },
@@ -1097,7 +989,6 @@
           "id": "304",
           "name": "صفيحة دجاج",
           "price": 70000,
-          "description": "صفيحة دجاج طازجة",
           "image": "https://i.ibb.co/0jdgwZ5f/image.png",
           "category": "معجنات"
         },
@@ -1105,7 +996,6 @@
           "id": "305",
           "name": "كباب لحم",
           "price": 150000,
-          "description": "كباب لحم مشوي طازج",
           "image": "https://i.ibb.co/JWFdw2rS/image.png",
           "category": "مشويات"
         },
@@ -1113,7 +1003,6 @@
           "id": "306",
           "name": "كباب دجاج",
           "price": 70000,
-          "description": "كباب دجاج مشوي",
           "image": "https://i.ibb.co/5zPSnVz/image.png",
           "category": "مشويات"
         },
@@ -1121,7 +1010,6 @@
           "id": "307",
           "name": "شقف لحم",
           "price": 150000,
-          "description": "شقف لحم مشوي",
           "image": "https://i.ibb.co/7JJrdt2z/image.png",
           "category": "مشويات"
         },
@@ -1129,7 +1017,6 @@
           "id": "308",
           "name": "شيش",
           "price": 90000,
-          "description": "شيش طاووق مشوي",
           "image": "https://i.ibb.co/1f6Xg8kR/image.png",
           "category": "مشويات"
         },
@@ -1137,7 +1024,6 @@
           "id": "309",
           "name": "مارينا لحم",
           "price": 150000,
-          "description": "مارينا لحم مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مشويات"
         },
@@ -1145,7 +1031,6 @@
           "id": "310",
           "name": "مارينا دجاج",
           "price": 70000,
-          "description": "مارينا دجاج مشوي",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مشويات"
         },
@@ -1153,7 +1038,6 @@
           "id": "311",
           "name": "كباب لحم عادي",
           "price": 16000,
-          "description": "ساندويش كباب لحم عادي",
           "image": "https://i.ibb.co/mFykRJGJ/image.png",
           "category": "ساندويش"
         },
@@ -1161,7 +1045,6 @@
           "id": "312",
           "name": "كباب لحم دبل",
           "price": 30000,
-          "description": "ساندويش كباب لحم دبل",
           "image": "https://i.ibb.co/JNmLJjx/image.png",
           "category": "ساندويش"
         },
@@ -1169,7 +1052,6 @@
           "id": "313",
           "name": "كباب دجاج عادي",
           "price": 9000,
-          "description": "ساندويش كباب دجاج عادي",
           "image": "https://i.ibb.co/HTbK7XYv/image.png",
           "category": "ساندويش"
         },
@@ -1177,7 +1059,6 @@
           "id": "314",
           "name": "كباب دجاج دبل",
           "price": 15000,
-          "description": "ساندويش كباب دجاج دبل",
           "image": "https://i.ibb.co/spCXFp16/image.png",
           "category": "ساندويش"
         }
@@ -1194,7 +1075,6 @@
           "id": "201",
           "name": "رويال تشكن",
           "price": 28000,
-          "description": "ساندويش دجاج رويال مع الخضار والصلصة الخاصة",
           "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1202,7 +1082,6 @@
           "id": "202",
           "name": "شاورما",
           "price": 15000,
-          "description": "شاورما لحم مع الخضار والثوم",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1210,7 +1089,6 @@
           "id": "203",
           "name": "شاورما شيز",
           "price": 20000,
-          "description": "شاورما مع الجبنة الذائبة",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1218,7 +1096,6 @@
           "id": "204",
           "name": "شاورما سبايسي",
           "price": 15000,
-          "description": "شاورما حارة مع التوابل الخاصة",
           "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1226,7 +1103,6 @@
           "id": "205",
           "name": "شاورما بانيه",
           "price": 35000,
-          "description": "شاورما بانيه دجاج مع الخضار",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1234,7 +1110,6 @@
           "id": "206",
           "name": "فاهيتا",
           "price": 28000,
-          "description": "فاهيتا دجاج مع الفلفل والبصل",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1242,7 +1117,6 @@
           "id": "207",
           "name": "مكسيكانو",
           "price": 26000,
-          "description": "ساندويش مكسيكي حار",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1250,7 +1124,6 @@
           "id": "208",
           "name": "شيش",
           "price": 20000,
-          "description": "شيش طاووق مع الخضار",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1258,7 +1131,6 @@
           "id": "209",
           "name": "كروكيت",
           "price": 28000,
-          "description": "كروكيت دجاج مع الجبنة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1266,7 +1138,6 @@
           "id": "210",
           "name": "سوبريم",
           "price": 35000,
-          "description": "ساندويش سوبريم مع جميع الإضافات",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1274,7 +1145,6 @@
           "id": "211",
           "name": "زنجر",
           "price": 28000,
-          "description": "زنجر دجاج مقرمش",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "ساندويش"
         },
@@ -1282,7 +1152,6 @@
           "id": "212",
           "name": "بطاطا",
           "price": 10000,
-          "description": "بطاطا مقلية مقرمشة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات"
         },
@@ -1290,7 +1159,6 @@
           "id": "213",
           "name": "شاورما بأنواعها",
           "price": 35000,
-          "description": "وجبة شاورما مع الأرز والسلطة",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1298,7 +1166,6 @@
           "id": "214",
           "name": "بروستد",
           "price": 100000,
-          "description": "وجبة بروستد دجاج كاملة",
           "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1306,7 +1173,6 @@
           "id": "215",
           "name": "دبوس بروستد",
           "price": 50000,
-          "description": "دبوس بروستد مع الأرز والسلطة",
           "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1314,7 +1180,6 @@
           "id": "216",
           "name": "جناح بروستد",
           "price": 50000,
-          "description": "جناح بروستد مع الأرز والسلطة",
           "image": "https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1322,7 +1187,6 @@
           "id": "217",
           "name": "اسكالوب كلاسيك",
           "price": 50000,
-          "description": "اسكالوب دجاج كلاسيك مع الأرز",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1330,7 +1194,6 @@
           "id": "218",
           "name": "اسكالوب ميلانيز",
           "price": 54000,
-          "description": "اسكالوب دجاج ميلانيز مع الأرز",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1338,7 +1201,6 @@
           "id": "219",
           "name": "كريسبي",
           "price": 50000,
-          "description": "وجبة كريسبي دجاج مع الأرز",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1346,7 +1208,6 @@
           "id": "220",
           "name": "سبايسي",
           "price": 50000,
-          "description": "وجبة دجاج حارة مع الأرز",
           "image": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1354,7 +1215,6 @@
           "id": "221",
           "name": "سوبريم",
           "price": 70000,
-          "description": "وجبة سوبريم مع جميع الإضافات",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1362,7 +1222,6 @@
           "id": "222",
           "name": "زنجر",
           "price": 54000,
-          "description": "وجبة زنجر دجاج مع الأرز",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1370,7 +1229,6 @@
           "id": "223",
           "name": "مرغريتا",
           "price": 30000,
-          "description": "بيتزا مرغريتا كلاسيكية",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1378,7 +1236,6 @@
           "id": "224",
           "name": "خضار",
           "price": 35000,
-          "description": "بيتزا خضار طازجة",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1386,7 +1243,6 @@
           "id": "225",
           "name": "حبش",
           "price": 40000,
-          "description": "بيتزاحبش",
           "image": "https://i.ibb.co/mFNGdXHQ/image.png",
           "category": "بيتزا"
         },
@@ -1394,7 +1250,6 @@
           "id": "226",
           "name": "بيتزا رويال",
           "price": 45000,
-          "description": "بيتزا رويال مع جميع الإضافات",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1402,7 +1257,6 @@
           "id": "227",
           "name": "بيتزا شاورما",
           "price": 45000,
-          "description": "بيتزا شاورما لحم",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1410,7 +1264,6 @@
           "id": "228",
           "name": "بيتزا فصول",
           "price": 40000,
-          "description": "بيتزا فصول مع جميع الإضافات",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1418,7 +1271,6 @@
           "id": "229",
           "name": "كلاسيك برغر",
           "price": 28000,
-          "description": "برغر كلاسيكي مع الخضار",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -1426,7 +1278,6 @@
           "id": "230",
           "name": "تشيز برغر",
           "price": 23000,
-          "description": "برغر مع الجبنة الذائبة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -1434,7 +1285,6 @@
           "id": "231",
           "name": "eggs برغر",
           "price": 23000,
-          "description": "برغر مع البيض",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -1442,7 +1292,6 @@
           "id": "232",
           "name": "تشكن برغر",
           "price": 20000,
-          "description": "برغر دجاج",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -1450,7 +1299,6 @@
           "id": "233",
           "name": "كريس برغر",
           "price": 25000,
-          "description": "برغر كريس",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
         },
@@ -1458,23 +1306,13 @@
           "id": "234",
           "name": "X برغر",
           "price": 25000,
-          "description": "برغر X مع الإضافات الخاصة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "برغر"
-        },
-        {
-          "id": "235",
-          "name": "مندي",
-          "price": 50000,
-          "description": "مندي لحم مع الأرز",
-          "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "category": "مطبخ شرقي"
         },
         {
           "id": "236",
           "name": "مناسف",
           "price": 50000,
-          "description": "منسف لحم مع الأرز واللبن",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مطبخ شرقي"
         },
@@ -1482,7 +1320,6 @@
           "id": "237",
           "name": "فريكة",
           "price": 50000,
-          "description": "فريكة مع اللحم",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مطبخ شرقي"
         },
@@ -1490,7 +1327,6 @@
           "id": "238",
           "name": "كبسة",
           "price": 50000,
-          "description": "كبسة لحم مع الأرز",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مطبخ شرقي"
         },
@@ -1498,7 +1334,6 @@
           "id": "239",
           "name": "رز ابيض خليجي",
           "price": 50000,
-          "description": "رز أبيض خليجي مع اللحم",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مطبخ شرقي"
         },
@@ -1506,7 +1341,6 @@
           "id": "240",
           "name": "برغل بحمص",
           "price": 50000,
-          "description": "برغل مع الحمص",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مطبخ شرقي"
         }
@@ -1523,7 +1357,6 @@
           "id": "1",
           "name": "بيتزا عادية وسط",
           "price": 40000,
-          "description": "مرتديلا، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1531,7 +1364,6 @@
           "id": "2",
           "name": "بيتزا عادية كبير",
           "price": 50000,
-          "description": "مرتديلا، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1539,7 +1371,6 @@
           "id": "3",
           "name": "بيتزا سبسيال وسط",
           "price": 45000,
-          "description": "مرتديلا، فطر، زيتون، جبنة، فليفلة، بندورة",
           "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1547,7 +1378,6 @@
           "id": "4",
           "name": "بيتزا سبسيال كبير",
           "price": 55000,
-          "description": "مرتديلا، فطر، زيتون، جبنة، فليفلة، بندورة",
           "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1555,7 +1385,6 @@
           "id": "5",
           "name": "بيتزا مرغريتا وسط",
           "price": 35000,
-          "description": "صلصة البيتزا، طبقتين من الجبنة",
           "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1563,7 +1392,6 @@
           "id": "6",
           "name": "بيتزا مرغريتا كبير",
           "price": 50000,
-          "description": "صلصة البيتزا، طبقتين من الجبنة",
           "image": "https://images.unsplash.com/photo-1627626775846-7eec8a6d72a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1571,7 +1399,6 @@
           "id": "7",
           "name": "بيتزا الخضار وسط",
           "price": 35000,
-          "description": "فليفلة، بندورة، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1579,7 +1406,6 @@
           "id": "8",
           "name": "بيتزا الخضار كبير",
           "price": 50000,
-          "description": "فليفلة، بندورة، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1587,7 +1413,6 @@
           "id": "9",
           "name": "بيتزا ببروني وسط",
           "price": 50000,
-          "description": "طبقات من الببروني البقري والجبن",
           "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1595,7 +1420,6 @@
           "id": "10",
           "name": "بيتزا ببروني كبير",
           "price": 65000,
-          "description": "طبقات من الببروني البقري والجبن",
           "image": "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1603,7 +1427,6 @@
           "id": "11",
           "name": "بيتزا السجق وسط",
           "price": 45000,
-          "description": "لحم السجق البقري والجبن",
           "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1611,7 +1434,6 @@
           "id": "12",
           "name": "بيتزا السجق كبير",
           "price": 60000,
-          "description": "لحم السجق البقري والجبن",
           "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1619,7 +1441,6 @@
           "id": "13",
           "name": "بيتزا سوبريم وسط",
           "price": 50000,
-          "description": "ببروني بقري، فليفلة، بندورة، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1627,7 +1448,6 @@
           "id": "14",
           "name": "بيتزا سوبريم كبير",
           "price": 65000,
-          "description": "ببروني بقري، فليفلة، بندورة، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1635,7 +1455,6 @@
           "id": "15",
           "name": "بيتزا فارمرز وسط",
           "price": 45000,
-          "description": "دجاج مشوي، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         },
@@ -1643,7 +1462,6 @@
           "id": "16",
           "name": "بيتزا فارمرز كبير",
           "price": 60000,
-          "description": "دجاج مشوي، فطر، زيتون، جبنة",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بيتزا"
         }
@@ -1660,7 +1478,6 @@
           "id": "101",
           "name": "فتوش",
           "price": 12000,
-          "description": "سلطة فتوش شرقية مع الخبز المحمص",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -1668,7 +1485,6 @@
           "id": "102",
           "name": "تبولة",
           "price": 12000,
-          "description": "سلطة تبولة طازجة مع البقدونس والبرغل",
           "image": "https://i.ibb.co/NnTCBBC2/image.jpg",
           "category": "سلطات"
         },
@@ -1676,7 +1492,6 @@
           "id": "103",
           "name": "جرجير",
           "price": 12000,
-          "description": "سلطة جرجير طازجة مع الليمون",
           "image": "https://i.ibb.co/V08qQfmS/image.jpg",
           "category": "سلطات"
         },
@@ -1684,7 +1499,6 @@
           "id": "104",
           "name": "ملفوف بطحينة",
           "price": 13000,
-          "description": "سلطة ملفوف مع الطحينة والليمون",
           "image": "https://i.ibb.co/LzbMykb7/image.jpg",
           "category": "سلطات"
         },
@@ -1692,7 +1506,6 @@
           "id": "105",
           "name": "سلطة خشنة",
           "price": 13000,
-          "description": "سلطة خضار مقطعة بشكل خشن",
           "image": "https://i.ibb.co/PvK3RhDQ/image.jpg",
           "category": "سلطات"
         },
@@ -1700,7 +1513,6 @@
           "id": "106",
           "name": "سيزر",
           "price": 24000,
-          "description": "سلطة سيزر كلاسيكية مع صلصة خاصة",
           "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -1708,7 +1520,6 @@
           "id": "107",
           "name": "ارمنية حرة",
           "price": 14000,
-          "description": "سلطة أرمينية حارة مع توابل خاصة",
           "image": "https://i.ibb.co/WW8yChyb/image.jpg",
           "category": "سلطات"
         },
@@ -1716,7 +1527,6 @@
           "id": "108",
           "name": "يونانية",
           "price": 14000,
-          "description": "سلطة يونانية مع الجبنة والزيتون",
           "image": "https://i.ibb.co/pjcLd8ZL/image.jpg",
           "category": "سلطات"
         },
@@ -1724,7 +1534,6 @@
           "id": "109",
           "name": "حمص",
           "price": 12000,
-          "description": "حمص طازج مع الطحينة والليمون",
           "image": "https://i.ibb.co/B2hvHyw2/image.jpg",
           "category": "مقبلات"
         },
@@ -1732,7 +1541,6 @@
           "id": "110",
           "name": "حمص بيروتي",
           "price": 14000,
-          "description": "حمص بالطريقة البيروتية مع زيت الزيتون",
           "image": "https://i.ibb.co/zWJBxpQX/image.jpg",
           "category": "مقبلات"
         },
@@ -1740,7 +1548,6 @@
           "id": "111",
           "name": "دقة",
           "price": 14000,
-          "description": "دقة خليط من البهارات والمكسرات",
           "image": "https://i.ibb.co/R4HM2YkH/image.jpg",
           "category": "مقبلات"
         },
@@ -1748,7 +1555,6 @@
           "id": "112",
           "name": "سوركي",
           "price": 12000,
-          "description": "سوركي مع الخضار والتوابل",
           "image": "https://i.ibb.co/xtkSWZDv/image.jpg",
           "category": "مقبلات"
         },
@@ -1756,7 +1562,6 @@
           "id": "113",
           "name": "متبل",
           "price": 14000,
-          "description": "متبل باذنجان مع الطحينة",
           "image": "https://i.ibb.co/kgs2nbBN/image.jpg",
           "category": "مقبلات"
         },
@@ -1764,7 +1569,6 @@
           "id": "114",
           "name": "لبنة",
           "price": 14000,
-          "description": "لبنة طازجة مع زيت الزيتون",
           "image": "https://i.ibb.co/TBhCzTXR/image.jpg",
           "category": "مقبلات"
         },
@@ -1772,7 +1576,6 @@
           "id": "115",
           "name": "لبنة متومة",
           "price": 14000,
-          "description": "لبنة بالثوم وزيت الزيتون",
           "image": "https://i.ibb.co/qFdCs3pP/image.jpg",
           "category": "مقبلات"
         },
@@ -1780,7 +1583,6 @@
           "id": "116",
           "name": "بطاطا مقلية",
           "price": 17000,
-          "description": "بطاطا مقلية طازجة ومقرمشة",
           "image": "https://i.ibb.co/4ndtGxPj/image.jpg",
           "category": "مقبلات"
         },
@@ -1788,7 +1590,6 @@
           "id": "117",
           "name": "بطاطا حرة",
           "price": 17000,
-          "description": "بطاطا مقلية حارة مع التوابل",
           "image": "https://i.ibb.co/MxjF1Qqv/image.jpg",
           "category": "مقبلات"
         },
@@ -1796,7 +1597,6 @@
           "id": "118",
           "name": "زيتون مشوي",
           "price": 12000,
-          "description": "زيتون مشوي مع الأعشاب",
           "image": "https://i.ibb.co/Gv4Xc3pb/image.jpg",
           "category": "مقبلات"
         }
@@ -1813,7 +1613,6 @@
           "id": "401",
           "name": "فاهيتا",
           "price": 25000,
-          "description": "ساندويش فاهيتا لذيذ",
           "image": "https://i.ibb.co/KzSqC6nN.jpg",
           "category": "ساندويش"
         },
@@ -1821,7 +1620,6 @@
           "id": "402",
           "name": "مكسيكانو",
           "price": 25000,
-          "description": "ساندويش مكسيكي حار",
           "image": "https://i.ibb.co/TxQ4Sk1T.jpg",
           "category": "ساندويش"
         },
@@ -1829,7 +1627,6 @@
           "id": "403",
           "name": "كريسبي",
           "price": 25000,
-          "description": "ساندويش كريسبي مقرمش",
           "image": "https://i.ibb.co/qYQC7v5R/image.jpg",
           "category": "ساندويش"
         },
@@ -1837,7 +1634,6 @@
           "id": "404",
           "name": "فرانشيسكو",
           "price": 25000,
-          "description": "ساندويش فرانشيسكو إيطالي",
           "image": "https://i.ibb.co/ycMqWKs1/image.jpg",
           "category": "ساندويش"
         },
@@ -1845,7 +1641,6 @@
           "id": "405",
           "name": "زنجر",
           "price": 28000,
-          "description": "ساندويش زنجر دجاج",
           "image": "https://i.ibb.co/YBgg6NVt/image.jpg",
           "category": "ساندويش"
         },
@@ -1853,7 +1648,6 @@
           "id": "406",
           "name": "برغر دجاج دبل",
           "price": 25000,
-          "description": "برغر دجاج مزدوج",
           "image": "https://i.ibb.co/m5GPKLGf/image.jpg",
           "category": "ساندويش"
         },
@@ -1861,7 +1655,6 @@
           "id": "407",
           "name": "برغر لحم دبل",
           "price": 30000,
-          "description": "برغر لحم مزدوج",
           "image": "https://i.ibb.co/n87LDZg7/image.jpg",
           "category": "ساندويش"
         },
@@ -1869,7 +1662,6 @@
           "id": "408",
           "name": "اسكالوب",
           "price": 25000,
-          "description": "ساندويش اسكالوب دجاج",
           "image": "https://i.ibb.co/TxnbVTD7/image.jpg",
           "category": "ساندويش"
         },
@@ -1877,7 +1669,6 @@
           "id": "409",
           "name": "سوبريم",
           "price": 25000,
-          "description": "ساندويش سوبريم شامل",
           "image": "https://i.ibb.co/d4KhBFHf/image.jpg",
           "category": "ساندويش"
         },
@@ -1885,7 +1676,6 @@
           "id": "410",
           "name": "ماغنوم",
           "price": 28000,
-          "description": "ساندويش ماغنوم كبير",
           "image": "https://i.ibb.co/5XnwysJY/image.jpg",
           "category": "ساندويش"
         },
@@ -1893,7 +1683,6 @@
           "id": "411",
           "name": "وجبة فاهيتا",
           "price": 45000,
-          "description": "وجبة فاهيتا كاملة",
           "image": "https://i.ibb.co/fYS1j7TX/image.jpg",
           "category": "وجبات"
         },
@@ -1901,7 +1690,6 @@
           "id": "412",
           "name": "وجبة مكسيكانو",
           "price": 45000,
-          "description": "وجبة مكسيكانو كاملة",
           "image": "https://i.ibb.co/XkfDDD9L/image.jpg",
           "category": "وجبات"
         },
@@ -1909,7 +1697,6 @@
           "id": "413",
           "name": "وجبة فرانشيسكو",
           "price": 45000,
-          "description": "وجبة فرانشيسكو كاملة",
           "image": "https://i.ibb.co/Ng3Dv0Th/image.jpg",
           "category": "وجبات"
         },
@@ -1917,7 +1704,6 @@
           "id": "414",
           "name": "وجبة كريسبي",
           "price": 45000,
-          "description": "وجبة كريسبي كاملة",
           "image": "https://i.ibb.co/DDdd09xC/image.jpg",
           "category": "وجبات"
         },
@@ -1925,7 +1711,6 @@
           "id": "415",
           "name": "وجبة زنجر",
           "price": 50000,
-          "description": "وجبة زنجر كاملة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1933,7 +1718,6 @@
           "id": "416",
           "name": "وجبة سوبريم",
           "price": 45000,
-          "description": "وجبة سوبريم كاملة",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1941,7 +1725,6 @@
           "id": "417",
           "name": "وجبة ماغنوم",
           "price": 50000,
-          "description": "وجبة ماغنوم كاملة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1949,7 +1732,6 @@
           "id": "418",
           "name": "وجبة اسكالوب",
           "price": 45000,
-          "description": "وجبة اسكالوب كاملة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1957,7 +1739,6 @@
           "id": "419",
           "name": "وجبة كوردون بلو",
           "price": 50000,
-          "description": "وجبة كوردون بلو كاملة",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1965,7 +1746,6 @@
           "id": "420",
           "name": "ريزو مع كريسبي",
           "price": 30000,
-          "description": "ريزو مع كريسبي دجاج",
           "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1973,7 +1753,6 @@
           "id": "421",
           "name": "ريزو مع شاورما",
           "price": 30000,
-          "description": "ريزو مع شاورما لحم",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1981,7 +1760,6 @@
           "id": "422",
           "name": "ريزو شاورما مع جبنة",
           "price": 30000,
-          "description": "ريزو مع شاورما وجبنة",
           "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1989,7 +1767,6 @@
           "id": "423",
           "name": "شرحات مطفاية مع صوص",
           "price": 45000,
-          "description": "شرحات مطفاية مع صوص خاص",
           "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "وجبات"
         },
@@ -1997,7 +1774,6 @@
           "id": "424",
           "name": "شاورما عادي",
           "price": 15000,
-          "description": "شاورما عادي لذيذ",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "شاورما"
         },
@@ -2005,7 +1781,6 @@
           "id": "425",
           "name": "شاورما دبل",
           "price": 20000,
-          "description": "شاورما مزدوج",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "شاورما"
         },
@@ -2013,7 +1788,6 @@
           "id": "426",
           "name": "شاورما عربي",
           "price": 25000,
-          "description": "شاورما بالطريقة العربية",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "شاورما"
         },
@@ -2021,7 +1795,6 @@
           "id": "427",
           "name": "شاورما عربي دبل",
           "price": 40000,
-          "description": "شاورما عربي مزدوج",
           "image": "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "شاورما"
         },
@@ -2029,7 +1802,6 @@
           "id": "428",
           "name": "بطاطا عادي",
           "price": 10000,
-          "description": "بطاطا مقلية عادية",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2037,7 +1809,6 @@
           "id": "429",
           "name": "بطاطا دبل",
           "price": 12000,
-          "description": "بطاطا مقلية مزدوجة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2045,7 +1816,6 @@
           "id": "430",
           "name": "بطاطا صمون",
           "price": 13000,
-          "description": "بطاطا بالصمون",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2053,7 +1823,6 @@
           "id": "431",
           "name": "بطاطا بالجبنة",
           "price": 20000,
-          "description": "بطاطا مع الجبنة الذائبة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2061,7 +1830,6 @@
           "id": "432",
           "name": "بطاطا تكساس",
           "price": 20000,
-          "description": "بطاطا تكساس حارة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2069,7 +1837,6 @@
           "id": "433",
           "name": "بطاطا ودجز",
           "price": 25000,
-          "description": "بطاطا ودجز مقرمشة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "بطاطا"
         },
@@ -2077,7 +1844,6 @@
           "id": "434",
           "name": "فلافل على الصاج",
           "price": 8000,
-          "description": "فلافل مشوية على الصاج",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2085,7 +1851,6 @@
           "id": "435",
           "name": "فلافل عادي",
           "price": 8000,
-          "description": "فلافل عادي طازج",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2093,7 +1858,6 @@
           "id": "436",
           "name": "فلافل دبس رمان",
           "price": 10000,
-          "description": "فلافل مع دبس رمان",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2101,7 +1865,6 @@
           "id": "437",
           "name": "فلافل صمون",
           "price": 12000,
-          "description": "فلافل بالصمون",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2109,7 +1872,6 @@
           "id": "438",
           "name": "فلافل مشوية",
           "price": 12000,
-          "description": "فلافل مشوية طازجة",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2117,7 +1879,6 @@
           "id": "439",
           "name": "فلافل عربي",
           "price": 20000,
-          "description": "فلافل بالطريقة العربية",
           "image": "https://images.unsplash.com/photo-1571066811602-716837d681de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فلافل"
         },
@@ -2125,7 +1886,6 @@
           "id": "440",
           "name": "فول بطحينية",
           "price": 15000,
-          "description": "فول مع الطحينة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فتات"
         },
@@ -2133,7 +1893,6 @@
           "id": "441",
           "name": "حمص بطحينية",
           "price": 15000,
-          "description": "حمص مع الطحينة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فتات"
         },
@@ -2141,7 +1900,6 @@
           "id": "442",
           "name": "فتة",
           "price": 18000,
-          "description": "فتة لذيذة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فتات"
         },
@@ -2149,7 +1907,6 @@
           "id": "443",
           "name": "فتة بالمكسرات",
           "price": 23000,
-          "description": "فتة مع المكسرات",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "فتات"
         },
@@ -2157,7 +1914,6 @@
           "id": "444",
           "name": "حمص",
           "price": 10000,
-          "description": "حمص طازج",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات باردة"
         },
@@ -2165,7 +1921,6 @@
           "id": "445",
           "name": "متبل",
           "price": 10000,
-          "description": "متبل باذنجان",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات باردة"
         },
@@ -2173,7 +1928,6 @@
           "id": "446",
           "name": "محمرة",
           "price": 10000,
-          "description": "محمرة لذيذة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات باردة"
         },
@@ -2181,7 +1935,6 @@
           "id": "447",
           "name": "بابا غنوج",
           "price": 10000,
-          "description": "بابا غنوج طازج",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات باردة"
         },
@@ -2189,7 +1942,6 @@
           "id": "448",
           "name": "كريم ثوم",
           "price": 8000,
-          "description": "كريم ثوم لذيذ",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات باردة"
         },
@@ -2197,7 +1949,6 @@
           "id": "449",
           "name": "بطاطا وسط",
           "price": 15000,
-          "description": "بطاطا مقلية وسط",
           "image": "https://i.ibb.co/3w4gRxk/image.jpg",
           "category": "مقبلات ساخنة"
         },
@@ -2205,7 +1956,6 @@
           "id": "450",
           "name": "بطاطا كبير",
           "price": 20000,
-          "description": "بطاطا مقلية كبير",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2213,7 +1963,6 @@
           "id": "451",
           "name": "بطاطا شيبس",
           "price": 20000,
-          "description": "بطاطا شيبس مقرمشة",
           "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2221,7 +1970,6 @@
           "id": "452",
           "name": "برك",
           "price": 4000,
-          "description": "برك لذيذ",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2229,7 +1977,6 @@
           "id": "453",
           "name": "كبة مشوية",
           "price": 11000,
-          "description": "كبة مشوية طازجة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2237,7 +1984,6 @@
           "id": "454",
           "name": "كبة مقلية",
           "price": 8000,
-          "description": "كبة مقلية لذيذة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2245,7 +1991,6 @@
           "id": "455",
           "name": "حمص باللحمة",
           "price": 25000,
-          "description": "حمص مع اللحمة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2253,7 +1998,6 @@
           "id": "456",
           "name": "متبل حموي",
           "price": 25000,
-          "description": "متبل بالطريقة الحموية",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2261,7 +2005,6 @@
           "id": "457",
           "name": "باذنجان بالفخارة",
           "price": 18000,
-          "description": "باذنجان بالفخارة لذيذ",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "مقبلات ساخنة"
         },
@@ -2269,7 +2012,6 @@
           "id": "458",
           "name": "سيزر",
           "price": 28000,
-          "description": "سلطة سيزر كلاسيكية",
           "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2277,7 +2019,6 @@
           "id": "459",
           "name": "فتوش",
           "price": 20000,
-          "description": "سلطة فتوش شرقية",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2285,7 +2026,6 @@
           "id": "460",
           "name": "تبولة",
           "price": 20000,
-          "description": "سلطة تبولة طازجة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2293,7 +2033,6 @@
           "id": "461",
           "name": "شرقية",
           "price": 20000,
-          "description": "سلطة شرقية لذيذة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2301,7 +2040,6 @@
           "id": "462",
           "name": "ارمنية",
           "price": 20000,
-          "description": "سلطة أرمينية",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2309,7 +2047,6 @@
           "id": "463",
           "name": "روسية",
           "price": 20000,
-          "description": "سلطة روسية",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2317,7 +2054,6 @@
           "id": "464",
           "name": "جرجير",
           "price": 20000,
-          "description": "سلطة جرجير طازجة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         },
@@ -2325,7 +2061,6 @@
           "id": "465",
           "name": "بستانية",
           "price": 20000,
-          "description": "سلطة بستانية متنوعة",
           "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
           "category": "سلطات"
         }
@@ -2342,7 +2077,6 @@
           "id": "1",
           "name": "شاورما عادي",
           "price": 14000,
-          "description": "ساندويش شاورما طازج مع الخضار والصلصة",
           "image": "https://i.ibb.co/xS1SxYdF/image.jpg",
           "category": "شاورما"
         },
@@ -2350,7 +2084,6 @@
           "id": "2",
           "name": "شاورما دبل",
           "price": 18000,
-          "description": "ساندويش شاورما بكمية مضاعفة من اللحم",
           "image": "https://i.ibb.co/Lz58N5Y0/image.jpg",
           "category": "شاورما"
         },
@@ -2358,7 +2091,6 @@
           "id": "3",
           "name": "بطاطا عادي",
           "price": 7000,
-          "description": "بطاطا مقلية طازجة",
           "image": "https://i.ibb.co/yxYVrqL/image.jpg",
           "category": "بطاطا"
         },
@@ -2366,7 +2098,6 @@
           "id": "4",
           "name": "بطاطا دبل",
           "price": 10000,
-          "description": "بطاطا مقلية بكمية مضاعفة",
           "image": "https://i.ibb.co/YBgzVzj3/image.jpg",
           "category": "بطاطا"
         },
@@ -2374,7 +2105,6 @@
           "id": "5",
           "name": "فروج مشوي",
           "price": 70000,
-          "description": "فروج مشوي + رز نوعين + بطاطا مقلية + خبزة حرة + توم + مخلل",
           "image": "https://i.ibb.co/nM34rr7W/image.png",
           "category": "فروج مشوي"
         },
@@ -2382,7 +2112,6 @@
           "id": "6",
           "name": "كريسبي ساندويش",
           "price": 20000,
-          "description": "ساندويش كريسبي لذيذ",
           "image": "https://i.ibb.co/qLd2pK15/image.jpg",
           "category": "سناك"
         },
@@ -2390,7 +2119,6 @@
           "id": "7",
           "name": "كريسبي وجبة",
           "price": 25000,
-          "description": "وجبة كريسبي كاملة",
           "image": "https://i.ibb.co/8nDr7M76/image.png",
           "category": "سناك"
         },
@@ -2398,7 +2126,6 @@
           "id": "8",
           "name": "فاهيتا ساندويش",
           "price": 20000,
-          "description": "ساندويش فاهيتا شهي",
           "image": "https://i.ibb.co/7Jv5052X/image.jpg",
           "category": "سناك"
         },
@@ -2406,7 +2133,6 @@
           "id": "9",
           "name": "فاهيتا وجبة",
           "price": 25000,
-          "description": "وجبة فاهيتا كاملة",
           "image": "https://i.ibb.co/spcGzx71/image.jpg",
           "category": "سناك"
         },
@@ -2414,7 +2140,6 @@
           "id": "10",
           "name": "زنجر ساندويش",
           "price": 20000,
-          "description": "ساندويش زنجر لذيذ",
           "image": "https://i.ibb.co/bj5KKCrC/image.jpg",
           "category": "سناك"
         },
@@ -2422,7 +2147,6 @@
           "id": "11",
           "name": "زنجر وجبة",
           "price": 25000,
-          "description": "وجبة زنجر كاملة",
           "image": "https://i.ibb.co/ppW6cmV/image.png",
           "category": "سناك"
         },
@@ -2430,7 +2154,6 @@
           "id": "12",
           "name": "شيش ساندويش",
           "price": 20000,
-          "description": "ساندويش شيش لذيذ",
           "image": "https://i.ibb.co/Kx25NJnR/image.png",
           "category": "سناك"
         },
@@ -2438,7 +2161,6 @@
           "id": "13",
           "name": "شيش وجبة",
           "price": 25000,
-          "description": "وجبة شيش كاملة",
           "image": "https://i.ibb.co/M58bV7Gt/image.png",
           "category": "سناك"
         },
@@ -2446,7 +2168,6 @@
           "id": "14",
           "name": "سودة ساندويش",
           "price": 20000,
-          "description": "ساندويش سودة لذيذ",
           "image": "https://i.ibb.co/Kpmdm1ns/image.png",
           "category": "سناك"
         },
@@ -2454,7 +2175,6 @@
           "id": "15",
           "name": "طبق رز",
           "price": 15000,
-          "description": "طبق رز طازج",
           "image": "https://i.ibb.co/YFLpSZ1W/image.png",
           "category": "أطباق"
         },
@@ -2462,7 +2182,6 @@
           "id": "16",
           "name": "طبق رز مع شاورما",
           "price": 25000,
-          "description": "طبق رز مع شاورما لذيذ",
           "image": "https://i.ibb.co/99gMyXbn/image.png",
           "category": "أطباق"
         },
@@ -2470,7 +2189,6 @@
           "id": "17",
           "name": "فلافل عادي",
           "price": 5000,
-          "description": "ساندويش فلافل طازج",
           "image": "https://i.ibb.co/xqXKQvdz/image.png",
           "category": "فلافل وفتات"
         },
@@ -2478,7 +2196,6 @@
           "id": "18",
           "name": "فلافل دبل",
           "price": 8000,
-          "description": "ساندويش فلافل بكمية مضاعفة",
           "image": "https://i.ibb.co/7xtW2g1J/image.jpg",
           "category": "فلافل وفتات"
         },
@@ -2486,7 +2203,6 @@
           "id": "19",
           "name": "طبق حمص ناعم",
           "price": 10000,
-          "description": "طبق حمص ناعم طازج",
           "image": "https://i.ibb.co/MxRp5Wyh/image.jpg",
           "category": "فلافل وفتات"
         },
@@ -2494,23 +2210,13 @@
           "id": "20",
           "name": "طبق حمص حب",
           "price": 15000,
-          "description": "طبق حمص حب طازج",
           "image": "https://i.ibb.co/TBwhGYQr/image.jpg",
-          "category": "فلافل وفتات"
-        },
-        {
-          "id": "21",
-          "name": "طبق فول",
-          "price": 15000,
-          "description": "طبق فول طازج",
-          "image": "https://i.ibb.co/sv8cXtPF/image.png",
           "category": "فلافل وفتات"
         },
         {
           "id": "22",
           "name": "طبق فتة",
           "price": 15000,
-          "description": "طبق فتة لذيذ",
           "image": "https://i.ibb.co/3yshbwks/image.png",
           "category": "فلافل وفتات"
         }
