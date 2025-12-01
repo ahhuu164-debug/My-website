@@ -195,22 +195,78 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
+    /* ===== التعديلات الجديدة لعرض الصور كاملة ===== */
     .card-header {
       position: relative;
-      height: 200px;
+      width: 100%;
+      height: 250px; /* زيادة الارتفاع لعرض الصور بشكل أفضل */
       overflow: hidden;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* خلفية متدرجة */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .offer-image-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
 
     .offer-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain; /* عرض الصورة كاملة بدون تقليم */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
     }
 
+    /* تأثير عند التمرير */
     .offer-card:hover .offer-image {
       transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
+
+    /* مؤشر تحميل الصورة */
+    .image-loading {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--primary-orange);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .image-error {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--medium-gray);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .image-error i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: var(--medium-gray);
+    }
+    /* ===== نهاية التعديلات على الصور ===== */
 
     .card-content {
       padding: 20px;
@@ -229,6 +285,9 @@
       font-size: 0.95rem;
       margin-bottom: 8px;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .offer-description {
@@ -282,6 +341,7 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 15px;
+      flex-wrap: wrap;
     }
 
     .original-price {
@@ -863,6 +923,10 @@
       .section-title {
         font-size: 1.7rem;
       }
+      
+      .card-header {
+        height: 220px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -873,6 +937,11 @@
       
       .section-title {
         font-size: 1.5rem;
+      }
+      
+      .card-header {
+        height: 200px;
+        padding: 10px;
       }
     }
   </style>
@@ -1376,11 +1445,12 @@
       }
       
       const offersHTML = offers.map(offer => `
-        <div class="offer-card" data-category="${offer.category}">
+        <div class="offer-card" data-category="${offer.category}" data-id="${offer.id}">
           <div class="offer-badge">وفر ${offer.savings_percentage}%</div>
           <div class="card-header">
-            <img src="${offer.image}" alt="${offer.title}" class="offer-image" 
-                 onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+            <div class="offer-image-container" id="img-container-${offer.id}">
+              <div class="image-loading"></div>
+            </div>
           </div>
           <div class="card-content">
             <h3 class="offer-title">${offer.title}</h3>
@@ -1427,6 +1497,81 @@
       `).join('');
       
       container.innerHTML = offersHTML;
+      
+      // تحميل الصور بشكل منفصل مع التحكم
+      offers.forEach(offer => {
+        loadAndOptimizeImage(offer);
+      });
+    }
+
+    // ===== وظيفة جديدة: تحميل وتجهيز الصور لعرضها كاملة =====
+    function loadAndOptimizeImage(offer) {
+      const containerId = `img-container-${offer.id}`;
+      const container = document.getElementById(containerId);
+      
+      if (!container) return;
+      
+      const img = new Image();
+      img.onload = function() {
+        // إنشاء عنصر الصورة النهائية
+        const finalImg = document.createElement('img');
+        finalImg.className = 'offer-image';
+        finalImg.src = offer.image;
+        finalImg.alt = offer.title;
+        
+        // تنظيف الحاوية وإضافة الصورة
+        container.innerHTML = '';
+        container.appendChild(finalImg);
+        
+        // تطبيق تصحيح للتكيف مع حجم الصورة
+        applyImageOptimization(finalImg, this.width, this.height);
+      };
+      
+      img.onerror = function() {
+        // عرض صورة بديلة في حالة الخطأ
+        container.innerHTML = `
+          <div class="image-error">
+            <i class="fas fa-image"></i>
+            <p>لا يمكن تحميل الصورة</p>
+          </div>
+        `;
+      };
+      
+      // بدء تحميل الصورة
+      img.src = offer.image;
+    }
+
+    // ===== وظيفة جديدة: تطبيق التحسينات على الصورة بناءً على أبعادها =====
+    function applyImageOptimization(imgElement, originalWidth, originalHeight) {
+      // حساب نسبة الأبعاد
+      const aspectRatio = originalWidth / originalHeight;
+      
+      // تصنيف الصورة بناءً على نسبة الأبعاد
+      if (aspectRatio > 1.5) {
+        // صورة أفقية جداً (مثل البانوراما)
+        imgElement.style.maxWidth = '90%';
+        imgElement.style.maxHeight = '85%';
+      } else if (aspectRatio > 1) {
+        // صورة أفقية عادية
+        imgElement.style.maxWidth = '85%';
+        imgElement.style.maxHeight = '90%';
+      } else if (aspectRatio < 0.7) {
+        // صورة عمودية جداً
+        imgElement.style.maxWidth = '70%';
+        imgElement.style.maxHeight = '95%';
+      } else {
+        // صورة مربعة أو قريبة من المربع
+        imgElement.style.maxWidth = '80%';
+        imgElement.style.maxHeight = '80%';
+      }
+      
+      // إضافة تأثير ظهور تدريجي
+      imgElement.style.opacity = '0';
+      imgElement.style.transition = 'opacity 0.5s ease';
+      
+      setTimeout(() => {
+        imgElement.style.opacity = '1';
+      }, 100);
     }
 
     function showNoOffersMessage() {
@@ -1538,6 +1683,7 @@
     window.addOfferToCart = addOfferToCart;
     window.openCart = openCart;
     window.closeCart = closeCart;
+    window.loadAndOptimizeImage = loadAndOptimizeImage;
   </script>
 </body>
 </html>
