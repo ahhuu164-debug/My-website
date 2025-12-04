@@ -1616,42 +1616,82 @@
         showNotification('تم نسخ العنوان إلى الحافظة');
       }
 
-      whatsappOrderBtn.addEventListener('click', function() {
+      // ===== إرسال الطلب عبر واتساب =====
+      whatsappOrderBtn.addEventListener('click', async function() {
         if (this.disabled) return;
         
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        let message = `🎯 طلب جديد من مطعم أبو العبد (الكني)\n\n`;
-        message += `👤 العميل: ${name}\n`;
-        message += `📞 الهاتف: ${phone}\n`;
-        message += `📍 العنوان: ${address}\n\n`;
-        message += `🛒 الطلبات:\n`;
+        // التحقق من البيانات
+        if (!name || !address || !phone) {
+          showNotification('❌ يرجى ملء جميع المعلومات المطلوبة');
+          return;
+        }
         
-        cart.forEach((item, index) => {
-          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
-        });
+        // تجميع بيانات الطلب للخادم
+        const orderData = {
+          restaurantId: "abu_alabd_alkeni", // ⭐ ID فريد لأبو العبد
+          restaurantName: "أبو العبد (الكني)",
+          customer: {
+            name: name,
+            phone: phone,
+            address: address
+          },
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+          })),
+          total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+          payment: selectedPayment
+        };
         
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
-        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
-        message += `شكراً لطلبكم من أبو العبد (الكني)! 🎉`;
+        // إظهار مؤشر تحميل
+        whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+        whatsappOrderBtn.disabled = true;
         
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-        
-        showNotification('✅ تم إرسال طلبك بنجاح!');
-        
-        cart = [];
-        updateCartUI();
-        closeCart();
-        
-        customerName.value = '';
-        customerAddress.value = '';
-        customerPhone.value = '';
+        try {
+          // إرسال الطلب إلى الخادم
+          const response = await fetch('/.netlify/functions/send-order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // فتح رابط الواتساب
+            window.open(result.whatsappUrl, '_blank');
+            
+            // إظهار رسالة نجاح
+            showNotification('✅ تم إرسال طلبك بنجاح!');
+            
+            // تنظيف السلة
+            cart = [];
+            updateCartUI();
+            closeCart();
+            
+            // تنظيف الحقول
+            customerName.value = '';
+            customerAddress.value = '';
+            customerPhone.value = '';
+          } else {
+            showNotification(`❌ ${result.error || 'حدث خطأ في الإرسال'}`);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          showNotification('❌ حدث خطأ في الاتصال بالخادم');
+        } finally {
+          // إعادة زر الإرسال إلى حالته الأصلية
+          whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
+          validateCustomerInfo();
+        }
       });
 
       function getPaymentMethodName(method) {
