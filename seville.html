@@ -37,7 +37,7 @@
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
@@ -46,6 +46,28 @@
     .logo-container img {
       height: 45px;
       width: auto;
+    }
+
+    .back-btn {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .search-icon-header {
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.3s ease;
     }
 
     /* ===== معلومات المطعم ===== */
@@ -733,6 +755,71 @@
       background: #E83F3F;
     }
 
+    /* نافذة عرض صورة الشام كاش */
+    .shamcash-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .shamcash-modal.active {
+      display: flex;
+    }
+
+    .shamcash-content {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .shamcash-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #2C3E50;
+      font-size: 1.2rem;
+    }
+
+    .shamcash-image-container {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #ECF0F1;
+    }
+
+    .shamcash-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .close-shamcash {
+      background: #F15A29;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .close-shamcash:hover {
+      background: #E83F3F;
+    }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -895,8 +982,14 @@
   <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
+      <a href="restaurants.html" class="back-btn">
+        <i class="fas fa-arrow-right"></i> العودة
+      </a>
       <div class="logo-container">
         <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="Salamia Deliveo">
+      </div>
+      <div class="search-icon-header">
+        <i class="fas fa-search"></i>
       </div>
     </div>
   </header>
@@ -940,7 +1033,6 @@
       </div>
     </div>
 
-    <!-- باقي الأقسام تبقى كما هي بدون إطار ذهبي -->
     <!-- قسم المشويات -->
     <div class="menu-section">
       <div class="section-header">
@@ -1225,10 +1317,10 @@
               <div class="menu-item-footer">
                 <span class="menu-item-price">١٠,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
-              </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div class="sub-section">
@@ -1542,6 +1634,19 @@
     </div>
   </div>
 
+  <!-- نافذة عرض صورة الشام كاش -->
+  <div class="shamcash-modal" id="shamcash-modal">
+    <div class="shamcash-content">
+      <h3 class="shamcash-title">رقم حساب الشام كاش</h3>
+      
+      <div class="shamcash-image-container">
+        <img src="https://i.ibb.co/ZpKb7ywj/shamcash-qr.jpg" alt="رقم حساب الشام كاش" class="shamcash-image">
+      </div>
+      
+      <button class="close-shamcash" id="close-shamcash">إغلاق</button>
+    </div>
+  </div>
+
   <!-- الشريط السفلي -->
   <nav class="bottom-nav">
     <div class="nav-items">
@@ -1585,7 +1690,9 @@
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
       const usdtModal = document.getElementById('usdt-modal');
+      const shamcashModal = document.getElementById('shamcash-modal');
       const closeUsdt = document.getElementById('close-usdt');
+      const closeShamcash = document.getElementById('close-shamcash');
       const copyButtons = document.querySelectorAll('.copy-btn');
       
       let cart = [];
@@ -1758,6 +1865,7 @@
       paymentShamcash.addEventListener('click', function() {
         selectedPayment = 'shamcash';
         updatePaymentSelection();
+        showShamcashImage();
       });
       
       paymentUsdt.addEventListener('click', function() {
@@ -1784,8 +1892,16 @@
         usdtModal.classList.add('active');
       }
 
+      function showShamcashImage() {
+        shamcashModal.classList.add('active');
+      }
+
       closeUsdt.addEventListener('click', function() {
         usdtModal.classList.remove('active');
+      });
+
+      closeShamcash.addEventListener('click', function() {
+        shamcashModal.classList.remove('active');
       });
 
       copyButtons.forEach(button => {
@@ -1817,42 +1933,73 @@
         showNotification('تم نسخ العنوان إلى الحافظة');
       }
 
-      whatsappOrderBtn.addEventListener('click', function() {
+      // ===== إرسال الطلب عبر واتساب =====
+      whatsappOrderBtn.addEventListener('click', async function() {
         if (this.disabled) return;
         
         const name = customerName.value.trim();
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        let message = `🎯 طلب جديد من مطعم أشبيلية\n\n`;
-        message += `👤 العميل: ${name}\n`;
-        message += `📞 الهاتف: ${phone}\n`;
-        message += `📍 العنوان: ${address}\n\n`;
-        message += `🛒 الطلبات:\n`;
+        if (!name || !address || !phone) {
+          showNotification('❌ يرجى ملء جميع المعلومات المطلوبة');
+          return;
+        }
         
-        cart.forEach((item, index) => {
-          message += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}\n`;
-        });
+        const orderData = {
+          restaurantId: "sevilla",
+          restaurantName: "أشبيلية",
+          customer: {
+            name: name,
+            phone: phone,
+            address: address
+          },
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+          })),
+          total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+          payment: selectedPayment
+        };
         
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        message += `\n💰 المجموع: ${formatPrice(total)}\n`;
-        message += `💳 طريقة الدفع: ${getPaymentMethodName(selectedPayment)}\n\n`;
-        message += `شكراً لطلبكم من أشبيلية! 🎉`;
+        whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+        whatsappOrderBtn.disabled = true;
         
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/963957275347?text=${encodedMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-        
-        showNotification('✅ تم إرسال طلبك بنجاح!');
-        
-        cart = [];
-        updateCartUI();
-        closeCart();
-        
-        customerName.value = '';
-        customerAddress.value = '';
-        customerPhone.value = '';
+        try {
+          const response = await fetch('/.netlify/functions/send-order', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            window.open(result.whatsappUrl, '_blank');
+            
+            showNotification('✅ تم إرسال طلبك بنجاح!');
+            
+            cart = [];
+            updateCartUI();
+            closeCart();
+            
+            customerName.value = '';
+            customerAddress.value = '';
+            customerPhone.value = '';
+          } else {
+            showNotification(`❌ ${result.error || 'حدث خطأ في الإرسال'}`);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          showNotification('❌ حدث خطأ في الاتصال بالخادم');
+        } finally {
+          whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
+          validateCustomerInfo();
+        }
       });
 
       function getPaymentMethodName(method) {
