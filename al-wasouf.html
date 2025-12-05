@@ -706,49 +706,54 @@
       background: #E83F3F;
     }
 
-    .barcode-modal {
+    /* نافذة عرض صورة الشام كاش */
+    .shamcash-modal {
       display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
       z-index: 1200;
       justify-content: center;
       align-items: center;
     }
 
-    .barcode-modal.active {
+    .shamcash-modal.active {
       display: flex;
     }
 
-    .barcode-content {
+    .shamcash-content {
       background: white;
       padding: 20px;
       border-radius: 16px;
       text-align: center;
-      max-width: 300px;
+      max-width: 400px;
       width: 90%;
     }
 
-    .barcode-title {
+    .shamcash-title {
       font-weight: 700;
       margin-bottom: 15px;
       color: #2C3E50;
       font-size: 1.2rem;
     }
 
-    .barcode-image {
-      width: 100%;
-      max-width: 250px;
-      height: auto;
+    .shamcash-image-container {
       margin-bottom: 15px;
-      border: 1px solid #ECF0F1;
       border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #ECF0F1;
     }
 
-    .close-barcode {
+    .shamcash-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .close-shamcash {
       background: #F15A29;
       color: white;
       border: none;
@@ -758,9 +763,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
     }
 
-    .close-barcode:hover {
+    .close-shamcash:hover {
       background: #E83F3F;
     }
 
@@ -1626,13 +1633,16 @@
     </div>
   </div>
 
-  <!-- نافذة الباركود -->
-  <div class="barcode-modal" id="barcode-modal">
-    <div class="barcode-content">
-      <h3 class="barcode-title" id="barcode-title">باركود الدفع</h3>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SalamiaDeliveo" 
-           alt="باركود الدفع" class="barcode-image" id="barcode-image">
-      <button class="close-barcode" id="close-barcode">إغلاق</button>
+  <!-- نافذة عرض صورة الشام كاش -->
+  <div class="shamcash-modal" id="shamcash-modal">
+    <div class="shamcash-content">
+      <h3 class="shamcash-title">رقم حساب الشام كاش</h3>
+      
+      <div class="shamcash-image-container">
+        <img src="https://i.ibb.co/ZpKb7ywj/shamcash-qr.jpg" alt="رقم حساب الشام كاش" class="shamcash-image">
+      </div>
+      
+      <button class="close-shamcash" id="close-shamcash">إغلاق</button>
     </div>
   </div>
 
@@ -1679,10 +1689,10 @@
       const paymentShamcash = document.getElementById('payment-shamcash');
       const paymentUsdt = document.getElementById('payment-usdt');
       const usdtModal = document.getElementById('usdt-modal');
+      const shamcashModal = document.getElementById('shamcash-modal');
       const closeUsdt = document.getElementById('close-usdt');
+      const closeShamcash = document.getElementById('close-shamcash');
       const copyButtons = document.querySelectorAll('.copy-btn');
-      const barcodeModal = document.getElementById('barcode-modal');
-      const closeBarcode = document.getElementById('close-barcode');
       
       let cart = [];
       let selectedPayment = 'cash';
@@ -1854,7 +1864,7 @@
       paymentShamcash.addEventListener('click', function() {
         selectedPayment = 'shamcash';
         updatePaymentSelection();
-        showBarcode('شام كاش');
+        showShamcashImage();
       });
       
       paymentUsdt.addEventListener('click', function() {
@@ -1877,31 +1887,27 @@
         }
       }
 
-      function showBarcode(paymentMethod) {
-        const barcodeTitle = document.getElementById('barcode-title');
-        barcodeTitle.textContent = `باركود ${paymentMethod}`;
-        barcodeModal.classList.add('active');
-      }
-
       function showUsdtAddress() {
         usdtModal.classList.add('active');
+      }
+
+      function showShamcashImage() {
+        shamcashModal.classList.add('active');
       }
 
       closeUsdt.addEventListener('click', function() {
         usdtModal.classList.remove('active');
       });
 
-      closeBarcode.addEventListener('click', function() {
-        barcodeModal.classList.remove('active');
+      closeShamcash.addEventListener('click', function() {
+        shamcashModal.classList.remove('active');
       });
 
-      // وظيفة نسخ عنوان المحفظة
       copyButtons.forEach(button => {
         button.addEventListener('click', function() {
           const address = this.getAttribute('data-address');
           copyToClipboard(address);
           
-          // تغيير النص والمظهر مؤقتاً
           const originalText = this.innerHTML;
           this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
           this.classList.add('copied');
@@ -1934,15 +1940,13 @@
         const address = customerAddress.value.trim();
         const phone = customerPhone.value.trim();
         
-        // التحقق من البيانات
         if (!name || !address || !phone) {
           showNotification('❌ يرجى ملء جميع المعلومات المطلوبة');
           return;
         }
         
-        // تجميع بيانات الطلب للخادم
         const orderData = {
-          restaurantId: "alwasouf", // ⭐ ID فريد للوسوف
+          restaurantId: "alwasouf",
           restaurantName: "الوسوف",
           customer: {
             name: name,
@@ -1959,12 +1963,10 @@
           payment: selectedPayment
         };
         
-        // إظهار مؤشر تحميل
         whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
         whatsappOrderBtn.disabled = true;
         
         try {
-          // إرسال الطلب إلى الخادم
           const response = await fetch('/.netlify/functions/send-order', {
             method: 'POST',
             headers: {
@@ -1976,18 +1978,14 @@
           const result = await response.json();
           
           if (result.success) {
-            // فتح رابط الواتساب
             window.open(result.whatsappUrl, '_blank');
             
-            // إظهار رسالة نجاح
             showNotification('✅ تم إرسال طلبك بنجاح!');
             
-            // تنظيف السلة
             cart = [];
             updateCartUI();
             closeCart();
             
-            // تنظيف الحقول
             customerName.value = '';
             customerAddress.value = '';
             customerPhone.value = '';
@@ -1998,7 +1996,6 @@
           console.error('Error:', error);
           showNotification('❌ حدث خطأ في الاتصال بالخادم');
         } finally {
-          // إعادة زر الإرسال إلى حالته الأصلية
           whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
           validateCustomerInfo();
         }
