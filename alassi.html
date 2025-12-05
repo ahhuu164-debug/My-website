@@ -713,6 +713,71 @@
       background: #E83F3F;
     }
 
+    /* نافذة عرض صورة الشام كاش */
+    .shamcash-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .shamcash-modal.active {
+      display: flex;
+    }
+
+    .shamcash-content {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .shamcash-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #2C3E50;
+      font-size: 1.2rem;
+    }
+
+    .shamcash-image-container {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #ECF0F1;
+    }
+
+    .shamcash-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .close-shamcash {
+      background: #F15A29;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .close-shamcash:hover {
+      background: #E83F3F;
+    }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -1557,6 +1622,19 @@
   </div>
 </div>
 
+<!-- نافذة عرض صورة الشام كاش -->
+<div class="shamcash-modal" id="shamcash-modal">
+  <div class="shamcash-content">
+    <h3 class="shamcash-title">رقم حساب الشام كاش</h3>
+    
+    <div class="shamcash-image-container">
+      <img src="https://i.ibb.co/ZpKb7ywj/shamcash-qr.jpg" alt="رقم حساب الشام كاش" class="shamcash-image">
+    </div>
+    
+    <button class="close-shamcash" id="close-shamcash">إغلاق</button>
+  </div>
+</div>
+
 <!-- الشريط السفلي -->
 <nav class="bottom-nav">
   <div class="nav-items">
@@ -1604,7 +1682,9 @@
     const paymentShamcash = document.getElementById('payment-shamcash');
     const paymentUsdt = document.getElementById('payment-usdt');
     const usdtModal = document.getElementById('usdt-modal');
+    const shamcashModal = document.getElementById('shamcash-modal');
     const closeUsdt = document.getElementById('close-usdt');
+    const closeShamcash = document.getElementById('close-shamcash');
     const copyButtons = document.querySelectorAll('.copy-btn');
     
     let cart = [];
@@ -1777,6 +1857,7 @@
     paymentShamcash.addEventListener('click', function() {
       selectedPayment = 'shamcash';
       updatePaymentSelection();
+      showShamcashImage();
     });
     
     paymentUsdt.addEventListener('click', function() {
@@ -1803,8 +1884,16 @@
       usdtModal.classList.add('active');
     }
 
+    function showShamcashImage() {
+      shamcashModal.classList.add('active');
+    }
+
     closeUsdt.addEventListener('click', function() {
       usdtModal.classList.remove('active');
+    });
+
+    closeShamcash.addEventListener('click', function() {
+      shamcashModal.classList.remove('active');
     });
 
     // وظيفة نسخ عنوان المحفظة
