@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ===== إعدادات عامة ===== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,7 +23,6 @@
       padding-bottom: 80px;
     }
 
-    /* ===== الهيدر العام ===== */
     .sticky-header {
       position: sticky;
       top: 0;
@@ -48,7 +46,6 @@
       width: auto;
     }
 
-    /* ===== معلومات المطعم ===== */
     .restaurant-info {
       max-width: 1200px;
       margin: 20px auto 0;
@@ -71,7 +68,6 @@
       margin-bottom: 15px;
     }
 
-    /* إطار صورة المطعم - التصحيح النهائي */
     .restaurant-logo-large {
       width: 100px;
       height: 100px;
@@ -147,7 +143,6 @@
       font-size: 0.9rem;
     }
 
-    /* ===== أقسام المنيو ===== */
     .menu-section {
       background: white;
       border-radius: 24px;
@@ -197,7 +192,6 @@
       border-right: 3px solid #F15A29;
     }
 
-    /* نظام البطاقات */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -337,7 +331,6 @@
       background: #E83F3F;
     }
 
-    /* ===== سلة التسوق المنبثقة ===== */
     .cart-sidebar {
       position: fixed;
       top: 0;
@@ -610,7 +603,6 @@
       background: #128C7E;
     }
 
-    /* نافذة عرض عنوان USDT */
     .usdt-modal {
       display: none;
       position: fixed;
@@ -713,7 +705,6 @@
       background: #E83F3F;
     }
 
-    /* نافذة عرض صورة الشام كاش */
     .shamcash-modal {
       display: none;
       position: fixed;
@@ -823,7 +814,6 @@
       margin-bottom: 10px;
     }
 
-    /* ===== الشريط السفلي ===== */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -862,7 +852,6 @@
       margin-bottom: 4px;
     }
 
-    /* ===== التكيف مع الشاشات الصغيرة جداً ===== */
     @media (max-width: 360px) {
       .menu-grid {
         grid-template-columns: 1fr;
@@ -899,7 +888,6 @@
       }
     }
 
-    /* ===== تحسينات للشاشات المتوسطة ===== */
     @media (min-width: 481px) and (max-width: 768px) {
       .menu-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -911,7 +899,6 @@
       }
     }
 
-    /* ===== تحسينات للشاشات الكبيرة ===== */
     @media (min-width: 769px) {
       .menu-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -935,14 +922,12 @@
       }
     }
 
-    /* ===== عنصر الفروج المشوي - عرض خانتين ===== */
     .full-width-item {
       grid-column: 1 / span 2;
     }
   </style>
 </head>
 <body>
-  <!-- الهيدر الثابت -->
   <header class="sticky-header">
     <div class="header-content">
       <div class="logo-container">
@@ -951,7 +936,6 @@
     </div>
   </header>
 
-  <!-- معلومات المطعم -->
   <section class="restaurant-info">
     <div class="info-card">
       <div class="info-header">
@@ -990,7 +974,6 @@
       </div>
     </div>
 
-    <!-- قسم الشاورما -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -999,11 +982,9 @@
         <h2 class="section-title">شاورما</h2>
       </div>
 
-      <!-- قسم الساندويش -->
       <div class="sub-section">
         <h3 class="sub-section-title">ساندويش</h3>
         <div class="menu-grid">
-          <!-- صنف 1 -->
           <div class="menu-item" data-id="1" data-name="شاورما عادي" data-price="14000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/xS1SxYdF/image.jpg" 
@@ -1011,7 +992,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">شاورما عادي</h3>
-              <p class="menu-item-desc">ساندويش شاورما طازج مع الخضار والصلصة</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1024,7 +1005,6 @@
             </div>
           </div>
 
-          <!-- صنف 2 -->
           <div class="menu-item" data-id="2" data-name="شاورما دبل" data-price="18000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/Lz58N5Y0/image.jpg" 
@@ -1032,7 +1012,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">شاورما دبل</h3>
-              <p class="menu-item-desc">ساندويش شاورما بكمية مضاعفة من اللحم</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1048,7 +1028,6 @@
       </div>
     </div>
 
-    <!-- قسم البطاطا -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -1058,7 +1037,6 @@
       </div>
 
       <div class="menu-grid">
-        <!-- صنف 3 -->
         <div class="menu-item" data-id="3" data-name="بطاطا عادي" data-price="7000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/yxYVrqL/image.jpg" 
@@ -1066,7 +1044,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">بطاطا عادي</h3>
-            <p class="menu-item-desc">بطاطا مقلية طازجة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1079,7 +1057,6 @@
           </div>
         </div>
 
-        <!-- صنف 4 -->
         <div class="menu-item" data-id="4" data-name="بطاطا دبل" data-price="10000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/YBgzVzj3/image.jpg" 
@@ -1087,7 +1064,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">بطاطا دبل</h3>
-            <p class="menu-item-desc">بطاطا مقلية بكمية مضاعفة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1102,7 +1079,6 @@
       </div>
     </div>
 
-    <!-- قسم الفروج المشوي -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -1112,7 +1088,6 @@
       </div>
 
       <div class="menu-grid">
-        <!-- صنف 5 - عرض خانتين -->
         <div class="menu-item full-width-item" data-id="5" data-name="فروج مشوي" data-price="70000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/nM34rr7W/image.png" 
@@ -1120,7 +1095,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">فروج مشوي</h3>
-            <p class="menu-item-desc">فروج مشوي + رز نوعين + بطاطا مقلية + خبزة حرة + توم + مخلل</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1135,7 +1110,6 @@
       </div>
     </div>
 
-    <!-- قسم سناك -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -1145,7 +1119,6 @@
       </div>
 
       <div class="menu-grid">
-        <!-- صنف 6 -->
         <div class="menu-item" data-id="6" data-name="كريسبي ساندويش" data-price="20000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/qLd2pK15/image.jpg" 
@@ -1153,7 +1126,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">كريسبي ساندويش</h3>
-            <p class="menu-item-desc">ساندويش كريسبي لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1166,7 +1139,6 @@
           </div>
         </div>
 
-        <!-- صنف 7 -->
         <div class="menu-item" data-id="7" data-name="كريسبي وجبة" data-price="25000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/8nDr7M76/image.png" 
@@ -1174,7 +1146,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">كريسبي وجبة</h3>
-            <p class="menu-item-desc">وجبة كريسبي كاملة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1187,7 +1159,6 @@
           </div>
         </div>
 
-        <!-- صنف 8 -->
         <div class="menu-item" data-id="8" data-name="فاهيتا ساندويش" data-price="20000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/7Jv5052X/image.jpg" 
@@ -1195,7 +1166,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">فاهيتا ساندويش</h3>
-            <p class="menu-item-desc">ساندويش فاهيتا شهي</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1208,7 +1179,6 @@
           </div>
         </div>
 
-        <!-- صنف 9 -->
         <div class="menu-item" data-id="9" data-name="فاهيتا وجبة" data-price="25000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/spcGzx71/image.jpg" 
@@ -1216,7 +1186,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">فاهيتا وجبة</h3>
-            <p class="menu-item-desc">وجبة فاهيتا كاملة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1229,7 +1199,6 @@
           </div>
         </div>
 
-        <!-- صنف 10 -->
         <div class="menu-item" data-id="10" data-name="زنجر ساندويش" data-price="20000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/bj5KKCrC/image.jpg" 
@@ -1237,7 +1206,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">زنجر ساندويش</h3>
-            <p class="menu-item-desc">ساندويش زنجر لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1250,7 +1219,6 @@
           </div>
         </div>
 
-        <!-- صنف 11 -->
         <div class="menu-item" data-id="11" data-name="زنجر وجبة" data-price="25000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/ppW6cmV/image.png" 
@@ -1258,7 +1226,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">زنجر وجبة</h3>
-            <p class="menu-item-desc">وجبة زنجر كاملة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1271,7 +1239,6 @@
           </div>
         </div>
 
-        <!-- صنف 12 -->
         <div class="menu-item" data-id="12" data-name="شيش ساندويش" data-price="20000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/Kx25NJnR/image.png" 
@@ -1279,7 +1246,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">شيش ساندويش</h3>
-            <p class="menu-item-desc">ساندويش شيش لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1292,7 +1259,6 @@
           </div>
         </div>
 
-        <!-- صنف 13 -->
         <div class="menu-item" data-id="13" data-name="شيش وجبة" data-price="25000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/M58bV7Gt/image.png" 
@@ -1300,7 +1266,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">شيش وجبة</h3>
-            <p class="menu-item-desc">وجبة شيش كاملة</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1313,7 +1279,6 @@
           </div>
         </div>
 
-        <!-- صنف 14 -->
         <div class="menu-item" data-id="14" data-name="سودة ساندويش" data-price="20000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/Kpmdm1ns/image.png" 
@@ -1321,7 +1286,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">سودة ساندويش</h3>
-            <p class="menu-item-desc">ساندويش سودة لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1336,7 +1301,6 @@
       </div>
     </div>
 
-    <!-- قسم اطباق -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -1346,7 +1310,6 @@
       </div>
 
       <div class="menu-grid">
-        <!-- صنف 15 -->
         <div class="menu-item" data-id="15" data-name="طبق رز" data-price="15000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/YFLpSZ1W/image.png" 
@@ -1354,7 +1317,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">طبق رز</h3>
-            <p class="menu-item-desc">طبق رز طازج</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1367,7 +1330,6 @@
           </div>
         </div>
 
-        <!-- صنف 16 -->
         <div class="menu-item" data-id="16" data-name="طبق رز مع شاورما" data-price="25000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/99gMyXbn/image.png" 
@@ -1375,7 +1337,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">طبق رز مع شاورما</h3>
-            <p class="menu-item-desc">طبق رز مع شاورما لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1390,7 +1352,6 @@
       </div>
     </div>
 
-    <!-- قسم فلافل وفتات -->
     <div class="menu-section">
       <div class="section-header">
         <div class="section-icon">
@@ -1399,11 +1360,9 @@
         <h2 class="section-title">فلافل وفتات</h2>
       </div>
 
-      <!-- قسم ساندويش -->
       <div class="sub-section">
         <h3 class="sub-section-title">ساندويش</h3>
         <div class="menu-grid">
-          <!-- صنف 17 -->
           <div class="menu-item" data-id="17" data-name="فلافل عادي" data-price="5000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/xqXKQvdz/image.png" 
@@ -1411,7 +1370,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">فلافل عادي</h3>
-              <p class="menu-item-desc">ساندويش فلافل طازج</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1424,7 +1383,6 @@
             </div>
           </div>
 
-          <!-- صنف 18 -->
           <div class="menu-item" data-id="18" data-name="فلافل دبل" data-price="8000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/7xtW2g1J/image.jpg" 
@@ -1432,7 +1390,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">فلافل دبل</h3>
-              <p class="menu-item-desc">ساندويش فلافل بكمية مضاعفة</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1447,11 +1405,9 @@
         </div>
       </div>
 
-      <!-- قسم اطباق -->
       <div class="sub-section">
         <h3 class="sub-section-title">أطباق</h3>
         <div class="menu-grid">
-          <!-- صنف 19 -->
           <div class="menu-item" data-id="19" data-name="طبق حمص ناعم" data-price="10000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/MxRp5Wyh/image.jpg" 
@@ -1459,7 +1415,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">طبق حمص ناعم</h3>
-              <p class="menu-item-desc">طبق حمص ناعم طازج</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1472,7 +1428,6 @@
             </div>
           </div>
 
-          <!-- صنف 20 -->
           <div class="menu-item" data-id="20" data-name="طبق حمص حب" data-price="15000">
             <div class="menu-item-image">
               <img src="https://i.ibb.co/TBwhGYQr/image.jpg" 
@@ -1480,7 +1435,7 @@
             </div>
             <div class="menu-item-content">
               <h3 class="menu-item-title">طبق حمص حب</h3>
-              <p class="menu-item-desc">طبق حمص حب طازج</p>
+              <p class="menu-item-desc"></p>
               <div class="quantity-controls">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1493,7 +1448,6 @@
           </div>
         </div>
 
-        <!-- صنف 21 -->
         <div class="menu-item" data-id="21" data-name="طبق فول" data-price="15000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/sv8cXtPF/image.png" 
@@ -1501,7 +1455,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">طبق فول</h3>
-            <p class="menu-item-desc">طبق فول طازج</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1514,7 +1468,6 @@
           </div>
         </div>
 
-        <!-- صنف 22 -->
         <div class="menu-item" data-id="22" data-name="طبق فتة" data-price="15000">
           <div class="menu-item-image">
             <img src="https://i.ibb.co/3yshbwks/image.png" 
@@ -1522,7 +1475,7 @@
           </div>
           <div class="menu-item-content">
             <h3 class="menu-item-title">طبق فتة</h3>
-            <p class="menu-item-desc">طبق فتة لذيذ</p>
+            <p class="menu-item-desc"></p>
             <div class="quantity-controls">
               <button class="quantity-btn minus">-</button>
               <input type="number" class="quantity-input" value="1" min="1" max="99">
@@ -1539,7 +1492,6 @@
   </div>
 </section>
 
-<!-- سلة التسوق المنبثقة -->
 <div class="overlay" id="cart-overlay"></div>
 <div class="cart-sidebar" id="cart-sidebar">
   <div class="cart-header">
@@ -1549,14 +1501,12 @@
     </button>
   </div>
   <div class="cart-items" id="cart-items">
-    <!-- سيتم ملء هذا القسم بالطلبات عبر JavaScript -->
     <div class="empty-cart-message" id="empty-cart-message">
       <i class="fas fa-shopping-cart"></i>
       <p>سلة التسوق فارغة</p>
     </div>
   </div>
   
-  <!-- خانات معلومات العميل -->
   <div class="customer-info">
     <div class="customer-info-title">معلومات التوصيل</div>
     <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
@@ -1564,7 +1514,6 @@
     <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
   </div>
   
-  <!-- طرق الدفع -->
   <div class="payment-methods">
     <div class="payment-methods-title">طريقة الدفع</div>
     <div class="payment-options">
@@ -1595,7 +1544,6 @@
   </div>
 </div>
 
-<!-- نافذة عرض عنوان USDT -->
 <div class="usdt-modal" id="usdt-modal">
   <div class="usdt-content">
     <h3 class="usdt-title">عنوان محفظة USDT</h3>
@@ -1622,7 +1570,6 @@
   </div>
 </div>
 
-<!-- نافذة عرض صورة الشام كاش -->
 <div class="shamcash-modal" id="shamcash-modal">
   <div class="shamcash-content">
     <h3 class="shamcash-title">رقم حساب الشام كاش</h3>
@@ -1635,7 +1582,6 @@
   </div>
 </div>
 
-<!-- الشريط السفلي -->
 <nav class="bottom-nav">
   <div class="nav-items">
     <a href="index.html" class="nav-item">
@@ -1896,13 +1842,11 @@
       shamcashModal.classList.remove('active');
     });
 
-    // وظيفة نسخ عنوان المحفظة
     copyButtons.forEach(button => {
       button.addEventListener('click', function() {
         const address = this.getAttribute('data-address');
         copyToClipboard(address);
         
-        // تغيير النص والمظهر مؤقتاً
         const originalText = this.innerHTML;
         this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
         this.classList.add('copied');
@@ -1927,7 +1871,6 @@
       showNotification('تم نسخ العنوان إلى الحافظة');
     }
 
-    // ===== إرسال الطلب عبر واتساب =====
     whatsappOrderBtn.addEventListener('click', async function() {
       if (this.disabled) return;
       
@@ -1935,15 +1878,13 @@
       const address = customerAddress.value.trim();
       const phone = customerPhone.value.trim();
       
-      // التحقق من البيانات
       if (!name || !address || !phone) {
         showNotification('❌ يرجى ملء جميع المعلومات المطلوبة');
         return;
       }
       
-      // تجميع بيانات الطلب للخادم
       const orderData = {
-        restaurantId: "alassi", // ⭐ ID فريد للعاصي
+        restaurantId: "alassi",
         restaurantName: "العاصي",
         customer: {
           name: name,
@@ -1960,12 +1901,10 @@
         payment: selectedPayment
       };
       
-      // إظهار مؤشر تحميل
       whatsappOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
       whatsappOrderBtn.disabled = true;
       
       try {
-        // إرسال الطلب إلى الخادم
         const response = await fetch('/.netlify/functions/send-order', {
           method: 'POST',
           headers: {
@@ -1977,18 +1916,14 @@
         const result = await response.json();
         
         if (result.success) {
-          // فتح رابط الواتساب
           window.open(result.whatsappUrl, '_blank');
           
-          // إظهار رسالة نجاح
           showNotification('✅ تم إرسال طلبك بنجاح!');
           
-          // تنظيف السلة
           cart = [];
           updateCartUI();
           closeCart();
           
-          // تنظيف الحقول
           customerName.value = '';
           customerAddress.value = '';
           customerPhone.value = '';
@@ -1999,7 +1934,6 @@
         console.error('Error:', error);
         showNotification('❌ حدث خطأ في الاتصال بالخادم');
       } finally {
-        // إعادة زر الإرسال إلى حالته الأصلية
         whatsappOrderBtn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
         validateCustomerInfo();
       }
