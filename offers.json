@@ -71,7 +71,7 @@
       "show_in_restaurant": true,
       "active": true,
       "start_date": "2024-01-01",
-      "expiry_date": "نهاية اليوم",
+      "expiry_date": "غير محدد",
       "category": "فروج",
       "delivery_time": "25-35 دقيقة",
       "preparation_time": "15-20 دقيقة",
