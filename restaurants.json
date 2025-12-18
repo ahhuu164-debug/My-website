@@ -2221,6 +2221,157 @@
           "category": "فلافل وفتات"
         }
       ]
+    },
+    {
+      "id": "kandy",
+      "name": "الكندي",
+      "category": "معجنات • مشويات • مناقيش",
+      "description": "أشهى المعجنات والمشويات والمناقيش بجودة عالية",
+      "image": "https://i.ibb.co/99Hy2m4d/image.png",
+      "logo": "https://i.ibb.co/99Hy2m4d/image.png",
+      "rating": 4.6,
+      "delivery_time": "30-45 دقيقة",
+      "delivery_fee": 1500,
+      "min_order": 5000,
+      "active": true,
+      "phone": "0951234567",
+      "address": "سلمية، سوق الخضار",
+      "open_hours": "09:00 ص - 10:00 م",
+      "menu": [
+        {
+          "id": "801",
+          "name": "معجوقة غنم",
+          "price": 17000,
+          "image": "https://i.ibb.co/93dzHsMJ/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "802",
+          "name": "معجوقة دجاج",
+          "price": 8000,
+          "image": "https://i.ibb.co/yF8wwwq0/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "803",
+          "name": "معجوقة سجق",
+          "price": 10000,
+          "image": "https://i.ibb.co/PskH4JPZ/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "804",
+          "name": "صفيحة غنم",
+          "price": 170000,
+          "image": "https://i.ibb.co/C5gC5k9D/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "805",
+          "name": "½ كيلو صفيحة غنم",
+          "price": 85000,
+          "image": "https://i.ibb.co/C5gC5k9D/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "806",
+          "name": "صفيحة دجاج",
+          "price": 80000,
+          "image": "https://i.ibb.co/0ySttKnw/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "807",
+          "name": "½ كيلو صفيحة دجاج",
+          "price": 40000,
+          "image": "https://i.ibb.co/0ySttKnw/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "808",
+          "name": "كباب دجاج",
+          "price": 80000,
+          "image": "https://i.ibb.co/TMNmz425/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "809",
+          "name": "كباب غنم",
+          "price": 170000,
+          "image": "https://i.ibb.co/BVBb4L2b/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "810",
+          "name": "شيش",
+          "price": 100000,
+          "image": "https://i.ibb.co/FkTmvZKF/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "811",
+          "name": "شقف",
+          "price": 200000,
+          "image": "https://i.ibb.co/HLQRZW3d/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "812",
+          "name": "مارينا لحم",
+          "price": 170000,
+          "image": "https://i.ibb.co/JWnXZ5m9/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "813",
+          "name": "مارينا دجاج",
+          "price": 80000,
+          "image": "https://i.ibb.co/4wD2MkxX/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "814",
+          "name": "منقوشة زعتر",
+          "price": 2500,
+          "image": "https://i.ibb.co/sJcV9M91/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "815",
+          "name": "منقوشة محمرة",
+          "price": 2500,
+          "image": "https://i.ibb.co/HLdrPtZ6/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "816",
+          "name": "منقوشة سجق",
+          "price": 5000,
+          "image": "https://i.ibb.co/nN42zvMn/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "817",
+          "name": "منقوشة زعتر بالقشقوان",
+          "price": 4000,
+          "image": "https://i.ibb.co/wN7FvWTX/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "818",
+          "name": "منقوشة محمرة بالقشقوان",
+          "price": 4000,
+          "image": "https://i.ibb.co/6JPP7wmr/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "819",
+          "name": "منقوشة سجق بالقشقوان",
+          "price": 8000,
+          "image": "https://i.ibb.co/G4NMPkNN/image.png",
+          "category": "مناقيش"
+        }
+      ]
     }
   ]
 }
