@@ -2372,6 +2372,197 @@
           "category": "مناقيش"
         }
       ]
+    },
+    {
+      "id": "nakracha",
+      "name": "نقرشة",
+      "category": "فطائر • بيتزا • وجبات سريعة",
+      "image": "https://i.ibb.co/sdrJXFmN/image.png",
+      "logo": "https://i.ibb.co/sdrJXFmN/image.png",
+      "menu": [
+        {
+          "id": "701",
+          "name": "محمرة",
+          "price": 2500,
+          "image": "https://i.ibb.co/TMmRqH5c/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "702",
+          "name": "زعتر",
+          "price": 2500,
+          "image": "https://i.ibb.co/3962mVVc/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "703",
+          "name": "جبنة",
+          "price": 3500,
+          "image": "https://i.ibb.co/N65K3bz3/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "704",
+          "name": "مرتديلا",
+          "price": 3000,
+          "image": "https://i.ibb.co/gMsrmNjC/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "705",
+          "name": "مرتديلا قشقوان",
+          "price": 4000,
+          "image": "https://i.ibb.co/gMsrmNjC/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "706",
+          "name": "قشقوان",
+          "price": 4000,
+          "image": "https://i.ibb.co/rRbf40hH/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "707",
+          "name": "محمرة قشقوان",
+          "price": 4500,
+          "image": "https://i.ibb.co/fzNjc47q/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "708",
+          "name": "قشقوان بالذرة",
+          "price": 4500,
+          "image": "https://i.ibb.co/zHf5KYXn/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "709",
+          "name": "سنفورة شامية",
+          "price": 4000,
+          "image": "https://i.ibb.co/hRLLyQ5W/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "710",
+          "name": "سجق دجاج",
+          "price": 4000,
+          "image": "https://i.ibb.co/mWY9SxG/image.png",
+          "category": "فطائر"
+        },
+        {
+          "id": "711",
+          "name": "ميني بيتزا خضار",
+          "price": 5000,
+          "image": "https://i.ibb.co/mpJB985/image.png",
+          "category": "بيتزا خضار"
+        },
+        {
+          "id": "712",
+          "name": "بيتزا خضار صغير",
+          "price": 25000,
+          "image": "https://i.ibb.co/8gj9BS7n/image.png",
+          "category": "بيتزا خضار"
+        },
+        {
+          "id": "713",
+          "name": "بيتزا خضار وسط",
+          "price": 35000,
+          "image": "https://i.ibb.co/mC7mZ9j7/image.png",
+          "category": "بيتزا خضار"
+        },
+        {
+          "id": "714",
+          "name": "بيتزا خضار عائلي",
+          "price": 50000,
+          "image": "https://i.ibb.co/JjCpwJ9J/image.png",
+          "category": "بيتزا خضار"
+        },
+        {
+          "id": "715",
+          "name": "ميني بيتزا سجق",
+          "price": 6000,
+          "image": "https://i.ibb.co/qMD9s5Ny/image.png",
+          "category": "بيتزا سجق"
+        },
+        {
+          "id": "716",
+          "name": "بيتزا سجق صغير",
+          "price": 30000,
+          "image": "https://i.ibb.co/vC36mCrp/image.png",
+          "category": "بيتزا سجق"
+        },
+        {
+          "id": "717",
+          "name": "بيتزا سجق وسط",
+          "price": 40000,
+          "image": "https://i.ibb.co/cXXc8R59/image.png",
+          "category": "بيتزا سجق"
+        },
+        {
+          "id": "718",
+          "name": "بيتزا سجق عائلي",
+          "price": 60000,
+          "image": "https://i.ibb.co/XZjQCD9M/image.png",
+          "category": "بيتزا سجق"
+        },
+        {
+          "id": "719",
+          "name": "ميني بيتزا تشكن",
+          "price": 6000,
+          "image": "https://i.ibb.co/Csn13HR1/image.png",
+          "category": "بيتزا تشكن"
+        },
+        {
+          "id": "720",
+          "name": "بيتزا تشكن صغير",
+          "price": 30000,
+          "image": "https://i.ibb.co/n8sgg0DH/image.png",
+          "category": "بيتزا تشكن"
+        },
+        {
+          "id": "721",
+          "name": "بيتزا تشكن وسط",
+          "price": 40000,
+          "image": "https://i.ibb.co/ds8DtKG0/image.png",
+          "category": "بيتزا تشكن"
+        },
+        {
+          "id": "722",
+          "name": "بيتزا تشكن عائلي",
+          "price": 60000,
+          "image": "https://i.ibb.co/jkzRHdS0/image.png",
+          "category": "بيتزا تشكن"
+        },
+        {
+          "id": "723",
+          "name": "ميني بيتزا مرغريتا",
+          "price": 4500,
+          "image": "https://i.ibb.co/dJMGj9b9/image.png",
+          "category": "بيتزا مرغريتا"
+        },
+        {
+          "id": "724",
+          "name": "بيتزا مرغريتا صغير",
+          "price": 22000,
+          "image": "https://i.ibb.co/8gWhcPnR/image.png",
+          "category": "بيتزا مرغريتا"
+        },
+        {
+          "id": "725",
+          "name": "بيتزا مرغريتا وسط",
+          "price": 32000,
+          "image": "https://i.ibb.co/x8DH4Wvr/image.png",
+          "category": "بيتزا مرغريتا"
+        },
+        {
+          "id": "726",
+          "name": "بيتزا مرغريتا عائلي",
+          "price": 45000,
+          "image": "https://i.ibb.co/SD5fNVXD/image.png",
+          "category": "بيتزا مرغريتا"
+        }
+      ]
     }
   ]
 }
