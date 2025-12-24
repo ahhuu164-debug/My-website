@@ -1,6 +1,134 @@
 {
   "restaurants": [
     {
+      "id": "al-amer",
+      "name": "العامر",
+      "category": "مشاوي • وجبات • ساندويش • معجنات • مناقيش",
+      "image": "https://i.ibb.co/VcwfGsb8/image.png",
+      "logo": "https://i.ibb.co/dsxR08PX/image.png",
+      "menu": [
+        {
+          "id": "701",
+          "name": "١ كغ شقف غنم",
+          "price": 170000,
+          "image": "https://i.ibb.co/TqM5bBXs/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "702",
+          "name": "١ كغ كباب غنم",
+          "price": 160000,
+          "image": "https://i.ibb.co/Fbt3Rrtz/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "703",
+          "name": "١ كغ شيش دجاج",
+          "price": 75000,
+          "image": "https://i.ibb.co/4w5PgjYj/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "704",
+          "name": "١ كغ كباب دجاج",
+          "price": 60000,
+          "image": "https://i.ibb.co/YBJPRGD9/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "705",
+          "name": "١ كغ كبة عالسيخ",
+          "price": 65000,
+          "image": "https://i.ibb.co/gZWTSJSB/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "706",
+          "name": "ساندويش كباب دجاج",
+          "price": 8000,
+          "image": "https://i.ibb.co/F4bvCjZH/image.png",
+          "category": "ساندويش"
+        },
+        {
+          "id": "707",
+          "name": "ساندويش شيش",
+          "price": 10000,
+          "image": "https://i.ibb.co/8Lv7mDsm/image.png",
+          "category": "ساندويش"
+        },
+        {
+          "id": "708",
+          "name": "١ كغ معاجيق غنم",
+          "price": 160000,
+          "image": "https://i.ibb.co/RG5Lw3Qw/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "709",
+          "name": "١ كغ صفيحة غنم",
+          "price": 160000,
+          "image": "https://i.ibb.co/DgV47dZW/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "710",
+          "name": "١ كغ معاجيق دجاج",
+          "price": 70000,
+          "image": "https://i.ibb.co/tT0kjrGw/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "711",
+          "name": "١ كغ صفيحة دجاج",
+          "price": 65000,
+          "image": "https://i.ibb.co/1JfNFcTc/image.png",
+          "category": "معجنات"
+        },
+        {
+          "id": "712",
+          "name": "منقوشة جبنة",
+          "price": 3000,
+          "image": "https://i.ibb.co/v6z5LTsT/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "713",
+          "name": "منقوشة زعتر",
+          "price": 2500,
+          "image": "https://i.ibb.co/xq0J8vw6/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "714",
+          "name": "منقوشة محمرة",
+          "price": 2500,
+          "image": "https://i.ibb.co/BKGmjv6T/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "715",
+          "name": "منقوشة محمرة بقشقوان",
+          "price": 5000,
+          "image": "https://i.ibb.co/w3TGVsq/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "716",
+          "name": "منقوشة مرتديلا",
+          "price": 3000,
+          "image": "https://i.ibb.co/PvygF7py/image.png",
+          "category": "مناقيش"
+        },
+        {
+          "id": "717",
+          "name": "منقوشة مرتديلا بقشقوان",
+          "price": 5000,
+          "image": "https://i.ibb.co/5xxy2H4v/image.png",
+          "category": "مناقيش"
+        }
+      ]
+    },
+    {
       "id": "abosalah",
       "name": "مشاوي أبو صلاح",
       "category": "أسماك مشوية • مشاوي • وجبات • ساندويش",
