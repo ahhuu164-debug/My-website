@@ -1,10 +1,10 @@
 {
   "restaurants": [
     {
-      "id": "al-amer",
+      "id": "alamer",
       "name": "العامر",
       "category": "مشاوي • وجبات • ساندويش • معجنات • مناقيش",
-      "image": "https://i.ibb.co/VcwfGsb8/image.png",
+      "image": "https://i.ibb.co/dsxR08PX/image.png",
       "logo": "https://i.ibb.co/dsxR08PX/image.png",
       "menu": [
         {
