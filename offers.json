@@ -2,28 +2,28 @@
   "offers": [
     {
       "id": 1,
-      "restaurant_id": "kandy",
-      "restaurant_name": "مطعم الكندي",
-      "title": "١ كيلو معاجيق سجق",
-      "description": "معاجيق سجق مع إضافات: سلطة، خبزة بيواز، كول سلو إيطالي",
-      "original_price": 100000,
-      "offer_price": 80000,
+      "restaurant_id": "al-wasouf",
+      "restaurant_name": "مطعم الوسوف",
+      "title": "بوفيه مقبلات لـ ٤ أشخاص - تشكيلة خاصة",
+      "description": "فتوش ٤ اشخاص / جرجير ٤ اشخاص / لبنة مغربية ٤ اشخاص / دقة ٤ اشخاص / متبل ٤ اشخاص / برك عدد ٤",
+      "original_price": 107000,
+      "offer_price": 87000,
       "savings": 20000,
-      "savings_percentage": 20,
-      "image": "https://i.ibb.co/vvkkdv21/image.png",
+      "savings_percentage": 18.7,
+      "image": "https://i.ibb.co/rGZ84Lkk/image.png",
       "show_in_index": true,
       "show_in_offers": true,
       "show_in_restaurant": true,
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["معاجيق سجق", "سلطة", "خبزة بيواز", "كول سلو إيطالي"],
-      "category": "معاجيق",
-      "delivery_time": "30-45 دقيقة",
-      "preparation_time": "20-25 دقيقة",
-      "tags": ["سجق", "معاجيق", "عروض خاصة"],
+      "items_included": ["فتوش (4 أشخاص)", "جرجير (4 أشخاص)", "لبنة مغربية (4 أشخاص)", "دقة (4 أشخاص)", "متبل (4 أشخاص)", "برك (4 حبات)"],
+      "category": "مقبلات",
+      "delivery_time": "30-40 دقيقة",
+      "preparation_time": "20-30 دقيقة",
+      "tags": ["مقبلات", "فتوش", "جرجير", "لبنة مغربية", "دقة", "متبل", "برك", "عروض خاصة"],
       "add_to_cart_data": {
-        "product_id": "kandy-sausage-majik",
+        "product_id": "al-wasouf-special-appetizer-combo",
         "quantity": 1,
         "variant": "special"
       }
@@ -58,6 +58,34 @@
     },
     {
       "id": 3,
+      "restaurant_id": "al-wasouf",
+      "restaurant_name": "مطعم الوسوف",
+      "title": "بوفيه مقبلات لـ ٤ أشخاص",
+      "description": "بطاطا مقلية ٤ اشخاص / تبولة ٤ اشخاص / حمص ناعم ٤ اشخاص / بابا غنوج ٤ اشخاص/ لبنة محشية ٤ اشخاص",
+      "original_price": 101000,
+      "offer_price": 83000,
+      "savings": 18000,
+      "savings_percentage": 17.8,
+      "image": "https://i.ibb.co/rGZ84Lkk/image.png",
+      "show_in_index": true,
+      "show_in_offers": true,
+      "show_in_restaurant": true,
+      "active": true,
+      "start_date": "2024-01-01",
+      "expiry_date": "غير محدد",
+      "items_included": ["بطاطا مقلية (4 أشخاص)", "تبولة (4 أشخاص)", "حمص ناعم (4 أشخاص)", "بابا غنوج (4 أشخاص)", "لبنة محشية (4 أشخاص)"],
+      "category": "مقبلات",
+      "delivery_time": "30-40 دقيقة",
+      "preparation_time": "20-30 دقيقة",
+      "tags": ["مقبلات", "بطاطا مقلية", "تبولة", "حمص", "بابا غنوج", "لبنة", "عروض خاصة"],
+      "add_to_cart_data": {
+        "product_id": "al-wasouf-appetizer-combo",
+        "quantity": 1,
+        "variant": "special"
+      }
+    },
+    {
+      "id": 4,
       "restaurant_id": "kandy",
       "restaurant_name": "مطعم الكندي",
       "title": "١ كيلو معاجيق دجاج",
@@ -85,7 +113,7 @@
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "restaurant_id": "kandy",
       "restaurant_name": "مطعم الكندي",
       "title": " ١ كيلو صفيحة دجاج",
@@ -113,7 +141,7 @@
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "restaurant_id": "kandy",
       "restaurant_name": "مطعم الكندي",
       "title": "١ كيلو كباب دجاج",
@@ -136,34 +164,6 @@
       "tags": ["دجاج", "كباب", "عروض خاصة"],
       "add_to_cart_data": {
         "product_id": "kandy-chicken-kebab",
-        "quantity": 1,
-        "variant": "special"
-      }
-    },
-    {
-      "id": 6,
-      "restaurant_id": "al-wasouf",
-      "restaurant_name": "مطعم الوسوف",
-      "title": "بوفيه مقبلات لـ ٤ أشخاص",
-      "description": "بطاطا مقلية ٤ اشخاص / تبولة ٤ اشخاص / حمص ناعم ٤ اشخاص / بابا غنوج ٤ اشخاص/ لبنة محشية ٤ اشخاص",
-      "original_price": 101000,
-      "offer_price": 83000,
-      "savings": 18000,
-      "savings_percentage": 17.8,
-      "image": "https://i.ibb.co/rGZ84Lkk/image.png",
-      "show_in_index": true,
-      "show_in_offers": true,
-      "show_in_restaurant": true,
-      "active": true,
-      "start_date": "2024-01-01",
-      "expiry_date": "غير محدد",
-      "items_included": ["بطاطا مقلية (4 أشخاص)", "تبولة (4 أشخاص)", "حمص ناعم (4 أشخاص)", "بابا غنوج (4 أشخاص)", "لبنة محشية (4 أشخاص)"],
-      "category": "مقبلات",
-      "delivery_time": "30-40 دقيقة",
-      "preparation_time": "20-30 دقيقة",
-      "tags": ["مقبلات", "بطاطا مقلية", "تبولة", "حمص", "بابا غنوج", "لبنة", "عروض خاصة"],
-      "add_to_cart_data": {
-        "product_id": "al-wasouf-appetizer-combo",
         "quantity": 1,
         "variant": "special"
       }
