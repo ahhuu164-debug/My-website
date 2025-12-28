@@ -139,6 +139,34 @@
         "quantity": 1,
         "variant": "special"
       }
+    },
+    {
+      "id": 6,
+      "restaurant_id": "al-wasouf",
+      "restaurant_name": "مطعم الوسوف",
+      "title": "بوفيه مقبلات لـ ٤ أشخاص",
+      "description": "بطاطا مقلية ٤ اشخاص / تبولة ٤ اشخاص / حمص ناعم ٤ اشخاص / بابا غنوج ٤ اشخاص/ لبنة محشية ٤ اشخاص",
+      "original_price": 101000,
+      "offer_price": 83000,
+      "savings": 18000,
+      "savings_percentage": 17.8,
+      "image": "https://i.ibb.co/rGZ84Lkk/image.png",
+      "show_in_index": true,
+      "show_in_offers": true,
+      "show_in_restaurant": true,
+      "active": true,
+      "start_date": "2024-01-01",
+      "expiry_date": "غير محدد",
+      "items_included": ["بطاطا مقلية (4 أشخاص)", "تبولة (4 أشخاص)", "حمص ناعم (4 أشخاص)", "بابا غنوج (4 أشخاص)", "لبنة محشية (4 أشخاص)"],
+      "category": "مقبلات",
+      "delivery_time": "30-40 دقيقة",
+      "preparation_time": "20-30 دقيقة",
+      "tags": ["مقبلات", "بطاطا مقلية", "تبولة", "حمص", "بابا غنوج", "لبنة", "عروض خاصة"],
+      "add_to_cart_data": {
+        "product_id": "al-wasouf-appetizer-combo",
+        "quantity": 1,
+        "variant": "special"
+      }
     }
   ]
 }
