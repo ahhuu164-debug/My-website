@@ -17,11 +17,27 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["فتوش (4 أشخاص)", "جرجير (4 أشخاص)", "لبنة مغربية (4 أشخاص)", "دقة (4 أشخاص)", "متبل (4 أشخاص)", "برك (4 حبات)"],
+      "items_included": [
+        "فتوش (4 أشخاص)",
+        "جرجير (4 أشخاص)",
+        "لبنة مغربية (4 أشخاص)",
+        "دقة (4 أشخاص)",
+        "متبل (4 أشخاص)",
+        "برك (4 حبات)"
+      ],
       "category": "مقبلات",
       "delivery_time": "30-40 دقيقة",
       "preparation_time": "20-30 دقيقة",
-      "tags": ["مقبلات", "فتوش", "جرجير", "لبنة مغربية", "دقة", "متبل", "برك", "عروض خاصة"],
+      "tags": [
+        "مقبلات",
+        "فتوش",
+        "جرجير",
+        "لبنة مغربية",
+        "دقة",
+        "متبل",
+        "برك",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "al-wasouf-special-appetizer-combo",
         "quantity": 1,
@@ -45,11 +61,21 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["مناقيش محمرة (3 قطع)", "مناقيش زعتر (3 قطع)", "مناقيش جبنة (3 قطع)"],
+      "items_included": [
+        "مناقيش محمرة (3 قطع)",
+        "مناقيش زعتر (3 قطع)",
+        "مناقيش جبنة (3 قطع)"
+      ],
       "category": "مناقيش",
       "delivery_time": "25-35 دقيقة",
       "preparation_time": "15-20 دقيقة",
-      "tags": ["مناقيش", "جبنة", "زعتر", "محمرة", "عروض خاصة"],
+      "tags": [
+        "مناقيش",
+        "جبنة",
+        "زعتر",
+        "محمرة",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "nakracha-manakesh-combo",
         "quantity": 1,
@@ -73,11 +99,25 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["بطاطا مقلية (4 أشخاص)", "تبولة (4 أشخاص)", "حمص ناعم (4 أشخاص)", "بابا غنوج (4 أشخاص)", "لبنة محشية (4 أشخاص)"],
+      "items_included": [
+        "بطاطا مقلية (4 أشخاص)",
+        "تبولة (4 أشخاص)",
+        "حمص ناعم (4 أشخاص)",
+        "بابا غنوج (4 أشخاص)",
+        "لبنة محشية (4 أشخاص)"
+      ],
       "category": "مقبلات",
       "delivery_time": "30-40 دقيقة",
       "preparation_time": "20-30 دقيقة",
-      "tags": ["مقبلات", "بطاطا مقلية", "تبولة", "حمص", "بابا غنوج", "لبنة", "عروض خاصة"],
+      "tags": [
+        "مقبلات",
+        "بطاطا مقلية",
+        "تبولة",
+        "حمص",
+        "بابا غنوج",
+        "لبنة",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "al-wasouf-appetizer-combo",
         "quantity": 1,
@@ -101,11 +141,20 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["معاجيق دجاج", "سلطة", "خبزة بيواز", "كول سلو إيطالي"],
+      "items_included": [
+        "معاجيق دجاج",
+        "سلطة",
+        "خبزة بيواز",
+        "كول سلو إيطالي"
+      ],
       "category": "معاجيق",
       "delivery_time": "30-45 دقيقة",
       "preparation_time": "20-25 دقيقة",
-      "tags": ["دجاج", "معاجيق", "عروض خاصة"],
+      "tags": [
+        "دجاج",
+        "معاجيق",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "kandy-chicken-majik",
         "quantity": 1,
@@ -129,11 +178,20 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["صفيحة دجاج", "سلطة", "خبزة بيواز", "كول سلو إيطالي"],
+      "items_included": [
+        "صفيحة دجاج",
+        "سلطة",
+        "خبزة بيواز",
+        "كول سلو إيطالي"
+      ],
       "category": "صفيحة",
       "delivery_time": "25-35 دقيقة",
       "preparation_time": "15-20 دقيقة",
-      "tags": ["دجاج", "صفيحة", "عروض خاصة"],
+      "tags": [
+        "دجاج",
+        "صفيحة",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "kandy-chicken-sfiha",
         "quantity": 1,
@@ -157,13 +215,64 @@
       "active": true,
       "start_date": "2024-01-01",
       "expiry_date": "غير محدد",
-      "items_included": ["كباب دجاج", "سلطة", "خبزة بيواز", "كول سلو إيطالي"],
+      "items_included": [
+        "كباب دجاج",
+        "سلطة",
+        "خبزة بيواز",
+        "كول سلو إيطالي"
+      ],
       "category": "كباب",
       "delivery_time": "25-35 دقيقة",
       "preparation_time": "15-20 دقيقة",
-      "tags": ["دجاج", "كباب", "عروض خاصة"],
+      "tags": [
+        "دجاج",
+        "كباب",
+        "عروض خاصة"
+      ],
       "add_to_cart_data": {
         "product_id": "kandy-chicken-kebab",
+        "quantity": 1,
+        "variant": "special"
+      }
+    },
+    {
+      "id": 7,
+      "restaurant_id": "rekn-almashwiat",
+      "restaurant_name": "ركن المشويات",
+      "title": "صحن مشاوي مشكل",
+      "description": "دبوس عدد ٢ / جوانح عدد ٤ / سيخ كباب عدد ٢ / سيخ شيش عدد ٢ / سيخ كبدة دجاج عدد ٢",
+      "original_price": 123000,
+      "offer_price": 100000,
+      "savings": 23000,
+      "savings_percentage": 18.7,
+      "image": "https://i.ibb.co/hJT2SvRK/image.png",
+      "show_in_index": true,
+      "show_in_offers": true,
+      "show_in_restaurant": true,
+      "active": true,
+      "start_date": "2024-01-01",
+      "expiry_date": "غير محدد",
+      "items_included": [
+        "دبوس (2 قطعة)",
+        "جوانح (4 قطع)",
+        "سيخ كباب (2 قطعة)",
+        "سيخ شيش (2 قطعة)",
+        "سيخ كبدة دجاج (2 قطعة)"
+      ],
+      "category": "مشاوي",
+      "delivery_time": "30-45 دقيقة",
+      "preparation_time": "20-30 دقيقة",
+      "tags": [
+        "مشاوي",
+        "دجاج",
+        "كباب",
+        "شيش",
+        "كبدة",
+        "جوانح",
+        "عروض خاصة"
+      ],
+      "add_to_cart_data": {
+        "product_id": "rekn-almashwiat",
         "quantity": 1,
         "variant": "special"
       }
