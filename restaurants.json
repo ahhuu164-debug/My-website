@@ -2691,6 +2691,162 @@
           "category": "بيتزا مرغريتا"
         }
       ]
+    },
+    {
+      "id": "rekn-almashwiat",
+      "name": "ركن المشويات",
+      "category": "مشويات • لحمة بالصينية • وجبات مشوية",
+      "image": "https://i.ibb.co/hJT2SvRK/image.png",
+      "logo": "https://i.ibb.co/hJT2SvRK/image.png",
+      "menu": [
+        {
+          "id": "501",
+          "name": "١ كغ كباب دجاج",
+          "price": 80000,
+          "image": "https://i.ibb.co/7dMz2kjX/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "502",
+          "name": "½ كغ كباب دجاج",
+          "price": 45000,
+          "image": "https://i.ibb.co/7dMz2kjX/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "503",
+          "name": "١ كغ جوانح مشوية",
+          "price": 55000,
+          "image": "https://i.ibb.co/b5VS9d3q/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "504",
+          "name": "½ كغ جوانح مشوية",
+          "price": 33000,
+          "image": "https://i.ibb.co/b5VS9d3q/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "505",
+          "name": "١ كغ فخاد مشوية",
+          "price": 60000,
+          "image": "https://i.ibb.co/KxRJmx3T/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "506",
+          "name": "½ كغ فخاد مشوية",
+          "price": 35000,
+          "image": "https://i.ibb.co/KxRJmx3T/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "507",
+          "name": "١ كغ فخاد مسحبة مشوية",
+          "price": 70000,
+          "image": "https://i.ibb.co/tw1GZGFr/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "508",
+          "name": "½ كغ فخاد مسحبة مشوية",
+          "price": 40000,
+          "image": "https://i.ibb.co/tw1GZGFr/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "509",
+          "name": "فروج مشوي",
+          "price": 80000,
+          "image": "https://i.ibb.co/PzsBssdg/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "510",
+          "name": "١ كغ شيش مشوي",
+          "price": 85000,
+          "image": "https://i.ibb.co/pj4dbLwh/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "511",
+          "name": "½ كغ شيش مشوي",
+          "price": 43000,
+          "image": "https://i.ibb.co/pj4dbLwh/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "512",
+          "name": "١ كغ كبة عالسيخ",
+          "price": 75000,
+          "image": "https://i.ibb.co/BHM0LqTW/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "513",
+          "name": "½ كغ كبة عالسيخ",
+          "price": 38000,
+          "image": "https://i.ibb.co/BHM0LqTW/image.png",
+          "category": "مشويات"
+        },
+        {
+          "id": "514",
+          "name": "١ كغ كبة ملفوفة بالشحمة",
+          "price": 125000,
+          "image": "",
+          "category": "مشويات"
+        },
+        {
+          "id": "515",
+          "name": "½ كغ كبة ملفوفة بالشحمة",
+          "price": 63000,
+          "image": "",
+          "category": "مشويات"
+        },
+        {
+          "id": "516",
+          "name": "١ كغ لحمة بالصينية",
+          "price": 120000,
+          "image": "https://i.ibb.co/VYD3nqDf/image.png",
+          "category": "لحمة بالصينية"
+        },
+        {
+          "id": "517",
+          "name": "مسخن فلسطيني",
+          "price": 110000,
+          "image": "https://i.ibb.co/39KVkS5t/image.png",
+          "category": "لحمة بالصينية"
+        },
+        {
+          "id": "518",
+          "name": "١ كغ كفتة بالصينية",
+          "price": 110000,
+          "image": "https://i.ibb.co/rGGTBW63/image.png",
+          "category": "لحمة بالصينية"
+        },
+        {
+          "id": "519",
+          "name": "١ كغ فخاد بالصينية",
+          "price": 85000,
+          "image": "https://i.ibb.co/ksZ3sTvB/image.png",
+          "category": "لحمة بالصينية"
+        },
+        {
+          "id": "520",
+          "name": "١ كغ جوانح بالصينية",
+          "price": 75000,
+          "image": "https://i.ibb.co/Fq8bsvVQ/image.png",
+          "category": "لحمة بالصينية"
+        },
+        {
+          "id": "521",
+          "name": "١ كغ كبدة دجاج بالصينية",
+          "price": 80000,
+          "image": "https://i.ibb.co/VYD3nqDf/image.png",
+          "category": "لحمة بالصينية"
+        }
+      ]
     }
   ]
 }
