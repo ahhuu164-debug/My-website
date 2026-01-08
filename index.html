@@ -381,7 +381,7 @@
       color: white;
     }
 
-    /* الشريط السفلي */
+    /* الشريط السفلي - التعديلات الجديدة */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -434,6 +434,38 @@
 
     .nav-item.active .nav-icon {
       transform: translateY(-2px);
+    }
+
+    /* زر الحلويات المغلق */
+    .nav-item.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+      position: relative;
+      color: var(--medium-gray);
+    }
+
+    .nav-item.disabled .nav-icon {
+      color: var(--medium-gray);
+    }
+
+    .coming-soon {
+      position: absolute;
+      top: -5px;
+      right: 50%;
+      transform: translateX(50%);
+      background: var(--primary-orange);
+      color: white;
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      border-radius: 10px;
+      white-space: nowrap;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
     }
 
     /* التحميل */
@@ -549,13 +581,23 @@
     </div>
   </footer>
 
-  <!-- الشريط السفلي -->
+  <!-- الشريط السفلي - مع التعديلات المطلوبة -->
   <nav class="bottom-nav">
     <div class="nav-items">
+      <!-- المطاعم -->
       <a href="index.html" class="nav-item active">
-        <i class="fas fa-home nav-icon"></i>
-        <span>الرئيسية</span>
+        <i class="fas fa-utensils nav-icon"></i>
+        <span>مطاعم</span>
       </a>
+      
+      <!-- الحلويات (زر مغلق) -->
+      <a href="#" class="nav-item disabled" onclick="return false;">
+        <span class="coming-soon">قريباً</span>
+        <i class="fas fa-birthday-cake nav-icon"></i>
+        <span>حلويات</span>
+      </a>
+      
+      <!-- العروض -->
       <a href="offers.html" class="nav-item">
         <i class="fas fa-percentage nav-icon"></i>
         <span>العروض</span>
@@ -807,6 +849,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       loadOffers();
       loadRestaurants();
+      
+      // منع النقر على زر الحلويات بشكل كامل
+      document.querySelector('.nav-item.disabled').addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
     });
   </script>
 </body>
