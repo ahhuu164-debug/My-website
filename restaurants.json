@@ -2383,6 +2383,172 @@
           "category": "لحمة بالصينية"
         }
       ]
+    },
+    {
+      "id": "falafel-cream",
+      "name": "فلافل كريم",
+      "category": "فلافل • حمص • فول • أطباق تقليدية",
+      "image": "https://i.ibb.co/bgsZdjCN/logo.jpg",
+      "logo": "https://i.ibb.co/bgsZdjCN/logo.jpg",
+      "menu": [
+        {
+          "id": "501",
+          "name": "فلافل",
+          "price": 7000,
+          "image": "https://i.ibb.co/Zz31jCTp/falafel.jpg",
+          "category": "فلافل",
+          "options": {
+            "type": "count",
+            "values": [
+              { "name": "4 أقراص", "price": 7000 },
+              { "name": "5 أقراص", "price": 9000 },
+              { "name": "6 أقراص", "price": 10000 }
+            ]
+          }
+        },
+        {
+          "id": "502",
+          "name": "حمص ناعم",
+          "price": 26000,
+          "image": "https://i.ibb.co/XrsxZt4Q/hummus.jpg",
+          "category": "أطباق رئيسية",
+          "options": {
+            "type": "weight",
+            "values": [
+              { "name": "كيلو", "price": 26000 },
+              { "name": "نصف كيلو", "price": 14000 }
+            ]
+          }
+        },
+        {
+          "id": "503",
+          "name": "فول بطحينية",
+          "price": 26000,
+          "image": "https://i.ibb.co/4wNFQqsT/foul-tahini.jpg",
+          "category": "أطباق رئيسية",
+          "options": {
+            "type": "weight",
+            "values": [
+              { "name": "كيلو", "price": 26000 },
+              { "name": "نصف كيلو", "price": 14000 }
+            ]
+          }
+        },
+        {
+          "id": "504",
+          "name": "فول بالزيت",
+          "price": 26000,
+          "image": "https://i.ibb.co/Rp8jSh2g/foul-oil.jpg",
+          "category": "أطباق رئيسية",
+          "options": {
+            "type": "weight",
+            "values": [
+              { "name": "كيلو", "price": 26000 },
+              { "name": "نصف كيلو", "price": 14000 }
+            ]
+          }
+        },
+        {
+          "id": "505",
+          "name": "مسبحة",
+          "price": 26000,
+          "image": "https://i.ibb.co/yKwMBfH/msabaha.jpg",
+          "category": "أطباق رئيسية",
+          "options": {
+            "type": "weight",
+            "values": [
+              { "name": "كيلو", "price": 26000 },
+              { "name": "نصف كيلو", "price": 14000 }
+            ]
+          }
+        },
+        {
+          "id": "506",
+          "name": "متبل باذنجان",
+          "price": 30000,
+          "image": "https://i.ibb.co/KcTsb2Xn/mutabal.jpg",
+          "category": "أطباق رئيسية",
+          "options": {
+            "type": "weight",
+            "values": [
+              { "name": "كيلو", "price": 30000 },
+              { "name": "نصف كيلو", "price": 16000 }
+            ]
+          }
+        },
+        {
+          "id": "507",
+          "name": "حمص حب سادة",
+          "price": 18000,
+          "image": "https://i.ibb.co/fY3L4bD2/plain-hummus.jpg",
+          "category": "أطباق رئيسية"
+        },
+        {
+          "id": "508",
+          "name": "فول سادة",
+          "price": 18000,
+          "image": "https://i.ibb.co/F4BByKbN/plain-foul.jpg",
+          "category": "أطباق رئيسية"
+        },
+        {
+          "id": "509",
+          "name": "فتة",
+          "price": 18000,
+          "image": "https://i.ibb.co/XxFRCdnm/fatteh.jpg",
+          "category": "أطباق خاصة",
+          "options": {
+            "type": "serving",
+            "values": [
+              { "name": "شخص + سرفيس", "price": 18000 },
+              { "name": "شخصان + سرفيس", "price": 35000 },
+              { "name": "ثلاث أشخاص + سرفيس", "price": 50000 }
+            ]
+          }
+        },
+        {
+          "id": "510",
+          "name": "مايونيز",
+          "price": 3000,
+          "image": "https://i.ibb.co/7JW6btj0/mayonnaise.jpg",
+          "category": "إضافات"
+        },
+        {
+          "id": "511",
+          "name": "مخلل",
+          "price": 3000,
+          "image": "https://i.ibb.co/kgY5bbyH/pickle.jpg",
+          "category": "إضافات",
+          "options": {
+            "type": "pickle",
+            "values": [
+              { "name": "مخلل خيار", "price": 3000 },
+              { "name": "مخلل لفت", "price": 3000 },
+              { "name": "مخلل فليفلة", "price": 3000 }
+            ]
+          }
+        },
+        {
+          "id": "512",
+          "name": "شطة",
+          "price": 3000,
+          "image": "https://i.ibb.co/DPNFmB0X/hot-sauce.jpg",
+          "category": "إضافات"
+        },
+        {
+          "id": "513",
+          "name": "كتشب",
+          "price": 3000,
+          "image": "https://i.ibb.co/LdD1q6sF/ketchup.jpg",
+          "category": "إضافات"
+        },
+        {
+          "id": "514",
+          "name": "مطربان مخلل",
+          "price": 25000,
+          "image": "https://i.ibb.co/JF8MwjR8/jar-pickle.jpg",
+          "category": "إضافات"
+        }
+      ]
     }
   ]
 }
