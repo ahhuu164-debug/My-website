@@ -2549,6 +2549,232 @@
           "category": "إضافات"
         }
       ]
+    },
+    {
+      "id": "fodi",
+      "name": "فودي",
+      "category": "شاورما • وجبات • مقبلات",
+      "image": "https://i.ibb.co/Mxnv2yFx/image.png",
+      "logo": "https://i.ibb.co/Mxnv2yFx/image.png",
+      "menu": [
+        {
+          "id": "101",
+          "name": "شاورما لحم غنم",
+          "price": 30000,
+          "image": "https://i.ibb.co/Pzj0HKbR/shawarma-lamb.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "102",
+          "name": "شاورما عادي",
+          "price": 15000,
+          "image": "https://i.ibb.co/G4FpTMnT/shawarma-regular.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "103",
+          "name": "شاورما دبل",
+          "price": 20000,
+          "image": "https://i.ibb.co/XZzp50PV/shawarma-double.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "104",
+          "name": "ساندويش فاهيتا",
+          "price": 28000,
+          "image": "https://i.ibb.co/3y3nrHwP/fajita-sandwich.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "105",
+          "name": "ساندويش شيش",
+          "price": 25000,
+          "image": "https://i.ibb.co/MkcS6XKR/sheesh-sandwich.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "106",
+          "name": "ساندويش سودة",
+          "price": 22000,
+          "image": "https://i.ibb.co/KjHfxMwF/sawda-sandwich.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "107",
+          "name": "ساندويش بطاطا",
+          "price": 10000,
+          "image": "https://i.ibb.co/vxb0369j/potato-sandwich.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "108",
+          "name": "ساندويش بطاطا ميكس",
+          "price": 16000,
+          "image": "https://i.ibb.co/PXd0Bww/potato-mix-sandwich.jpg",
+          "category": "الساندويش"
+        },
+        {
+          "id": "201",
+          "name": "وجبة شيش",
+          "price": 50000,
+          "image": "https://i.ibb.co/wNP9pGYh/sheesh-meal.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "202",
+          "name": "وجبة سودة دجاج",
+          "price": 45000,
+          "image": "https://i.ibb.co/jqhg4Yp/sawda-chicken-meal.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "203",
+          "name": "دبوس صاجية",
+          "price": 50000,
+          "image": "https://i.ibb.co/k216vc9g/dabus-sajeya.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "204",
+          "name": "شاورما عربي",
+          "price": 40000,
+          "image": "https://i.ibb.co/pvzy44g5/shawarma-arabic.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "205",
+          "name": "أصابع موزريلا",
+          "price": 30000,
+          "image": "https://i.ibb.co/sd4JFfYG/mozzarella-fingers.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "206",
+          "name": "وجبة فاهيتا",
+          "price": 50000,
+          "image": "https://i.ibb.co/CKSNqzXc/fajita-meal.jpg",
+          "category": "الوجبات"
+        },
+        {
+          "id": "301",
+          "name": "دقة",
+          "price": 25000,
+          "image": "https://i.ibb.co/G3CRHPnn/daqqa.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "302",
+          "name": "سوركي",
+          "price": 20000,
+          "image": "https://i.ibb.co/S4bjZBtB/surki.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "303",
+          "name": "كبة نية",
+          "price": 34000,
+          "image": "https://i.ibb.co/Fq5GXF9H/kibbeh-neyeh.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "304",
+          "name": "متبل باذنجان",
+          "price": 15000,
+          "image": "https://i.ibb.co/m3gcpCh/mutabal.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "305",
+          "name": "حمص",
+          "price": 15000,
+          "image": "https://i.ibb.co/CpZMgh0V/hummus.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "306",
+          "name": "حمص بيروتي",
+          "price": 17000,
+          "image": "https://i.ibb.co/m5ckNKW5/hummus-beiruti.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "307",
+          "name": "حمص باللحمة والمكسرات",
+          "price": 25000,
+          "image": "https://i.ibb.co/mWzq7Wk/hummus-meat-nuts.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "308",
+          "name": "كبة مقلية (لحم)",
+          "price": 7000,
+          "image": "https://i.ibb.co/JRJCKXgC/kibbeh-fried.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "309",
+          "name": "لبنة بالجوز",
+          "price": 20000,
+          "image": "https://i.ibb.co/hF5hwLpv/labneh-walnut.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "310",
+          "name": "برك جبنة",
+          "price": 3000,
+          "image": "https://i.ibb.co/4nyJYvGw/cheese-borek.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "311",
+          "name": "يالنجي",
+          "price": 1500,
+          "image": "https://i.ibb.co/3nSkqBH/yalanji.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "312",
+          "name": "صحن بطاطا",
+          "price": 16000,
+          "image": "https://i.ibb.co/6RvRN22X/potato-plate.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "313",
+          "name": "تبولة",
+          "price": 16000,
+          "image": "https://i.ibb.co/5x2fBYN1/tabbouleh.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "314",
+          "name": "جرجير",
+          "price": 16000,
+          "image": "https://i.ibb.co/Y7SNqQNQ/arugula-salad.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "315",
+          "name": "سلطة خضار",
+          "price": 16000,
+          "image": "https://i.ibb.co/9KD8QfL/vegetable-salad.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "316",
+          "name": "فتوش",
+          "price": 16000,
+          "image": "https://i.ibb.co/TxBvFKZt/fattoush.jpg",
+          "category": "المقبلات"
+        },
+        {
+          "id": "317",
+          "name": "سلطة ملفوف",
+          "price": 20000,
+          "image": "https://i.ibb.co/1tc63ZNC/cabbage-salad.jpg",
+          "category": "المقبلات"
+        }
+      ]
     }
   ]
 }
