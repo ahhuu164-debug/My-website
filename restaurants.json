@@ -208,162 +208,6 @@
       ]
     },
     {
-      "id": "seville",
-      "name": "إشبيلية",
-      "category": "مشويات • وجبات • ساندويش • فتات وفلافل • سلطات",
-      "image": "https://i.ibb.co/0gYNm7k/image.png",
-      "logo": "https://i.ibb.co/0gYNm7k/image.png",
-      "menu": [
-        {
-          "id": "801",
-          "name": "١ كغ كباب مشوي",
-          "price": 60000,
-          "image": "https://i.ibb.co/rRG5sJYC/image.png",
-          "category": "مشويات"
-        },
-        {
-          "id": "802",
-          "name": "١ كغ شيش مشوي",
-          "price": 70000,
-          "image": "https://i.ibb.co/QFYPtjMd/image.png",
-          "category": "مشويات"
-        },
-        {
-          "id": "803",
-          "name": "كباب",
-          "price": 10000,
-          "image": "https://i.ibb.co/GvntZycr/image.png",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "804",
-          "name": "كباب دبل",
-          "price": 12000,
-          "image": "https://i.ibb.co/PzTHpzfg/image.png",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "805",
-          "name": "شيش",
-          "price": 12000,
-          "image": "https://i.ibb.co/Hp9Wy1Dp/image.png",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "806",
-          "name": "شيش دبل",
-          "price": 14000,
-          "image": "https://i.ibb.co/XZVDDZwv/image.png",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "807",
-          "name": "بطاطا عادي",
-          "price": 8000,
-          "image": "https://i.ibb.co/SXTptZvT/image.png",
-          "category": "بطاطا"
-        },
-        {
-          "id": "808",
-          "name": "بطاطا دبل",
-          "price": 10000,
-          "image": "https://i.ibb.co/5gsnx3vm/image.png",
-          "category": "بطاطا"
-        },
-        {
-          "id": "809",
-          "name": "فلافل عادي",
-          "price": 6000,
-          "image": "https://i.ibb.co/LX49Lf36/image.png",
-          "category": "فتات وفلافل"
-        },
-        {
-          "id": "810",
-          "name": "فلافل دبل",
-          "price": 8000,
-          "image": "https://i.ibb.co/ZzbVy8Zr/image.png",
-          "category": "فتات وفلافل"
-        },
-        {
-          "id": "811",
-          "name": "١ كغ فتة (شخصين)",
-          "price": 40000,
-          "image": "https://i.ibb.co/JwvFhnMH/image.png",
-          "category": "فتات وفلافل"
-        },
-        {
-          "id": "812",
-          "name": "١ كغ حمص ناعم",
-          "price": 20000,
-          "image": "https://i.ibb.co/ZRV6xvKR/image.png",
-          "category": "فتات وفلافل"
-        },
-        {
-          "id": "813",
-          "name": "تبولة",
-          "price": 15000,
-          "image": "https://i.ibb.co/r2tt7XPm/image.png",
-          "category": "سلطات"
-        },
-        {
-          "id": "814",
-          "name": "فتوش",
-          "price": 15000,
-          "image": "https://i.ibb.co/rKtN9JB0/image.png",
-          "category": "سلطات"
-        },
-        {
-          "id": "815",
-          "name": "مارينا",
-          "price": 7000,
-          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "816",
-          "name": "مارينا دبل",
-          "price": 10000,
-          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "817",
-          "name": "مارينا جبنة",
-          "price": 10000,
-          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "818",
-          "name": "مارينا جبنة دبل",
-          "price": 15000,
-          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-          "category": "ساندويش مشويات"
-        },
-        {
-          "id": "819",
-          "name": "صحن بطاطا صغير",
-          "price": 10000,
-          "image": "https://i.ibb.co/hxSZtpKx/image.png",
-          "category": "بطاطا"
-        },
-        {
-          "id": "820",
-          "name": "صحن بطاطا وسط",
-          "price": 15000,
-          "image": "https://i.ibb.co/XrC3S87N/image.png",
-          "category": "بطاطا"
-        },
-        {
-          "id": "821",
-          "name": "صحن بطاطا كبير",
-          "price": 20000,
-          "image": "https://i.ibb.co/mrPdjQvw/image.png",
-          "category": "بطاطا"
-        }
-      ]
-    },
-    {
       "id": "krosh",
       "name": "كرّوش",
       "category": "شاورما • برغر • وجبات سريعة",
@@ -2773,6 +2617,239 @@
           "price": 20000,
           "image": "https://i.ibb.co/1tc63ZNC/cabbage-salad.jpg",
           "category": "المقبلات"
+        }
+      ]
+    },
+    {
+      "id": "al-ameer",
+      "name": "شاورما وسناك الأمير",
+      "category": "شاورما • بروستد • وجبات سريعة",
+      "image": "https://i.ibb.co/QvjQW4X4/image.jpg",
+      "logo": "https://i.ibb.co/QvjQW4X4/image.jpg",
+      "menu": [
+        {
+          "id": "s1",
+          "name": "شاورما عادي",
+          "price": 15000,
+          "image": "https://i.ibb.co/Nd7bXY6t/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s2",
+          "name": "شاورما دبل",
+          "price": 20000,
+          "image": "https://i.ibb.co/Nd7bXY6t/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s3",
+          "name": "بطاطا عادي",
+          "price": 12000,
+          "image": "https://i.ibb.co/C5j2nvmN/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s4",
+          "name": "بطاطا دبل",
+          "price": 15000,
+          "image": "https://i.ibb.co/C5j2nvmN/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s5",
+          "name": "بطاطا قشقوان",
+          "price": 17000,
+          "image": "https://i.ibb.co/VWPXCGFr/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s6",
+          "name": "مكسيكانو",
+          "price": 25000,
+          "image": "https://i.ibb.co/gLtFt1J1/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s7",
+          "name": "سوبريم",
+          "price": 30000,
+          "image": "https://i.ibb.co/Lzk7NG07/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s8",
+          "name": "اسكالوب",
+          "price": 25000,
+          "image": "https://i.ibb.co/W4r4ywby/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s9",
+          "name": "سودة",
+          "price": 20000,
+          "image": "https://i.ibb.co/fYFf5Rkz/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s10",
+          "name": "فاهيتا",
+          "price": 30000,
+          "image": "https://i.ibb.co/XZMKwTzh/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s11",
+          "name": "كريسبي",
+          "price": 25000,
+          "image": "https://i.ibb.co/Vc4wv0K6/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s12",
+          "name": "شيش",
+          "price": 25000,
+          "image": "https://i.ibb.co/XxhZsTpw/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "s13",
+          "name": "زنجر",
+          "price": 25000,
+          "image": "https://i.ibb.co/XZDqfL0f/image.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "m1",
+          "name": "فروج بروستد",
+          "price": 115000,
+          "image": "https://i.ibb.co/Zwx0Gfz/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m2",
+          "name": "فروج مشوي",
+          "price": 105000,
+          "image": "https://i.ibb.co/DfVpYFj0/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m3",
+          "name": "نص فروج مشوي",
+          "price": 55000,
+          "image": "https://i.ibb.co/DfVpYFj0/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m4",
+          "name": "كيلو شاورما فرط",
+          "price": 145000,
+          "image": "https://i.ibb.co/tMLW532Q/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m5",
+          "name": "شاورما عربي",
+          "price": 40000,
+          "image": "https://i.ibb.co/pB47dnrP/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m6",
+          "name": "مكسيكانو",
+          "price": 50000,
+          "image": "https://i.ibb.co/gLtFt1J1/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m7",
+          "name": "رايزو كريسبي",
+          "price": 35000,
+          "image": "https://i.ibb.co/DPnwR3D2/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m8",
+          "name": "سوبريم",
+          "price": 60000,
+          "image": "https://i.ibb.co/Lzk7NG07/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m9",
+          "name": "اسكالوب",
+          "price": 50000,
+          "image": "https://i.ibb.co/W4r4ywby/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m10",
+          "name": "سودة",
+          "price": 45000,
+          "image": "https://i.ibb.co/fYFf5Rkz/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m11",
+          "name": "فاهيتا",
+          "price": 50000,
+          "image": "https://i.ibb.co/XZMKwTzh/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m12",
+          "name": "كريسبي",
+          "price": 50000,
+          "image": "https://i.ibb.co/Vc4wv0K6/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m13",
+          "name": "منسف شاورما",
+          "price": 75000,
+          "image": "https://i.ibb.co/pB47dnrP/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m14",
+          "name": "شيش",
+          "price": 50000,
+          "image": "https://i.ibb.co/XxhZsTpw/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m15",
+          "name": "جوانح بانيه",
+          "price": 50000,
+          "image": "https://i.ibb.co/LznKpS4m/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m16",
+          "name": "برغر دجاج",
+          "price": 25000,
+          "image": "https://i.ibb.co/fGZ1jK3J/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m17",
+          "name": "زنجر",
+          "price": 50000,
+          "image": "https://i.ibb.co/XZDqfL0f/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m18",
+          "name": "وجبة بطاطا",
+          "price": 15000,
+          "image": "https://i.ibb.co/TxNg6Gqj/image.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "m19",
+          "name": "وجبة بطاطا",
+          "price": 20000,
+          "image": "https://i.ibb.co/TxNg6Gqj/image.jpg",
+          "category": "وجبات"
         }
       ]
     }
