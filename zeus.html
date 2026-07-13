@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماركت زيوس</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; color: #2D3436; padding-bottom: 80px; line-height: 1.6; }
+        
+        .sticky-header { position: sticky; top: 0; z-index: 1000; background: linear-gradient(135deg, #00b4db, #0083b0); padding: 12px 0; box-shadow: 0 4px 166px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; }
+        .sticky-header img { height: 45px; width: auto; }
+
+        .restaurant-info { max-width: 1200px; margin: 20px auto 0; padding: 0 15px; position: relative; z-index: 2; }
+        .info-card { background: white; border-radius: 24px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .info-header { display: flex; align-items: center; margin-bottom: 15px; }
+        .restaurant-logo-large { width: 100px; height: 100px; border-radius: 50%; border: 4px solid white; box-shadow: 0 8px 24px rgba(0,0,0,0.1); overflow: hidden; margin-left: 15px; flex-shrink: 0; }
+        .restaurant-logo-large img { width: 100%; height: 100%; object-fit: cover; }
+        .title-section { flex-grow: 1; }
+        .restaurant-title { font-size: 1.5rem; font-weight: 800; color: #2C3E50; margin-bottom: 5px; }
+        .restaurant-category { color: #7f8c8d; margin-bottom: 10px; font-size: 0.9rem; }
+        
+        .info-details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
+        .info-item { display: flex; align-items: center; }
+        .info-item i { color: #00b4db; font-size: 1.1rem; margin-left: 12px; width: 20px; text-align: center; }
+        .info-text { flex-grow: 1; }
+        .info-label { font-size: 0.8rem; color: #95a5a6; }
+        .info-value { font-weight: 600; margin-top: 2px; font-size: 0.9rem; }
+
+        .menu-section { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        .section-header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #ECF0F1; margin-top: 25px; }
+        .section-header h2 { font-size: 1.25rem; color: #2C3E50; margin-right: 10px; font-weight: 800; }
+        .section-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #00b4db, #0083b0); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; }
+        
+        .categories-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .category-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s, border-color 0.2s; border: 1px solid #eef2f5; }
+        .category-card:hover { transform: translateY(-3px); border-color: #00b4db; }
+        .category-img { height: 140px; width: 100%; overflow: hidden; background: #fafafa; }
+        .category-img img { width: 100%; height: 100%; object-fit: cover; }
+        .category-name { padding: 12px; text-align: center; font-weight: 700; color: #2C3E50; font-size: 1rem; }
+
+        .items-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; }
+        .items-modal.active { display: flex; }
+        .modal-container { background: white; width: 95%; max-width: 550px; height: 75vh; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; animation: slideUp 0.3s ease; }
+        @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-header { padding: 15px 20px; background: #f8fafd; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { font-size: 1.2rem; color: #2C3E50; }
+        .close-modal { background: none; border: none; font-size: 1.4rem; color: #95a5a6; cursor: pointer; }
+        .modal-body { flex: 1; overflow-y: auto; padding: 15px 20px; }
+        
+        .sub-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+        .sub-item-info { flex: 1; padding-left: 10px; }
+        .sub-item-name { font-weight: 600; font-size: 0.95rem; color: #333; margin-bottom: 4px; }
+        .sub-item-price { color: #00b4db; font-weight: 700; font-size: 0.9rem; }
+        .row-controls { display: flex; align-items: center; gap: 8px; }
+        .qty-btn { width: 28px; height: 28px; background: #eef2f5; border: none; border-radius: 50%; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .qty-btn:hover { background: #00b4db; color: white; }
+        .qty-num { width: 25px; text-align: center; font-weight: 600; font-size: 0.9rem; }
+        .add-row-btn { background: #00b4db; color: white; border: none; padding: 6px 14px; border-radius: 12px; font-family: 'Cairo'; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .add-row-btn:hover { background: #0083b0; }
+
+        .cart-sidebar { position: fixed; top: 0; left: -100%; width: 85%; max-width: 360px; height: 100vh; background: white; box-shadow: 8px 0 24px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.3s ease; padding: 20px; display: flex; flex-direction: column; }
+        .cart-sidebar.open { left: 0; }
+        .overlay { position: fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:2100; display:none; }
+        .overlay.active { display:block; }
+        .cart-items-list { flex: 1; overflow-y: auto; margin: 15px 0; }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        
+        .delivery-notice { background: #e6f7ff; border: 1px solid #bae7ff; padding: 10px 12px; border-radius: 12px; font-size: 0.85rem; color: #0050b3; margin-bottom: 15px; display: flex; justify-content: space-between; font-weight: 600; }
+        
+        .input-group { margin-bottom: 10px; }
+        .input-group input { width: 100%; padding: 11px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Cairo'; font-size: 0.85rem; outline: none; }
+        .input-group input:focus { border-color: #00b4db; }
+        
+        .total-wrapper { display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; padding-top: 10px; border-top: 2px solid #eee; font-size: 0.95rem; }
+        .total-row { display: flex; justify-content: space-between; }
+        .grand-total { font-weight: 800; font-size: 1.15rem; color: #2c3e50; border-top: 1px dashed #ccc; padding-top: 6px; margin-top: 5px; }
+        
+        .submit-order-btn { background: #25D366; color: white; border: none; padding: 14px; border-radius: 14px; font-family: 'Cairo'; font-weight: 700; width: 100%; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 1rem; }
+        .submit-order-btn:hover { background: #1ebd58; }
+        
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; box-shadow: 0 -4px 12px rgba(0,0,0,0.1); z-index: 1000; padding: 10px 0; display: flex; justify-content: space-around; }
+        .nav-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #b2bec3; font-size: 0.75rem; position: relative; }
+        .nav-link.active { color: #00b4db; }
+        .badge { position: absolute; top: -6px; left: -6px; background: red; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
+        
+        @media (max-width: 480px) {
+            .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .info-details { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-header">
+        <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="لوغو فودي">
+    </header>
+
+    <section class="restaurant-info">
+        <div class="info-card">
+            <div class="info-header">
+                <div class="restaurant-logo-large">
+                    <img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="ماركت زيوس">
+                </div>
+                <div class="title-section">
+                    <h1 class="restaurant-title">ماركت زيوس</h1>
+                    <p class="restaurant-category">أقسام متكاملة • مواد غذائية واستهلاكية • دخان ومعسل • مشروبات • موالح ومقرمشات • بسكويت وشوكولا • زيوت وسمن • ألبان وأجبان • منظفات • توصيل فوري</p>
+                </div>
+            </div>
+            <div class="info-details">
+                <div class="info-item">
+                    <i class="fa fa-clock"></i>
+                    <div class="info-text">
+                        <div class="info-label">أوقات الدوام</div>
+                        <div class="info-value">من 11:00 صباحاً حتى 1:00 ليلاً</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-text">
+                        <div class="info-label">العنوان</div>
+                        <div class="info-value">البريد الغربي - دوار المساكن</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="menu-section">
+        
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-smoking"></i></div>
+            <h2>قسم الدخان والمعسل</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('moasel')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1527156279123-eeea9" alt="ركن المعسل"></div>
+                <div class="category-name">ركن المعسل</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('cigarettes')">
+                <div class="category-img"><img src="https://i.ibb.co/FbKpSs9W/image.png" alt="ركن الدخان"></div>
+                <div class="category-name">ركن الدخان</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-wine-glass-alt"></i></div>
+            <h2>قسم المشروبات والبارد</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('soft_drinks')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400" alt="مشروبات غازية"></div>
+                <div class="category-name">ركن المشروبات الغازية</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('energy_drinks')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1622543953495-a92cee421d3f?w=400" alt="مشروبات طاقة"></div>
+                <div class="category-name">ركن مشروبات الطاقة</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('juices')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400" alt="عصائر"></div>
+                <div class="category-name">ركن العصائر</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('barbican')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=400" alt="مشروب شعير"></div>
+                <div class="category-name">مشروب شعير وبيروز</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('cold_coffee')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400" alt="قهوة باردة"></div>
+                <div class="category-name">ركن القهوة الباردة</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-box-open"></i></div>
+            <h2>قسم المواد الغذائية والاستهلاكية</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('coffee')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400" alt="ركن القهوة"></div>
+                <div class="category-name">ركن القهوة والمنبهات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('mate')">
+                <div class="category-img"><img src="https://i.ibb.co/N6cRCmrY/image.png" alt="ركن المتة"></div>
+                <div class="category-name">ركن المتة</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('mortadella')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1629115916386-bce427d24438?w=400" alt="ركن المرتديلا"></div>
+                <div class="category-name">ركن المرتديلا</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('sardine')">
+                <div class="category-img"><img src="https://i.ibb.co/9kxh9SQ5/image.png" alt="ركن السردين"></div>
+                <div class="category-name">ركن السردين</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('tuna')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=400" alt="ركن الطون"></div>
+                <div class="category-name">ركن الطون</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('oils')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400" alt="زيوت وسمن"></div>
+                <div class="category-name">ركن الزيوت والسمن</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('canned')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583939003579-730e1998d4c6?w=400" alt="معلبات"></div>
+                <div class="category-name">ركن المعلبات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('grains')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400" alt="حبوب وبقوليات"></div>
+                <div class="category-name">ركن الحبوب والبقوليات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('pasta')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=400" alt="معكرونة"></div>
+                <div class="category-name">ركن المعكرونة والاندومي</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('dairy')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400" alt="ألبان وأجبان"></div>
+                <div class="category-name">ركن الألبان والأجبان</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-utensils"></i></div>
+            <h2>قسم الموالح والمقرمشات</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('meayal')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="بزر ميال"></div>
+                <div class="category-name">ركن بزر ميال</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('jabs')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="بزر جبس"></div>
+                <div class="category-name">ركن بزر جبس</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('fstq')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="فستق"></div>
+                <div class="category-name">ركن الفستق</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('snacks')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="متفرقات"></div>
+                <div class="category-name">ركن المتفرقات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('white_seeds')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="بزر أبيض وكوسا"></div>
+                <div class="category-name">ركن بزر أبيض وكوسا</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('qalobat')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="قلوبات"></div>
+                <div class="category-name">ركن القلوبات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('chips_old')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1598971861719-8b1b0f31266f?w=400" alt="شيبس"></div>
+                <div class="category-name">ركن الشيبس</div>
+            </div>
+        </div>
+
+        <!-- ========== قسم البسكويت والشوكولا والشيبس ========== -->
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-cookie-bite"></i></div>
+            <h2>قسم البسكويت والشوكولا والشيبس</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('popcorn')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1551969014-6d6f5e4b95b1?w=400" alt="بوب كورن"></div>
+                <div class="category-name">ركن البوب كورن</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('arabika')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1597914375140-9bd4b45a017a?w=400" alt="ارابيكا تورتيلا"></div>
+                <div class="category-name">ارابيكا تورتيلا</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('darnito')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400" alt="دارنيتو رقائق"></div>
+                <div class="category-name">دارنيتو رقائق</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('golden_touch')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400" alt="غولدن تاتش"></div>
+                <div class="category-name">غولدن تاتش</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('derby')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400" alt="بطاطا ديربي"></div>
+                <div class="category-name">بطاطا ديربي</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('master')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=400" alt="ماستر"></div>
+                <div class="category-name">ماستر</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('biscuit')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400" alt="بسكويت"></div>
+                <div class="category-name">ركن البسكويت</div>
+            </div>
+        </div>
+
+        <!-- ========== قسم المنظفات ========== -->
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-broom"></i></div>
+            <h2>قسم المنظفات</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="openCategoryModal('shampoo')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="شامبو وبلسم"></div>
+                <div class="category-name">ركن الشامبو والبلسم</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('dish_liquid')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="سائل جلي"></div>
+                <div class="category-name">ركن سائل الجلي</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('air_freshener')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="معطرات"></div>
+                <div class="category-name">ركن المعطرات</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('tissues')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="محارم"></div>
+                <div class="category-name">ركن المحارم</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('pads')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="فوط"></div>
+                <div class="category-name">ركن الفوط</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('jet')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="جيت"></div>
+                <div class="category-name">ركن الجيت</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('toothpaste')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="معجون أسنان"></div>
+                <div class="category-name">ركن معجون الأسنان</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('soap')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="صابون"></div>
+                <div class="category-name">ركن الصابون</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('liquid_detergent')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="سائل غسيل"></div>
+                <div class="category-name">ركن سائل غسيل الملابس</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('powder_detergent')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="مسحوق غسيل"></div>
+                <div class="category-name">ركن مسحوق غسيل الملابس</div>
+            </div>
+            <div class="category-card" onclick="openCategoryModal('misc_clean')">
+                <div class="category-img"><img src="https://images.unsplash.com/photo-1583945630758-1acf5e9a1b6d?w=400" alt="متفرقات منظفات"></div>
+                <div class="category-name">ركن المتفرقات</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="items-modal" id="items-modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-category-title">اسم القسم</h3>
+                <button class="close-modal" onclick="closeCategoryModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modal-items-list"></div>
+        </div>
+    </div>
+
+    <div class="overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h3 style="border-bottom:1px solid #eee; padding-bottom:10px; color:#2C3E50;"><i class="fas fa-shopping-basket"></i> قائمة طلباتك</h3>
+        <div class="cart-items-list" id="cart-items-list"></div>
+
+        <div class="delivery-notice">
+            <span>أجور توصيل الماركت للحي الخاص بك:</span>
+            <span>5,000 ل.س</span>
+        </div>
+
+        <div class="input-group"><input type="text" id="c-name" placeholder="الاسم الكامل"></div>
+        <div class="input-group"><input type="text" id="c-address" placeholder="العنوان بالتفصيل"></div>
+        <div class="input-group"><input type="tel" id="c-phone" placeholder="رقم الموبايل"></div>
+
+        <div class="total-wrapper">
+            <div class="total-row"><span>قيمة البضاعة:</span><span id="subtotal-val">0 ل.س</span></div>
+            <div class="total-row"><span>أجور التوصيل:</span><span>5,000 ل.س</span></div>
+            <div class="total-row grand-total"><span>المجموع النهائي الكلي:</span><span id="grand-total-val">0 ل.س</span></div>
+        </div>
+
+        <button class="submit-order-btn" onclick="sendToWhatsapp()">
+            <i class="fab fa-whatsapp"></i> إرسال الطلب للماركت
+        </button>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-link active"><i class="fas fa-th-large"></i><span>الماركت</span></a>
+        <a href="#" class="nav-link" onclick="openCart()"><i class="fas fa-shopping-cart"></i><span>السلة</span><span class="badge" id="cart-count">0</span></a>
+    </nav>
+
+    <script>
+        const USD_RATE = 13000;      
+        const DELIVERY_FEE = 5000;   
+        const WHATSAPP_NUMBER = "963957275347";
+
+        const productsData = {
+            moasel: {
+                title: "ركن المعسل",
+                items: [
+                    { id: "ms1", name: "معسل مزايا تريندي", priceType: "SP", price: 0 },
+                    { id: "ms2", name: "معسل مزايا بلوبيري", priceType: "SP", price: 0 },
+                    { id: "ms3", name: "معسل مزايا عنب", priceType: "SP", price: 0 },
+                    { id: "ms4", name: "معسل مزايا مانغو", priceType: "SP", price: 0 },
+                    { id: "ms5", name: "معسل مزايا لوف", priceType: "SP", price: 0 },
+                    { id: "ms6", name: "معسل مزايا روبي كراش", priceType: "SP", price: 0 },
+                    { id: "ms7", name: "معسل مزايا فريز", priceType: "SP", price: 0 },
+                    { id: "ms8", name: "معسل مزايا هافانا", priceType: "SP", price: 0 },
+                    { id: "ms9", name: "معسل مزايا علكة", priceType: "SP", price: 0 },
+                    { id: "ms10", name: "معسل مزايا علكة مستكة", priceType: "SP", price: 0 },
+                    { id: "ms11", name: "معسل مزايا نعناع مثلج", priceType: "SP", price: 0 },
+                    { id: "ms12", name: "معسل مزايا بولو", priceType: "SP", price: 0 },
+                    { id: "ms13", name: "معسل مزايا عنب ونعناع", priceType: "SP", price: 0 },
+                    { id: "ms14", name: "معسل مزايا تفاحتين بحريني", priceType: "SP", price: 0 },
+                    { id: "ms15", name: "معسل مزايا علكة بالنعناع المثلج", priceType: "SP", price: 0 },
+                    { id: "ms16", name: "معسل مزايا ماكس", priceType: "SP", price: 0 },
+                    { id: "ms17", name: "معسل تفاحتين فرنسي", priceType: "SP", price: 0 }
+                ]
+            },
+            cigarettes: {
+                title: "ركن الدخان",
+                items: [
+                    { id: "cg1", name: "دخان ماستر طويل", priceType: "SP", price: 0 },
+                    { id: "cg2", name: "دخان ماستر قصير ازرق", priceType: "SP", price: 0 },
+                    { id: "cg3", name: "دخان ماستر وايت", priceType: "SP", price: 0 },
+                    { id: "cg4", name: "دخان ماستر التيما", priceType: "SP", price: 0 },
+                    { id: "cg5", name: "دخان ماستر ون", priceType: "SP", price: 0 },
+                    { id: "cg6", name: "دخان غلواز احمر كوين", priceType: "SP", price: 0 },
+                    { id: "cg7", name: "دخان غلواز اصفر كوين", priceType: "SP", price: 0 },
+                    { id: "cg8", name: "دخان غلواز اصفر عريض", priceType: "SP", price: 0 },
+                    { id: "cg9", name: "دخان غلواز احمر عريض", priceType: "SP", price: 0 },
+                    { id: "cg10", name: "دخان جيتان قصير", priceType: "SP", price: 0 },
+                    { id: "cg11", name: "دخان اوريس منغا", priceType: "SP", price: 0 },
+                    { id: "cg12", name: "دخان اوريس نعناع", priceType: "SP", price: 0 },
+                    { id: "cg13", name: "دخان اوريس توت", priceType: "SP", price: 0 },
+                    { id: "cg14", name: "دخان كابتن بلاك كوين ذهبي", priceType: "SP", price: 0 },
+                    { id: "cg15", name: "دخان كابتن بلاك سليم فضي", priceType: "SP", price: 0 },
+                    { id: "cg16", name: "دخان مليونير طويل فضي", priceType: "SP", price: 0 },
+                    { id: "cg17", name: "دخان مليونير طويل ازرق", priceType: "SP", price: 0 },
+                    { id: "cg18", name: "دخان اوسكار طويل", priceType: "SP", price: 0 },
+                    { id: "cg19", name: "دخان مكسيكو طويل فضي", priceType: "SP", price: 0 },
+                    { id: "cg20", name: "دخان تي اس طويل فضي", priceType: "SP", price: 0 },
+                    { id: "cg21", name: "دخان ايليغانس كوين ابيض", priceType: "SP", price: 0 },
+                    { id: "cg22", name: "دخان ايليغانس طويل فضي", priceType: "SP", price: 0 }
+                ]
+            },
+            soft_drinks: {
+                title: "ركن المشروبات الغازية",
+                items: [
+                    { id: "sd1", name: "بيبسي لتر", priceType: "SP", price: 10000 },
+                    { id: "sd2", name: "سفن اب لتر", priceType: "SP", price: 10000 },
+                    { id: "sd3", name: "ميرندا برتقال لتر", priceType: "SP", price: 10000 },
+                    { id: "sd4", name: "ميرندا تفاح لتر", priceType: "SP", price: 10000 },
+                    { id: "sd5", name: "مندرين فينيتو لتر", priceType: "SP", price: 9000 },
+                    { id: "sd6", name: "بيبسي عائلي", priceType: "SP", price: 18000 },
+                    { id: "sd7", name: "سفن اب عائلي", priceType: "SP", price: 18000 },
+                    { id: "sd8", name: "ميرندا برتقال عائلي", priceType: "SP", price: 18000 },
+                    { id: "sd9", name: "ميرندا تفاح عائلي", priceType: "SP", price: 18000 },
+                    { id: "sd10", name: "مندرين فينيتو عائلي", priceType: "SP", price: 18000 },
+                    { id: "sd11", name: "بيبسي تنك", priceType: "SP", price: 7000 },
+                    { id: "sd12", name: "سفن اب تنك", priceType: "SP", price: 7000 },
+                    { id: "sd13", name: "ميرندا تفاح تنك", priceType: "SP", price: 7000 },
+                    { id: "sd14", name: "ميرندا برتقال تنك", priceType: "SP", price: 7000 },
+                    { id: "sd15", name: "بيور كولا تنك", priceType: "SP", price: 4000 },
+                    { id: "sd16", name: "بيور برتقال تنك", priceType: "SP", price: 4000 },
+                    { id: "sd17", name: "زويا اناناس", priceType: "SP", price: 6000 },
+                    { id: "sd18", name: "زويا فريز", priceType: "SP", price: 6000 },
+                    { id: "sd19", name: "زويا مانغو", priceType: "SP", price: 6000 },
+                    { id: "sd20", name: "زويا بلوبيري", priceType: "SP", price: 6000 },
+                    { id: "sd21", name: "زويا بلو هاواي", priceType: "SP", price: 6000 },
+                    { id: "sd22", name: "زويا كيوي", priceType: "SP", price: 6000 }
+                ]
+            },
+            energy_drinks: {
+                title: "ركن مشروبات الطاقة",
+                items: [
+                    { id: "ed1", name: "مشروب طاقة JUST POWER", priceType: "SP", price: 7000 },
+                    { id: "ed2", name: "مشروب طاقة JACK", priceType: "SP", price: 8000 },
+                    { id: "ed3", name: "مشروب طاقة DARK BLUE", priceType: "SP", price: 8000 },
+                    { id: "ed4", name: "بيور طاقة", priceType: "SP", price: 5000 }
+                ]
+            },
+            juices: {
+                title: "ركن العصائر",
+                items: [
+                    { id: "jc1", name: "عصير سلس برتقال", priceType: "SP", price: 6000 },
+                    { id: "jc2", name: "راني حبيبات برتقال", priceType: "SP", price:  7000 },
+                    { id: "jc3", name: "راني حبيبات فواكه", priceType: "SP", price: 7000 },
+                    { id: "jc4", name: "راني حبيبات مانغو", priceType: "SP", price: 7000 },
+                    { id: "jc5", name: "راني حبيبات اناناس", priceType: "SP", price: 7000 },
+                    { id: "jc6", name: "عصير ريو رمان", priceType: "SP", price: 5000 },
+                    { id: "jc7", name: "عصير برتقال لتر", priceType: "SP", price: 12000 }
+                ]
+            },
+            barbican: {
+                title: "مشروب شعير وبيروز",
+                items: [
+                    { id: "bb1", name: "باربيكان تفاح بلور", priceType: "SP", price: 13000 },
+                    { id: "bb2", name: "باربيكان شعير بلور", priceType: "SP", price: 13000 },
+                    { id: "bb3", name: "باربيكان رمان بلور", priceType: "SP", price: 13000 },
+                    { id: "bb4", name: "باربيكان فريز بلور", priceType: "SP", price: 13000 },
+                    { id: "bb5", name: "باربيكان تفاح تنك", priceType: "SP", price: 9500 },
+                    { id: "bb6", name: "باربيكان اناناس تنك", priceType: "SP", price: 9500 },
+                    { id: "bb7", name: "باربيكان فريز تنك", priceType: "SP", price: 95000 },
+                    { id: "bb8", name: "بيروز تفاح", priceType: "SP", price: 4000 },
+                    { id: "bb9", name: "بيروز فريز", priceType: "SP", price: 4000 }
+                ]
+            },
+            cold_coffee: {
+                title: "ركن القهوة الباردة",
+                items: [
+                    { id: "cc1", name: "قهوة باردة جاست", priceType: "SP", price: 8000 },
+                    { id: "cc2", name: "قهوة باردة لونا", priceType: "SP", price: 11000 }
+                ]
+            },
+            coffee: {
+                title: "ركن القهوة والمنبهات",
+                items: [
+                    { id: "c1", name: "قهوة الحموي 100 غ هال", priceType: "USD", price: 1.50 },
+                    { id: "c2", name: "قهوة الحموي 100 غ سادة", priceType: "USD", price: 1.34 },
+                    { id: "c3", name: "قهوة الحموي 100 غ هال اكسترا", priceType: "USD", price: 1.70 },
+                    { id: "c4", name: "قهوة الحموي 200 غ سادة", priceType: "USD", price: 2.61 },
+                    { id: "c5", name: "قهوة الحموي 200 غ هال", priceType: "USD", price: 2.92 },
+                    { id: "c6", name: "قهوة الشامي 200 غ سادة", priceType: "SP", price: 0 },
+                    { id: "c7", name: "قهوة الشامي 200 غ هال اكسترا", priceType: "SP", price: 0 },
+                    { id: "c8", name: "قهوة الشامي 200 غ خلطة شامية", priceType: "SP", price: 0 },
+                    { id: "c9", name: "قهوة الحسامي 100 غ تواصي", priceType: "SP", price: 0 },
+                    { id: "c10", name: "قهوة الضياء 100 غ سادة", priceType: "SP", price: 0 },
+                    { id: "c11", name: "قهوة الضياء 100 غ هال", priceType: "SP", price: 0 }
+                ]
+            },
+            mate: {
+                title: "ركن المتة",
+                items: [
+                    { id: "m1", name: "متة الصخرة 500 غرام", priceType: "USD", price: 2.23 },
+                    { id: "m2", name: "متة الصخرة 250 غرام", priceType: "USD", price: 1.15 },
+                    { id: "m3", name: "متة بيبوري 500 غرام", priceType: "USD", price: 2.32},
+                    { id: "m4", name: "متة بيبوري 250 غرام", priceType: "USD", price: 1.15},
+                    { id: "m5", name: "متة سابروسا 500 غرام", priceType: "USD", price: 2.32},
+                    { id: "m6", name: "متة سابروسا 250 غرام", priceType: "USD", price: 1.15},
+                    { id: "m7", name: "متة خارطة 500 غرام", priceType: "USD", price: 2.32},
+                    { id: "m8", name: "متة خارطة 250 غرام", priceType: "USD", price: 1.15},
+                    { id: "m9", name: "متة ترغواي 250 غرام", priceType: "USD", price: 1.15}
+                ]
+            },
+            mortadella: {
+                title: "ركن المرتديلا",
+                items: [
+                    { id: "mo1", name: "مرتديلا هنا وسط", priceType: "USD", price: 1.46 },
+                    { id: "mo2", name: "مرتديلا هنا صغير", priceType: "USD", price: 0.76 },
+                    { id: "mo3", name: "مرتديلا تغذية دجاج وسط", priceType: "USD", price: 3.30 },
+                    { id: "mo4", name: "مرتديلا تغذية دجاج صغير", priceType: "USD", price: 1.70 },
+                    { id: "mo5", name: "مرتديلا تغذية ديك رومي وسط", priceType: "SP", price: 17000 },
+                    { id: "mo6", name: "مرتديلا تغذية عجل صغير", priceType: "SP", price: 10000 },
+                    { id: "mo7", name: "مرتديلا تغذية عجل وسط", priceType: "SP", price: 18000 },
+                    { id: "mo8", name: "مرتديلا ليو وسط", priceType: "SP", price: 15000 },
+                    { id: "mo9", name: "مرتديلا ليو صغير", priceType: "SP", price: 8500 },
+                    { id: "mo10", name: "مرتديلا نيو بارك وسط", priceType: "SP", price: 13500 },
+                    { id: "mo11", name: "مرتديلا الدرة صغير", priceType: "SP", price: 10000 },
+                    { id: "mo12", name: "مرتديلا الدرة وسط", priceType: "SP", price: 19000 }
+                ]
+            },
+            sardine: {
+                title: "ركن السردين",
+                items: [
+                    { id: "s1", name: "سردين مغربي حار", priceType: "USD", price: 0.73 },
+                    { id: "s2", name: "سردين مغربي حلو", priceType: "USD", price: 0.73 },
+                    { id: "s3", name: "سردين ليو حار", priceType: "SP", price: 11000 },
+                    { id: "s4", name: "سردين صيني حار", priceType: "SP", price: 7500 },
+                    { id: "s5", name: "سردين صيني حلو", priceType: "SP", price: 7500 }
+                ]
+            },
+            tuna: {
+                title: "ركن الطون",
+                items: [
+                    { id: "t1", name: "طون ليو حلو", priceType: "USD", price: 1.00 },
+                    { id: "t2", name: "طون ليو حار", priceType: "USD", price: 1.00 },
+                    { id: "t3", name: "طون ايراني حار", priceType: "USD", price: 0.73 },
+                    { id: "t4", name: "طون ايراني حلو", priceType: "USD", price: 0.73 },
+                    { id: "t5", name: "طون ليو تونغول حلو", priceType: "SP", price: 22000 },
+                    { id: "t6", name: "طون ليو تونغول حار", priceType: "SP", price: 22000 },
+                    { id: "t7", name: "طون ليو تونغول بالليمون", priceType: "SP", price: 23000 },
+                    { id: "t8", name: "سلطة طون", priceType: "SP", price: 12500 }
+                ]
+            },
+            oils: {
+                title: "ركن الزيوت والسمن",
+                items: [
+                    { id: "ol1", name: "زيت نباتي 1 لتر", priceType: "SP", price: 0 },
+                    { id: "ol2", name: "زيت نباتي 4 لتر", priceType: "SP", price: 0 },
+                    { id: "ol3", name: "زيت زيتون 1 لتر", priceType: "SP", price: 0 },
+                    { id: "ol4", name: "سمن الخير 2 كغ", priceType: "SP", price: 0 },
+                    { id: "ol5", name: "سمن مرغريتا 2 كغ", priceType: "SP", price: 0 },
+                    { id: "ol6", name: "سمن الاصيل 1 كغ", priceType: "SP", price: 0 },
+                    { id: "ol7", name: "سمن الخير 1 كغ", priceType: "SP", price: 0 },
+                    { id: "ol8", name: "سمن مرغريتا 1 كغ", priceType: "SP", price: 0 },
+                    { id: "ol9", name: "سمن البسكليت 1 كغ", priceType: "SP", price: 0 },
+                    { id: "ol10", name: "سمن الامراء 1 كغ", priceType: "SP", price: 0 },
+                    { id: "ol11", name: "سمن الدرة 500 غ", priceType: "SP", price: 27000 }
+                ]
+            },
+            canned: {
+                title: "ركن المعلبات",
+                items: [
+                    { id: "ca1", name: "مايونيز الدرة 400 غ", priceType: "SP", price: 24000 },
+                    { id: "ca2", name: "صلصة البيتزا الدرة 365 غ", priceType: "SP", price: 15000 },
+                    { id: "ca3", name: "يالنجي الدرة 400 غ", priceType: "SP", price: 28000 },
+                    { id: "ca4", name: "فطر ليو حبة كاملة", priceType: "SP", price: 16000 },
+                    { id: "ca5", name: "فول الدرة", priceType: "SP", price: 10000 },
+                    { id: "ca6", name: "حلاوة الصياد 800 غ", priceType: "SP", price: 35000 },
+                    { id: "ca7", name: "طحينة الصياد 200 غ", priceType: "SP", price: 9500 },
+                    { id: "ca8", name: "شاي ليبتون ظرف", priceType: "SP", price: 10000 },
+                    { id: "ca9", name: "شاي ليالينا ظرف", priceType: "SP", price: 9500 },
+                    { id: "ca10", name: "شاي ليالينا 100 غ", priceType: "SP", price: 15000 },
+                    { id: "ca11", name: "معجون طماطم الدرة 1 كغ", priceType: "SP", price: 31000 },
+                    { id: "ca12", name: "فطر ليو", priceType: "SP", price: 0 },
+                    { id: "ca13", name: "ذرة ليو", priceType: "SP", price: 0 },
+                    { id: "ca14", name: "ذرة ليو بلور 360 غ", priceType: "SP", price: 0 },
+                    { id: "ca15", name: "طحينة", priceType: "SP", price: 0 },
+                    { id: "ca16", name: "فول", priceType: "USD", price: 0.48 },
+                    { id: "ca17", name: "بازلياء", priceType: "USD", price: 0.70 },
+                    { id: "ca18", name: "حمص ناعم", priceType: "SP", price: 0 },
+                    { id: "ca19", name: "حمص حب", priceType: "USD", price: 0.48 },
+                    { id: "ca20", name: "فطر امواج", priceType: "USD", price: 0.62 },
+                    { id: "ca21", name: "دبس رمان ليو 335 غ", priceType: "SP", price: 0 },
+                    { id: "ca22", name: "دبس بندورة 1 كغ", priceType: "SP", price: 0 }
+                ]
+            },
+            grains: {
+                title: "ركن الحبوب والبقوليات",
+                items: [
+                    { id: "gr1", name: "رز مصري 1 كغ", priceType: "USD", price: 1.00 },
+                    { id: "gr2", name: "رز كبسة المحمود 1 كغ", priceType: "SP", price: 0 },
+                    { id: "gr3", name: "رز كبسة فودينا 1 كغ", priceType: "SP", price: 0 },
+                    { id: "gr4", name: "برغل خشن لويال 1 كغ", priceType: "USD", price: 0.73 },
+                    { id: "gr5", name: "برغل ناعم لويال 1 كغ", priceType: "USD", price: 0.73 },
+                    { id: "gr6", name: "سكر 1 كغ", priceType: "SP", price: 0 },
+                    { id: "gr7", name: "عدس مجدرة لويال 1 كغ", priceType: "USD", price: 1.30 },
+                    { id: "gr8", name: "عدس شوربا لويال 1 كغ", priceType: "USD", price: 1.20 },
+                    { id: "gr9", name: "حمص لويال 1 كغ", priceType: "USD", price: 1.30 },
+                    { id: "gr10", name: "طحين لويال 1 كغ", priceType: "USD", price: 0.60 }
+                ]
+            },
+            pasta: {
+                title: "ركن المعكرونة والاندومي",
+                items: [
+                    { id: "pa1", name: "معكرونة اشكال حسين الناصر 1 كغ", priceType: "SP", price: 13000 },
+                    { id: "pa2", name: "معكرونة فيوريلا سباغيتي 1 كغ", priceType: "SP", price: 13000 },
+                    { id: "pa3", name: "معكرونة فيوريلا اشكال 350 غ", priceType: "SP", price: 7000 },
+                    { id: "pa4", name: "اندومي خضار ظرف", priceType: "SP", price: 0 },
+                    { id: "pa5", name: "اندومي دجاج ظرف", priceType: "SP", price: 0 },
+                    { id: "pa6", name: "اندومي كاري ظرف", priceType: "SP", price: 0 },
+                    { id: "pa7", name: "اندومي شعيرية مقلية ظرف", priceType: "SP", price: 0 }
+                ]
+            },
+            dairy: {
+                title: "ركن الألبان والأجبان",
+                items: [
+                    { id: "da1", name: "جبنة نيوبارك", priceType: "SP", price: 14000 },
+                    { id: "da2", name: "لبنة نيوبارك", priceType: "SP", price: 16000 },
+                    { id: "da3", name: "حليب نيوبارك 1 لتر سادة", priceType: "SP", price: 13000 },
+                    { id: "da4", name: "حليب نيوبارك 1 لتر موز", priceType: "SP", price: 14000 },
+                    { id: "da5", name: "حليب نيوبارك 1 لتر فريز", priceType: "SP", price: 14000 },
+                    { id: "da6", name: "حليب نيوبارك 1 لتر شوكولا", priceType: "SP", price: 14000 },
+                    { id: "da7", name: "قشقوان غزول", priceType: "SP", price: 0 },
+                    { id: "da8", name: "قشقوان نيوبارك", priceType: "SP", price: 0 }
+                ]
+            },
+            meayal: {
+                title: "ركن بزر ميال",
+                items: [
+                    { id: "my1", name: "ميال مغبر وسط 200 غ", priceType: "SP", price: 12000 },
+                    { id: "my2", name: "ميال مغبر ممتاز 200 غ", priceType: "SP", price: 14000 },
+                    { id: "my3", name: "ميال صاج وسط 200 غ", priceType: "SP", price: 12000 },
+                    { id: "my4", name: "ميال صاج ممتاز 200 غ", priceType: "SP", price: 14000 },
+                    { id: "my5", name: "ميال منكه ممتاز 200 غ", priceType: "SP", price: 12000 },
+                    { id: "my6", name: "ميال مقشور ممتاز 200 غ", priceType: "SP", price: 9000 },
+                    { id: "my7", name: "ميال وسط 200 غ", priceType: "SP", price: 6000 }
+                ]
+            },
+            jabs: {
+                title: "ركن بزر جبس",
+                items: [
+                    { id: "jb1", name: "جبس اصفر 200 غ", priceType: "SP", price: 9000 },
+                    { id: "jb2", name: "جبس سلق 200 غ", priceType: "SP", price: 9000 },
+                    { id: "jb3", name: "جبس نمس 200 غ", priceType: "SP", price: 9000 },
+                    { id: "jb4", name: "جبس ايراني 200 غ", priceType: "SP", price: 13000 }
+                ]
+            },
+            fstq: {
+                title: "ركن الفستق",
+                items: [
+                    { id: "fs1", name: "فستق ساحلي صاج 200 غ", priceType: "SP", price: 18000 },
+                    { id: "fs2", name: "فستق مدخن ممتاز 200 غ", priceType: "SP", price: 17000 },
+                    { id: "fs3", name: "فستق حلو 200 غ", priceType: "SP", price: 15000 },
+                    { id: "fs4", name: "فستق مدخن 200 غ", priceType: "SP", price: 15000 },
+                    { id: "fs5", name: "فستق مالح ممتاز 200 غ", priceType: "SP", price: 15000 }
+                ]
+            },
+            snacks: {
+                title: "ركن المتفرقات",
+                items: [
+                    { id: "sn1", name: "قضامة ملبسة مدخنة 200 غ", priceType: "SP", price: 12000 },
+                    { id: "sn2", name: "ذرة مدخنة اسبانية 200 غ", priceType: "SP", price: 8000 },
+                    { id: "sn3", name: "درة مدخنة اسبانية منفوشة 200 غ", priceType: "SP", price: 12000 },
+                    { id: "sn4", name: "كناكر 200 غ", priceType: "SP", price: 9000 },
+                    { id: "sn5", name: "قضامة هشة 200 غ", priceType: "SP", price: 12000 },
+                    { id: "sn6", name: "قضامة اصطنبولية 200 غ", priceType: "SP", price: 8000 },
+                    { id: "sn7", name: "موالح صينية مستوردة 200 غ", priceType: "SP", price: 15000 },
+                    { id: "sn8", name: "حجار البحر شوكولا 200 غ", priceType: "SP", price: 13000 },
+                    { id: "sn9", name: "سميري شوكولا 200 غ", priceType: "SP", price: 13000 },
+                    { id: "sn10", name: "ماليزية مستوردة 200 غ", priceType: "SP", price: 15000 },
+                    { id: "sn11", name: "ملبس سكرية شامية هشة 200 غ", priceType: "SP", price: 12000 }
+                ]
+            },
+            white_seeds: {
+                title: "ركن بزر أبيض وكوسا",
+                items: [
+                    { id: "ws1", name: "بزر ابيض ممتاز 200 غ", priceType: "SP", price: 15000 },
+                    { id: "ws2", name: "بزر ابيض وسط 200 غ", priceType: "SP", price: 12000 },
+                    { id: "ws3", name: "بزر كوسا ممتاز 200 غ", priceType: "SP", price: 14000 }
+                ]
+            },
+            qalobat: {
+                title: "ركن القلوبات",
+                items: [
+                    { id: "ql1", name: "قلوبات مشكلة 100 غ", priceType: "SP", price: 20000 },
+                    { id: "ql2", name: "كاجو ممتاز 100 غ", priceType: "SP", price: 20000 },
+                    { id: "ql3", name: "لوز اكسترا 100 غ", priceType: "SP", price: 18000 },
+                    { id: "ql4", name: "فستق حلبي ممتاز 100 غ", priceType: "SP", price: 25000 }
+                ]
+            },
+            chips_old: {
+                title: "ركن الشيبس",
+                items: [
+                    { id: "ch1", name: "طرابيش خل 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch2", name: "طرابيش كتشب 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch3", name: "طرابيش خضار 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch4", name: "طرابيش باربكيو 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch5", name: "طرابيش جبنة 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch6", name: "شرائح جبنة 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch7", name: "شرائح خل 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch8", name: "شرائح كتشب 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch9", name: "شرائح سبايسي 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch10", name: "شرائح باربكيو 200 غ", priceType: "SP", price: 8000 },
+                    { id: "ch11", name: "ديربي حلزون 100 غ", priceType: "SP", price: 6500 },
+                    { id: "ch12", name: "ديربي شرائح 100 غ", priceType: "SP", price: 6500 },
+                    { id: "ch13", name: "بوشار 100 غ", priceType: "SP", price: 4000 },
+                    { id: "ch14", name: "اصابع زعتر 100 غ", priceType: "SP", price: 4000 },
+                    { id: "ch15", name: "حلقات بيتزا 100 غ", priceType: "SP", price: 4000 }
+                ]
+            },
+            popcorn: {
+                title: "ركن البوب كورن",
+                items: [
+                    { id: "pp1", name: "بوب كورن ملح 100 غ", priceType: "SP", price: 10000 },
+                    { id: "pp2", name: "بوب كورن حار حلو 100 غ", priceType: "SP", price: 10000 },
+                    { id: "pp3", name: "بوب كورن زبدة 100 غ", priceType: "SP", price: 10000 },
+                    { id: "pp4", name: "بوب كورن جبنة 100 غ", priceType: "SP", price: 10000 }
+                ]
+            },
+            arabika: {
+                title: "ارابيكا تورتيلا",
+                items: [
+                    { id: "ar1", name: "ارابيكا تورتيلا جبنة", priceType: "SP", price: 7000 },
+                    { id: "ar2", name: "ارابيكا تورتيلا جبنة حارة", priceType: "SP", price: 7000 },
+                    { id: "ar3", name: "ارابيكا تورتيلا لبنة بالاعشاب", priceType: "SP", price: 7000 },
+                    { id: "ar4", name: "ارابيكا تورتيلا فليفلة حلوة", priceType: "SP", price: 7000 }
+                ]
+            },
+            darnito: {
+                title: "دارنيتو رقائق",
+                items: [
+                    { id: "da1", name: "دارنيتو رقائق حار", priceType: "SP", price: 5000 },
+                    { id: "da2", name: "دارنيتو رقائق جبنة", priceType: "SP", price: 5000 },
+                    { id: "da3", name: "دارنيتو رقائق ملح", priceType: "SP", price: 5000 },
+                    { id: "da4", name: "دارنيتو رقائق ملح وخل", priceType: "SP", price: 5000 },
+                    { id: "da5", name: "دارنيتو رقائق كتشب", priceType: "SP", price: 5000 },
+                    { id: "da6", name: "دارنيتو رقائق باربكيو", priceType: "SP", price: 5000 }
+                ]
+            },
+            golden_touch: {
+                title: "غولدن تاتش",
+                items: [
+                    { id: "gt1", name: "غولدن تاتش جبنة", priceType: "SP", price: 5000 },
+                    { id: "gt2", name: "غولدن تاتش ذرة حلوة", priceType: "SP", price: 5000 },
+                    { id: "gt3", name: "غولدن تاتش كتشب", priceType: "SP", price: 5000 },
+                    { id: "gt4", name: "غولدن تاتش فستق", priceType: "SP", price: 5000 },
+                    { id: "gt5", name: "غولدن تاتش النكهة السحرية", priceType: "SP", price: 5000 },
+                    { id: "gt6", name: "غولدن تاتش حار حلو", priceType: "SP", price: 5000 },
+                    { id: "gt7", name: "غولدن تاتش كمون وليمون", priceType: "SP", price: 5000 }
+                ]
+            },
+            derby: {
+                title: "بطاطا ديربي",
+                items: [
+                    { id: "db1", name: "بطاطا ديربي", priceType: "SP", price: 10000 }
+                ]
+            },
+            master: {
+                title: "ماستر",
+                items: [
+                    { id: "ma1", name: "ماستر حار حلو", priceType: "SP", price: 16000 },
+                    { id: "ma2", name: "ماستر باربكيو", priceType: "SP", price: 16000 },
+                    { id: "ma3", name: "ماستر ملح", priceType: "SP", price: 16000 },
+                    { id: "ma4", name: "ماستر خل وملح", priceType: "SP", price: 16000 },
+                    { id: "ma5", name: "ماستر فلفل حار", priceType: "SP", price: 16000 },
+                    { id: "ma6", name: "ماستر كتشب", priceType: "SP", price: 16000 },
+                    { id: "ma7", name: "ماستر جبنة", priceType: "SP", price: 16000 }
+                ]
+            },
+            biscuit: {
+                title: "ركن البسكويت",
+                items: [
+                    { id: "bs1", name: "مارس", priceType: "SP", price: 9000 },
+                    { id: "bs2", name: "تويكس", priceType: "SP", price: 10000 },
+                    { id: "bs3", name: "بونتي", priceType: "SP", price: 11000 },
+                    { id: "bs4", name: "كيت كات", priceType: "SP", price: 9000 },
+                    { id: "bs5", name: "كيت كات اصبعين", priceType: "SP", price: 5000 },
+                    { id: "bs6", name: "كيندر", priceType: "SP", price: 10000 },
+                    { id: "bs7", name: "دايجستف ديمة", priceType: "SP", price: 5000 },
+                    { id: "bs8", name: "اردو كريمز", priceType: "SP", price: 5000 },
+                    { id: "bs9", name: "رولانا جوز الهند", priceType: "SP", price: 3000 },
+                    { id: "bs10", name: "فاخر", priceType: "SP", price: 3500 },
+                    { id: "bs11", name: "لافيتا", priceType: "SP", price: 3000 },
+                    { id: "bs12", name: "كالمون", priceType: "SP", price: 5000 },
+                    { id: "bs13", name: "بيفرلي مالح", priceType: "SP", price: 5000 },
+                    { id: "bs14", name: "رومبا", priceType: "SP", price: 3000 },
+                    { id: "bs15", name: "بركات برشام", priceType: "SP", price: 2500 }
+                ]
+            },
+            shampoo: {
+                title: "ركن الشامبو والبلسم",
+                items: [
+                    { id: "sh1", name: "شامبو دوف", priceType: "USD", price: 3.30 },
+                    { id: "sh2", name: "شامبو بيرت بلس", priceType: "SP", price: 0 },
+                    { id: "sh3", name: "شامبو بانتين", priceType: "USD", price: 3.40 },
+                    { id: "sh4", name: "شامبو كلير", priceType: "USD", price: 2.90 },
+                    { id: "sh5", name: "شامبو ايلفيف", priceType: "USD", price: 3.40 },
+                    { id: "sh6", name: "شامبو بارامونت", priceType: "USD", price: 3.50 },
+                    { id: "sh7", name: "شامبو الترا دوكس", priceType: "SP", price: 0 },
+                    { id: "sh8", name: "شامبو اوليفا", priceType: "USD", price: 2.80 },
+                    { id: "sh9", name: "شامبو لايف بوي", priceType: "SP", price: 0 },
+                    { id: "sh10", name: "شامبو هيد اند شولدرز", priceType: "USD", price: 3.40 },
+                    { id: "sh11", name: "شامبو نورا 2 لتر", priceType: "SP", price: 0 },
+                    { id: "sh12", name: "بلسم نورا 500 مل", priceType: "SP", price: 0 },
+                    { id: "sh13", name: "شامبو جسم بارامونت", priceType: "SP", price: 0 },
+                    { id: "sh14", name: "شامبو هامول اطفال", priceType: "USD", price: 1.30 }
+                ]
+            },
+            dish_liquid: {
+                title: "ركن سائل الجلي",
+                items: [
+                    { id: "dl1", name: "سائل جلي بوفالو 900 مل", priceType: "USD", price: 1.00 },
+                    { id: "dl2", name: "سائل جلي بوفالو", priceType: "SP", price: 0 },
+                    { id: "dl3", name: "سائل جلي نورا", priceType: "SP", price: 0 }
+                ]
+            },
+            air_freshener: {
+                title: "ركن المعطرات",
+                items: [
+                    { id: "af1", name: "معطر عافية", priceType: "USD", price: 1.06 },
+                    { id: "af2", name: "معطر ليتس", priceType: "USD", price: 1.45 },
+                    { id: "af3", name: "معطر حبيبات", priceType: "SP", price: 0 }
+                ]
+            },
+            tissues: {
+                title: "ركن المحارم",
+                items: [
+                    { id: "ti1", name: "محارم برونز 500 غ", priceType: "USD", price: 1.00 },
+                    { id: "ti2", name: "محارم الكرزة 500 غ", priceType: "SP", price: 0 },
+                    { id: "ti3", name: "محارم ستيلا رول تواليت", priceType: "SP", price: 0 },
+                    { id: "ti4", name: "محارم معطرة كبير", priceType: "SP", price: 0 },
+                    { id: "ti5", name: "محارم معطرة صغير", priceType: "SP", price: 0 }
+                ]
+            },
+            pads: {
+                title: "ركن الفوط",
+                items: [
+                    { id: "pa1", name: "ليبرس دبل", priceType: "USD", price: 1.00 },
+                    { id: "pa2", name: "ليبرس كرتون", priceType: "SP", price: 0 },
+                    { id: "pa3", name: "ليدي سيتي", priceType: "SP", price: 0 },
+                    { id: "pa4", name: "ليدي سيتي يومية", priceType: "SP", price: 0 },
+                    { id: "pa5", name: "فوط اطفال دريم تيكس 1", priceType: "SP", price: 0 },
+                    { id: "pa6", name: "فوط اطفال دريم تيكس 2", priceType: "SP", price: 0 },
+                    { id: "pa7", name: "فوط اطفال دريم تيكس 3", priceType: "SP", price: 0 },
+                    { id: "pa8", name: "فوط اطفال دريم تيكس 4", priceType: "SP", price: 0 },
+                    { id: "pa9", name: "فوط اطفال دريم تيكس 5", priceType: "SP", price: 0 }
+                ]
+            },
+            jet: {
+                title: "ركن الجيت",
+                items: [
+                    { id: "je1", name: "كلور", priceType: "USD", price: 0.61 },
+                    { id: "je2", name: "فلاس", priceType: "USD", price: 0.61 },
+                    { id: "je3", name: "جيت قاشط", priceType: "SP", price: 0 },
+                    { id: "je4", name: "جيت ملمع بلور", priceType: "USD", price: 0.90 },
+                    { id: "je5", name: "جيت شامبو سجاد", priceType: "SP", price: 0 },
+                    { id: "je6", name: "جيت عملاق 900 غ", priceType: "SP", price: 0 },
+                    { id: "je7", name: "جيت عملاق 450 غ", priceType: "SP", price: 0 }
+                ]
+            },
+            toothpaste: {
+                title: "ركن معجون الأسنان",
+                items: [
+                    { id: "tp1", name: "غولغيت", priceType: "USD", price: 1.16 },
+                    { id: "tp2", name: "كلوز اب", priceType: "SP", price: 0 },
+                    { id: "tp3", name: "سو وايت", priceType: "SP", price: 0 }
+                ]
+            },
+            soap: {
+                title: "ركن الصابون",
+                items: [
+                    { id: "so1", name: "صابون سائل بوفالو عرض", priceType: "USD", price: 2.20 },
+                    { id: "so2", name: "صابون سائل رغوي", priceType: "SP", price: 0 },
+                    { id: "so3", name: "صابون بوفالو", priceType: "USD", price: 0.50 },
+                    { id: "so4", name: "صابون الوزير 6 قطع", priceType: "SP", price: 0 },
+                    { id: "so5", name: "صابون ميسك 4 قطع", priceType: "SP", price: 0 },
+                    { id: "so6", name: "صابون ميسك 5 قطع كرتون", priceType: "SP", price: 0 },
+                    { id: "so7", name: "صابون سافانا", priceType: "SP", price: 0 },
+                    { id: "so8", name: "صابون الوزير 4 قطع نايلو", priceType: "SP", price: 0 }
+                ]
+            },
+            liquid_detergent: {
+                title: "ركن سائل غسيل الملابس",
+                items: [
+                    { id: "ld1", name: "سائل الافراح عرض", priceType: "SP", price: 0 },
+                    { id: "ld2", name: "سائل ليتس", priceType: "SP", price: 0 },
+                    { id: "ld3", name: "سائل مدار عرض", priceType: "SP", price: 0 },
+                    { id: "ld4", name: "سائل براون", priceType: "SP", price: 0 }
+                ]
+            },
+            powder_detergent: {
+                title: "ركن مسحوق غسيل الملابس",
+                items: [
+                    { id: "pd1", name: "الافراح 2 كغ", priceType: "USD", price: 4.00 },
+                    { id: "pd2", name: "مدار 2 كغ", priceType: "USD", price: 4.10 },
+                    { id: "pd3", name: "ليتس 2 كغ", priceType: "SP", price: 0 },
+                    { id: "pd4", name: "مور 2 كغ", priceType: "SP", price: 0 },
+                    { id: "pd5", name: "نورا 2 كغ", priceType: "SP", price: 0 },
+                    { id: "pd6", name: "ميسك 2 كغ", priceType: "SP", price: 0 },
+                    { id: "pd7", name: "نورا الي 700 غ", priceType: "USD", price: 1.40 },
+                    { id: "pd8", name: "نورا رغوي 700 غ", priceType: "SP", price: 0 },
+                    { id: "pd9", name: "ميسك رغوي 700 غ", priceType: "SP", price: 0 },
+                    { id: "pd10", name: "مور الي 700 غ", priceType: "SP", price: 0 },
+                    { id: "pd11", name: "الافراح الي 500 غ", priceType: "SP", price: 0 },
+                    { id: "pd12", name: "مبيض الافراح", priceType: "SP", price: 0 }
+                ]
+            },
+            misc_clean: {
+                title: "ركن المتفرقات",
+                items: [
+                    { id: "mc1", name: "التيكو طيارة", priceType: "SP", price: 0 },
+                    { id: "mc2", name: "ماكينة جيليت نسائية", priceType: "SP", price: 0 },
+                    { id: "mc3", name: "ماكينة جيليت ثلاثية رأس متحرك", priceType: "SP", price: 0 },
+                    { id: "mc4", name: "ماكينة جيليت ثنائية", priceType: "SP", price: 0 },
+                    { id: "mc5", name: "ماكينة بيك", priceType: "SP", price: 0 },
+                    { id: "mc6", name: "ماكينة استور", priceType: "SP", price: 0 },
+                    { id: "mc7", name: "معجون حلاقة ديربي", priceType: "SP", price: 0 },
+                    { id: "mc8", name: "معجون حلاقة هامول", priceType: "SP", price: 0 },
+                    { id: "mc9", name: "فاربن حنجور", priceType: "SP", price: 0 },
+                    { id: "mc10", name: "فاربن شريحة", priceType: "SP", price: 0 },
+                    { id: "mc11", name: "ملاقط غسيل", priceType: "SP", price: 0 },
+                    { id: "mc12", name: "مزيل طلاء اظافر", priceType: "SP", price: 0 },
+                    { id: "mc13", name: "فازلين", priceType: "SP", price: 0 },
+                    { id: "mc14", name: "فرشاة كات", priceType: "SP", price: 0 },
+                    { id: "mc15", name: "بويا اسود", priceType: "SP", price: 0 },
+                    { id: "mc16", name: "بويا بني", priceType: "SP", price: 0 },
+                    { id: "mc17", name: "فرشاة اسنان", priceType: "SP", price: 0 },
+                    { id: "mc18", name: "رول قمامة", priceType: "USD", price: 0.60 },
+                    { id: "mc19", name: "رول سفرة", priceType: "SP", price: 0 },
+                    { id: "mc20", name: "ورق زبدة", priceType: "SP", price: 0 },
+                    { id: "mc21", name: "مساحة", priceType: "SP", price: 0 },
+                    { id: "mc22", name: "ممسحة ارضية", priceType: "SP", price: 0 }
+                ]
+            }
+        };
+
+        let cart = [];
+
+        // ====== دالة التقريب لأقرب 500 ======
+        function calculateRealPrice(item) {
+            if (item.priceType === "USD") {
+                return Math.round((item.price * USD_RATE) / 500) * 500;
+            }
+            return item.price;
+        }
+
+        function openCategoryModal(catKey) {
+            const category = productsData[catKey];
+            if (!category) return;
+
+            document.getElementById('modal-category-title').textContent = category.title;
+            const listContainer = document.getElementById('modal-items-list');
+            listContainer.innerHTML = '';
+
+            category.items.forEach(item => {
+                const finalPrice = calculateRealPrice(item);
+                const cartItem = cart.find(i => i.id === item.id);
+                const currentQty = cartItem ? cartItem.quantity : 0;
+
+                const row = document.createElement('div');
+                row.className = 'sub-item-row';
+                row.innerHTML = `
+                    <div class="sub-item-info">
+                        <div class="sub-item-name">${item.name}</div>
+                        <div class="sub-item-price">${finalPrice.toLocaleString('ar-SY')} ل.س</div>
+                    </div>
+                    <div class="row-controls">
+                        ${currentQty > 0 ? `
+                            <button class="qty-btn" onclick="changeQty('${item.id}', -1, '${catKey}')">-</button>
+                            <span class="qty-num">${currentQty}</span>
+                            <button class="qty-btn" onclick="changeQty('${item.id}', 1, '${catKey}')">+</button>
+                        ` : `
+                            <button class="add-row-btn" onclick="addNewToCart('${item.id}', '${catKey}')">إضافة</button>
+                        `}
+                    </div>
+                `;
+                listContainer.appendChild(row);
+            });
+
+            document.getElementById('items-modal').classList.add('active');
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('items-modal').classList.remove('active');
+        }
+
+        function addNewToCart(itemId, catKey) {
+            const category = productsData[catKey];
+            const item = category.items.find(i => i.id === itemId);
+            if (!item) return;
+
+            cart.push({
+                id: item.id,
+                name: item.name,
+                price: calculateRealPrice(item),
+                quantity: 1
+            });
+
+            updateUI();
+            openCategoryModal(catKey);
+        }
+
+        function changeQty(itemId, amount, catKey) {
+            const cartItem = cart.find(i => i.id === itemId);
+            if (!cartItem) return;
+
+            cartItem.quantity += amount;
+            if (cartItem.quantity <= 0) {
+                cart = cart.filter(i => i.id !== itemId);
+            }
+            updateUI();
+            if(catKey) openCategoryModal(catKey);
+        }
+
+        function deleteFromCart(itemId) {
+            cart = cart.filter(i => i.id !== itemId);
+            updateUI();
+            const activeModal = document.getElementById('items-modal').classList.contains('active');
+            if(activeModal) {
+                for (let key in productsData) {
+                    if (productsData[key].title === document.getElementById('modal-category-title').textContent) {
+                        openCategoryModal(key);
+                        break;
+                    }
+                }
+            }
+        }
+
+        function updateUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalCount;
+
+            const listContainer = document.getElementById('cart-items-list');
+            listContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                listContainer.innerHTML = '<p style="text-align:center; color:#95a5a6; padding:20px;">السلة فارغة، تصفح الأقسام وأضف المواد</p>';
+            } else {
+                cart.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'cart-item-row';
+                    row.innerHTML = `
+                        <div style="flex:1; font-weight:600;">${item.name} (x${item.quantity})</div>
+                        <div style="font-weight:700; margin:0 12px; color:#00b4db;">${(item.price * item.quantity).toLocaleString('ar-SY')} ل.س</div>
+                        <button style="background:none; border:none; color:#e74c3c; cursor:pointer; font-size:1rem;" onclick="deleteFromCart('${item.id}')"><i class="fas fa-trash-alt"></i></button>
+                    `;
+                    listContainer.appendChild(row);
+                });
+            }
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const grandTotal = subtotal > 0 ? (subtotal + DELIVERY_FEE) : 0;
+
+            document.getElementById('subtotal-val').textContent = subtotal.toLocaleString('ar-SY') + " ل.س";
+            document.getElementById('grand-total-val').textContent = grandTotal.toLocaleString('ar-SY') + " ل.س";
+        }
+
+        function openCart() { document.getElementById('cart-sidebar').classList.add('open'); document.getElementById('cart-overlay').classList.add('active'); }
+        function closeCart() { document.getElementById('cart-sidebar').classList.remove('open'); document.getElementById('cart-overlay').classList.remove('active'); }
+
+        function sendToWhatsapp() {
+            const name = document.getElementById('c-name').value.trim();
+            const address = document.getElementById('c-address').value.trim();
+            const phone = document.getElementById('c-phone').value.trim();
+
+            if (cart.length === 0) { alert("السلة فارغة حالياً!"); return; }
+            if (!name || !address || !phone) { alert("الرجاء إدخال بيانات التوصيل كاملة للمتابعة."); return; }
+
+            let msg = `*طلب جديد - ماركت زيوس*\n\n`;
+            msg += `📞 *اهلا :* ${name}\n`;
+            msg += `📱 *رقم الهاتف :* ${phone}\n`;
+            msg += `📍 *العنوان :* ${address}\n\n`;
+            msg += `🛒 *الطلبات :*\n`;
+
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. ${item.name} (العدد: ${item.quantity})\n`;
+                msg += `   السعر الإجمالي: ${(item.price * item.quantity).toLocaleString('ar-SY')} ل.س\n`;
+            });
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            msg += `\n💵 *قيمة البضاعة:* ${subtotal.toLocaleString('ar-SY')} ل.س\n`;
+            msg += `🚚 *أجور التوصيل:* ${DELIVERY_FEE.toLocaleString('ar-SY')} ل.س\n`;
+            msg += `💰 *المجموع النهائي الكلي:* ${(subtotal + DELIVERY_FEE).toLocaleString('ar-SY')} ل.س\n`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
