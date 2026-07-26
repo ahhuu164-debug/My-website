@@ -89,7 +89,8 @@
             left: -100%; 
             width: 92%; 
             max-width: 400px; 
-            height: 100vh;
+            height: 100%;
+            bottom: 0;
             background: white; 
             box-shadow: 8px 0 24px rgba(0,0,0,0.15); 
             z-index: 2500;
@@ -129,7 +130,7 @@
 
         /* حاوية المحتوى القابل للتمرير - هي الحل الأساسي */
         .cart-scrollable {
-            flex: 1;
+            flex: 1 1 auto;
             overflow-y: auto;
             padding: 15px 20px 20px;
             -webkit-overflow-scrolling: touch; /* تمرير سلس للآيفون */
@@ -246,6 +247,7 @@
         /* ملخص السلة - ثابت في الأسفل */
         .cart-summary { 
             padding: 15px 20px; 
+            padding-bottom: 25px; /* إضافة مسافة أكبر للأسفل */
             background: white; 
             border-top: 2px solid #ECF0F1; 
             flex-shrink: 0;
@@ -378,7 +380,7 @@
             right: 0; 
             background: white; 
             box-shadow: 0 -4px 12px rgba(0,0,0,0.1); 
-            z-index: 1000; 
+            z-index: 1001; /* رفع z-index ليظهر فوق السلة عند الحاجة */
             padding: 10px 0; 
             display: flex; 
             justify-content: space-around; 
@@ -431,6 +433,7 @@
             }
             .cart-summary {
                 padding: 12px 15px;
+                padding-bottom: 20px; /* زيادة المسافة السفلية */
             }
             .whatsapp-order-btn {
                 padding: 12px;
@@ -442,6 +445,9 @@
             .customer-input {
                 font-size: 16px; /* منع تكبير النص تلقائياً على iOS */
                 padding: 10px 12px;
+            }
+            .bottom-nav {
+                z-index: 1001;
             }
         }
     </style>
