@@ -874,6 +874,27 @@
       margin-bottom: 4px;
     }
 
+    .notification-toast {
+      position: fixed;
+      bottom: 70px;
+      right: 50%;
+      transform: translateX(50%);
+      background: rgba(44, 62, 80, 0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .notification-toast.show {
+      opacity: 1;
+    }
+
     @media (max-width: 360px) {
       .menu-grid {
         grid-template-columns: 1fr;
@@ -1201,11 +1222,11 @@
               <div class="menu-item-footer">
                 <span class="menu-item-price">٣٠,٠٠٠ ل.س</span>
                 <button class="add-to-cart">إضافة</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
       <div class="sub-section">
         <h3 class="sub-section-title">الوجبات</h3>
@@ -1296,7 +1317,7 @@
               <button class="quantity-btn plus">+</button>
             </div>
             <div class="menu-item-footer">
-              <span class="menu-item-price">١٤٠,٠٠٠ل.س</span>
+              <span class="menu-item-price">١٤٠,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
@@ -1316,8 +1337,7 @@
               <button class="quantity-btn plus">+</button>
             </div>
             <div class="menu-item-footer">
-              <span class="menu-item-price">٧٠,٠٠٠
-ل.س</span>
+              <span class="menu-item-price">٧٥,٠٠٠ ل.س</span>
               <button class="add-to-cart">إضافة</button>
             </div>
           </div>
@@ -1604,16 +1624,16 @@
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1" max="99">
                 <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="menu-item-footer">
-              <span class="menu-item-price">١٣,٠٠٠ ل.س</span>
-              <button class="add-to-cart">إضافة</button>
+              </div>
+              <div class="menu-item-footer">
+                <span class="menu-item-price">١٣,٠٠٠ ل.س</span>
+                <button class="add-to-cart">إضافة</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <div class="menu-section">
       <div class="section-header">
@@ -1912,7 +1932,7 @@
         <span>المجموع:</span>
         <span id="cart-total-price">٠ ل.س</span>
       </div>
-      <button class="whatsapp-order-btn" id="whatsapp-order">
+      <button class="whatsapp-order-btn" id="whatsapp-order" disabled>
         <i class="fab fa-whatsapp"></i>
         اطلب عبر واتساب
       </button>
@@ -1971,6 +1991,8 @@
     </div>
   </nav>
 
+  <div class="notification-toast" id="notification-toast"></div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       function parsePrice(price) {
@@ -2003,9 +2025,18 @@
       const closeUsdt = document.getElementById('close-usdt');
       const closeShamcash = document.getElementById('close-shamcash');
       const copyButtons = document.querySelectorAll('.copy-btn');
+      const notificationToast = document.getElementById('notification-toast');
       
       let cart = [];
       let selectedPayment = 'cash';
+
+      function showNotification(msg) {
+        notificationToast.textContent = msg;
+        notificationToast.classList.add('show');
+        setTimeout(() => {
+          notificationToast.classList.remove('show');
+        }, 2500);
+      }
 
       openCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -2027,6 +2058,29 @@
         document.body.style.overflow = 'auto';
       }
 
+      // Quantity controls for menu items
+      document.querySelectorAll('.menu-item').forEach(item => {
+        const minusBtn = item.querySelector('.quantity-btn.minus');
+        const plusBtn = item.querySelector('.quantity-btn.plus');
+        const quantityInput = item.querySelector('.quantity-input');
+
+        if (minusBtn && plusBtn && quantityInput) {
+          minusBtn.addEventListener('click', function() {
+            let val = parseInt(quantityInput.value) || 1;
+            if (val > 1) {
+              quantityInput.value = val - 1;
+            }
+          });
+
+          plusBtn.addEventListener('click', function() {
+            let val = parseInt(quantityInput.value) || 1;
+            if (val < 99) {
+              quantityInput.value = val + 1;
+            }
+          });
+        }
+      });
+
       document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', function() {
           const menuItem = this.closest('.menu-item');
@@ -2034,7 +2088,7 @@
           const itemName = menuItem.dataset.name;
           const itemPrice = parsePrice(menuItem.dataset.price);
           const quantityInput = menuItem.querySelector('.quantity-input');
-          const quantity = parseInt(quantityInput.value);
+          const quantity = parseInt(quantityInput.value) || 1;
           
           addToCart(itemId, itemName, itemPrice, quantity);
           openCart();
@@ -2072,6 +2126,7 @@
           cartItemsContainer.appendChild(emptyCartMessage);
           emptyCartMessage.style.display = 'block';
           whatsappOrderBtn.classList.remove('active');
+          whatsappOrderBtn.disabled = true;
         } else {
           emptyCartMessage.style.display = 'none';
           
@@ -2230,16 +2285,32 @@
       });
 
       function copyToClipboard(text) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
         showNotification('تم نسخ العنوان إلى الحافظة');
+      }
+
+      function getPaymentMethodName(method) {
+        switch (method) {
+          case 'cash':
+            return 'الدفع نقداً عند الاستلام';
+          case 'shamcash':
+            return 'شام كاش';
+          case 'usdt':
+            return 'USDT';
+          default:
+            return 'نقداً';
+        }
       }
 
       whatsappOrderBtn.addEventListener('click', function() {
@@ -2256,105 +2327,22 @@
         
         let whatsappMessage = `*طلب جديد - هيرفي - سلمية*%0A%0A`;
         whatsappMessage += `📋 *تفاصيل الطلب:*%0A`;
-        whatsappMessage += `👤 *الاسم:* ${name}%0A`;
-        whatsappMessage += `📞 *الهاتف:* ${phone}%0A`;
-        whatsappMessage += `📍 *العنوان:* ${address}%0A`;
-        whatsappMessage += `💳 *طريقة الدفع:* ${getPaymentMethodName(selectedPayment)}%0A%0A`;
+        whatsappMessage += `👤 *الاسم:* ${encodeURIComponent(name)}%0A`;
+        whatsappMessage += `📞 *الهاتف:* ${encodeURIComponent(phone)}%0A`;
+        whatsappMessage += `📍 *العنوان:* ${encodeURIComponent(address)}%0A`;
+        whatsappMessage += `💳 *طريقة الدفع:* ${encodeURIComponent(getPaymentMethodName(selectedPayment))}%0A%0A`;
         whatsappMessage += `🛒 *الطلبات:*%0A`;
         
         cart.forEach((item, index) => {
-          whatsappMessage += `${index + 1}. ${item.name} - ${item.quantity} × ${formatPrice(item.price)}%0A`;
+          whatsappMessage += `${index + 1}. ${encodeURIComponent(item.name)} - ${item.quantity} × ${encodeURIComponent(formatPrice(item.price))}%0A`;
         });
         
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        whatsappMessage += `%0A💰 *المجموع:* ${formatPrice(total)}%0A`;
-        whatsappMessage += `---%0A`;
-        whatsappMessage += `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SY')}`;
+        whatsappMessage += `%0A💰 *المجموع:* ${encodeURIComponent(formatPrice(total))}`;
         
-        const whatsappNumber = "963957275347";
-        
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-        
-        showNotification('✅ تم فتح واتساب لإرسال الطلب');
-        
-        cart = [];
-        updateCartUI();
-        closeCart();
+        const whatsappNumber = '963900000000'; // Replace with actual business WhatsApp number
+        window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
       });
-
-      function getPaymentMethodName(method) {
-        switch(method) {
-          case 'cash': return 'نقداً عند الاستلام';
-          case 'shamcash': return 'شام كاش';
-          case 'usdt': return 'USDT';
-          default: return 'غير محدد';
-        }
-      }
-
-      function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.style.cssText = `
-          position: fixed;
-          top: 80px;
-          right: 20px;
-          background: #25D366;
-          color: white;
-          padding: 12px 20px;
-          border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          z-index: 2000;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          opacity: 0;
-          transform: translateY(-20px);
-        `;
-        notification.textContent = message;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-          notification.style.opacity = '1';
-          notification.style.transform = 'translateY(0)';
-        }, 10);
-        
-        setTimeout(() => {
-          notification.style.opacity = '0';
-          notification.style.transform = 'translateY(-20px)';
-          setTimeout(() => {
-            document.body.removeChild(notification);
-          }, 300);
-        }, 3000);
-      }
-
-      document.querySelectorAll('.quantity-controls').forEach(control => {
-        const minusBtn = control.querySelector('.minus');
-        const plusBtn = control.querySelector('.plus');
-        const quantityInput = control.querySelector('.quantity-input');
-        
-        minusBtn.addEventListener('click', function() {
-          let value = parseInt(quantityInput.value);
-          if (value > 1) {
-            quantityInput.value = value - 1;
-          }
-        });
-        
-        plusBtn.addEventListener('click', function() {
-          let value = parseInt(quantityInput.value);
-          if (value < 99) {
-            quantityInput.value = value + 1;
-          }
-        });
-        
-        quantityInput.addEventListener('change', function() {
-          let value = parseInt(this.value);
-          if (value < 1) this.value = 1;
-          if (value > 99) this.value = 99;
-        });
-      });
-
-      updatePaymentSelection();
     });
   </script>
 </body>
