@@ -537,12 +537,24 @@
       padding-bottom: 20px;
     }
 
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #7F8C8D;
+    }
+
     .cart-total {
       display: flex;
       justify-content: space-between;
       font-weight: 700;
       font-size: 1.1rem;
+      margin-top: 8px;
       margin-bottom: 15px;
+      padding-top: 8px;
+      border-top: 1px dashed #ECF0F1;
+      color: #2C3E50;
     }
 
     .whatsapp-order-btn {
@@ -774,7 +786,7 @@
 </section>
 
 <div class="overlay" id="cart-overlay"></div>
-<div class="cart-sidebar" id="cart-sidebar">...</div> <!-- محتوى جانبي يتم توليده عبر JS، لكن سيتم ملؤه ديناميكيًا -->
+<div class="cart-sidebar" id="cart-sidebar">...</div>
 
 <div class="usdt-modal" id="usdt-modal"><div class="usdt-content"><h3>عنوان USDT (TRC20)</h3><div class="wallet-address"><div class="wallet-type">TRC20</div><div class="wallet-code">TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw</div><button class="copy-btn" data-address="TFu14qrf3FpA5NbDrpAS66NE1krTWzMNAw">نسخ</button></div><button class="close-usdt">إغلاق</button></div></div>
 <div class="shamcash-modal" id="shamcash-modal"><div class="shamcash-content"><h3>رقم شام كاش</h3><div class="shamcash-image-container"><img src="https://i.ibb.co/ZpKb7ywj/shamcash-qr.jpg" alt="شام كاش" style="width:100%"></div><button class="close-shamcash">إغلاق</button></div></div>
@@ -783,6 +795,9 @@
 
 <script>
   (function() {
+    // قيمة اجور التوصيل
+    const DELIVERY_FEE = 5000;
+
     // ========= بيانات المنيو حسب الطلب ==========
     const menuData = [
       // كومبير
@@ -843,16 +858,11 @@
       });
     }
 
-    // إعادة إنشاء السلة والوظائف
     let cart = [];
     let selectedPayment = 'cash';
     const cartSidebar = document.getElementById('cart-sidebar');
     const cartOverlay = document.getElementById('cart-overlay');
     const openCartBtn = document.getElementById('open-cart');
-    const closeCartBtn = document.createElement('button'); // سيكون موجود داخل الهيكل لكننا سنحشو الجانب بالكامل يدويًا
-    const customerName = document.createElement('input');
-    const customerAddress = document.createElement('input');
-    const customerPhone = document.createElement('input');
     
     function buildCartSidebarHTML() {
       return `
@@ -860,7 +870,12 @@
         <div class="cart-items" id="cart-items"><div class="empty-cart-message" id="empty-cart-message"><i class="fas fa-shopping-cart"></i><p>سلة التسوق فارغة</p></div></div>
         <div class="customer-info"><div class="customer-info-title">معلومات التوصيل</div><input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required><input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي" required><input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required></div>
         <div class="payment-methods"><div class="payment-methods-title">طريقة الدفع</div><div class="payment-options"><div class="payment-option cash selected" id="payment-cash"><i class="fas fa-money-bill-wave payment-icon"></i><span class="payment-label">الدفع نقداً عند الاستلام</span></div><div class="payment-option sham-cash" id="payment-shamcash"><i class="fas fa-wallet payment-icon"></i><span class="payment-label">شام كاش</span></div><div class="payment-option usdt" id="payment-usdt"><i class="fas fa-dollar-sign payment-icon"></i><span class="payment-label">USDT</span></div></div></div>
-        <div class="cart-summary"><div class="cart-total"><span>المجموع:</span><span id="cart-total-price">٠ ل.س</span></div><button class="whatsapp-order-btn" id="whatsapp-order"><i class="fab fa-whatsapp"></i> اطلب عبر واتساب</button></div>
+        <div class="cart-summary">
+          <div class="cart-summary-line"><span>مجموع الطلب:</span><span id="cart-subtotal-price">٠ ل.س</span></div>
+          <div class="cart-summary-line"><span>أجور التوصيل:</span><span id="cart-delivery-price">${new Intl.NumberFormat('ar-SY').format(DELIVERY_FEE)} ل.س</span></div>
+          <div class="cart-total"><span>المجموع الكلي:</span><span id="cart-total-price">٠ ل.س</span></div>
+          <button class="whatsapp-order-btn" id="whatsapp-order"><i class="fab fa-whatsapp"></i> اطلب عبر واتساب</button>
+        </div>
       `;
     }
     
@@ -906,8 +921,19 @@
     function updateCartUI() {
       const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
       document.getElementById('cart-badge').innerText = totalItems;
-      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-      document.getElementById('cart-total-price').innerText = new Intl.NumberFormat('ar-SY').format(totalPrice) + ' ل.س';
+      
+      const subtotalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+      const deliveryFee = cart.length > 0 ? DELIVERY_FEE : 0;
+      const totalPrice = cart.length > 0 ? (subtotalPrice + deliveryFee) : 0;
+
+      const subtotalElem = document.getElementById('cart-subtotal-price');
+      const deliveryElem = document.getElementById('cart-delivery-price');
+      const totalElem = document.getElementById('cart-total-price');
+
+      if (subtotalElem) subtotalElem.innerText = new Intl.NumberFormat('ar-SY').format(subtotalPrice) + ' ل.س';
+      if (deliveryElem) deliveryElem.innerText = cart.length > 0 ? new Intl.NumberFormat('ar-SY').format(deliveryFee) + ' ل.س' : '٠ ل.س';
+      if (totalElem) totalElem.innerText = new Intl.NumberFormat('ar-SY').format(totalPrice) + ' ل.س';
+      
       const container = document.getElementById('cart-items');
       if (!container) return;
       container.innerHTML = '';
@@ -952,11 +978,20 @@
       const addr = document.getElementById('customer-address')?.value.trim();
       const phone = document.getElementById('customer-phone')?.value.trim();
       if (!name || !addr || !phone) { showNotif('❌ يرجى ملء جميع المعلومات'); return; }
+      
       let msg = `*طلب جديد - كومبير (Kumpir)*%0A%0A`;
       msg += `👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A📍 العنوان: ${addr}%0A💳 الدفع: ${getPaymentName(selectedPayment)}%0A%0A🛒 الطلبات:%0A`;
+      
       cart.forEach((it, idx) => { msg += `${idx+1}. ${it.name} - ${it.quantity} × ${new Intl.NumberFormat('ar-SY').format(it.price)} ل.س%0A`; });
-      const total = cart.reduce((s,i)=> s + (i.price*i.quantity),0);
-      msg += `%0A💰 المجموع: ${new Intl.NumberFormat('ar-SY').format(total)} ل.س%0A---%0A⏰ ${new Date().toLocaleString('ar-SY')}`;
+      
+      const subtotal = cart.reduce((s,i)=> s + (i.price*i.quantity),0);
+      const delivery = DELIVERY_FEE;
+      const total = subtotal + delivery;
+
+      msg += `%0A💵 مجموع الطلبات: ${new Intl.NumberFormat('ar-SY').format(subtotal)} ل.س`;
+      msg += `%0A🛵 أجور التوصيل: ${new Intl.NumberFormat('ar-SY').format(delivery)} ل.س`;
+      msg += `%0A💰 المجموع الكلي: ${new Intl.NumberFormat('ar-SY').format(total)} ل.س%0A---%0A⏰ ${new Date().toLocaleString('ar-SY')}`;
+      
       const waNum = "963957275347";
       window.open(`https://wa.me/${waNum}?text=${msg}`, '_blank');
       showNotif('✅ تم فتح واتساب لإرسال الطلب');
