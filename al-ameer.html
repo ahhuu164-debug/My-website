@@ -566,12 +566,24 @@
       padding-bottom: 20px;
     }
 
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #7F8C8D;
+    }
+
     .cart-total {
       display: flex;
       justify-content: space-between;
       font-weight: 700;
       font-size: 1.1rem;
+      margin-top: 8px;
       margin-bottom: 15px;
+      padding-top: 8px;
+      border-top: 1px dashed #ECF0F1;
+      color: #2C3E50;
     }
 
     .whatsapp-order-btn {
@@ -781,6 +793,9 @@
 
 <script>
   (function() {
+    // قيمة اجور التوصيل
+    const DELIVERY_FEE = 5000;
+
     // ---------- بيانات المنيو ----------
     const sandwiches = [
       { id: "s1", name: "شاورما عادي", price: 20000, image: "https://i.ibb.co/Nd7bXY6t/image.jpg" },
@@ -817,7 +832,7 @@
       { id: "m16", name: "برغر دجاج", price: 25000, image: "https://i.ibb.co/fGZ1jK3J/image.jpg" },
       { id: "m17", name: "زنجر", price: 50000, image: "https://i.ibb.co/XZDqfL0f/image.jpg" },
       { id: "m18", name: "وجبة بطاطا", price: 15000, image: "https://i.ibb.co/TxNg6Gqj/image.jpg" },
-      { id: "m19", name: "وجبة بطاطا", price: 20000, image: "https://i.ibb.co/TxNg6Gqj/image.jpg" } // مكرر لكن سعر مختلف
+      { id: "m19", name: "وجبة بطاطا", price: 20000, image: "https://i.ibb.co/TxNg6Gqj/image.jpg" }
     ];
 
     let cart = [];
@@ -868,8 +883,19 @@
     function updateCartUI() {
       const totalItems = cart.reduce((s,i) => s+i.quantity, 0);
       document.getElementById('cart-badge').innerText = totalItems;
-      const totalPrice = cart.reduce((s,i) => s + (i.price * i.quantity), 0);
-      document.getElementById('cart-total-price').innerText = formatPrice(totalPrice);
+      
+      const subtotalPrice = cart.reduce((s,i) => s + (i.price * i.quantity), 0);
+      const deliveryFee = cart.length > 0 ? DELIVERY_FEE : 0;
+      const totalPrice = cart.length > 0 ? (subtotalPrice + deliveryFee) : 0;
+
+      const subtotalElem = document.getElementById('cart-subtotal-price');
+      const deliveryElem = document.getElementById('cart-delivery-price');
+      const totalElem = document.getElementById('cart-total-price');
+
+      if (subtotalElem) subtotalElem.innerText = formatPrice(subtotalPrice);
+      if (deliveryElem) deliveryElem.innerText = cart.length > 0 ? formatPrice(deliveryFee) : '٠ ل.س';
+      if (totalElem) totalElem.innerText = formatPrice(totalPrice);
+
       const container = document.getElementById('cart-items');
       const emptyMsg = document.getElementById('empty-cart-message');
       if(cart.length === 0) {
@@ -934,7 +960,12 @@
         <div class="cart-items" id="cart-items"><div class="empty-cart-message" id="empty-cart-message"><i class="fas fa-shopping-cart"></i><p>سلة التسوق فارغة</p></div></div>
         <div class="customer-info"><div class="customer-info-title">معلومات التوصيل</div><input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل"><input type="text" class="customer-input" id="customer-address" placeholder="العنوان التفصيلي"><input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف"></div>
         <div class="payment-methods"><div class="payment-methods-title">طريقة الدفع</div><div class="payment-options"><div class="payment-option cash selected" id="payment-cash"><i class="fas fa-money-bill-wave payment-icon"></i><span class="payment-label">الدفع نقداً عند الاستلام</span></div><div class="payment-option sham-cash" id="payment-shamcash"><i class="fas fa-wallet payment-icon"></i><span class="payment-label">شام كاش</span></div><div class="payment-option usdt" id="payment-usdt"><i class="fas fa-dollar-sign payment-icon"></i><span class="payment-label">USDT</span></div></div></div>
-        <div class="cart-summary"><div class="cart-total"><span>المجموع:</span><span id="cart-total-price">٠ ل.س</span></div><button class="whatsapp-order-btn" id="whatsapp-order"><i class="fab fa-whatsapp"></i> اطلب عبر واتساب</button></div>
+        <div class="cart-summary">
+          <div class="cart-summary-line"><span>مجموع الطلب:</span><span id="cart-subtotal-price">٠ ل.س</span></div>
+          <div class="cart-summary-line"><span>أجور التوصيل:</span><span id="cart-delivery-price">${formatPrice(DELIVERY_FEE)}</span></div>
+          <div class="cart-total"><span>المجموع الكلي:</span><span id="cart-total-price">٠ ل.س</span></div>
+          <button class="whatsapp-order-btn" id="whatsapp-order"><i class="fab fa-whatsapp"></i> اطلب عبر واتساب</button>
+        </div>
       `;
       document.getElementById('close-cart').addEventListener('click', closeCart);
       document.getElementById('cart-overlay').addEventListener('click', closeCart);
@@ -942,8 +973,8 @@
         document.getElementById(id).addEventListener('input', validateCustomerInfo);
       });
       document.getElementById('payment-cash').addEventListener('click', () => { selectedPayment='cash'; updatePaymentSelection(); });
-      document.getElementById('payment-shamcash').addEventListener('click', () => { selectedPayment='shamcash'; document.getElementById('shamcash-modal').classList.add('active'); });
-      document.getElementById('payment-usdt').addEventListener('click', () => { selectedPayment='usdt'; document.getElementById('usdt-modal').classList.add('active'); });
+      document.getElementById('payment-shamcash').addEventListener('click', () => { selectedPayment='shamcash'; updatePaymentSelection(); document.getElementById('shamcash-modal').classList.add('active'); });
+      document.getElementById('payment-usdt').addEventListener('click', () => { selectedPayment='usdt'; updatePaymentSelection(); document.getElementById('usdt-modal').classList.add('active'); });
       document.getElementById('whatsapp-order').addEventListener('click', function() {
         if(this.disabled) return;
         const name = document.getElementById('customer-name').value.trim();
@@ -952,8 +983,15 @@
         if(!name || !addr || !phone) { showNotification('❌ يرجى ملء جميع المعلومات'); return; }
         let msg = `*طلب جديد - شاورما وسناك الأمير*%0A%0A👤 الاسم: ${name}%0A📞 هاتف: ${phone}%0A📍 عنوان: ${addr}%0A💳 الدفع: ${selectedPayment==='cash'?'نقداً':selectedPayment==='shamcash'?'شام كاش':'USDT'}%0A%0A🛒 الطلبات:%0A`;
         cart.forEach((it,idx) => { msg += `${idx+1}. ${it.name} - ${it.quantity} × ${formatPrice(it.price)}%0A`; });
-        const total = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
-        msg += `%0A💰 المجموع: ${formatPrice(total)}%0A⏰ الوقت: ${new Date().toLocaleString('ar-SY')}`;
+        
+        const subtotal = cart.reduce((s,i)=>s+(i.price*i.quantity),0);
+        const delivery = DELIVERY_FEE;
+        const total = subtotal + delivery;
+
+        msg += `%0A💵 مجموع الطلبات: ${formatPrice(subtotal)}`;
+        msg += `%0A🛵 أجور التوصيل: ${formatPrice(delivery)}`;
+        msg += `%0A💰 المجموع الكلي: ${formatPrice(total)}%0A---%0A⏰ ${new Date().toLocaleString('ar-SY')}`;
+        
         window.open(`https://wa.me/963957275347?text=${msg}`, '_blank');
         showNotification('✅ تم فتح واتساب');
         cart = []; updateCartUI(); closeCart();
