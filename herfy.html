@@ -589,12 +589,24 @@
       padding-bottom: 20px;
     }
 
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #7F8C8D;
+    }
+
     .cart-total {
       display: flex;
       justify-content: space-between;
       font-weight: 700;
       font-size: 1.1rem;
+      margin-top: 8px;
       margin-bottom: 15px;
+      padding-top: 8px;
+      border-top: 1px dashed #ECF0F1;
+      color: #2C3E50;
     }
 
     .whatsapp-order-btn {
@@ -1018,7 +1030,7 @@
           <i class="fas fa-truck"></i>
           <div class="info-text">
             <div class="info-label">خدمة التوصيل</div>
-            <div class="info-value">متوفرة لجميع أنحاء المدينة</div>
+            <div class="info-value">متوفرة لجميع أنحاء المدينة (أجور التوصيل ٥,٠٠٠ ل.س)</div>
           </div>
         </div>
       </div>
@@ -1928,8 +1940,16 @@
     </div>
     
     <div class="cart-summary">
+      <div class="cart-row">
+        <span>مجموع المنتجات:</span>
+        <span id="cart-subtotal-price">٠ ل.س</span>
+      </div>
+      <div class="cart-row">
+        <span>أجور التوصيل:</span>
+        <span id="delivery-fee-display">٥,٠٠٠ ل.س</span>
+      </div>
       <div class="cart-total">
-        <span>المجموع:</span>
+        <span>المجموع الكلي:</span>
         <span id="cart-total-price">٠ ل.س</span>
       </div>
       <button class="whatsapp-order-btn" id="whatsapp-order" disabled>
@@ -1995,6 +2015,8 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      const DELIVERY_FEE = 5000;
+
       function parsePrice(price) {
         if (typeof price === 'number') return price;
         if (typeof price === 'string') {
@@ -2012,6 +2034,7 @@
       const cartItemsContainer = document.getElementById('cart-items');
       const emptyCartMessage = document.getElementById('empty-cart-message');
       const cartBadge = document.getElementById('cart-badge');
+      const cartSubtotalPrice = document.getElementById('cart-subtotal-price');
       const cartTotalPrice = document.getElementById('cart-total-price');
       const whatsappOrderBtn = document.getElementById('whatsapp-order');
       const customerName = document.getElementById('customer-name');
@@ -2117,7 +2140,11 @@
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartBadge.textContent = totalItems;
         
-        const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const subtotalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const currentDeliveryFee = cart.length > 0 ? DELIVERY_FEE : 0;
+        const totalPrice = subtotalPrice + currentDeliveryFee;
+
+        cartSubtotalPrice.textContent = formatPrice(subtotalPrice);
         cartTotalPrice.textContent = formatPrice(totalPrice);
         
         cartItemsContainer.innerHTML = '';
@@ -2325,6 +2352,9 @@
           return;
         }
         
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const grandTotal = subtotal + DELIVERY_FEE;
+
         let whatsappMessage = `*طلب جديد - هيرفي - سلمية*%0A%0A`;
         whatsappMessage += `📋 *تفاصيل الطلب:*%0A`;
         whatsappMessage += `👤 *الاسم:* ${encodeURIComponent(name)}%0A`;
@@ -2337,8 +2367,9 @@
           whatsappMessage += `${index + 1}. ${encodeURIComponent(item.name)} - ${item.quantity} × ${encodeURIComponent(formatPrice(item.price))}%0A`;
         });
         
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        whatsappMessage += `%0A💰 *المجموع:* ${encodeURIComponent(formatPrice(total))}`;
+        whatsappMessage += `%0A📦 *مجموع الطلبات:* ${encodeURIComponent(formatPrice(subtotal))}`;
+        whatsappMessage += `%0A🛵 *أجور التوصيل:* ${encodeURIComponent(formatPrice(DELIVERY_FEE))}`;
+        whatsappMessage += `%0A💰 *المجموع الكلي:* ${encodeURIComponent(formatPrice(grandTotal))}`;
         
         const whatsappNumber = '963900000000'; // Replace with actual business WhatsApp number
         window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
