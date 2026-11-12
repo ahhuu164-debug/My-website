@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم ومطبخ عالكيف</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; color: #2D3436; line-height: 1.6; padding-bottom: 80px; }
+        .sticky-header { position: sticky; top: 0; z-index: 1000; background: linear-gradient(135deg, #F15A29, #FFD27F); padding: 12px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .header-content { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .logo-container img { height: 45px; width: auto; }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.2); font-size: 0.9rem; }
+        .back-btn:hover { background: rgba(255,255,255,0.3); }
+        .search-icon-header { color: white; font-size: 1.1rem; cursor: pointer; padding: 8px; transition: all 0.3s ease; }
+        .restaurant-info { max-width: 1200px; margin: 20px auto 0; padding: 0 15px; position: relative; z-index: 2; }
+        .info-card { background: white; border-radius: 24px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); margin-bottom: 20px; }
+        .info-header { display: flex; align-items: center; margin-bottom: 15px; }
+        .restaurant-logo-large { width: 100px; height: 100px; border-radius: 50%; border: 4px solid white; box-shadow: 0 8px 24px rgba(0,0,0,0.15); overflow: hidden; margin-left: 15px; position: relative; z-index: 2; background: white; display: flex; align-items: center; justify-content: center; }
+        .restaurant-logo-large img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+        .title-section { flex-grow: 1; }
+        .restaurant-title { font-size: 1.5rem; font-weight: 800; color: #2C3E50; margin-bottom: 5px; }
+        .restaurant-category { color: #BDC3C7; margin-bottom: 10px; font-size: 0.9rem; }
+        .info-details { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+        .info-item { display: flex; align-items: center; }
+        .info-item i { color: #F15A29; font-size: 1.1rem; margin-left: 12px; width: 20px; }
+        .info-text { flex-grow: 1; }
+        .info-label { font-size: 0.8rem; color: #BDC3C7; }
+        .info-value { font-weight: 600; margin-top: 2px; font-size: 0.9rem; }
+        .menu-section { background: white; border-radius: 24px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); margin-bottom: 20px; }
+        .section-header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #ECF0F1; }
+        .section-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #F15A29, #FFD27F); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 15px; color: white; font-size: 1.2rem; }
+        .section-title { font-size: 1.4rem; font-weight: 700; color: #2C3E50; flex-grow: 1; }
+        .sub-section { margin-bottom: 25px; }
+        .sub-section-title { font-size: 1.1rem; font-weight: 700; color: #F15A29; margin-bottom: 15px; padding-right: 10px; border-right: 3px solid #F15A29; }
+        .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
+        .menu-item { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; width: 100%; display: flex; flex-direction: column; border: 1px solid #ECF0F1; }
+        .menu-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); border-color: #F15A29; }
+        .menu-item-image { height: 120px; width: 100%; overflow: hidden; position: relative; flex-shrink: 0; }
+        .menu-item-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .menu-item:hover .menu-item-image img { transform: scale(1.05); }
+        .menu-item-content { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
+        .menu-item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; color: #2C3E50; line-height: 1.3; flex-grow: 1; }
+        .menu-item-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; flex-wrap: wrap; gap: 8px; }
+        .menu-item-price { font-weight: 800; color: #F15A29; font-size: 0.95rem; }
+        .add-to-cart { background: #F15A29; color: white; border: none; border-radius: 15px; padding: 6px 12px; font-family: 'Cairo', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.8rem; white-space: nowrap; flex: 1; max-width: 70px; }
+        .add-to-cart:hover { background: #E83F3F; }
+        .cart-sidebar { position: fixed; top: 0; left: -100%; width: 85%; max-width: 350px; height: 100vh; background: white; box-shadow: 8px 0 24px rgba(0,0,0,0.15); z-index: 1100; transition: left 0.3s ease; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; }
+        .cart-sidebar.open { left: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #ECF0F1; }
+        .cart-title { font-size: 1.3rem; font-weight: 700; color: #2C3E50; }
+        .close-cart { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #BDC3C7; transition: color 0.3s ease; }
+        .close-cart:hover { color: #F15A29; }
+        .cart-items { margin-bottom: 15px; flex-grow: 1; overflow-y: auto; max-height: calc(100vh - 500px); min-height: 120px; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #ECF0F1; }
+        .cart-item-info { flex: 1; }
+        .cart-item-name { font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; }
+        .cart-item-price { color: #F15A29; font-weight: 700; font-size: 0.9rem; }
+        .cart-item-quantity { display: flex; align-items: center; }
+        .cart-quantity-btn { width: 24px; height: 24px; border-radius: 50%; background: #ECF0F1; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.8rem; transition: all 0.2s ease; }
+        .cart-quantity-btn:hover { background: #F15A29; color: white; }
+        .cart-quantity-input { width: 28px; text-align: center; margin: 0 4px; font-size: 0.85rem; border: 1px solid #BDC3C7; border-radius: 5px; padding: 2px; }
+        .remove-item { color: #E83F3F; background: none; border: none; cursor: pointer; font-size: 0.9rem; margin-right: 8px; transition: all 0.3s ease; }
+        .remove-item:hover { color: #C0392B; }
+        .customer-info { margin-bottom: 15px; padding-top: 12px; border-top: 1px solid #ECF0F1; }
+        .customer-info-title { font-weight: 600; margin-bottom: 12px; color: #2C3E50; font-size: 0.95rem; }
+        .customer-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #BDC3C7; border-radius: 8px; font-family: 'Cairo', sans-serif; font-size: 0.85rem; transition: all 0.3s ease; }
+        .customer-input:focus { outline: none; border-color: #F15A29; box-shadow: 0 0 0 2px rgba(241, 90, 41, 0.2); }
+        .customer-input::placeholder { color: #BDC3C7; }
+        .payment-methods { margin-bottom: 15px; padding-top: 12px; border-top: 1px solid #ECF0F1; }
+        .payment-methods-title { font-weight: 600; margin-bottom: 12px; color: #2C3E50; font-size: 0.95rem; }
+        .payment-options { display: flex; flex-direction: column; gap: 10px; }
+        .payment-option { display: flex; align-items: center; padding: 10px; border: 1px solid #ECF0F1; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+        .payment-option:hover { border-color: #F15A29; }
+        .payment-option.selected { border-color: #F15A29; background-color: rgba(241, 90, 41, 0.05); }
+        .payment-icon { margin-left: 10px; font-size: 1.2rem; color: #F15A29; }
+        .payment-label { flex-grow: 1; font-weight: 600; }
+        .sham-cash { background: linear-gradient(135deg, #FFD700, #1E90FF); color: white; }
+        .usdt { background: linear-gradient(135deg, #00AA00, #006400); color: white; }
+        .cash { background: linear-gradient(135deg, #F15A29, #E83F3F); color: white; }
+        .cart-summary { padding-top: 12px; border-top: 2px solid #BDC3C7; background: white; position: sticky; bottom: 0; padding-bottom: 20px; }
+        .cart-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 6px; color: #7F8C8D; }
+        .cart-total { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.15rem; margin-top: 8px; margin-bottom: 15px; color: #2C3E50; }
+        .whatsapp-order-btn { background: #BDC3C7; color: white; border: none; padding: 15px; border-radius: 16px; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 1rem; width: 100%; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; margin-bottom: 10px; }
+        .whatsapp-order-btn.active { background: #25D366; cursor: pointer; }
+        .whatsapp-order-btn.active:hover { background: #128C7E; }
+        .usdt-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1200; justify-content: center; align-items: center; }
+        .usdt-modal.active { display: flex; }
+        .usdt-content { background: white; padding: 20px; border-radius: 16px; text-align: center; max-width: 350px; width: 90%; }
+        .usdt-title { font-weight: 700; margin-bottom: 15px; color: #2C3E50; font-size: 1.2rem; }
+        .wallet-address { background: #f8f9fa; border: 1px solid #ECF0F1; border-radius: 8px; padding: 15px; margin-bottom: 15px; text-align: right; direction: ltr; word-break: break-all; position: relative; }
+        .wallet-type { font-weight: 600; margin-bottom: 8px; color: #F15A29; font-size: 1rem; }
+        .wallet-code { font-family: monospace; font-size: 0.9rem; color: #2C3E50; margin-bottom: 10px; }
+        .copy-btn { background: #F15A29; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-family: 'Cairo', sans-serif; font-size: 0.8rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; }
+        .copy-btn:hover { background: #E83F3F; }
+        .copy-btn.copied { background: #25D366; }
+        .close-usdt { background: #F15A29; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Cairo', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 10px; width: 100%; }
+        .close-usdt:hover { background: #E83F3F; }
+        .shamcash-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1200; justify-content: center; align-items: center; }
+        .shamcash-modal.active { display: flex; }
+        .shamcash-content { background: white; padding: 20px; border-radius: 16px; text-align: center; max-width: 400px; width: 90%; }
+        .shamcash-title { font-weight: 700; margin-bottom: 15px; color: #2C3E50; font-size: 1.2rem; }
+        .shamcash-image-container { margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 2px solid #ECF0F1; }
+        .shamcash-image { width: 100%; height: auto; display: block; }
+        .close-shamcash { background: #F15A29; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Cairo', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 10px; width: 100%; }
+        .close-shamcash:hover { background: #E83F3F; }
+        .overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; }
+        .overlay.active { display: block; }
+        .cart-icon-badge { position: relative; }
+        .cart-badge { position: absolute; top: -5px; left: -5px; background: #E83F3F; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
+        .empty-cart-message { text-align: center; padding: 20px; color: #BDC3C7; }
+        .empty-cart-message i { font-size: 2rem; margin-bottom: 10px; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; box-shadow: 0 -4px 12px rgba(0,0,0,0.1); z-index: 1000; padding: 8px 0; }
+        .nav-items { display: flex; justify-content: space-around; max-width: 500px; margin: 0 auto; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #BDC3C7; font-size: 0.75rem; transition: all 0.3s ease; padding: 4px 12px; }
+        .nav-item.active, .nav-item:hover { color: #F15A29; }
+        .nav-item i { font-size: 1.1rem; margin-bottom: 4px; }
+        .size-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1300; justify-content: center; align-items: center; }
+        .size-modal.active { display: flex; }
+        .size-modal-content { background: white; border-radius: 20px; padding: 25px 20px; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.25); animation: popIn 0.25s ease; }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .size-modal-title { font-size: 1.2rem; font-weight: 700; color: #2C3E50; margin-bottom: 5px; }
+        .size-modal-subtitle { font-size: 0.9rem; color: #BDC3C7; margin-bottom: 20px; }
+        .size-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; }
+        .size-option { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border: 2px solid #ECF0F1; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; font-weight: 600; color: #2C3E50; }
+        .size-option:hover { border-color: #F15A29; background: rgba(241, 90, 41, 0.05); transform: translateY(-2px); }
+        .size-option .size-name { font-size: 1rem; }
+        .size-option .size-price { color: #F15A29; font-weight: 800; font-size: 1rem; }
+        .size-modal-close { background: #ECF0F1; color: #7F8C8D; border: none; padding: 10px 20px; border-radius: 10px; font-family: 'Cairo', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 0.9rem; }
+        .size-modal-close:hover { background: #BDC3C7; color: white; }
+        @media (max-width: 360px) {
+            .menu-grid { grid-template-columns: 1fr; gap: 10px; }
+            .header-content { padding: 0 10px; }
+            .restaurant-info { padding: 0 10px; }
+            .info-card { padding: 15px; }
+            .menu-item-image { height: 100px; }
+            .restaurant-logo-large { width: 80px; height: 80px; }
+            .restaurant-title { font-size: 1.3rem; }
+            .cart-summary { padding-bottom: 15px; }
+        }
+        @media (min-width: 481px) and (max-width: 768px) {
+            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .menu-item-image { height: 140px; }
+        }
+        @media (min-width: 769px) {
+            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .menu-item-image { height: 160px; }
+            .info-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <a href="restaurants.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة</a>
+            <div class="logo-container"><img src="https://i.postimg.cc/SKYvRztj/Logo.png" alt="مطعم ومطبخ عالكيف"></div>
+            <div class="search-icon-header"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <section class="restaurant-info">
+        <div class="info-card">
+            <div class="info-header">
+                <div class="restaurant-logo-large"><img src="https://i.ibb.co/MyVRsyk5/image.png" alt="عالكيف"></div>
+                <div class="title-section">
+                    <h1 class="restaurant-title">مطعم ومطبخ عالكيف</h1>
+                    <p class="restaurant-category">سلطات شرقية • مشويات • مقبلات</p>
+                </div>
+            </div>
+            <div class="info-details">
+                <div class="info-item"><i class="fas fa-clock"></i><div class="info-text"><div class="info-label">ساعات العمل</div><div class="info-value">10:00 ص - 12:30 ص</div></div></div>
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div class="info-text"><div class="info-label">العنوان</div><div class="info-value">سلمية، دوار القلعة</div></div></div>
+                <div class="info-item"><i class="fas fa-truck"></i><div class="info-text"><div class="info-label">خدمة التوصيل</div><div class="info-value">متوفرة لجميع أحياء المدينة (أجور التوصيل: 5,000 ل.س)</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الوجبات -->
+    <section class="menu-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-utensils"></i></div>
+            <h2 class="section-title">الوجبات</h2>
+        </div>
+
+        <div class="sub-section">
+            <h3 class="sub-section-title">المعكرونة</h3>
+            <div class="menu-grid">
+                <div class="menu-item" data-id="1" data-name="معكرونة لازانيا" data-price="50000" data-size="true" data-size-small="شخص" data-price-small="50000" data-size-large="شخصين" data-price-large="100000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/b59XynXD/image.jpg" alt="معكرونة لازانيا"></div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">معكرونة لازانيا</h3>
+                        <div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-id="2" data-name="معكرونة باشميل" data-price="50000" data-size="true" data-size-small="شخص" data-price-small="50000" data-size-large="شخصين" data-price-large="100000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/6JP29fch/image.jpg" alt="معكرونة باشميل"></div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">معكرونة باشميل</h3>
+                        <div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-section">
+            <h3 class="sub-section-title">الأرز والمندي</h3>
+            <div class="menu-grid">
+                <div class="menu-item" data-id="5" data-name="رز بالخضار" data-price="50000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/27P3HvsV/image.jpg" alt="رز بالخضار"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">رز بالخضار</h3><div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="6" data-name="مندي" data-price="50000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/BYqtnrb/image.jpg" alt="مندي"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">مندي</h3><div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="7" data-name="برياني" data-price="50000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/fYh1cZkm/image.jpg" alt="برياني"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">برياني</h3><div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="8" data-name="كبسة" data-price="50000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/sd7X1Brp/image.jpg" alt="كبسة"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">كبسة</h3><div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="9" data-name="فريكة" data-price="50000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/j9GL5SRN/image.jpg" alt="فريكة"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">فريكة</h3><div class="menu-item-footer"><span class="menu-item-price">50,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="10" data-name="برغل بشعيرية" data-price="40000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/sdHmRmrw/image.jpg" alt="برغل بشعيرية"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">برغل بشعيرية</h3><div class="menu-item-footer"><span class="menu-item-price">40,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+                <div class="menu-item" data-id="11" data-name="برغل بحمص" data-price="40000">
+                    <div class="menu-item-image"><img src="https://i.ibb.co/sdHmRmrw/image.jpg" alt="برغل بحمص"></div>
+                    <div class="menu-item-content"><h3 class="menu-item-title">برغل بحمص</h3><div class="menu-item-footer"><span class="menu-item-price">40,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم السلطات -->
+    <section class="menu-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-leaf"></i></div>
+            <h2 class="section-title">السلطات</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item" data-id="12" data-name="فتوش" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/RpxwQrPh/image.jpg" alt="فتوش"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">فتوش</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="14" data-name="تبولة" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/RpZzpBRy/image.jpg" alt="تبولة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">تبولة</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="16" data-name="سلطة تركية" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/ym6rGyZX/image.png" alt="سلطة تركية"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة تركية</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="18" data-name="سلطة ملفوف" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/XxsVXDkb/image.jpg" alt="سلطة ملفوف"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة ملفوف</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="20" data-name="سلطة زيتون" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/LdTJQq1X/image.jpg" alt="سلطة زيتون"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة زيتون</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="22" data-name="سلطة روسية" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/WNxB9p1M/image.png" alt="سلطة روسية"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة روسية</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="24" data-name="سلطة جرجير مع البصل والفطر" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="25000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/4Rgy3qjj/image.jpg" alt="سلطة جرجير"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة جرجير مع البصل والفطر</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="26" data-name="سلطة أرمنية" data-price="35000" data-size="true" data-size-small="وسط" data-price-small="35000" data-size-large="كبير" data-price-large="45000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/N6D78wwV/image.png" alt="سلطة أرمنية"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة أرمنية</h3><div class="menu-item-footer"><span class="menu-item-price">35,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="30" data-name="سلطة طون" data-price="30000" data-size="true" data-size-small="وسط" data-price-small="30000" data-size-large="كبير" data-price-large="40000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/GvqbF8QD/image.png" alt="سلطة طون"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">سلطة طون</h3><div class="menu-item-footer"><span class="menu-item-price">30,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المقبلات -->
+    <section class="menu-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-drumstick-bite"></i></div>
+            <h2 class="section-title">المقبلات</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item" data-id="32" data-name="حمص" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/BKvgzqzR/image.jpg" alt="حمص"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">حمص</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="34" data-name="متبل باذنجان" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/4gm4gLjV/image.png" alt="متبل باذنجان"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">متبل باذنجان</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="36" data-name="باذنجان بزيت وتوم" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/nqYZcP59/image.jpg" alt="باذنجان بزيت وتوم"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">باذنجان بزيت وتوم</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="38" data-name="باذنجانة بالفخارة" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/RTvq1J8r/image.png" alt="باذنجانة بالفخارة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">باذنجانة بالفخارة</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="40" data-name="متبل كوسا" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/b5hd1VrP/image.png" alt="متبل كوسا"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">متبل كوسا</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="42" data-name="متبل شوندر" data-price="15000" data-size="true" data-size-small="وسط" data-price-small="15000" data-size-large="كبير" data-price-large="20000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/spGvbP8y/image.png" alt="متبل شوندر"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">متبل شوندر</h3><div class="menu-item-footer"><span class="menu-item-price">15,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="44" data-name="لبنة مع زيتون" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="30000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/SwHrpD36/image.png" alt="لبنة مع زيتون"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">لبنة مع زيتون</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="46" data-name="لبنة اكسترا" data-price="20000" data-size="true" data-size-small="وسط" data-price-small="20000" data-size-large="كبير" data-price-large="30000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/twnrPF20/image.jpg" alt="لبنة اكسترا"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">لبنة اكسترا</h3><div class="menu-item-footer"><span class="menu-item-price">20,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="48" data-name="يالنجي" data-price="1500">
+                <div class="menu-item-image"><img src=" https://i.ibb.co/tT7tm0pj/image.jpg" alt="يالنجي"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">يالنجي (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">1,500 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="49" data-name="بطاطا فنكر" data-price="5000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/WNtfZjVH/image.png" alt="بطاطا فنكر"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">بطاطا فنكر (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">5,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="50" data-name="فنكر لحمة" data-price="5000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/RTvq1J8r/image.png" alt="فنكر لحمة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">فنكر لحمة (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">5,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="51" data-name="قريموطة" data-price="25000" data-size="true" data-size-small="وسط" data-price-small="25000" data-size-large="كبير" data-price-large="40000">
+                <div class="menu-item-image"><img src="https://ibb.co/QFhfVpPW" alt="قريموطة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">قريموطة</h3><div class="menu-item-footer"><span class="menu-item-price">25,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="53" data-name="برك جبنة" data-price="2500">
+                <div class="menu-item-image"><img src="https://i.ibb.co/SwSXD6SQ/image.png" alt="برك جبنة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">برك جبنة (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">2,500 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="54" data-name="بطاطا حرة" data-price="25000" data-size="true" data-size-small="وسط" data-price-small="25000" data-size-large="كبير" data-price-large="30000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/gF9LCQTz/image.png" alt="بطاطا حرة"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">بطاطا حرة</h3><div class="menu-item-footer"><span class="menu-item-price">25,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="56" data-name="كبة غنم مقلية" data-price="8000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/7dNB9D8R/image.png" alt="كبة غنم مقلية"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">كبة غنم مقلية (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">8,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+            <div class="menu-item" data-id="57" data-name="كبة غنم مشوية" data-price="14000">
+                <div class="menu-item-image"><img src="https://i.ibb.co/nNwGGX36/image.png" alt="كبة غنم مشوية"></div>
+                <div class="menu-item-content"><h3 class="menu-item-title">كبة غنم مشوية (القطعة)</h3><div class="menu-item-footer"><span class="menu-item-price">14,000 ل.س</span><button class="add-to-cart">إضافة</button></div></div>
+            </div>
+        </div>
+    </section>
+
+     <!-- قسم المشاوي -->
+    <section class="menu-section">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-fire"></i></div>
+            <h2 class="section-title">المشاوي</h2>
+        </div>
+
+        <div class="menu-grid">
+            <!-- فروج مشوي على الفحم -->
+            <div class="menu-item" data-id="60" data-name="فروج مشوي على الفحم" data-price="130000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/Tq7gMvwd/image.jpg" alt="فروج مشوي على الفحم">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">فروج مشوي على الفحم</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">130,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- كباب دجاج 1 كغ -->
+            <div class="menu-item" data-id="61" data-name="كباب دجاج" data-price="100000" data-size="true" data-size-small="كيلو" data-price-small="100000" data-size-large="نصف كيلو" data-price-large="50000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/wZq6sG42/image.jpg" alt="كباب دجاج">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">كباب دجاج 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">100,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فخاد مسحبة 1 كغ -->
+            <div class="menu-item" data-id="62" data-name="فخاد مسحبة" data-price="90000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/RTvq1J8r/image.png" alt="فخاد مسحبة">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">فخاد مسحبة 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">90,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فخاد 1 كغ -->
+            <div class="menu-item" data-id="63" data-name="فخاد" data-price="80000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/b5ZgcZr2/image.jpg" alt="فخاد">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">فخاد 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">80,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- جوانح 1 كغ -->
+            <div class="menu-item" data-id="64" data-name="جوانح" data-price="60000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/ZzcXTzW3/image.jpg" alt="جوانح">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">جوانح 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">60,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شيش 1 كغ -->
+            <div class="menu-item" data-id="65" data-name="شيش" data-price="100000" data-size="true" data-size-small="كيلو" data-price-small="100000" data-size-large="نصف كيلو" data-price-large="50000">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/Lf2NXDw/image.jpg" alt="شيش">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">شيش 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">100,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شقف غنم 1 كغ -->
+            <div class="menu-item" data-id="66" data-name="شقف غنم" data-price="275000" data-size="true" data-size-small="كيلو" data-price-small="275000" data-size-large="نصف كيلو" data-price-large="137500">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/S7vj356R/image.jpg" alt="شقف غنم">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">شقف غنم 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">275,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- كباب غنم 1 كغ -->
+            <div class="menu-item" data-id="67" data-name="كباب غنم" data-price="275000" data-size="true" data-size-small="كيلو" data-price-small="275000" data-size-large="نصف كيلو" data-price-large="137500">
+                <div class="menu-item-image">
+                    <img src="https://i.ibb.co/spH44zdx/image.jpg" alt="كباب غنم">
+                </div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">كباب غنم 1 كغ</h3>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">275,000 ل.س</span>
+                        <button class="add-to-cart">إضافة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- السلة -->
+    <div class="overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">سلة الطلبات</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart-message" id="empty-cart-message">
+                <i class="fas fa-shopping-cart"></i>
+                <p>السلة فارغة</p>
+            </div>
+        </div>
+        <div class="customer-info">
+            <div class="customer-info-title">معلومات التوصيل</div>
+            <input type="text" class="customer-input" id="customer-name" placeholder="الاسم الكامل" required>
+            <input type="text" class="customer-input" id="customer-address" placeholder="العنوان" required>
+            <input type="tel" class="customer-input" id="customer-phone" placeholder="رقم الهاتف" required>
+        </div>
+        <div class="payment-methods">
+            <div class="payment-methods-title">طريقة الدفع</div>
+            <div class="payment-options">
+                <div class="payment-option cash selected" id="payment-cash">
+                    <i class="fas fa-money-bill-wave payment-icon"></i>
+                    <span class="payment-label">نقداً عند الاستلام</span>
+                </div>
+                <div class="payment-option sham-cash" id="payment-shamcash">
+                    <i class="fas fa-wallet payment-icon"></i>
+                    <span class="payment-label">شام كاش</span>
+                </div>
+                <div class="payment-option usdt" id="payment-usdt">
+                    <i class="fab fa-bitcoin payment-icon"></i>
+                    <span class="payment-label">USDT</span>
+                </div>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-row">
+                <span>مجموع الطلبات:</span>
+                <span id="cart-subtotal-price">٠ ل.س</span>
+            </div>
+            <div class="cart-row">
+                <span>أجور التوصيل:</span>
+                <span id="delivery-fee-price">٥,٠٠٠ ل.س</span>
+            </div>
+            <div class="cart-total">
+                <span>المجموع الكلي:</span>
+                <span id="cart-total-price">٠ ل.س</span>
+            </div>
+            <button class="whatsapp-order-btn" id="whatsapp-order">
+                <i class="fab fa-whatsapp"></i>
+                إرسال الطلب عبر واتساب
+            </button>
+        </div>
+    </div>
+
+    <!-- نافذة اختيار الحجم -->
+    <div class="size-modal" id="size-modal">
+        <div class="size-modal-content">
+            <h3 class="size-modal-title" id="size-modal-title">اختر الحجم</h3>
+            <p class="size-modal-subtitle" id="size-modal-subtitle"></p>
+            <div class="size-options" id="size-options"></div>
+            <button class="size-modal-close" id="size-modal-close">إلغاء</button>
+        </div>
+    </div>
+
+    <!-- نافذة USDT -->
+    <div class="usdt-modal" id="usdt-modal">
+        <div class="usdt-content">
+            <h3 class="usdt-title">الدفع عبر USDT</h3>
+            <div class="wallet-address">
+                <div class="wallet-type">شبكة TRC20</div>
+                <div class="wallet-code">TXYZabc123def456ghi789jkl012mno345pqr</div>
+                <button class="copy-btn" data-address="TXYZabc123def456ghi789jkl012mno345pqr">
+                    <i class="fas fa-copy"></i> نسخ العنوان
+                </button>
+            </div>
+            <button class="close-usdt" id="close-usdt">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- نافذة شام كاش -->
+    <div class="shamcash-modal" id="shamcash-modal">
+        <div class="shamcash-content">
+            <h3 class="shamcash-title">الدفع عبر شام كاش</h3>
+            <div class="shamcash-image-container">
+                <img src="https://i.ibb.co/ZpKb7ywj/shamcash-qr.jpg" alt="شام كاش QR" class="shamcash-image">
+            </div>
+            <button class="close-shamcash" id="close-shamcash">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- الشريط السفلي -->
+    <nav class="bottom-nav">
+        <div class="nav-items">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="#" class="nav-item active cart-icon-badge" id="open-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span>السلة</span>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+        </div>
+    </nav>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const DELIVERY_FEE = 5000; // أجور التوصيل الثابتة
+
+            function parsePrice(price) {
+                if (typeof price === 'number') return price;
+                if (typeof price === 'string') {
+                    const cleanPrice = price.replace(/[^\d]/g, '');
+                    const parsed = parseInt(cleanPrice, 10);
+                    return isNaN(parsed) ? 0 : parsed;
+                }
+                return 0;
+            }
+
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const cartOverlay = document.getElementById('cart-overlay');
+            const openCartBtn = document.getElementById('open-cart');
+            const closeCartBtn = document.getElementById('close-cart');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartSubtotalPrice = document.getElementById('cart-subtotal-price');
+            const deliveryFeePrice = document.getElementById('delivery-fee-price');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const whatsappOrderBtn = document.getElementById('whatsapp-order');
+            const customerName = document.getElementById('customer-name');
+            const customerAddress = document.getElementById('customer-address');
+            const customerPhone = document.getElementById('customer-phone');
+            const paymentCash = document.getElementById('payment-cash');
+            const paymentShamcash = document.getElementById('payment-shamcash');
+            const paymentUsdt = document.getElementById('payment-usdt');
+            const usdtModal = document.getElementById('usdt-modal');
+            const shamcashModal = document.getElementById('shamcash-modal');
+            const closeUsdt = document.getElementById('close-usdt');
+            const closeShamcash = document.getElementById('close-shamcash');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+
+            const sizeModal = document.getElementById('size-modal');
+            const sizeModalTitle = document.getElementById('size-modal-title');
+            const sizeModalSubtitle = document.getElementById('size-modal-subtitle');
+            const sizeOptionsContainer = document.getElementById('size-options');
+            const sizeModalClose = document.getElementById('size-modal-close');
+
+            let cart = [];
+            let selectedPayment = 'cash';
+
+            openCartBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openCart();
+            });
+
+            closeCartBtn.addEventListener('click', closeCart);
+            cartOverlay.addEventListener('click', closeCart);
+
+            function openCart() {
+                cartSidebar.classList.add('open');
+                cartOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCart() {
+                cartSidebar.classList.remove('open');
+                cartOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            sizeModalClose.addEventListener('click', function() {
+                sizeModal.classList.remove('active');
+            });
+
+            sizeModal.addEventListener('click', function(e) {
+                if (e.target === sizeModal) {
+                    sizeModal.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const menuItem = this.closest('.menu-item');
+                    const itemId = menuItem.dataset.id;
+                    const itemName = menuItem.dataset.name;
+
+                    if (menuItem.dataset.size === 'true') {
+                        const smallName = menuItem.dataset.sizeSmall;
+                        const smallPrice = parsePrice(menuItem.dataset.priceSmall);
+                        const largeName = menuItem.dataset.sizeLarge;
+                        const largePrice = parsePrice(menuItem.dataset.priceLarge);
+
+                        sizeModalTitle.textContent = itemName;
+                        sizeModalSubtitle.textContent = 'اختر الحجم المناسب لك';
+
+                        sizeOptionsContainer.innerHTML = `
+                            <div class="size-option" data-id="${itemId}-small" data-name="${itemName} (${smallName})" data-price="${smallPrice}">
+                                <span class="size-name">${smallName}</span>
+                                <span class="size-price">${formatPrice(smallPrice)}</span>
+                            </div>
+                            <div class="size-option" data-id="${itemId}-large" data-name="${itemName} (${largeName})" data-price="${largePrice}">
+                                <span class="size-name">${largeName}</span>
+                                <span class="size-price">${formatPrice(largePrice)}</span>
+                            </div>
+                        `;
+
+                        sizeOptionsContainer.querySelectorAll('.size-option').forEach(option => {
+                            option.addEventListener('click', function() {
+                                const optId = this.dataset.id;
+                                const optName = this.dataset.name;
+                                const optPrice = parsePrice(this.dataset.price);
+
+                                addToCart(optId, optName, optPrice, 1);
+                                sizeModal.classList.remove('active');
+                                openCart();
+                                showNotification(`تم إضافة ${optName} إلى السلة`);
+                            });
+                        });
+
+                        sizeModal.classList.add('active');
+                    } else {
+                        const itemPrice = parsePrice(menuItem.dataset.price);
+                        addToCart(itemId, itemName, itemPrice, 1);
+                        openCart();
+                        showNotification(`تم إضافة ${itemName} إلى السلة`);
+                    }
+                });
+            });
+
+            function addToCart(id, name, price, quantity) {
+                const existingItem = cart.find(item => item.id === id);
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({ id: id, name: name, price: price, quantity: quantity });
+                }
+                updateCartUI();
+            }
+
+            function updateCartUI() {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartBadge.textContent = totalItems;
+
+                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                const grandTotal = subtotal > 0 ? subtotal + DELIVERY_FEE : 0;
+
+                cartSubtotalPrice.textContent = formatPrice(subtotal);
+                deliveryFeePrice.textContent = subtotal > 0 ? formatPrice(DELIVERY_FEE) : '٠ ل.س';
+                cartTotalPrice.textContent = formatPrice(grandTotal);
+
+                cartItemsContainer.innerHTML = '';
+
+                if (cart.length === 0) {
+                    cartItemsContainer.appendChild(emptyCartMessage);
+                    emptyCartMessage.style.display = 'block';
+                    whatsappOrderBtn.classList.remove('active');
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                    cart.forEach(item => {
+                        const cartItemElement = createCartItemElement(item);
+                        cartItemsContainer.appendChild(cartItemElement);
+                    });
+                }
+
+                validateCustomerInfo();
+            }
+
+            function createCartItemElement(item) {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.dataset.id = item.id;
+
+                cartItem.innerHTML = `
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="remove-item" title="إزالة"><i class="fas fa-trash"></i></button>
+                        <button class="cart-quantity-btn minus">-</button>
+                        <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" max="99">
+                        <button class="cart-quantity-btn plus">+</button>
+                    </div>
+                `;
+
+                const minusBtn = cartItem.querySelector('.minus');
+                const plusBtn = cartItem.querySelector('.plus');
+                const quantityInput = cartItem.querySelector('.cart-quantity-input');
+                const removeBtn = cartItem.querySelector('.remove-item');
+
+                minusBtn.addEventListener('click', function() {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        quantityInput.value = item.quantity;
+                        updateCartUI();
+                    }
+                });
+
+                plusBtn.addEventListener('click', function() {
+                    if (item.quantity < 99) {
+                        item.quantity++;
+                        quantityInput.value = item.quantity;
+                        updateCartUI();
+                    }
+                });
+
+                quantityInput.addEventListener('change', function() {
+                    const newQuantity = parseInt(this.value);
+                    if (newQuantity >= 1 && newQuantity <= 99) {
+                        item.quantity = newQuantity;
+                        updateCartUI();
+                    } else {
+                        this.value = item.quantity;
+                    }
+                });
+
+                removeBtn.addEventListener('click', function() {
+                    cart = cart.filter(cartItem => cartItem.id !== item.id);
+                    updateCartUI();
+                    showNotification(`تم إزالة ${item.name} من السلة`);
+                });
+
+                return cartItem;
+            }
+
+            function formatPrice(price) {
+                return new Intl.NumberFormat('ar-SY').format(price) + ' ل.س';
+            }
+
+            function validateCustomerInfo() {
+                const name = customerName.value.trim();
+                const address = customerAddress.value.trim();
+                const phone = customerPhone.value.trim();
+
+                if (name && address && phone && cart.length > 0) {
+                    whatsappOrderBtn.classList.add('active');
+                    whatsappOrderBtn.disabled = false;
+                } else {
+                    whatsappOrderBtn.classList.remove('active');
+                    whatsappOrderBtn.disabled = true;
+                }
+            }
+
+            customerName.addEventListener('input', validateCustomerInfo);
+            customerAddress.addEventListener('input', validateCustomerInfo);
+            customerPhone.addEventListener('input', validateCustomerInfo);
+
+            paymentCash.addEventListener('click', function() {
+                selectedPayment = 'cash';
+                updatePaymentSelection();
+            });
+
+            paymentShamcash.addEventListener('click', function() {
+                selectedPayment = 'shamcash';
+                updatePaymentSelection();
+                showShamcashImage();
+            });
+
+            paymentUsdt.addEventListener('click', function() {
+                selectedPayment = 'usdt';
+                updatePaymentSelection();
+                showUsdtAddress();
+            });
+
+            function updatePaymentSelection() {
+                paymentCash.classList.remove('selected');
+                paymentShamcash.classList.remove('selected');
+                paymentUsdt.classList.remove('selected');
+
+                if (selectedPayment === 'cash') {
+                    paymentCash.classList.add('selected');
+                } else if (selectedPayment === 'shamcash') {
+                    paymentShamcash.classList.add('selected');
+                } else if (selectedPayment === 'usdt') {
+                    paymentUsdt.classList.add('selected');
+                }
+            }
+
+            function showUsdtAddress() {
+                usdtModal.classList.add('active');
+            }
+
+            function showShamcashImage() {
+                shamcashModal.classList.add('active');
+            }
+
+            closeUsdt.addEventListener('click', function() {
+                usdtModal.classList.remove('active');
+            });
+
+            closeShamcash.addEventListener('click', function() {
+                shamcashModal.classList.remove('active');
+            });
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const address = this.getAttribute('data-address');
+                    copyToClipboard(address);
+
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                    this.classList.add('copied');
+
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+
+            function copyToClipboard(text) {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text);
+                } else {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+            }
+
+            whatsappOrderBtn.addEventListener('click', function() {
+                if (!whatsappOrderBtn.classList.contains('active')) return;
+
+                const name = customerName.value.trim();
+                const address = customerAddress.value.trim();
+                const phone = customerPhone.value.trim();
+
+                if (!name || !address || !phone) {
+                    showNotification('يرجى ملء جميع بيانات التوصيل');
+                    return;
+                }
+
+                if (cart.length === 0) {
+                    showNotification('السلة فارغة');
+                    return;
+                }
+
+                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                const grandTotal = subtotal + DELIVERY_FEE;
+
+                let message = `*طلب جديد من مطعم ومطبخ عالكيف*\n\n`;
+                message += `*الاسم:* ${name}\n`;
+                message += `*العنوان:* ${address}\n`;
+                message += `*الهاتف:* ${phone}\n\n`;
+                message += `*الأصناف:*\n`;
+
+                cart.forEach(item => {
+                    message += `• ${item.name} × ${item.quantity} = ${formatPrice(item.price * item.quantity)}\n`;
+                });
+
+                message += `\n*مجموع الطلبات:* ${formatPrice(subtotal)}\n`;
+                message += `*أجور التوصيل:* ${formatPrice(DELIVERY_FEE)}\n`;
+                message += `*المجموع الكلي:* ${formatPrice(grandTotal)}\n`;
+                message += `*طريقة الدفع:* ${getPaymentMethodName(selectedPayment)}`;
+
+                const whatsappNumber = '963912345678';
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+                window.open(whatsappUrl, '_blank');
+                showNotification('✅ تم فتح واتساب لإرسال الطلب');
+
+                cart = [];
+                updateCartUI();
+                closeCart();
+            });
+
+            function getPaymentMethodName(method) {
+                switch(method) {
+                    case 'cash': return 'نقداً عند الاستلام';
+                    case 'shamcash': return 'شام كاش';
+                    case 'usdt': return 'USDT';
+                    default: return 'غير محدد';
+                }
+            }
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 80px;
+                    right: 20px;
+                    background: #25D366;
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    z-index: 2000;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    opacity: 0;
+                    transform: translateY(-20px);
+                `;
+                notification.textContent = message;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateY(0)';
+                }, 10);
+
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+
+            updatePaymentSelection();
+        });
+    </script>
+</body>
+</html>
