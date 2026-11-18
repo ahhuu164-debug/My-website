@@ -1621,7 +1621,7 @@
     {
       "id": "nakracha",
       "name": "نقرشة",
-      "category": "فطائر • بيتزا •  ",
+      "category": "فطائر • بيتزا",
       "image": "https://i.ibb.co/sdrJXFmN/image.png",
       "logo": "https://i.ibb.co/sdrJXFmN/image.png",
       "menu": [
@@ -1810,7 +1810,7 @@
       ]
     },
     {
-      "id": "alkeef",
+      "id": "alakif",
       "name": "مطعم ومطبخ عالكيف",
       "category": "سلطات شرقية • مشويات • مقبلات",
       "image": "https://i.ibb.co/MyVRsyk5/image.png",
@@ -2541,6 +2541,187 @@
         { "id": "sn2", "name": "سودة", "price": 25000, "image": "https://i.ibb.co/67C9x8WF/cheese-plate.jpg", "category": "سناك" },
         { "id": "sn3", "name": "فاهيتا", "price": 30000, "image": "https://i.ibb.co/xK1YyycW/fajita.jpg", "category": "سناك" },
         { "id": "sn4", "name": "ساندويش داينمت", "price": 35000, "image": "https://i.ibb.co/TBG8XSRF/dynamite.jpg", "category": "سناك" }
+      ]
+    },
+    {
+      "id": "harnar",
+      "name": "شاورما حار نار",
+      "category": "شاورما • ساندويش • وجبات سريعة",
+      "image": "https://i.ibb.co/Ld1fzns2/logo.png",
+      "logo": "https://i.ibb.co/Ld1fzns2/logo.png",
+      "phone": "963957275347",
+      "address": "سلمية، شارع حماه",
+      "open_hours": "١٢:٣٠ ص - ١٠:٠٠ ص",
+      "delivery": "متوفرة لجميع أنحاء المدينة",
+      "menu": [
+        {
+          "id": "h1",
+          "name": "شاورما عادي",
+          "price": 20000,
+          "image": "https://i.ibb.co/KpQFxzhF/شاورما-عادي.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h2",
+          "name": "شاورما دبل",
+          "price": 25000,
+          "image": "https://i.ibb.co/RppVQkjj/شاورما-دبل.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h3",
+          "name": "شاورما اكسترا",
+          "price": 30000,
+          "image": "https://i.ibb.co/fVr1mGHt/شاورما-اكسترا.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h4",
+          "name": "شاورما عربي",
+          "price": 35000,
+          "image": "https://i.ibb.co/P3bz1JG/شاورما-عربي.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h5",
+          "name": "شاورما عربي دبل",
+          "price": 60000,
+          "image": "https://i.ibb.co/Hf8R6Vhk/شاورما-عربي-دبل.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h6",
+          "name": "شاورما عربي (4 أشخاص)",
+          "price": 110000,
+          "image": "https://i.ibb.co/pB3rPxpz/شاورما-عربي-4-اشخاص.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h7",
+          "name": "منسف شاورما (7 أشخاص)",
+          "price": 160000,
+          "image": "https://i.ibb.co/GQ4d2k1r/منسف-شاورما.jpg",
+          "category": "شاورما"
+        },
+        {
+          "id": "h8",
+          "name": "كريسبي ساندويش",
+          "price": 30000,
+          "image": "https://i.ibb.co/S4cdP9Cg/كريسبي-ساندويش.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h9",
+          "name": "زنجر",
+          "price": 25000,
+          "image": "https://i.ibb.co/GfJQSKQ2/زنجر.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h10",
+          "name": "فاهيتا",
+          "price": 30000,
+          "image": "https://i.ibb.co/ccb2thft/فاهيتا.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h11",
+          "name": "بطاطا عادي",
+          "price": 12000,
+          "image": "https://i.ibb.co/0ykFh92G/بطاطا-عادي.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h12",
+          "name": "بطاطا دبل",
+          "price": 15000,
+          "image": "https://i.ibb.co/xqKGqm1M/بطاطا-دبل.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h13",
+          "name": "بطاطا قشقوان",
+          "price": 20000,
+          "image": "https://i.ibb.co/FLBsYmrW/بطاطا-قشقوان.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h14",
+          "name": "برغر",
+          "price": 30000,
+          "image": "https://i.ibb.co/xS0JHCRY/برغر.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h15",
+          "name": "برغر ملكي",
+          "price": 40000,
+          "image": "https://i.ibb.co/Nd77DTQ5/برغر-ملكي.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h16",
+          "name": "اسكالوب برغر",
+          "price": 30000,
+          "image": "https://i.ibb.co/672Tygw6/اسكالوب-برغر.jpg",
+          "category": "ساندويش"
+        },
+        {
+          "id": "h17",
+          "name": "فروج مشوي",
+          "price": 90000,
+          "image": "https://i.ibb.co/KpzwMtKm/فروج-مشوي.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h18",
+          "name": "نص فروج مشوي",
+          "price": 65000,
+          "image": "https://i.ibb.co/KpzwMtKm/نص-فروج-مشوي.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h19",
+          "name": "وجبة زنجر",
+          "price": 45000,
+          "image": "https://i.ibb.co/MkR1rLm6/وجبة-زنجر.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h20",
+          "name": "وجبة فاهيتا",
+          "price": 45000,
+          "image": "https://i.ibb.co/JFbGTQdC/وجبة-فاهيتا.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h21",
+          "name": "وجبة كريسبي",
+          "price": 50000,
+          "image": "https://i.ibb.co/SwCn0G5L/وجبة-كريسبي.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h22",
+          "name": "وجبة كريسبي دبل",
+          "price": 90000,
+          "image": "https://i.ibb.co/SwCn0G5L/وجبة-كريسبي-دبل.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h23",
+          "name": "وجبة كريسبي اكسترا",
+          "price": 120000,
+          "image": "https://i.ibb.co/SwCn0G5L/وجبة-كريسبي-اكسترا.jpg",
+          "category": "وجبات"
+        },
+        {
+          "id": "h24",
+          "name": "وجبة كريسبي عائلية",
+          "price": 150000,
+          "image": "https://i.ibb.co/SwCn0G5L/وجبة-كريسبي-عائلية.jpg",
+          "category": "وجبات"
+        }
       ]
     }
   ]
